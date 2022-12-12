@@ -54,6 +54,7 @@ input {
 }
 input:focus {
   outline: none;
+  border: 0;
 }
 html,
 body {
