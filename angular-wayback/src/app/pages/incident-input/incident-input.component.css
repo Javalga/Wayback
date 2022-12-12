@@ -1,4 +1,4 @@
-/* .incident-input_main {
+.incident-input_main {
     height: 100vh;
     background-color: var(--primary-color1-dark);
     display: flex;
@@ -14,6 +14,16 @@
 
 }
 
+.incident-input_city {
+    width: 30vw;
+    display: flex;
+    background-color: var(--primary-color1-dark);
+}
+
+.incident-input_container>div>button {
+    background-color: var(--primary-color2-dark);
+}
+
 p {
     font-weight: 500;
-} */
+}
