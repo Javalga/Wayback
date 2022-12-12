@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-wayback';
+  cols = ['index', 'asd', 'asd', 'asd', 'asd', 'asd']
+  rows = [
+    ['asd', 'asd', 'asd', 'asd', 'asd'],
+    ['asd', 'asd', 'asd', 'asd', 'asd'],
+    ['asd', 'qasd', 'asd', 'asd', 'asd']
+  ]
 }
