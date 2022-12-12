@@ -76,6 +76,7 @@
 
 .incident-input_btnContainer {
     width: 20vw;
+    font-size: 10px !important;
 }
 
 p {
