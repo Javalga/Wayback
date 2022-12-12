@@ -8,3 +8,5 @@ import { Component } from '@angular/core';
 export class ButtonComponent {
 
 }
+
+// CUANDO SE USE ESTE COMPONENTE, CAMBIAR EL WIDTH SOLAMENTE PARA AJUSTAR AL CONTENEDOR CON UN !IMPORTANT

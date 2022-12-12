@@ -53,6 +53,7 @@
   -webkit-box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.43);
   -moz-box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.43);
   box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.43);
+  cursor: text;
 }
 .login_input::placeholder {
   color: white;
@@ -70,15 +71,9 @@
   margin-bottom: 2em;
 }
 
-.form-btn {
-  width: 70%;
-  background-color: var(--secondary-color3-dark);
-  padding: 0.5em 0.25em;
-  font-size: 3rem;
-  color: white;
-  background: #f06835;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 2px;
-  letter-spacing: 1px;
-  font-weight: 700;
+.login_container > span:hover {
+  transition: 100ms ease-in-out all;
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
 }
