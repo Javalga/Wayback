@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
+  /* dark theme */
+  --primary-color1-dark: #1b2431;
+  --primary-color2-dark: #222c3c;
+  --secondary-color1-dark: #94ffd6;
+  --secondary-color2-dark: #fff;
+  --secondary-color3-dark: #f06835;
+
+  /* light theme */
+  --primary-color1-light: #fff;
+  --primary-color2-light: rgb(34, 44, 60, 0.5);
+  --secondary-color1-light: #94ffd6;
+  --secondary-color2-light: #222c3c;
+  --secondary-color3-light: #f06835;
+}
+
+a {
+  text-decoration: none !important;
+}
+a:link {
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:focus {
+  border-bottom: inherit;
+  background: inherit;
+}
+
+a:hover {
+  border-bottom: inherit;
+  background: inherit;
+}
+
+a:active {
+  background: inherit;
+  color: inherit;
+}
+
+input {
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
