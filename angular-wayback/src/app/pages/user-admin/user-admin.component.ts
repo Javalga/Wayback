@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-admin.component.css']
 })
 export class UserAdminComponent {
+  public value: string = "Todos";
+  public cols: [string];
+  public rows: [];
 
+  constructor() {
+  }
 }

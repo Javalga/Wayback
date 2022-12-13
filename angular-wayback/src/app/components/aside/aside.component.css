@@ -1,5 +1,6 @@
 *
 {
+    z-index: 9;
     font-size: 10px;
     font-family: "Roboto", sans-serif
 }
@@ -19,7 +20,7 @@
 
 #side_nav
 {
-    background: var(--primary-color1-dark);
+    background: var(--primary-color2-dark);
     min-width: 20vw;
     
 }
