@@ -1,1 +1,119 @@
-<p>customer-input works!</p>
+<div class="body-container">
+    <div class="content-container">
+        <div class="header-costumer-input">
+            <img src="../../../assets/logo.png" alt="" class="logo_wayback">
+            <div class="expedient_number">
+                <div class="expedient_number-title">
+                    Nº Expedición
+                </div>
+                <div class="expedient_number-number">
+                    {{incidenceService.incidence[0].number_expedient}}
+                </div>
+            </div>
+        </div>
+        <div class="title-costumer-input">
+            {{incidenceService.incidence[0].incidence_type}}
+        </div>
+        <div class="description-costumer-input">
+            Bacon ipsum dolor amet short ribs tri-tip porchetta, alcatra kevin brisket t-bone doner pork chop biltong filet mignon bresaola capicola boudin pork belly. Tongue ribeye swine bacon short loin turducken. Flank jowl shoulder boudin. Boudin corned beef pork chop frankfurter. Ground round pork belly beef, tri-tip pork strip steak ham hock ham. 
+        </div>
+        <div class="form-cointainer">
+            <form action="" #costumer_input="ngForm" (ngSubmit)="onSubmit(costumer_input)">
+                <div class="both_form-container">
+                    <div class="costumer_data">
+                        <div class="costumer_data-tittle">
+                            Estos son sus Datos de Entrega: 
+                        </div>
+                        <div class="costumer_data-inputs">
+                            <div class="label-input_combo">
+                                <label for="costumer_name">
+                                    Nombre :
+                                </label>
+                                <input class="general-input" type="text" name="costumer_name" #costumer_name value="{{incidenceService.incidence[0].costumer_name}}">
+                            </div>
+                            <div class="label-input_combo">
+                            <label for="costumer_phone">
+                                Teléfono :
+                            </label>
+                            <input class="general-input" type="text" name="costumer_phone" #costumer_phone value="{{incidenceService.incidence[0].costumer_phone}}">
+                            </div>
+
+                            <div class="label-input_combo">
+                            <label for="costumer_mail">
+                                Correo :
+                            </label>
+                            <input class="general-input" type="text" name="costumer_mail" #costumer_mail value="{{incidenceService.incidence[0].costumer_mail}}">
+                            </div>
+
+                            <div class="label-input_combo">
+                            <label for="costumer_direction">
+                                Dirección :
+                            </label>
+                            <input  class="general-input" type="text" name="costumer_direction" #costumer_direction value="{{incidenceService.incidence[0].costumer_direction}}">
+                            </div>
+
+                            <div class="label-input_combo">
+                            <label for="costumer_cp">
+                                CP :
+                            </label>
+                            <input class="general-input" type="text" name="costumer_cp" #costumer_cp value="{{incidenceService.incidence[0].costumer_cp}}">
+                            </div>
+
+                            <div class="label-input_combo">
+                            <label for="costumer_poblation">
+                                Población :
+                            </label>
+                            <input class="general-input" type="text" name="costumer_poblation" #costumer_poblation value="{{incidenceService.incidence[0].costumer_poblation}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delivery_time_data">
+                        <div class="delivery_time_data-title">
+                            Por favor indique una fecha de entrega: 
+                        </div>
+                        <div class="delivery_time_data-inputs">
+                            <div class="label-input_combo">
+                                <label for="next_delivey">
+                                        Día:
+                                </label>
+                                <select name="next_delivey" class="general-input" #next_delivey>
+                                    <option value="" class="general-input">13/12/2022</option>
+                                    <option value="" class="general-input">14/12/2022</option>
+                                    <option value="" class="general-input">15/12/2022</option>
+                                    <option value="" class="general-input">16/12/2022</option>
+                                    <option value="" class="general-input">17/12/2022</option>
+                                </select>
+                            </div>
+                            <div class="label-input_combo">
+                            <label for="delivery_time">
+                                    Horario:
+                            </label>
+                            <select name="delivery_time" class="general-input" #next_delivey>
+                                <option value="" class="general-input">Mañana</option>
+                                <option value="" class="general-input">Tarde</option>
+                                <option value="" class="general-input">Todo el día</option>
+                            </select>    
+                            </div>
+                        </div>                  
+                    </div>
+                </div>
+                <div class="button_position">
+                    <app-button [value]="'Confirmo los datos de Entrega - Enviar'"></app-button>
+                </div>
+            </form>
+        </div>
+        <div class="refused_container">
+            <div class="refused_content">
+                <div class="refused_description">
+                    Si desea rechazar su pedido, marque la casilla para confirmar que no quiere recibir su envío: 
+                </div>
+                <div class="refused_confirmation">
+                    <button class="button_check">X</button>
+                    <div class="refused_confirmation-text">
+                        Si, rechazo el pedido
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
