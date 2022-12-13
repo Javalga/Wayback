@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./aside.component.css']
 })
 export class AsideComponent {
-
+  public show=false;
 }
