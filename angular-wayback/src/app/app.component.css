@@ -1,0 +1,13 @@
+.aside_main_wrapper {
+  display: flex;
+}
+
+.app_container {
+  display: flex;
+}
+
+.app_headerRouter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

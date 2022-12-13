@@ -1,0 +1,59 @@
+.user-admin_main {
+    height: 100vh;
+    width: 80vw;
+    background-color: var(--primary-color1-dark);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: var(--secondary-color2-dark)
+}
+
+
+.user-admin_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 90%;
+    background-color: var(--primary-color2-dark);
+    font-size: 2rem;
+}
+
+.user-admin_containerFlex {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 2em;
+    gap: 1em;
+}
+
+.user-admin_filter {
+    display: flex;
+    gap: 1em;
+
+}
+
+.user-admin_filter>p {
+    padding: 0.4em 0.8em;
+    margin: 0px;
+}
+
+.user-admin_btnContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 15vw;
+}
+
+.user-admin_dropdown {
+    background-color: var(--primary-color1-dark);
+    color: var(--secondary-color2-dark);
+}
+
+.user-admin_input {
+    width: 15vw;
+    background-color: var(--primary-color1-dark);
+    padding: 10px;
+}

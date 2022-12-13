@@ -1,29 +1,30 @@
-<app-header></app-header>
-<app-aside></app-aside>
 <div class="dashboard_container">
-    <app-card [title]="'Exito de Solucion'" [value]="'98%'"></app-card>
-    <app-card [title]="'Incidencias Tratadas'" [value]="'256'"></app-card>
-    <app-card [title]="'Devolución'" [value]="'0.07%'"></app-card>
-    <div class="graphic_container">
-        <div class="graphic_info">
-            <p class="graphic_info--title">Vista General</p>
-            <div class="graphic_info--parameter">
-                <div [style]="'color: #4472C4; background-color: #4472C4;'"class="graphic_info--parameter--circle">xxx</div>
-                <p class="graphic_info--parameter--text">Solucionada</p>
-            </div>
-            <div class="graphic_info--parameter">
-                <div [style]="'color: #ED7D31; background-color: #ED7D31;'" class="graphic_info--parameter--circle">xxx</div>
-                <p class="graphic_info--parameter--text">Pendientes de Solucion</p>
-            </div>
-            <div class="graphic_info--parameter">
-                <div [style]="'color: #A5A5A5; background-color: #A5A5A5'"class="graphic_info--parameter--circle">xxx</div>
-                <p class="graphic_info--parameter--text">Devoluciones</p>
-            </div>
-                       
+  <app-card [title]="'Exito de Solucion'" [value]="'98%'"></app-card>
+  <app-card [title]="'Incidencias Tratadas'" [value]="'256'"></app-card>
+  <app-card [title]="'Devolución'" [value]="'0.07%'"></app-card>
+  <div class="graphic_container">
+    <div class="graphic_info">
+      <p class="graphic_info--title">Vista General</p>
+      <div class="graphic_info--parameter">
+        <div [style]="'color: #4472C4; background-color: #4472C4;'" class="graphic_info--parameter--circle">
+          xxx
         </div>
-        <img src="../../../assets/grafico_muestra.png" class="graphic_show">
+        <p class="graphic_info--parameter--text">Solucionada</p>
+      </div>
+      <div class="graphic_info--parameter">
+        <div [style]="'color: #ED7D31; background-color: #ED7D31;'" class="graphic_info--parameter--circle">
+          xxx
+        </div>
+        <p class="graphic_info--parameter--text">Pendientes de Solucion</p>
+      </div>
+      <div class="graphic_info--parameter">
+        <div [style]="'color: #A5A5A5; background-color: #A5A5A5'" class="graphic_info--parameter--circle">
+          xxx
+        </div>
+        <p class="graphic_info--parameter--text">Devoluciones</p>
+      </div>
+
     </div>
-
+    <img src="../../../assets/grafico_muestra.png" class="graphic_show">
+  </div>
 </div>
-
-

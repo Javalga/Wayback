@@ -1,9 +1,10 @@
 .incident-input_main {
     height: 90vh;
+    width: 80vw;
     background-color: var(--primary-color1-dark);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     color: var(--secondary-color2-dark)
 }
 

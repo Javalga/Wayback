@@ -1,4 +1,13 @@
-p {
+.main {
     height: 10vh;
-    background-color: white;
+    background: var(--primary-color1-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    width: 40%;
+    font-size: 4rem;
+    color: white;
 }
