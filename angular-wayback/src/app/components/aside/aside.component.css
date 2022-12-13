@@ -1,0 +1,94 @@
+*
+{
+    font-size: 10px;
+    font-family: "Roboto", sans-serif
+}
+
+.image
+{
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   margin-top: 10px;
+}
+.image a
+{
+    cursor: pointer;
+}
+
+
+#side_nav
+{
+    background: var(--primary-color1-dark);
+    min-width: 20vw;
+    
+}
+.content
+{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.h-color
+{
+    color: white;
+}
+
+
+
+.sidebar ul li a
+{
+    color: white;
+    margin: 1em;
+
+}
+
+.list-item
+{
+    display: flex;
+    position: relative;
+    
+}
+
+.contenedor
+{
+    width: 100%;
+}
+
+
+.sidebar .navbar-nav li div>a:focus 
+{
+    color: var(--secondary-color1-dark);
+
+    
+    width: 6%;
+    background-color:var(--secondary-color1-dark);
+    margin-left: 0;
+    
+}
+
+
+
+.sidebar ul .roller div .list-intoList
+{
+ display:block
+}
+
+.sidebar .navbar-nav li div>a:focus 
+{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
