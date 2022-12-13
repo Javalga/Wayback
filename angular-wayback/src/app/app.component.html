@@ -1,7 +1,12 @@
-<div class="aside_main_wrapper">
-    <app-aside></app-aside>
+<ng-component *ngIf="isLogged; else login">
+  <div class="aside_main_wrapper">
+    <app-aside [appState]="appState"></app-aside>
     <div class="header_content_wrapper">
-        <app-header></app-header>
-        <router-outlet></router-outlet>
+      <app-header></app-header>
+      <router-outlet></router-outlet>
     </div>
-</div>
+  </div>
+</ng-component>
+<ng-template #login>
+  <app-login></app-login>
+</ng-template>
