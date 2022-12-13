@@ -28,34 +28,34 @@
             <ul class="list-unstyled navbar-nav">
                 <li class="list-item">
                     <div class="contenedor">
-                        <a href="#" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false">
+                        <a routerLink="/dashboard" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false">
                             <a ></a>Dashboard
                         </a>
                     </div>
                 </li>
                 <li class="list-item roller">
                     <div class="contenedor">
-                        <a href="#"  class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=true"><a ></a> Acciones_Incidencias</a>
+                        <a  class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=true"><a ></a> Acciones_Incidencias</a>
                     
                     <ul class="list-intoList" *ngIf="show">
 
                         <li class="list-item" >
                             <div class="contenedor">
-                                <a href="#" class="text-decoration-none d-block px-3 py-2 fs-4"><a ></a> Registro_Incidencias</a>
+                                <a routerLink="/incident-input" class="text-decoration-none d-block px-3 py-2 fs-4"><a ></a> Registro_Incidencias</a>
                             </div>
                         </li>
                         <li class="list-item">
                             <div class="space">
-                                <a href="#" class="text-decoration-none d-block px-3 py-2 fs-4"><a ></a> Pool_Solucionadas</a>
+                                <a routerLink="/solved-pull" class="text-decoration-none d-block px-3 py-2 fs-4"><a ></a> Pool_Solucionadas</a>
                             </div>
                         </li>
                         <li class="list-item">
                             <div class="space">
-                                <a href="#" class="text-decoration-none d-block px-3 py-2 fs-4"><a></a> Devoluciones</a>
+                                <a routerLink="/returns" class="text-decoration-none d-block px-3 py-2 fs-4"><a></a> Devoluciones</a>
                             </div>
                         </li>
                         <li class="list-item">
-                            <div class="space"><a href="#" class="text-decoration-none d-block px-3 py-2 fs-4"><a></a> Salida_Incidencias</a>
+                            <div class="space"><a routerLink="/incident-output" class="text-decoration-none d-block px-3 py-2 fs-4"><a></a> Salida_Incidencias</a>
                             </div>
                         </li>
                     </ul>
@@ -68,12 +68,12 @@
                 
                 <li class="list-item">
                     <div class="contenedor">
-                        <a href="#" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false"><a></a> Historico</a>
+                        <a routerLink="/historical" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false"><a></a> Historico</a>
                     </div>
                 </li>
                 <li class="list-item">
                     <div class="contenedor">
-                    <a href="#" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false"><a></a> Administar_Usuarios</a>
+                    <a routerLink="/user-admin" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false"><a></a> Administar_Usuarios</a>
                     </div>
                 </li>
 
