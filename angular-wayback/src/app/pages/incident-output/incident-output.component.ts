@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./incident-output.component.css']
 })
 export class IncidentOutputComponent {
-
+  public value: string = "Registro";
 }

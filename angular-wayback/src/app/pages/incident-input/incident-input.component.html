@@ -4,14 +4,15 @@
     <div class="incident-input_container">
         <div class="incident-input_containerFlex">
             <div class="incident-input_moveCenter">
-                <h2>Registro de Incidencias</h2>
+                <h2 class="incident-input_title">Registro de Incidencias</h2>
             </div>
             <div class="incident-input_moveRight">
                 <div class="incident-input_city">
                     <p>Entrada en:</p>
                     <div class="dropdown">
-                        <button class="btn incident-input_dropdown dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <button style="font-size: 2rem;
+                        padding:0.4em 0.8em;border-radius: 4px;" class="btn incident-input_dropdown dropdown-toggle"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown button
                         </button>
                         <ul class="dropdown-menu">
@@ -22,44 +23,79 @@
                     </div>
                 </div>
             </div>
-            <div class="incident-input_form">
-                <div class="incident-input-formInput">
-                    <label>Nº Expedicion</label>
-                    <input class="incident-input_input">
+            <div class="incident-input_form1">
+
+                <div class="incident-input_formColumn">
+                    <div class="incident-input-formInput">
+                        <label>Nº Expedicion</label>
+                    </div>
                 </div>
-                <div class="incident-input-formInput">
-                    <label>Tipo de incidencia</label>
-                    <input class="incident-input_input">
+
+                <div class="incident-input_formColumn">
+                    <div class="incident-input-formInput">
+                        <input class="incident-input_input">
+                    </div>
                 </div>
+
+                <div class="incident-input_formColumn">
+                    <div class="incident-input-formInput">
+                        <label>Tipo de incidencia</label>
+                    </div>
+                </div>
+
+                <div class="incident-input_formColumn">
+                    <div class="incident-input-formInput">
+                        <input class="incident-input_input">
+                    </div>
+                </div>
+
 
             </div>
 
-            <div class="incident-input_form">
+
+
+            <div class="incident-input_form2">
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
                         <label>Nombre</label>
-                        <input class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
                         <label>Teléfono</label>
-                        <input class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
                         <label>Dirección</label>
+                    </div>
+                </div>
+                <div class="incident-input_formColumn">
+                    <div class="incident-input-formInput">
+                        <input class="incident-input_input">
+                    </div>
+                    <div class="incident-input-formInput">
+                        <input class="incident-input_input">
+                    </div>
+                    <div class="incident-input-formInput">
                         <input class="incident-input_input">
                     </div>
                 </div>
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
                         <label>Población</label>
-                        <input class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
                         <label>Zona</label>
-                        <input class="incident-input_inputShort">
                     </div>
                     <div class="incident-input-formInput">
                         <label>CP</label>
+                    </div>
+                </div>
+                <div class="incident-input_formColumn">
+                    <div class="incident-input-formInput">
+                        <input class="incident-input_input">
+                    </div>
+                    <div class="incident-input-formInput">
+                        <input class="incident-input_inputShort">
+                    </div>
+                    <div class="incident-input-formInput">
                         <input class="incident-input_inputShort">
                     </div>
                 </div>
@@ -67,7 +103,7 @@
             </div>
             <div class="incident-input_moveRight">
                 <div class="incident-input_btnContainer">
-                    <app-button [value]="value"></app-button>
+                    <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 .incident-input_main {
-    height: 100vh;
+    height: 90vh;
     background-color: var(--primary-color1-dark);
     display: flex;
     justify-content: center;
@@ -7,15 +7,28 @@
     color: var(--secondary-color2-dark)
 }
 
+.incident-input_title {
+    font-size: 6rem;
+}
+
+
+
 .incident-input_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 80vh;
-    width: 90vw;
+    width: 90%;
     background-color: var(--primary-color2-dark);
+    font-size: 2rem;
+}
 
+.incident-input_containerFlex {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    gap: 1em;
 }
 
 .incident-input_moveRight {
@@ -30,13 +43,18 @@
 }
 
 .incident-input_city {
-    width: 30vw;
+    width: 40%;
     display: flex;
     justify-content: center;
-    align-content: flex-start;
+    align-items: center;
     background-color: var(--primary-color1-dark);
-    padding: 5px;
-    gap: 5px;
+    padding: 1em;
+    gap: 1em;
+}
+
+.incident-input_city>p {
+    padding: 0.4em 0.8em;
+    margin: 0px;
 }
 
 .incident-input_dropdown {
@@ -44,9 +62,18 @@
     color: var(--secondary-color2-dark);
 }
 
-.incident-input_form {
+.incident-input_form1 {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--primary-color1-dark);
+    border: 2px solid var(--primary-color2-dark);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.incident-input_form2 {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--primary-color1-dark);
     border: 2px solid var(--primary-color2-dark);
@@ -56,12 +83,13 @@
 .incident-input_formColumn {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .incident-input-formInput {
     display: flex;
-    padding: 10px;
-    gap: 10px;
+    padding: 1em;
+    gap: 1em;
 }
 
 .incident-input_input {
@@ -70,13 +98,14 @@
 }
 
 .incident-input_inputShort {
-    width: 15vw;
+    width: 5vw;
     background-color: var(--primary-color2-dark);
 }
 
 .incident-input_btnContainer {
-    width: 20vw;
-    font-size: 10px !important;
+    display: flex;
+    justify-content: flex-end;
+    width: 15vw;
 }
 
 p {
