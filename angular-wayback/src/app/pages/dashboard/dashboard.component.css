@@ -1,0 +1,29 @@
+.dashboard_container{
+    background-color: var(--primary-color1-dark);
+    min-height: 86.3vh;
+    display: flex;
+    justify-content: space-between;   
+    
+    flex-wrap: wrap;
+    /* gap: 10em; */
+
+    padding: 5em 10em 5em 50em;
+}
+
+    app-card{
+        width: 30%;
+        height: fit-content;
+        
+    }
+
+    .graphic_container{
+        background-color: var(--primary-color2-dark);
+
+        height: 40vh;
+        width: 100%;
+    }
+
+    .graphic_show{
+        border-radius: 50%;
+        width: 300px;
+    }
