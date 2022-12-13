@@ -1,13 +1,13 @@
-<table class="table table-dark table-hover">
+<table class="table table-dark table-hover table-bordered">
   <thead>
     <tr>
-      <th scope="col" *ngFor="let col of cols">{{col}}</th>
+      <th scope="col" *ngFor="let col of cols" style="background-color: var(--primary-color1-dark)">{{col}}</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let row of rows; index as index">
-      <th scope="row">{{index}}</th>
-      <td *ngFor="let data of row">{{data}}</td>
+      <th scope="row" style="background-color: var(--primary-color1-dark)">{{index}}</th>
+      <td *ngFor=" let data of row" style="background-color: var(--primary-color1-dark);">{{data}}</td>
     </tr>
   </tbody>
 </table>
