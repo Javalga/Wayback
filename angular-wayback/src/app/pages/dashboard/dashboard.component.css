@@ -1,6 +1,6 @@
 .dashboard_container {
   background-color: var(--primary-color1-dark);
-  min-height: 86.3vh;
+  min-height: 90vh;
   display: flex;
   justify-content: space-between;
 

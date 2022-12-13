@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from './shared/login.service';
 
 @Component({
@@ -6,11 +6,15 @@ import { LoginService } from './shared/login.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-wayback';
   public isLogged: boolean
   public appState: string
-  constructor(private loginServixce: LoginService) {
-    this.isLogged = loginServixce.isLogged
+  constructor(private loginService: LoginService) {
+    this.isLogged = loginService.isLogged
+  }
+
+  ngOnInit(): void {
+    console.log(this.isLogged)
   }
 }

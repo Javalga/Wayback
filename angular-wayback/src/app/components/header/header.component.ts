@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LoginService } from 'src/app/shared/login.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,8 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() appState: undefined
+
+  constructor(public loginService: LoginService) {
+
+  }
 }
