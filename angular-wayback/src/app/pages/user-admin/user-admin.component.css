@@ -1,5 +1,5 @@
 .user-admin_main {
-    height: 100vh;
+    height: 90vh;
     width: 80vw;
     background-color: var(--primary-color1-dark);
     display: flex;
@@ -32,13 +32,24 @@
 
 .user-admin_filter {
     display: flex;
+    justify-content: flex-start;
     gap: 1em;
 
 }
 
 .user-admin_filter>p {
-    padding: 0.4em 0.8em;
+    padding: 0.4em;
+    padding-left: 0;
+}
+
+.user-admin_filter>button {
+    padding: 0.4em;
     margin: 0px;
+    padding-left: 0;
+}
+
+.user-admin_filter>input {
+    background-color: var(--primary-color1-dark);
 }
 
 .user-admin_btnContainer {
@@ -54,6 +65,38 @@
 
 .user-admin_input {
     width: 15vw;
-    background-color: var(--primary-color1-dark);
+    background-color: var(--primary-color2-dark);
     padding: 10px;
+}
+
+.user-admin_form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--primary-color1-dark);
+    border: 2px solid var(--primary-color2-dark);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.user-admin_formColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-admin_formInput {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    gap: 1em;
+}
+
+.user-admin_inputShort {
+    width: 5vw;
+    background-color: var(--primary-color2-dark);
+}
+
+.user-admin_formGroup {
+    display: flex;
+    justify-content: space-between;
 }

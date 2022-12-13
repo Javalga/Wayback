@@ -22,7 +22,35 @@
                 </div>
             </div>
 
-            <app-table></app-table>
+            <app-table [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; '"></app-table>
+
+            <div class="user-admin_form">
+
+                <div class="user-admin_formColumn">
+                    <div class="user-admin_formInput">
+                        <div class="user-admin_formGroup">
+                            <label>Código</label>
+                            <label>Clave</label>
+                        </div>
+                        <div class="user-admin_formGroup">
+                            <input class="user-admin_inputShort">
+                            <input class="user-admin_inputShort">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-admin_formColumn">
+                    <div class="user-admin_formInput">
+                        <input class="user-admin_input">
+                    </div>
+                </div>
+
+                <div class="user-admin_formColumn">
+                    <div class="user-admin_formInput">
+                        <label>Tipo de incidencia</label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
