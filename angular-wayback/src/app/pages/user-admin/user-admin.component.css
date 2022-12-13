@@ -4,7 +4,7 @@
     background-color: var(--primary-color1-dark);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     color: var(--secondary-color2-dark)
 }
 
@@ -21,7 +21,6 @@
 }
 
 .user-admin_containerFlex {
-    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,7 +54,7 @@
 .user-admin_btnContainer {
     display: flex;
     justify-content: flex-start;
-    width: 15vw;
+
 }
 
 .user-admin_dropdown {
@@ -72,31 +71,67 @@
 .user-admin_form {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     background-color: var(--primary-color1-dark);
     border: 2px solid var(--primary-color2-dark);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .user-admin_formColumn {
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
+
 .user-admin_formInput {
     display: flex;
     flex-direction: column;
     padding: 1em;
-    gap: 1em;
+    gap: 0.5em;
+}
+
+.user-admin_formInput3 {
+    height: 23.7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    gap: 0.5em;
 }
 
 .user-admin_inputShort {
-    width: 5vw;
+    width: 7vw;
     background-color: var(--primary-color2-dark);
 }
 
 .user-admin_formGroup {
     display: flex;
     justify-content: space-between;
+}
+
+.user-admin_btnContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 7vw;
+}
+
+.user-admin_btnContainerRight {
+    display: flex;
+    justify-content: flex-end;
+    width: 8vw;
+}
+
+.user-admin_btnContainerX {
+    display: flex;
+    justify-content: flex-start;
+    width: 6.1vw;
+    margin-left: 0.4em;
+}
+
+.user-admin_location {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em
 }

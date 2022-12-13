@@ -36,18 +36,51 @@
                             <input class="user-admin_inputShort">
                             <input class="user-admin_inputShort">
                         </div>
-                    </div>
-                </div>
-
-                <div class="user-admin_formColumn">
-                    <div class="user-admin_formInput">
+                        <label>Nombre</label>
+                        <input class="user-admin_input">
+                        <label>eMail</label>
                         <input class="user-admin_input">
                     </div>
                 </div>
 
                 <div class="user-admin_formColumn">
                     <div class="user-admin_formInput">
-                        <label>Tipo de incidencia</label>
+                        <div class="user-admin_formGroup">
+                            <div class="user-admin_btnContainer">
+                                <app-button [style]="'font-size:1.5rem;padding:0.5em 0.5em;'"
+                                    [value]="'Cambiar clave'"></app-button>
+                            </div>
+                            <div class="user-admin_btnContainerRight">
+                                <app-button [style]="'font-size:1.5rem;padding:0.5em 0.5em;'"
+                                    [value]="'Mostrar clave'"></app-button>
+                            </div>
+                        </div>
+                        <label>Tipo de Usuario</label>
+                        <input class="user-admin_input">
+                        <label>Cliente Titular</label>
+                        <input class="user-admin_input">
+                    </div>
+                </div>
+
+                <div class="user-admin_formColumn">
+                    <div class="user-admin_formInput3">
+
+                        <div class="user-admin_location">
+                            <label>Ubicación</label>
+                            <input class="user-admin_input">
+                        </div>
+                        <div class="user-admin_formGroup">
+                            <div class="user-admin_formGroup">
+                                <label>Activo:</label>
+                                <div class="user-admin_btnContainerX">
+                                    <app-button [style]="'font-size:1.5rem;padding:0.1em 0.4em;'"
+                                        [value]="'X'"></app-button>
+                                </div>
+                            </div>
+                            <div class="user-admin_btnContainer">
+                                <app-button [style]="'font-size:1.5rem;'" [value]="'Crear'"></app-button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
