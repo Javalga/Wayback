@@ -59,6 +59,7 @@
     background-color: var(--primary-color1-dark);
     padding: 1em;
     gap: 1em;
+    border: 2px solid var(--secondary-color3-dark)
 }
 
 .incident-input_city>p {

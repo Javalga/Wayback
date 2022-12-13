@@ -43,13 +43,14 @@
 }
 
 .incident-input_city {
-    width: 40%;
+    width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--primary-color1-dark);
     padding: 1em;
     gap: 1em;
+    border: 2px solid var(--secondary-color3-dark)
 }
 
 .incident-input_city>p {
