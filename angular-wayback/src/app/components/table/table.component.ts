@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class TableComponent {
   @Input() cols: []
   @Input() rows: []
+  @Input() style: string
   constructor() { }
 }

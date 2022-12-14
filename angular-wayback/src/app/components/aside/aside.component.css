@@ -2,6 +2,7 @@
   width: 14vw;
   height: 100vh;
   background-color: var(--primary-color2-dark);
+  overflow: hidden;
 }
 .logo_container {
   width: 100%;
