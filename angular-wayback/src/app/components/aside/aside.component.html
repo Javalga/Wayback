@@ -1,85 +1,88 @@
 <body *ngIf="loginService.isLogged">
 
-    <div class="main-container d-flex
+  <div class="main-container d-flex
     min-vh-100">
 
-        <div class="sidebar " id="side_nav">
+    <div class="asidebar">
 
-            <div class="header-box image">
-                <a href=""><img src="../../../assets/logoNormal 1.png" alt=""></a>
-            </div>
-            <hr class="h-color">
+      <div class="header-box image">
+        <img src="../../../assets/logoNormal 1.png" alt="">
+      </div>
+      <hr class="h-color">
+      <ul class="list-unstyled navbar-nav">
+        <li class="list-item">
+          <div class="a_container">
+            <a routerLink="/dashboard" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false">
+              <span> Dashboard </span>
+            </a>
+          </div>
+        </li>
+        <li class="list-item roller">
+          <div class="a_container">
+            <a class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=true">
+              <span> Acciones Incidencias</span>
+            </a>
 
-            <ul class="list-unstyled navbar-nav">
-                <li class="list-item">
-                    <div class="contenedor">
-                        <a routerLink="/dashboard" class="text-decoration-none d-block px-3 py-2 fs-4"
-                            (click)="show=false">
-                            <a></a>Dashboard
-                        </a>
-                    </div>
-                </li>
-                <li class="list-item roller">
-                    <div class="contenedor">
-                        <a class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=true"><a></a>
-                            Acciones_Incidencias</a>
+            <ul class="list-intoList" *ngIf="show">
 
-                        <ul class="list-intoList" *ngIf="show">
-
-                            <li class="list-item">
-                                <div class="contenedor">
-                                    <a routerLink="/incident-input"
-                                        class="text-decoration-none d-block px-3 py-2 fs-4"><a></a>
-                                        Registro_Incidencias</a>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="space">
-                                    <a routerLink="/solved-pull"
-                                        class="text-decoration-none d-block px-3 py-2 fs-4"><a></a>
-                                        Pool_Solucionadas</a>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="space">
-                                    <a routerLink="/returns" class="text-decoration-none d-block px-3 py-2 fs-4"><a></a>
-                                        Devoluciones</a>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="space"><a routerLink="/incident-output"
-                                        class="text-decoration-none d-block px-3 py-2 fs-4"><a></a>
-                                        Salida_Incidencias</a>
-                                </div>
-                            </li>
-                        </ul>
-
-                    </div>
-
-
-
-                </li>
-
-                <li class="list-item">
-                    <div class="contenedor">
-                        <a routerLink="/historical" class="text-decoration-none d-block px-3 py-2 fs-4"
-                            (click)="show=false"><a></a> Historico</a>
-                    </div>
-                </li>
-                <li class="list-item">
-                    <div class="contenedor">
-                        <a routerLink="/user-admin" class="text-decoration-none d-block px-3 py-2 fs-4"
-                            (click)="show=false"><a></a> Administar_Usuarios</a>
-                    </div>
-                </li>
-
+              <li class="list-item">
+                <div class="a_container">
+                  <a routerLink="/incident-input" class="text-decoration-none d-block px-3 py-2 fs-4">
+                    <span> Registro Incidencias </span>
+                  </a>
+                </div>
+              </li>
+              <li class="list-item">
+                <div class="a_container">
+                  <a routerLink="/solved-pull" class="text-decoration-none d-block px-3 py-2 fs-4">
+                    <span> Pool Solucionadas </span>
+                  </a>
+                </div>
+              </li>
+              <li class="list-item">
+                <div class="a_container">
+                  <a routerLink="/returns" class="text-decoration-none d-block px-3 py-2 fs-4">
+                    <span> Devoluciones </span>
+                  </a>
+                </div>
+              </li>
+              <li class="list-item">
+                <div class="a_container">
+                  <a routerLink="/incident-output" class="text-decoration-none d-block px-3 py-2 fs-4">
+                    <span> Salida Incidencias </span>
+                  </a>
+                </div>
+              </li>
             </ul>
 
+          </div>
 
-        </div>
+
+
+        </li>
+
+        <li class="list-item">
+          <div class="a_container">
+            <a routerLink="/historical" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false">
+              <span> Historico </span>
+            </a>
+          </div>
+        </li>
+        <li class="list-item">
+          <div class="a_container">
+            <a routerLink="/user-admin" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false">
+              <span> Administar Usuarios </span>
+            </a>
+          </div>
+        </li>
+
+      </ul>
 
 
     </div>
+
+
+  </div>
 
 
 </body>

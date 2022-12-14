@@ -1,102 +1,75 @@
-*
-{
-    z-index: 9;
-    font-size: 10px;
-    font-family: "Roboto", sans-serif
+* {
+  z-index: 9;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
 }
 
-.image
-{
-   display: flex;
-   justify-content: center;
-   width: 100%;
-   height: 12vh;
-   margin-top: 1rem;
+.image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 12vh;
+  margin-top: 1em;
 }
-.image a
-{
-    text-align: center;
-    cursor: pointer;
-    width: 80%;
+.image a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  width: 80%;
 }
-.image a img
-{
-    width: 50%;
-}
-
-
-#side_nav
-{
-    background: var(--primary-color2-dark);
-    min-width: 20vw;
-    
-}
-.content
-{
-    min-height: 100vh;
-    width: 100%;
+.image img {
+  width: 50%;
+  padding: 5%;
 }
 
-.h-color
-{
-    color: var(--secondary-color2-dark);
+.asidebar {
+  background: var(--primary-color2-dark);
+  min-width: 14vw;
+}
+.content {
+  min-height: 100vh;
+  width: 100%;
 }
 
-
-
-.sidebar ul li a
-{
-    color: var(--secondary-color2-dark);
-    margin: 1em;
-
+.h-color {
+  color: var(--secondary-color2-dark);
 }
 
-.list-item
-{
-    display: flex;
-    position: relative;
-    
+.asidebar ul li a {
+  color: var(--secondary-color2-dark);
+  margin: 1em;
 }
 
-.contenedor
-{
-    width: 100%;
+.list-item {
+  display: flex;
+  position: relative;
 }
 
-
-.sidebar .navbar-nav li div>a:focus 
-{
-    color: var(--secondary-color1-dark);
-
-    
-    width: 6%;
-    background-color:var(--secondary-color1-dark);
-    margin-left: 0;
-    
+.a_container {
+  width: 100% !important;
 }
 
+span {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-left: 1em;
+  word-wrap: normal;
+}
 
+.asidebar .navbar-nav li div > a:focus {
+  color: var(--secondary-color1-dark);
+  width: 2%;
+  background-color: var(--secondary-color1-dark);
+  margin-left: 0;
+}
 
-.sidebar ul .roller div .list-intoList
+/* .asidebar ul .roller div .list-intoList
 {
  display:block
 }
-
-.sidebar .navbar-nav li div>a:focus 
+.asidebar .navbar-nav li div>a:focus 
 {
     display: block;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+} */
