@@ -38,6 +38,8 @@ app-card {
   display: flex;
   justify-content: space-between;
   padding: 2em;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.5);
+  border: 2px solid var(--secondary-color3-dark);
 }
 
 .graphic_show {

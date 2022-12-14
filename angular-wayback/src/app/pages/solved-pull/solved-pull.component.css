@@ -25,31 +25,35 @@
   align-items: center;
 }
 
+
 .desplegable {
   width: 80%;
 }
 
 .cards {
   width: 100%;
+  height: 30%;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 0.2em;
+
 }
 
 .desplegable-item {
   background-color: var(--primary-color1-dark);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 1.5em;
 }
 
 .body-acordion {
   display: flex;
-  flex-direction: row;
-
   gap: 1em;
   color: var(--secondary-color2-dark);
   justify-content: flex-start;
+  margin-bottom: 1.5em;
 }
 
-.body-acordion div {
+.body-acordion>div {
   width: 45%;
   font-size: 2rem;
   padding: 0.5em;
