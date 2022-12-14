@@ -1,4 +1,4 @@
-.solved-pull-main {
+.returns-main {
     width: 86vw;
     height: 90vh;
     background-color: var(--primary-color1-dark);
@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.solved-pull-container {
+.returns-container {
     display: flex;
     justify-content: center;
     align-items: center;
