@@ -4,13 +4,13 @@
   </div>
   <nav class="nav_container">
     <app-aside-li [value]="'Dashboard'" #dashboard tabindex="0"></app-aside-li>
-    <app-aside-li [value]="'Acciones Incidencias'" (click)=" extend()" tabindex="1"></app-aside-li>
-    <app-aside-li [value]="'Registro incidencias'" class="extended" *ngIf="isExtended" #incidentInput
+    <app-aside-li [value]="'Acciones de Incidencias'" (click)=" extend()" tabindex="1"></app-aside-li>
+    <app-aside-li [value]="'Registro de incidencias'" class="extended" *ngIf="isExtended" #incidentInput
       tabindex="2"></app-aside-li>
-    <app-aside-li [value]="'Pool solucionadas'" class="extended" *ngIf="isExtended" #solvedPull
+    <app-aside-li [value]="'Pool de solucionadas'" class="extended" *ngIf="isExtended" #solvedPull
       tabindex="3"></app-aside-li>
     <app-aside-li [value]="'Devoluciones'" #returns class="extended" *ngIf="isExtended" tabindex="4"></app-aside-li>
-    <app-aside-li [value]="'Salida incidencias'" class="extended" #incidentOutput *ngIf="isExtended"
+    <app-aside-li [value]="'Salida de incidencias'" class="extended" #incidentOutput *ngIf="isExtended"
       tabindex="5"></app-aside-li>
     <app-aside-li [value]="'Historico'" #historical tabindex="6"></app-aside-li>
     <app-aside-li [value]="'Administrar Usuarios'" #userAdmin tabindex="7"></app-aside-li>
