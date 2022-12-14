@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ReturnsComponent {
 
-  public value: string = "Imprimir Etiquetas de Incidencias Solucionadas";
+  public value: string = "Imprimir Listado de Devoluciones";
   public cols: string[];
   public rows: any
   public show = true;
