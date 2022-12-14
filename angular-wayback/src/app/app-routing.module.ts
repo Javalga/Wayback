@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'costumer-input', component: CustomerInputComponent },
+  { path: 'customer-input', component: CustomerInputComponent },
   { path: 'historical', component: HistoricalComponent },
   { path: 'incident-input', component: IncidentInputComponent },
   { path: 'incident-output', component: IncidentOutputComponent },
