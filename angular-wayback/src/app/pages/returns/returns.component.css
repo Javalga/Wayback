@@ -18,11 +18,11 @@
 .central-page {
     background-color: var(--primary-color2-dark);
     width: 90%;
-    min-height: 90%;
+    height: 90%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .central-page h1 {

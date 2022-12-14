@@ -42,7 +42,7 @@
 }
 
 .incident-input_city {
-  width: 45%;
+  width: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +52,7 @@
   border: 2px solid var(--secondary-color3-dark);
 }
 
-.incident-input_city > p {
+.incident-input_city>p {
   padding: 0.4em 0.8em;
   margin: 0px;
 }
@@ -106,4 +106,10 @@
   display: flex;
   justify-content: flex-end;
   width: 15vw;
+}
+
+.general-input {
+  background-color: var(--primary-color1-dark);
+  color: var(--secondary-color2-dark);
+  padding: 0.4em;
 }
