@@ -1,88 +1,18 @@
-<body *ngIf="loginService.isLogged">
-
-  <div class="main-container d-flex
-    min-vh-100">
-
-    <div class="asidebar">
-
-      <div class="header-box image">
-        <img src="../../../assets/logoNormal 1.png" alt="">
-      </div>
-      <hr class="h-color">
-      <ul class="list-unstyled navbar-nav">
-        <li class="list-item">
-          <div class="a_container">
-            <a routerLink="/dashboard" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false">
-              <span> Dashboard </span>
-            </a>
-          </div>
-        </li>
-        <li class="list-item roller">
-          <div class="a_container">
-            <a class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=true">
-              <span> Acciones Incidencias</span>
-            </a>
-
-            <ul class="list-intoList" *ngIf="show">
-
-              <li class="list-item">
-                <div class="a_container">
-                  <a routerLink="/incident-input" class="text-decoration-none d-block px-3 py-2 fs-4">
-                    <span> Registro Incidencias </span>
-                  </a>
-                </div>
-              </li>
-              <li class="list-item">
-                <div class="a_container">
-                  <a routerLink="/solved-pull" class="text-decoration-none d-block px-3 py-2 fs-4">
-                    <span> Pool Solucionadas </span>
-                  </a>
-                </div>
-              </li>
-              <li class="list-item">
-                <div class="a_container">
-                  <a routerLink="/returns" class="text-decoration-none d-block px-3 py-2 fs-4">
-                    <span> Devoluciones </span>
-                  </a>
-                </div>
-              </li>
-              <li class="list-item">
-                <div class="a_container">
-                  <a routerLink="/incident-output" class="text-decoration-none d-block px-3 py-2 fs-4">
-                    <span> Salida Incidencias </span>
-                  </a>
-                </div>
-              </li>
-            </ul>
-
-          </div>
-
-
-
-        </li>
-
-        <li class="list-item">
-          <div class="a_container">
-            <a routerLink="/historical" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false">
-              <span> Historico </span>
-            </a>
-          </div>
-        </li>
-        <li class="list-item">
-          <div class="a_container">
-            <a routerLink="/user-admin" class="text-decoration-none d-block px-3 py-2 fs-4" (click)="show=false">
-              <span> Administar Usuarios </span>
-            </a>
-          </div>
-        </li>
-
-      </ul>
-
-
-    </div>
-
-
+<div class="aside_container" *ngIf="loginService.isLogged">
+  <div class="logo_container">
+    <img src="../../../assets/logoNormal 1.png">
   </div>
-
-
-</body>
+  <nav class="nav_container">
+    <app-aside-li [value]="'Dashboard'" #dashboard tabindex="0"></app-aside-li>
+    <app-aside-li [value]="'Acciones Incidencias'" (click)=" extend()" tabindex="1"></app-aside-li>
+    <app-aside-li [value]="'Registro incidencias'" class="extended" *ngIf="isExtended" #incidentInput
+      tabindex="2"></app-aside-li>
+    <app-aside-li [value]="'Pool solucionadas'" class="extended" *ngIf="isExtended" #solvedPull
+      tabindex="3"></app-aside-li>
+    <app-aside-li [value]="'Devoluciones'" #returns class="extended" *ngIf="isExtended" tabindex="4"></app-aside-li>
+    <app-aside-li [value]="'Salida incidencias'" class="extended" #incidentOutput *ngIf="isExtended"
+      tabindex="5"></app-aside-li>
+    <app-aside-li [value]="'Historico'" #historical tabindex="6"></app-aside-li>
+    <app-aside-li [value]="'Administrar Usuarios'" #userAdmin tabindex="7"></app-aside-li>
+  </nav>
+</div>

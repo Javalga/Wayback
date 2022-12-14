@@ -1,0 +1,20 @@
+.anchor {
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+}
+
+a:focus {
+  color: black;
+}
+/* .li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 10%;
+  height: 100%;
+  background-color: var(--secondary-color1-dark);
+  z-index: 999;
+} */
