@@ -1,102 +1,64 @@
-*
-{
-    z-index: 9;
-    font-size: 10px;
-    font-family: "Roboto", sans-serif
+* {
+  z-index: 9;
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
-.image
-{
-   display: flex;
-   justify-content: center;
-   width: 100%;
-   height: 12vh;
-   margin-top: 1rem;
+.image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 12vh;
+  margin-top: 1rem;
 }
-.image a
-{
-    text-align: center;
-    cursor: pointer;
-    width: 80%;
+.image a {
+  text-align: center;
+  cursor: pointer;
+  width: 80%;
 }
-.image a img
-{
-    width: 50%;
+.image a img {
+  width: 50%;
 }
 
-
-#side_nav
-{
-    background: var(--primary-color2-dark);
-    min-width: 20vw;
-    
+.aside_nav {
+  background: var(--primary-color2-dark);
+  min-width: 20vw;
 }
-.content
-{
-    min-height: 100vh;
-    width: 100%;
+.content {
+  min-height: 100vh;
+  width: 100%;
 }
 
-.h-color
-{
-    color: var(--secondary-color2-dark);
+.h-color {
+  color: var(--secondary-color2-dark);
 }
 
-
-
-.sidebar ul li a
-{
-    color: var(--secondary-color2-dark);
-    margin: 1em;
-
+.sidebar ul li a {
+  color: var(--secondary-color2-dark);
+  margin: 1em;
 }
 
-.list-item
-{
-    display: flex;
-    position: relative;
-    
+.list-item {
+  display: flex;
+  position: relative;
 }
 
-.contenedor
-{
-    width: 100%;
+.a_container {
+  width: 100%;
 }
 
+.sidebar .navbar-nav li div > a:focus {
+  color: var(--secondary-color1-dark);
 
-.sidebar .navbar-nav li div>a:focus 
-{
-    color: var(--secondary-color1-dark);
-
-    
-    width: 6%;
-    background-color:var(--secondary-color1-dark);
-    margin-left: 0;
-    
+  width: 6%;
+  background-color: var(--secondary-color1-dark);
+  margin-left: 0;
 }
 
-
-
-.sidebar ul .roller div .list-intoList
-{
- display:block
+.sidebar ul .roller div .list-intoList {
+  display: block;
 }
 
-.sidebar .navbar-nav li div>a:focus 
-{
-    display: block;
+.sidebar .navbar-nav li div > a:focus {
+  display: block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
