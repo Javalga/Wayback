@@ -52,6 +52,9 @@ a:active {
 
 input {
   border: none;
+}
+
+input[text] {
   color: var(--secondary-color2-dark)
 }
 
