@@ -1,13 +1,21 @@
+.main-dashboard{
+    min-height: 90vh;
+    width: 80vw;
+    background-color: var(--primary-color1-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color2-dark)
+}
 .dashboard_container {
-  background-color: var(--primary-color1-dark);
-  min-height: 90vh;
-  display: flex;
-  justify-content: space-between;
-
-  flex-wrap: wrap;
-  /* gap: 10em; */
-
-  padding: 10em 10em 2em 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    width: 90%;
+    font-size: 2rem;
+    gap: 2em
+    
 }
 
 app-card {
@@ -15,20 +23,26 @@ app-card {
   height: fit-content;
 }
 
+.grid_container_cards{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;  
+}
+
 .graphic_container {
   background-color: var(--primary-color2-dark);
   height: 40vh;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   display: flex;
   justify-content: space-between;
-  padding: 5em;
+  padding: 2em;
 }
-
 .graphic_show {
   border-radius: 50%;
   width: 38%;
 }
-
 .graphic_info {
   color: var(--secondary-color2-dark);
 }
