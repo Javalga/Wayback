@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./solved-pull.component.css']
 })
 export class SolvedPullComponent {
-
+  public value: string = "Imprimir Etiquetas de Incidencias Solucionadas"
 }
