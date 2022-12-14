@@ -1,4 +1,4 @@
-.card_container{
+.card_container {
     background-color: var(--primary-color2-dark);
     border: 2px solid var(--secondary-color3-dark);
 
@@ -7,23 +7,24 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
 
-    
+
 
     padding: 2em;
 }
 
-    .card_title{
-        color: var(--secondary-color2-dark);
-        font-size: 3rem;
-        text-align: center;
+.card_title {
+    color: var(--secondary-color2-dark);
+    font-size: 3rem;
+    text-align: center;
 
-    }
+}
 
-    .card_value{
-        color: var(--secondary-color3-dark);
-        font-size: 6rem;
-        margin-top: 0.6em;
+.card_value {
+    color: var(--secondary-color3-dark);
+    font-size: 6rem;
+    margin-top: 0.6em;
 
-        text-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
-    }
+    text-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+}

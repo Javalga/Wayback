@@ -1,0 +1,78 @@
+.solved-pull-main {
+    width: 86vw;
+    height: 90vh;
+    background-color: var(--primary-color1-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.solved-pull-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.central-page {
+    background-color: var(--primary-color2-dark);
+    width: 90%;
+    min-height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.central-page h1 {
+    margin-top: 1em;
+    width: 100%;
+    font-size: 5rem;
+    color: var(--secondary-color2-dark);
+}
+
+.desplegable {
+    width: 80%;
+}
+
+.cards {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.desplegable-item {
+    background-color: var(--primary-color1-dark);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 1.5em;
+}
+
+.body-acordion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    color: var(--secondary-color2-dark);
+    justify-content: flex-start;
+    margin-bottom: 1.5em;
+}
+
+.body-acordion div {
+    width: 45%;
+    font-size: 2rem;
+    padding: 0.5em;
+}
+
+.body-acordion input {
+    background-color: var(--primary-color2-dark);
+    margin-left: 10px;
+}
+
+.acordion-title {
+    font-size: 2rem;
+    color: var(--secondary-color2-dark);
+    background-color: var(--primary-color1-dark);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
