@@ -1,6 +1,6 @@
 .customBtn {
   background-color: var(--secondary-color3-dark);
-  padding: 0.5em 2em !important;
+  padding: 0.5em 2em;
   font-size: 2.5em;
   color: white;
   box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.5);

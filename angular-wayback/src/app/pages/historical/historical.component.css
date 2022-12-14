@@ -1,0 +1,14 @@
+.main_historical {
+  width: 86vw;
+  height: 90vh;
+  background-color: var(--primary-color1-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_historical_container {
+  height: 80%;
+  width: 90%;
+  background-color: var(--primary-color2-dark);
+}

@@ -18,6 +18,8 @@ import { TableComponent } from './components/table/table.component';
 import { AsideComponent } from './components/aside/aside.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DatesRangeComponent } from './components/dates-range/dates-range.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { DatesRangeComponent } from './components/dates-range/dates-range.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

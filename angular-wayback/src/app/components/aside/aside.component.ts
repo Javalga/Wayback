@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from 'src/app/shared/login.service';
 
 @Component({
   selector: 'app-aside',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./aside.component.css']
 })
 export class AsideComponent {
-  public show=false;
+  public show = false;
+
+  constructor(public loginService: LoginService) {
+
+  }
 }

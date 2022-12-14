@@ -1,1 +1,89 @@
-<p>user-admin works!</p>
+<main class="user-admin_main">
+
+    <div class="user-admin_container">
+        <div class="user-admin_containerFlex">
+            <div class="user-admin_filter">
+                <p>Filtrar por</p>
+                <div class="dropdown">
+                    <button style="font-size: 2rem;
+                    padding:0.4em 0.8em;border-radius: 4px;" class="btn user-admin_dropdown dropdown-toggle"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Nombre
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <input class="user-admin_input" placeholder="Alberto">
+                <div class="user-admin_btnContainer">
+                    <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
+                </div>
+            </div>
+
+            <app-table [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; '"></app-table>
+
+            <div class="user-admin_form">
+
+                <div class="user-admin_formColumn">
+                    <div class="user-admin_formInput">
+                        <div class="user-admin_formGroup">
+                            <label>Código</label>
+                            <label>Clave</label>
+                        </div>
+                        <div class="user-admin_formGroup">
+                            <input class="user-admin_inputShort">
+                            <input class="user-admin_inputShort">
+                        </div>
+                        <label>Nombre</label>
+                        <input class="user-admin_input">
+                        <label>Email</label>
+                        <input class="user-admin_input">
+                    </div>
+                </div>
+
+                <div class="user-admin_formColumn">
+                    <div class="user-admin_formInput">
+                        <div class="user-admin_formGroup">
+                            <div class="user-admin_btnContainer">
+                                <app-button [style]="'font-size:1.5rem;padding:0.5em 0.5em;'"
+                                    [value]="'Cambiar clave'"></app-button>
+                            </div>
+                            <div class="user-admin_btnContainerRight">
+                                <app-button [style]="'font-size:1.5rem;padding:0.5em 0.5em;'"
+                                    [value]="'Mostrar clave'"></app-button>
+                            </div>
+                        </div>
+                        <label>Tipo de Usuario</label>
+                        <input class="user-admin_input">
+                        <label>Cliente Titular</label>
+                        <input class="user-admin_input">
+                    </div>
+                </div>
+
+                <div class="user-admin_formColumn">
+                    <div class="user-admin_formInput3">
+
+                        <div class="user-admin_location">
+                            <label>Ubicación</label>
+                            <input class="user-admin_input">
+                        </div>
+                        <div class="user-admin_formGroup">
+                            <div class="user-admin_formGroup">
+                                <label>Activo:</label>
+                                <div class="user-admin_btnContainerX">
+                                    <app-button [style]="'font-size:1.5rem;padding:0.1em 0.4em;'"
+                                        [value]="'X'"></app-button>
+                                </div>
+                            </div>
+                            <div class="user-admin_btnContainer">
+                                <app-button [style]="'font-size:1.5rem;'" [value]="'Crear'"></app-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

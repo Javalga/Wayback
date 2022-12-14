@@ -1,13 +1,13 @@
 .dashboard_container {
   background-color: var(--primary-color1-dark);
-  min-height: 86.3vh;
+  min-height: 90vh;
   display: flex;
   justify-content: space-between;
 
   flex-wrap: wrap;
   /* gap: 10em; */
 
-  padding: 5em 10em 5em 50em;
+  padding: 10em 10em 2em 10em;
 }
 
 app-card {
@@ -40,7 +40,7 @@ app-card {
 .graphic_info--parameter {
   font-size: 2rem;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   gap: 1em;
   margin-top: 1em;
