@@ -4,11 +4,13 @@
   cursor: pointer;
   position: relative;
   width: 100%;
+  pointer-events: all;
 }
 
 a:focus {
   color: black;
 }
+
 /* .li:before {
   content: "";
   position: absolute;

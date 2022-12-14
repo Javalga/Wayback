@@ -7,12 +7,13 @@
   align-items: center;
   color: var(--secondary-color2-dark);
 }
+
 .dashboard_container {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 80vh;
-  width: 90%;
+  width: 100%;
   font-size: 2rem;
   gap: 2em;
 }
@@ -38,10 +39,12 @@ app-card {
   justify-content: space-between;
   padding: 2em;
 }
+
 .graphic_show {
   border-radius: 50%;
   width: 38%;
 }
+
 .graphic_info {
   color: var(--secondary-color2-dark);
 }

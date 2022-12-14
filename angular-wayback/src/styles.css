@@ -26,6 +26,7 @@
 a {
   text-decoration: none !important;
 }
+
 a:link {
   color: inherit;
 }
@@ -51,15 +52,20 @@ a:active {
 
 input {
   border: none;
+  color: var(--secondary-color2-dark)
 }
+
+
 input:focus {
   outline: none;
   border: 0;
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;

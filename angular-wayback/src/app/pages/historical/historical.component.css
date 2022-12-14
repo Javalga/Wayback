@@ -30,7 +30,7 @@
 .body-acordion {
   display: flex;
   flex-direction: row;
- 
+
   gap: 1em;
   color: var(--secondary-color2-dark);
   justify-content: flex-start;
@@ -44,7 +44,6 @@
 
 .body-acordion input {
   background-color: var(--primary-color2-dark);
-  margin-left: 10px;
 }
 
 .acordion-title {
@@ -67,28 +66,30 @@
 .incident-input_formColumn {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: flex-start;
+  width: fit-content;
 }
 
 .incident-input-formInput {
   display: flex;
   padding: 0.8em;
   gap: 1em;
+  width: fit-content;
 }
 
-.cards
-{
+.cards {
   margin-top: 1em;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.table
-{
+.table {
   margin-top: 1em;
   width: 85%;
 }
 
-
-
+label {
+  font-size: 1.5rem;
+}

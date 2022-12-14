@@ -84,6 +84,22 @@
     align-items: flex-start;
 }
 
+.user-admin_formColumn3 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.user-admin_formColumnShort {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4em;
+}
+
 
 .user-admin_formInput {
     display: flex;
@@ -93,7 +109,7 @@
 }
 
 .user-admin_formInput3 {
-    height: 23.7vh;
+    height: 74.5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -111,6 +127,15 @@
     justify-content: space-between;
 }
 
+.user-admin_formGroupTogether {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
+
+
 .user-admin_btnContainer {
     display: flex;
     justify-content: flex-start;
@@ -120,18 +145,24 @@
 .user-admin_btnContainerRight {
     display: flex;
     justify-content: flex-end;
-    width: 8vw;
+    width: 7vw;
 }
 
 .user-admin_btnContainerX {
     display: flex;
     justify-content: flex-start;
-    width: 6.1vw;
     margin-left: 0.4em;
 }
+
 
 .user-admin_location {
     display: flex;
     flex-direction: column;
     gap: 0.5em
+}
+
+.general-input {
+    background-color: var(--primary-color1-dark);
+    color: var(--secondary-color2-dark);
+    padding: 0.4em;
 }

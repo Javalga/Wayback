@@ -4,6 +4,7 @@
   background-color: var(--primary-color2-dark);
   overflow: hidden;
 }
+
 .logo_container {
   width: 100%;
   height: 15%;
@@ -12,7 +13,8 @@
   justify-content: center;
   border-bottom: 2px solid var(--secondary-color3-dark);
 }
-.logo_container > img {
+
+.logo_container>img {
   width: 50%;
 }
 
@@ -26,15 +28,19 @@
   font-size: 1.5rem;
   flex-direction: column;
 }
+
 app-aside-li {
   width: 100%;
   margin-bottom: 2em;
   position: relative;
+  pointer-events: none;
 }
-app-aside-li:focus {
+
+/* app-aside-li:focus {
   transition: 50ms ease-in-out all;
   padding-left: 10%;
 }
+
 app-aside-li:focus:before {
   content: "";
   position: absolute;
@@ -42,7 +48,27 @@ app-aside-li:focus:before {
   width: 5%;
   height: 100%;
   background-color: var(--secondary-color1-dark);
+} */
+
+.active {
+  transition: 50ms ease-in-out all;
+  padding-left: 10%;
 }
+
+.active:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 5%;
+  height: 100%;
+  background-color: var(--secondary-color1-dark);
+}
+
+.inactive {
+  transition: 50ms ease-in-out all;
+  padding-left: 0%;
+}
+
 .extended {
   margin-left: 30%;
 }

@@ -4,18 +4,15 @@
         <div class="user-admin_containerFlex">
             <div class="user-admin_filter">
                 <p>Filtrar por</p>
-                <div class="dropdown">
-                    <button style="font-size: 2rem;
-                    padding:0.4em 0.8em;border-radius: 4px;" class="btn user-admin_dropdown dropdown-toggle"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Nombre
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
+                <select name="filter_type" class="general-input" #filter_type>
+                    <option value="" class="general-input">Nombre</option>
+                    <option value="" class="general-input">Email</option>
+                    <option value="" class="general-input">Tipo</option>
+                    <option value="" class="general-input">Activo</option>
+                    <option value="" class="general-input">Ubicacion</option>
+                    <option value="" class="general-input">Cliente</option>
+
+                </select>
                 <input class="user-admin_input" placeholder="Alberto">
                 <div class="user-admin_btnContainer">
                     <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
@@ -29,12 +26,16 @@
                 <div class="user-admin_formColumn">
                     <div class="user-admin_formInput">
                         <div class="user-admin_formGroup">
-                            <label>Código</label>
-                            <label>Clave</label>
-                        </div>
-                        <div class="user-admin_formGroup">
-                            <input class="user-admin_inputShort">
-                            <input class="user-admin_inputShort">
+                            <div class="user-admin_formColumnShort">
+                                <label>Código</label>
+                                <input class="user-admin_inputShort">
+
+                            </div>
+                            <div class="user-admin_formColumnShort">
+                                <label>Clave</label>
+                                <input class="user-admin_inputShort">
+
+                            </div>
                         </div>
                         <label>Nombre</label>
                         <input class="user-admin_input">
@@ -45,13 +46,13 @@
 
                 <div class="user-admin_formColumn">
                     <div class="user-admin_formInput">
-                        <div class="user-admin_formGroup">
+                        <div class="user-admin_formGroupTogether">
                             <div class="user-admin_btnContainer">
-                                <app-button [style]="'font-size:1.5rem;padding:0.5em 0.5em;'"
+                                <app-button [style]="'font-size:1.1rem;padding:0.5em 0.5em;'"
                                     [value]="'Cambiar clave'"></app-button>
                             </div>
-                            <div class="user-admin_btnContainerRight">
-                                <app-button [style]="'font-size:1.5rem;padding:0.5em 0.5em;'"
+                            <div class="user-admin_btnContainer">
+                                <app-button [style]="'font-size:1.1rem;padding:0.5em 0.5em;'"
                                     [value]="'Mostrar clave'"></app-button>
                             </div>
                         </div>
@@ -62,7 +63,7 @@
                     </div>
                 </div>
 
-                <div class="user-admin_formColumn">
+                <div class="user-admin_formColumn3">
                     <div class="user-admin_formInput3">
 
                         <div class="user-admin_location">
@@ -77,8 +78,8 @@
                                         [value]="'X'"></app-button>
                                 </div>
                             </div>
-                            <div class="user-admin_btnContainer">
-                                <app-button [style]="'font-size:1.5rem;'" [value]="'Crear'"></app-button>
+                            <div class="user-admin_btnContainerRight">
+                                <app-button [style]="'font-size:1.8rem;'" [value]="'Crear'"></app-button>
                             </div>
                         </div>
                     </div>

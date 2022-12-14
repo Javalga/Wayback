@@ -9,12 +9,14 @@ import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 export class AsideLiComponent {
   @Input() value: undefined
   public isActive: boolean
+  public focus: number;
   constructor(private router: Router, private asideHeaderService: AsideHeaderService) { }
 
   listHandler() {
     switch (this.value) {
       case 'Dashboard':
         this.asideHeaderService.state = this.value
+        this.focus = 0;
         this.router.navigateByUrl('/dashboard')
         break;
       case 'Registro de incidencias':

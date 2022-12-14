@@ -2,25 +2,20 @@
 
   <div class="incident-output_container">
     <div class="incident-output_containerFlex">
-      <div class="incident-output_moveCenter">
-        <h2 class="incident-output_title">Salida de Incidencias</h2>
-      </div>
+
       <div class="incident-output_formContainer">
         <div class="incident-output_moveRight">
           <div class="incident-output_city">
             <p>Entrada en:</p>
-            <div class="dropdown">
-              <button style="font-size: 2rem;
-                        padding:0.4em 0.8em;border-radius: 4px;" class="btn incident-output_dropdown dropdown-toggle"
-                type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </div>
+            <select name="filter_type" class="general-input" #filter_type>
+              <option value="" class="general-input">Usuario mega largo</option>
+              <option value="" class="general-input">Usuario2</option>
+              <option value="" class="general-input">Usuario mucho mas largo todavia</option>
+              <option value="" class="general-input">Usuario4</option>
+              <option value="" class="general-input">Usuario5</option>
+              <option value="" class="general-input">Usuario6</option>
+
+            </select>
           </div>
         </div>
         <div class="incident-output_form">
