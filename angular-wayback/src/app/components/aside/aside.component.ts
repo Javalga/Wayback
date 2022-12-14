@@ -7,9 +7,11 @@ import { LoginService } from 'src/app/shared/login.service';
   styleUrls: ['./aside.component.css']
 })
 export class AsideComponent {
-  public show = false;
-
+  public isExtended: boolean
   constructor(public loginService: LoginService) {
-
+    this.isExtended = false
+  }
+  extend() {
+    this.isExtended = !this.isExtended
   }
 }
