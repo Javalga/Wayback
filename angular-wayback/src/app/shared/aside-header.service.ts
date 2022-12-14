@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-  public isLogged: boolean = false;
+export class AsideHeaderService {
+  public state: string
   constructor() {
+    this.state = 'Dashboard'
   }
 }
