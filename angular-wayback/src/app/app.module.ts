@@ -18,7 +18,8 @@ import { TableComponent } from './components/table/table.component';
 import { AsideComponent } from './components/aside/aside.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DatesRangeComponent } from './components/dates-range/dates-range.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AsideLiComponent } from './components/aside-li/aside-li.component'
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     TableComponent,
     AsideComponent,
     HeaderComponent,
-    DatesRangeComponent
+    DatesRangeComponent,
+    AsideLiComponent
   ],
   imports: [
     BrowserModule,
