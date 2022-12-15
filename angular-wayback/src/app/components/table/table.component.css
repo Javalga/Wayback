@@ -1,5 +1,22 @@
 table {
   background-color: var(--secondary-color2) !important;
-  height: 100px;
-  overflow-y: auto;
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
+
+.table_container {
+  overflow: auto;
+  height: 300px;
+}
+.table_container::-webkit-scrollbar {
+  width: 1.5em;
+}
+
+.table_container::-webkit-scrollbar-track {
+  background: var(--primary-color1-dark);
+}
+
+.table_container::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color1-dark);
 }
