@@ -3,10 +3,10 @@ export class Incidence {
   public status: string;
   public incidence_type: string;
   public customer_name: string;
-  public customer_phone: number;
+  public customer_phone: string;
   public customer_mail: string;
   public customer_direction: string;
-  public customer_cp: number;
+  public customer_cp: string;
   public customer_poblation: string;
   public warehouse_ubication: string;
   public input_date: Date;
@@ -19,10 +19,10 @@ export class Incidence {
     status: string,
     incidence_type: string,
     customer_name: string,
-    customer_phone: number,
+    customer_phone: string,
     customer_mail: string,
     customer_direction: string,
-    customer_cp: number,
+    customer_cp: string,
     customer_poblation: string,
     warehouse_ubication: string
   ) {

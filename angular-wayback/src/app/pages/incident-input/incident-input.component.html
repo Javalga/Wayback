@@ -26,7 +26,7 @@
 
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
-                        <input class="incident-input_input">
+                        <input #number_expedient class="incident-input_input">
                     </div>
                 </div>
 
@@ -38,7 +38,7 @@
 
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
-                        <input class="incident-input_input">
+                        <input value={{incidence.incidence_type}} class="incident-input_input">
                     </div>
                 </div>
 
@@ -61,13 +61,13 @@
                 </div>
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
-                        <input class="incident-input_input">
+                        <input value={{incidence.customer_name}} class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
-                        <input class="incident-input_input">
+                        <input value={{incidence.customer_phone}} class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
-                        <input class="incident-input_input">
+                        <input value={{incidence.customer_direction}} class="incident-input_input">
                     </div>
                 </div>
                 <div class="incident-input_formColumn">
@@ -83,20 +83,21 @@
                 </div>
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
-                        <input class="incident-input_input">
+                        <input value={{incidence.customer_poblation}} class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
-                        <input class="incident-input_inputShort">
+                        <input value={{incidence.warehouse_ubication}} class="incident-input_inputShort">
                     </div>
                     <div class="incident-input-formInput">
-                        <input class="incident-input_inputShort">
+                        <input value={{incidence.customer_cp}} class="incident-input_inputShort">
                     </div>
                 </div>
 
             </div>
             <div class="incident-input_moveRight">
                 <div class="incident-input_btnContainer">
-                    <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
+                    <app-button [value]="value" (click)="registrarIncidencia(number_expedient.value)"
+                        [style]="'font-size:2rem;'"></app-button>
                 </div>
             </div>
         </div>
