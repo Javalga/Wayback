@@ -68,7 +68,8 @@
 
 .user-admin_form {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  width: 100%;
   align-items: flex-end;
   background-color: var(--primary-color1-dark);
   border: 2px solid var(--primary-color2-dark);
@@ -80,6 +81,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 33.33%;
 }
 
 .user-admin_formColumn3 {
@@ -123,12 +125,17 @@
   display: flex;
   justify-content: space-between;
 }
-
 .user-admin_formGroupTogether {
   display: flex;
   justify-content: flex-start;
 }
-
+.user-admin_formGroupActivo {
+  display: flex;
+  justify-content: space-between;
+}
+.user-admin_formGroupActivo > * {
+  width: 20%;
+}
 .user-admin_btnContainer {
   display: flex;
   justify-content: flex-start;
@@ -157,4 +164,13 @@
   background-color: var(--primary-color1-dark);
   color: var(--secondary-color2-dark);
   padding: 0.4em;
+}
+
+@media screen and (max-width: 1400px) {
+  .user-admin_formGroupTogether {
+    gap: 10px;
+  }
+  .user-admin_formGroupActivo {
+    gap: 10px;
+  }
 }
