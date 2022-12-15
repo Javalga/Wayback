@@ -26,10 +26,10 @@
 .logo {
   border-radius: 50% !important;
   border-radius: 50%;
-  width: 30%;
-  margin-top: -15%;
-  border: 1px solid black;
-  margin-bottom: 2em;
+  width: 75%;
+  margin-top: -25%;
+  /* border: 1px solid black; */
+  /* margin-bottom: 2em; */
   filter: drop-shadow(4px 15px 38px #000);
 }
 

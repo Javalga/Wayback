@@ -15,7 +15,7 @@
 }
 
 .logo_container>img {
-  width: 50%;
+  width: 120%;
 }
 
 .nav_container {
@@ -71,4 +71,4 @@ app-aside-li:focus:before {
 
 .extended {
   margin-left: 30%;
-}
+} 
