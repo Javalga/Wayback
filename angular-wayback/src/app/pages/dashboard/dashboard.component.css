@@ -1,5 +1,5 @@
 .main-dashboard {
-  min-height: 90vh;
+  height: 90vh;
   width: 86vw;
   background-color: var(--primary-color1-dark);
   display: flex;
@@ -11,11 +11,15 @@
 .dashboard_container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  min-height: 80vh;
+  min-height: 90%;
   width: 100%;
   font-size: 2rem;
   gap: 2em;
+  width: 90%;
+  background-color: var(--primary-color2-dark);
+  padding: 2em;
 }
 
 app-card {
@@ -24,17 +28,16 @@ app-card {
 }
 
 .grid_container_cards {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: auto;
+  
 }
 
 .graphic_container {
   background-color: var(--primary-color2-dark);
   height: 40vh;
-  width: 90%;
-  margin: auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 2em;
