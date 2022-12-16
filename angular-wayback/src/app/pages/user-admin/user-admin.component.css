@@ -32,6 +32,7 @@
   display: flex;
   justify-content: flex-start;
   gap: 1em;
+  align-items: center;
 }
 
 .user-admin_filter > p {
@@ -135,6 +136,7 @@
 }
 .user-admin_formGroupActivo > * {
   width: 20%;
+  display: flex;
 }
 .user-admin_btnContainer {
   display: flex;
@@ -151,6 +153,7 @@
 .user-admin_btnContainerX {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   margin-left: 0.4em;
 }
 
@@ -164,6 +167,34 @@
   background-color: var(--primary-color1-dark);
   color: var(--secondary-color2-dark);
   padding: 0.4em;
+}
+
+.button_check {
+    border: none;
+    height: 20px;
+    aspect-ratio: 1;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: white;
+}
+
+.button_check:focus {
+    outline: none;
+    height: 20px;
+    aspect-ratio: 1;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--secondary-color3-dark);
 }
 
 @media screen and (max-width: 1400px) {

@@ -91,6 +91,7 @@
 
 .incident-output-formInput {
     display: flex;
+    align-items: center;
     padding: 1em;
     gap: 1em;
 }

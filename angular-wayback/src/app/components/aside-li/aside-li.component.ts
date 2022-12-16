@@ -39,7 +39,7 @@ export class AsideLiComponent {
         this.asideHeaderService.state = this.value
         this.router.navigateByUrl('/incident-output')
         break;
-      case 'Historico':
+      case 'Histórico':
         this.asideHeaderService.state = this.value
         this.router.navigateByUrl('/historical')
         break;
