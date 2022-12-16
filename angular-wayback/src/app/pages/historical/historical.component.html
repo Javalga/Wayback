@@ -5,11 +5,13 @@
             <div class="accordion-item desplegable-item">
                 <h2 class="accordion-header acordion-main " id="flush-headingOne">
                     <button class="accordion-button collapsed acordion-title" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOn" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+                        data-bs-target="#flush-collapseOn" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseOne" (click)="bigTable()">
                         Filtros Avanzados
                     </button>
                 </h2>
-                <div id="flush-collapseOn" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div id="flush-collapseOn" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body body-acordion ">
 
                         <div class="incident-input_formColumn">
@@ -66,7 +68,7 @@
         </div>
 
         <div class="table">
-            <app-table [style]="'height:40vh'" [rows]="rows" [cols]="cols"></app-table>
+            <app-table [style]="style" [rows]="rows" [cols]="cols"></app-table>
         </div>
 
         <div class="result-space">

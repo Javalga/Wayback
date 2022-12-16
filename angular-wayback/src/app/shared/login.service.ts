@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
   public isLogged: boolean = true;
+  public role: string
   constructor() {
+    this.role = 'SUPER'
   }
 }
+
+// roles = SUPER || ADMIN || USER

@@ -37,7 +37,7 @@
     height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     gap: 2em;
 }
 
