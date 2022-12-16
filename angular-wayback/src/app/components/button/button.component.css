@@ -8,10 +8,12 @@
   letter-spacing: 1px;
   font-weight: 700;
   border-radius: 4px;
+  padding: 0.8em 4em 1em 4em;
 }
 
 .btn:active {
   background-color: var(--secondary-color3-dark);
   color: white;
   border: 0;
+  padding: 0.8em 4em 1em 4em;
 }
