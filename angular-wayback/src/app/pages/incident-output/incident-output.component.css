@@ -37,7 +37,7 @@
     height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     gap: 2em;
 }
 
@@ -91,6 +91,7 @@
 
 .incident-output-formInput {
     display: flex;
+    align-items: center;
     padding: 1em;
     gap: 1em;
 }

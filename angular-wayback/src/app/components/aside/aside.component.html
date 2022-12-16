@@ -15,7 +15,7 @@
       (click)="tab=4" [ngClass]="{'active': tab===4,'inactive':tab!=4}"></app-aside-li>
     <app-aside-li [value]="'Salida de incidencias'" class="extended" #incidentOutput *ngIf="isExtended" tabindex="5"
       role="tab" (click)="tab=5" [ngClass]="{'active': tab===5,'inactive':tab!=5}"></app-aside-li>
-    <app-aside-li [value]="'Historico'" #historical tabindex="6" role="tab" (click)="tab=6"
+    <app-aside-li [value]="'Histórico'" #historical tabindex="6" role="tab" (click)="tab=6"
       [ngClass]="{'active': tab===6,'inactive':tab!=6}"></app-aside-li>
     <app-aside-li [value]="'Administrar Usuarios'" #userAdmin tabindex="7" role="tab" (click)="tab=7"
       [ngClass]="{'active': tab===7,'inactive':tab!=7}"
