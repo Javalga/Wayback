@@ -159,7 +159,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 0.4em;
+  margin: 0 0 0.2em 0.4em;
 }
 
 .user-admin_location {
@@ -177,13 +177,13 @@
 /*Checkbox*/
 
 .checkbox-container {
-  display: flex;  
+  display: flex;
   cursor: pointer;
   font-size: 22px;
 }
 
-.checkbox-container input:checked ~ .checkmark {
-background-color: var(--secondary-color3-dark);
+.checkbox-container input:checked~.checkmark {
+  background-color: var(--secondary-color3-dark);
 }
 
 .checkbox-container input {
@@ -208,11 +208,12 @@ background-color: var(--secondary-color3-dark);
   display: none
 }
 
-.checkbox-container input:checked ~ .checkmark:after {
+.checkbox-container input:checked~.checkmark:after {
   display: block;
 }
+
 .checkbox-container .checkmark:after {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -2px;
