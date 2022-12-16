@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 
 @Component({
   selector: 'app-dates-range',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./dates-range.component.css']
 })
 export class DatesRangeComponent {
-
+  constructor(public asideHeaderService: AsideHeaderService) { }
 }
