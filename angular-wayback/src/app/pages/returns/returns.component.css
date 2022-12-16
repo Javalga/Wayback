@@ -7,13 +7,7 @@
     align-items: center;
 }
 
-.returns-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
+
 
 .central-page {
     background-color: var(--primary-color2-dark);
@@ -31,10 +25,12 @@
 }
 
 .cards {
-    width: 100%;
-    height: 30%;
-    display: flex;
-    justify-content: space-evenly;
+width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-bottom: 0.2em;
 
 }
 

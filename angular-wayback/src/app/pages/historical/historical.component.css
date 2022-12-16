@@ -8,7 +8,7 @@
 }
 
 .main_historical_container {
-  min-height: 80%;
+  min-height: 90%;
   width: 90%;
   background-color: var(--primary-color2-dark);
   display: flex;
@@ -78,20 +78,32 @@
   width: fit-content;
 }
 
-.cards {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  justify-content: center;
-}
-
 .table {
-  margin-top: 1em;
+  margin-top: 1.5em;
   width: 85%;
 }
 
 label {
   font-size: 1.5rem;
+}
+
+
+.result-space
+{
+  width: 85%;
+  height: 20%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1.5em;
+}
+
+.result
+{
+  border: 3px solid var(--secondary-color3-dark);
+  width: 15%;
+  height: 100%;
+  color: var(--secondary-color2-dark);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.4em;
 }

@@ -1,15 +1,15 @@
 <div class="main_historical">
     <div class="main_historical_container">
 
-        <div class="accordion desplegable" id="accordionPanelsStayOpenExample">
+        <div class="accordion accordion-flush desplegable" id="accordionFlushExample">
             <div class="accordion-item desplegable-item">
-                <h2 class="accordion-header acordion-main " id="panelsStayOpen-headingOne">
-                    <button class="accordion-button acordion-title" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                <h2 class="accordion-header acordion-main " id="flush-headingOne">
+                    <button class="accordion-button collapsed acordion-title" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOn" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
                         Filtros Avanzados
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div id="flush-collapseOn" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body body-acordion ">
 
                         <div class="incident-input_formColumn">
@@ -65,11 +65,13 @@
             </div>
         </div>
 
-        <div class="cards">
-            <app-card [style]="'height: 5vw; min-width: 15vw;'" [title]="'Resultado'" [value]="'156'"></app-card>
-        </div>
         <div class="table">
             <app-table [style]="'height:40vh'" [rows]="rows" [cols]="cols"></app-table>
         </div>
+
+        <div class="result-space">
+            <div class="result">Resultado: 156</div>
+        </div>
+
     </div>
 </div>

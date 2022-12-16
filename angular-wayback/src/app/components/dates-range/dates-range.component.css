@@ -19,6 +19,6 @@
 
 .date input {
   background: var(--primary-color1-dark);
-  color: white;
+  color:var(--secondary-color2-dark);
   cursor: pointer;
 }

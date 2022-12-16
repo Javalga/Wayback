@@ -7,13 +7,6 @@
   align-items: center;
 }
 
-.solved-pull-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
 
 .central-page {
   background-color: var(--primary-color2-dark);
