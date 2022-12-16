@@ -88,8 +88,7 @@ label {
 }
 
 
-.result-space
-{
+.result-space {
   width: 85%;
   height: 20%;
   display: flex;
@@ -97,8 +96,7 @@ label {
   margin: 1.5em;
 }
 
-.result
-{
+.result {
   border: 3px solid var(--secondary-color3-dark);
   width: 15%;
   height: 100%;

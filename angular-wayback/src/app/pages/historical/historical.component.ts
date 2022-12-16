@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class HistoricalComponent {
   public cols: string[];
   public rows: any
+  public style: string = "height:40vh;";
 
   constructor() {
     this.cols = ["Índice", "Seleccionar", "N* Expedición", "F.Entrada", "F.Salida", "X", "X", "Etiqueta", "Formulario"];
@@ -31,5 +32,11 @@ export class HistoricalComponent {
       ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
       ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
     ]
+  }
+
+  bigTable() {
+    if (this.style === "height:40vh;") {
+      this.style = "height:50vh;";
+    } else this.style = "height:40vh;";
   }
 }
