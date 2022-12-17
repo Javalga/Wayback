@@ -84,8 +84,8 @@ app-aside-li:focus:before {
 
 .profile__container{
   color: var(--secondary-color2-dark);
-  border-top: 5px solid var(--primary-color1-dark);
-  padding: 1em 0;
+  border-top: 2px solid var(--secondary-color3-dark);
+  padding: 2em 0;
 }
 
 .profile__container--title{
