@@ -3,10 +3,13 @@
   font-weight: 700;
   cursor: pointer;
   position: relative;
-  width: 100%;
   pointer-events: all;
+  white-space: nowrap;
 }
-
+.anchor:hover {
+  transition: 50ms ease-in-out all;
+  color: var(--secondary-color3-dark);
+}
 a:focus {
   color: black;
 }
@@ -20,3 +23,9 @@ a:focus {
   background-color: var(--secondary-color1-dark);
   z-index: 999;
 } */
+
+@media screen and (max-width: 1400px) {
+  .anchor {
+    font-size: 1.1rem;
+  }
+}
