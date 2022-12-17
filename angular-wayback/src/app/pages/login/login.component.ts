@@ -5,16 +5,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  constructor(private loginService: LoginService, private router: Router) {}
+  logIn(username:HTMLInputElement) {
 
-  constructor(private loginService: LoginService, private router: Router) {
+    if(username.value != ""){
+    this.loginService.username = username.value;
+    }
 
-  }
-  logIn() {
     this.loginService.isLogged = true;
-    console.log(this.loginService.isLogged)
-    this.router.navigate(['/dashboard'])
+    console.log(this.loginService.isLogged);
+    this.router.navigate(['/dashboard']);
   }
 }

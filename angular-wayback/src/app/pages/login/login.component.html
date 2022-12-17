@@ -2,9 +2,9 @@
   <form class="login_container">
     <img src="../../../assets/logo.png" alt="" class="logo">
     <h2>Iniciar sesión</h2>
-    <input type="text" class="login_input user form-control" placeholder="Usuario">
+    <input type="text" class="login_input user form-control" placeholder="Usuario" #username>
     <input type="text" class="login_input password form-control" placeholder="Contraseña">
     <span>¿Has olvidado tu contraseña?</span>
-    <app-button (click)="logIn()" style=" font-size: 2rem;" [value]="'Iniciar sesión'"></app-button>
+    <app-button (click)="logIn(username)" style=" font-size: 2rem;" [value]="'Iniciar sesión'"></app-button>
   </form>
 </main> 

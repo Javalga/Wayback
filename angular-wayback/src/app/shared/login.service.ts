@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-  public isLogged: boolean = false;
-  public role: string
+  public isLogged: boolean = true;
+  public role: string;
+  public username: string;
+  public warehouse_name: string;
+
   constructor() {
-    this.role = 'SUPER'
+    this.role = 'SUPER';
+    this.username = 'Alberto';
+    this.warehouse_name = "Fuengirola"
   }
 }
 
