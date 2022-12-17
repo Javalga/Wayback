@@ -19,7 +19,8 @@ import { AsideComponent } from './components/aside/aside.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DatesRangeComponent } from './components/dates-range/dates-range.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AsideLiComponent } from './components/aside-li/aside-li.component'
+import { AsideLiComponent } from './components/aside-li/aside-li.component';
+import { UserComponent } from './pages/user/user.component'
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AsideLiComponent } from './components/aside-li/aside-li.component'
     AsideComponent,
     HeaderComponent,
     DatesRangeComponent,
-    AsideLiComponent
+    AsideLiComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

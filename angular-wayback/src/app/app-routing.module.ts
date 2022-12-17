@@ -9,6 +9,7 @@ import { IncidentOutputComponent } from './pages/incident-output/incident-output
 import { ReturnsComponent } from './pages/returns/returns.component';
 import { SolvedPullComponent } from './pages/solved-pull/solved-pull.component';
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
+import { UserComponent } from './pages/user/user.component'
 
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'returns', component: ReturnsComponent },
   { path: 'solved-pull', component: SolvedPullComponent },
   { path: 'user-admin', component: UserAdminComponent },
+  { path: 'user', component: UserComponent },
 ];
 
 @NgModule({
