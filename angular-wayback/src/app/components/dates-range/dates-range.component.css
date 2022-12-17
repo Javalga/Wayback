@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 2em;
   color: white;
   font-size: 1.5rem;
@@ -21,4 +22,9 @@
   background: var(--primary-color1-dark);
   color:var(--secondary-color2-dark);
   cursor: pointer;
+}
+.general-input {
+  background-color: var(--primary-color1-dark);
+  color: var(--secondary-color2-dark);
+  padding: 0.4em;
 }
