@@ -4,79 +4,23 @@
   </div>
   <div class="nav-profile__container">
     <nav class="nav_container">
-      <app-aside-li
-        [value]="'Dashboard'"
-        #dashboard
-        tabindex="0"
-        role="tab"
-        (click)="tab = 0"
-        [ngClass]="{ active: tab === 0, inactive: tab != 0 }"
-      ></app-aside-li>
-      <app-aside-li
-        [value]="'Acciones de Incidencias'"
-        (click)="extend()"
-        tabindex="1"
-        role="tab"
-        (click)="tab = 1"
-        [ngClass]="{ active: tab === 1, inactive: tab != 1 }"
-      ></app-aside-li>
-      <app-aside-li
-        [value]="'Registro de incidencias'"
-        class="extended"
-        *ngIf="isExtended"
-        #incidentInput
-        tabindex="2"
-        role="tab"
-        (click)="tab = 2"
-        [ngClass]="{ active: tab === 2, inactive: tab != 2 }"
-      ></app-aside-li>
-      <app-aside-li
-        [value]="'Pool de solucionadas'"
-        class="extended"
-        *ngIf="isExtended"
-        #solvedPull
-        tabindex="3"
-        role="tab"
-        (click)="tab = 3"
-        [ngClass]="{ active: tab === 3, inactive: tab != 3 }"
-      ></app-aside-li>
-      <app-aside-li
-        [value]="'Devoluciones'"
-        #returns
-        class="extended"
-        *ngIf="isExtended"
-        tabindex="4"
-        role="tab"
-        (click)="tab = 4"
-        [ngClass]="{ active: tab === 4, inactive: tab != 4 }"
-      ></app-aside-li>
-      <app-aside-li
-        [value]="'Salida de incidencias'"
-        class="extended"
-        #incidentOutput
-        *ngIf="isExtended"
-        tabindex="5"
-        role="tab"
-        (click)="tab = 5"
-        [ngClass]="{ active: tab === 5, inactive: tab != 5 }"
-      ></app-aside-li>
-      <app-aside-li
-        [value]="'Histórico'"
-        #historical
-        tabindex="6"
-        role="tab"
-        (click)="tab = 6"
-        [ngClass]="{ active: tab === 6, inactive: tab != 6 }"
-      ></app-aside-li>
-      <app-aside-li
-        [value]="'Administrar Usuarios'"
-        #userAdmin
-        tabindex="7"
-        role="tab"
-        (click)="tab = 7"
+      <app-aside-li [value]="'Dashboard'" tab="0" #dashboard tabindex="0" role="tab" (click)="tab = 0"
+        [ngClass]="{ active: !tab || tab === 0, inactive: tab != 0 }" class="active"></app-aside-li>
+      <app-aside-li [value]="'Acciones de Incidencias'" (click)="extend()" tabindex="1" role="tab" (click)="tab = 1"
+        [ngClass]="{ active: tab === 1, inactive: tab != 1 }"></app-aside-li>
+      <app-aside-li [value]="'Registro de incidencias'" class="extended" *ngIf="isExtended" #incidentInput tabindex="2"
+        role="tab" (click)="tab = 2" [ngClass]="{ active: tab === 2, inactive: tab != 2 }"></app-aside-li>
+      <app-aside-li [value]="'Pool de solucionadas'" class="extended" *ngIf="isExtended" #solvedPull tabindex="3"
+        role="tab" (click)="tab = 3" [ngClass]="{ active: tab === 3, inactive: tab != 3 }"></app-aside-li>
+      <app-aside-li [value]="'Devoluciones'" #returns class="extended" *ngIf="isExtended" tabindex="4" role="tab"
+        (click)="tab = 4" [ngClass]="{ active: tab === 4, inactive: tab != 4 }"></app-aside-li>
+      <app-aside-li [value]="'Salida de incidencias'" class="extended" #incidentOutput *ngIf="isExtended" tabindex="5"
+        role="tab" (click)="tab = 5" [ngClass]="{ active: tab === 5, inactive: tab != 5 }"></app-aside-li>
+      <app-aside-li [value]="'Histórico'" #historical tabindex="6" role="tab" (click)="tab = 6"
+        [ngClass]="{ active: tab === 6, inactive: tab != 6 }"></app-aside-li>
+      <app-aside-li [value]="'Administrar Usuarios'" #userAdmin tabindex="7" role="tab" (click)="tab = 7"
         [ngClass]="{ active: tab === 7, inactive: tab != 7 }"
-        *ngIf="loginService.role === 'SUPER' || loginService.role === 'ADMIN'"
-      ></app-aside-li>
+        *ngIf="loginService.role === 'SUPER' || loginService.role === 'ADMIN'"></app-aside-li>
     </nav>
     <div class="profile__container">
       <div class="profile__container--title">
@@ -95,12 +39,9 @@
         </p>
       </div>
       <div class="profile__container--button--container">
-        <app-button
-          [value]="'Cerrar Sesión'"
-          [style]="
+        <app-button [value]="'Cerrar Sesión'" [style]="
             'background-color: var(--secondary-color1-dark); color: var(--primary-color1-dark); padding: 0.2em 1em; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; box-shadow: none; '
-          "
-        (click)="closeSession()"></app-button>
+          " (click)="closeSession()"></app-button>
       </div>
     </div>
   </div>

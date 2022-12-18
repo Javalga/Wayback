@@ -14,7 +14,7 @@
   border-bottom: 2px solid var(--secondary-color3-dark);
 }
 
-.logo_container>img {
+.logo_container > img {
   width: 120%;
 }
 
@@ -58,12 +58,8 @@ app-aside-li:focus:before {
 
 .active {
   transition: 50ms ease-in-out all;
-  padding-left: 8%;
-  color: var(--secondary-color3-dark);
-
+  color: var(--secondary-color3-dark) !important;
 }
-
-
 
 .active:before {
   content: "";
@@ -84,7 +80,6 @@ app-aside-li:focus:before {
 .extended {
   margin-left: 15%;
 }
-
 
 .profile__container {
   color: var(--secondary-color2-dark);
@@ -108,12 +103,11 @@ app-aside-li:focus:before {
 }
 
 .profile__container--user--title {
-
-  text-align: end
+  text-align: end;
 }
 
 .profile__container--user--title {
-  text-align: start
+  text-align: start;
 }
 
 .profile__container--warehouse {
@@ -126,17 +120,15 @@ app-aside-li:focus:before {
 }
 
 .profile__container--warehouse--title {
-
-  text-align: end
+  text-align: end;
 }
 
 .profile__container--warehouse--data {
-  text-align: start
+  text-align: start;
 }
 
 .profile__container--button--container {
   display: flex;
   justify-content: center;
   margin-top: 1em;
-
 }

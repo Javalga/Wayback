@@ -4,6 +4,7 @@
   position: relative;
   pointer-events: all;
   white-space: nowrap;
+  margin-left: 15px;
 }
 
 .anchor:hover {

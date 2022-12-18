@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 @Component({
@@ -9,14 +9,13 @@ import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 export class AsideLiComponent {
   @Input() value: undefined
   public isActive: boolean
-  public focus: number;
   constructor(private router: Router, private asideHeaderService: AsideHeaderService) { }
 
   listHandler() {
+
     switch (this.value) {
       case 'Dashboard':
         this.asideHeaderService.state = this.value
-        this.focus = 0;
         this.router.navigateByUrl('/dashboard')
         break;
       case 'Registro de incidencias':
@@ -49,4 +48,5 @@ export class AsideLiComponent {
         break;
     }
   }
+
 }
