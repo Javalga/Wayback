@@ -1,15 +1,17 @@
 .anchor {
-  color: #fff;
   font-weight: 700;
   cursor: pointer;
   position: relative;
   pointer-events: all;
   white-space: nowrap;
+  margin-left: 15px;
 }
+
 .anchor:hover {
   transition: 50ms ease-in-out all;
   color: var(--secondary-color3-dark);
 }
+
 a:focus {
   color: black;
 }

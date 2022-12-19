@@ -18,7 +18,7 @@
   width: 120%;
 }
 
-.nav-profile__container{
+.nav-profile__container {
   height: 84vh;
   display: flex;
   flex-direction: column;
@@ -58,8 +58,7 @@ app-aside-li:focus:before {
 
 .active {
   transition: 50ms ease-in-out all;
-  padding-left: 8%;
-  color: var(--secondary-color3-dark);
+  color: var(--secondary-color3-dark) !important;
 }
 
 .active:before {
@@ -75,26 +74,26 @@ app-aside-li:focus:before {
 .inactive {
   transition: 50ms ease-in-out all;
   padding-left: 0%;
+  color: var(--secondary-color2-dark);
 }
 
 .extended {
-    margin-left: 15%;
+  margin-left: 15%;
 }
 
-
-.profile__container{
+.profile__container {
   color: var(--secondary-color2-dark);
   border-top: 2px solid var(--secondary-color3-dark);
   padding: 2em 0;
 }
 
-.profile__container--title{
+.profile__container--title {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1em;
 }
 
-.profile__container--user{
+.profile__container--user {
   font-size: 1.5rem;
   display: flex;
   width: 90%;
@@ -103,15 +102,15 @@ app-aside-li:focus:before {
   gap: 0.5em;
 }
 
-.profile__container--user--title{
-
-  text-align: end
-}
-.profile__container--user--title{
-  text-align: start
+.profile__container--user--title {
+  text-align: end;
 }
 
-.profile__container--warehouse{
+.profile__container--user--title {
+  text-align: start;
+}
+
+.profile__container--warehouse {
   font-size: 1.5rem;
   display: flex;
   width: 90%;
@@ -120,21 +119,16 @@ app-aside-li:focus:before {
   gap: 0.5em;
 }
 
-.profile__container--warehouse--title{
-
-  text-align: end
-}
-.profile__container--warehouse--data{
-  text-align: start
+.profile__container--warehouse--title {
+  text-align: end;
 }
 
-.profile__container--button--container{
+.profile__container--warehouse--data {
+  text-align: start;
+}
+
+.profile__container--button--container {
   display: flex;
   justify-content: center;
   margin-top: 1em;
-  
 }
-
-
-
-
