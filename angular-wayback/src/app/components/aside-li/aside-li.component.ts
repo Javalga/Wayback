@@ -15,36 +15,44 @@ export class AsideLiComponent {
 
     switch (this.value) {
       case 'Dashboard':
-        this.asideHeaderService.state = this.value
-        this.router.navigateByUrl('/dashboard')
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/dashboard');
         break;
       case 'Registro de incidencias':
-        this.asideHeaderService.state = this.value
-        this.router.navigateByUrl('/incident-input')
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/incident-input');
         break;
       case 'Pool de solucionadas':
-        this.asideHeaderService.state = this.value
-        this.router.navigateByUrl('/solved-pull')
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/solved-pull');
         break;
       case 'Registro de incidencias':
-        this.asideHeaderService.state = this.value
-        this.router.navigateByUrl('/incident-input')
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/incident-input');
         break;
       case 'Devoluciones':
-        this.asideHeaderService.state = this.value
-        this.router.navigateByUrl('/returns')
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/returns');
         break;
       case 'Salida de incidencias':
-        this.asideHeaderService.state = this.value
-        this.router.navigateByUrl('/incident-output')
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/incident-output');
         break;
       case 'Histórico':
-        this.asideHeaderService.state = this.value
-        this.router.navigateByUrl('/historical')
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/historical');
         break;
-      case 'Administrar Usuarios':
-        this.asideHeaderService.state = this.value
-        this.router.navigateByUrl('/user-admin')
+      case 'Localidades':
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/locations');
+        break;
+      case 'Almacenes':
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/warehouses');
+        break;
+      case 'Usuarios':
+        this.asideHeaderService.state = this.value;
+        this.router.navigateByUrl('/user-admin');
         break;
     }
   }

@@ -27,7 +27,7 @@
                     <div class="user-admin_formInput">
                         <div class="user-admin_formGroup">
                             <div class="user-admin_formColumnShort">
-                                <label>Código</label>
+                                <label>Username</label>
                                 <input class="user-admin_inputShort">
 
                             </div>
@@ -57,8 +57,14 @@
                             </div>
                         </div>
                         <label>Tipo de Usuario</label>
-                        <input class="user-admin_input">
-                        <label>Cliente Titular</label>
+                        <!-- <input class="user-admin_input"> -->
+                        <select class="user-admin_input">
+                            <option disabled selected>Selecciona una opción</option>
+                            <option *ngFor="let role of this.RolesService.roles">
+                                {{role.name}}
+                            </option>
+                        </select>
+                        <label>Almacén</label>
                         <input class="user-admin_input">
                     </div>
                 </div>
@@ -67,8 +73,14 @@
                     <div class="user-admin_formInput3">
 
                         <div class="user-admin_location">
-                            <label>Ubicación</label>
-                            <input class="user-admin_input">
+                            <label>Localidad</label>
+                            <!-- <input class="user-admin_input"> -->
+                            <select class="user-admin_input">
+                            <option disabled selected>Selecciona una opción</option>
+                            <option *ngFor="let location of this.LocationService.locations">
+                                {{location.name}}
+                            </option>
+                        </select>
                         </div>
                         <div class="user-admin_formGroupActivo">
                             <div class="user-admin_formGroup">

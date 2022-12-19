@@ -95,6 +95,7 @@
 .incident-input_input {
   width: 15vw;
   background-color: var(--primary-color2-dark);
+  color: white
 }
 
 .incident-input_inputShort {

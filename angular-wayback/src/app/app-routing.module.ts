@@ -10,6 +10,9 @@ import { ReturnsComponent } from './pages/returns/returns.component';
 import { SolvedPullComponent } from './pages/solved-pull/solved-pull.component';
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { UserComponent } from './pages/user/user.component'
+import { LocationsComponent } from './pages/locations/locations.component';
+import { WarehousesComponent } from './pages/warehouses/warehouses.component';
+
 
 
 
@@ -25,6 +28,8 @@ const routes: Routes = [
   { path: 'solved-pull', component: SolvedPullComponent },
   { path: 'user-admin', component: UserAdminComponent },
   { path: 'user', component: UserComponent },
+  { path: 'locations', component: LocationsComponent },
+  { path: 'warehouses', component: WarehousesComponent },
 ];
 
 @NgModule({

@@ -8,13 +8,10 @@
           <div class="incident-output_city">
             <p>Salida de:</p>
             <select name="filter_type" class="general-input" #filter_type>
-              <option value="" class="general-input">Usuario mega largo</option>
-              <option value="" class="general-input">Usuario2</option>
-              <option value="" class="general-input">Usuario mucho mas largo todavia</option>
-              <option value="" class="general-input">Usuario4</option>
-              <option value="" class="general-input">Usuario5</option>
-              <option value="" class="general-input">Usuario6</option>
-
+              <option disabled selected>Selecciona una opción</option>
+              <option *ngFor="let warehouse of WarehouseService.warehouses">
+                  {{warehouse.name}}
+              </option>  
             </select>
           </div>
         </div>

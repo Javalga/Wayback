@@ -6,20 +6,17 @@
                 <div class="incident-input_city">
                     <p>Entrada en:</p>
                     <select name="filter_type" class="general-input" #filter_type>
-                        <option value="" class="general-input">Usuario mega largo</option>
-                        <option value="" class="general-input">Usuario2</option>
-                        <option value="" class="general-input">Usuario mucho mas largo todavia</option>
-                        <option value="" class="general-input">Usuario4</option>
-                        <option value="" class="general-input">Usuario5</option>
-                        <option value="" class="general-input">Usuario6</option>
-
+                        <option disabled selected>Selecciona una opción</option>
+                        <option *ngFor="let warehouse of WarehouseService.warehouses">
+                            {{warehouse.name}}
+                        </option>  
                     </select>
                 </div>
             </div>
             <div class="incident-input_form1">
 
                 <div class="incident-input_formColumn">
-                    <div class="incident-input-formInput">
+                    <div class="incident-input-formInput"> 
                         <label>Nº Expedición</label>
                     </div>
                 </div>
@@ -33,12 +30,19 @@
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
                         <label>Tipo de incidencia</label>
+                        
                     </div>
                 </div>
 
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
-                        <input value={{incidence.incidence_type}} class="incident-input_input">
+                        <!-- <input value={{incidence.incidence_type}} class="incident-input_input"> -->
+                        <select class="incident-input_input">
+                            <option disabled selected>Selecciona una opción</option>
+                            <option *ngFor="let type of IncidenceTypeService.incidence_type">
+                                {{type.name}}
+                            </option> 
+                        </select>
                     </div>
                 </div>
 

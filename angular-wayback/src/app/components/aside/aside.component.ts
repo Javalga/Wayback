@@ -8,13 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./aside.component.css'],
 })
 export class AsideComponent {
-  public isExtended: boolean;
+  public isExtended_incidences: boolean;
+  public isExtended_admin: boolean;
   constructor(public loginService: LoginService, private router: Router) {
-    this.isExtended = false;
+    this.isExtended_incidences = false;
   }
-  extend() {
-    this.isExtended = !this.isExtended;
+  extend_incidences() {
+    this.isExtended_incidences = !this.isExtended_incidences;
+
   }
+  extend_admin() {
+    this.isExtended_admin = !this.isExtended_admin;
+  
+  }
+
   public closeSession() {
     this.loginService.isLogged = false;
     this.router.navigateByUrl('/login');

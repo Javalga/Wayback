@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   padding: 2em;
   gap: 1em;
 }
@@ -67,7 +66,6 @@
   width: 15vw;
   background-color: var(--primary-color2-dark);
   padding: 10px;
-  color: white
 }
 
 .user-admin_form {
@@ -112,12 +110,12 @@
 }
 
 .user-admin_formInput3 {
-  height: 74.5%;
+  height: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1em;
-  gap: 0.5em;
+  
 }
 
 .user-admin_inputShort {
@@ -153,7 +151,7 @@
 
 .user-admin_btnContainerRight {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
 }
 
 .user-admin_btnContainerX {
