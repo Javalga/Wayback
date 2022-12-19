@@ -66,6 +66,7 @@
   width: 15vw;
   background-color: var(--primary-color2-dark);
   padding: 10px;
+  color: white;
 }
 
 .user-admin_form {

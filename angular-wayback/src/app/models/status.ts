@@ -6,3 +6,4 @@ export class Status {
     this.name = name;
   }
 }
+ 

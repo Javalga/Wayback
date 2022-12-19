@@ -32,7 +32,13 @@
                 <div class="user-admin_formColumn">
                     <div class="user-admin_formInput">
                         <label>Localidad</label>
-                        <input class="user-admin_input">
+                        <!-- <input class="user-admin_input"> -->
+                        <select class="user-admin_input">
+                            <option disabled selected>Selecciona una opción</option>
+                            <option *ngFor="let location of this.LocationService.locations">
+                                {{location.name}}
+                            </option>
+                        </select>
                     </div>
                 </div>
 
