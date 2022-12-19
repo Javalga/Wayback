@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LoginService {
-  public isLogged: boolean = true;
+  public isLogged: boolean = false;
   public role: string;
   public username: string;
   public warehouse_name: string;

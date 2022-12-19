@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private loginService: LoginService, private router: Router) {}
-  logIn(username:HTMLInputElement) {
+  constructor(private loginService: LoginService, private router: Router) {
+    this.loginService.isLogged = false
+  }
+  logIn(username: HTMLInputElement) {
 
-    if(username.value != ""){
-    this.loginService.username = username.value;
+    if (username.value != "") {
+      this.loginService.username = username.value;
     }
 
     this.loginService.isLogged = true;

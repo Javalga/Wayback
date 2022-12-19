@@ -1,90 +1,87 @@
 <div class="returns-main">
 
-    
 
-        <div class="central-page">
 
-            <div class="accordion accordion-flush desplegable" id="accordionFlushExample">
-                <div class="accordion-item desplegable-item">
-                    <h2 class="accordion-header acordion-main " id="flush-headingOne">
-                        <button class="accordion-button collapsed acordion-title" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                            aria-controls="flush-collapseOne">
-                            Filtros Avanzados
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body body-acordion">
+    <div class="central-page">
 
-                            <div class="incident-input_formColumn">
-                                <div class="incident-input-formInput">
-                                    <label>Expedición:</label>
-                                </div>
-                                <div class="incident-input-formInput">
-                                    <label>Ubicación:</label>
-                                </div>
+        <div class="accordion accordion-flush desplegable" id="accordionFlushExample">
+            <div class="accordion-item desplegable-item">
+                <h2 class="accordion-header acordion-main " id="flush-headingOne">
+                    <button class="accordion-button collapsed acordion-title" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Filtros Avanzados
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body body-acordion">
+
+                        <div class="incident-input_formColumn">
+                            <div class="incident-input-formInput">
+                                <label>Expedición:</label>
                             </div>
-
-                            <div class="incident-input_formColumn">
-                                <div class="incident-input-formInput">
-                                    <input class="incident-input_input">
-                                </div>
-                                <div class="incident-input-formInput">
-                                    <input class="incident-input_input">
-                                </div>
+                            <div class="incident-input-formInput">
+                                <label>Ubicación:</label>
                             </div>
+                        </div>
 
-                            <div class="incident-input_formColumn">
-                                <div class="incident-input-formInput">
-                                    <label>Tipo Incidencia:</label>
-                                </div>
-
+                        <div class="incident-input_formColumn">
+                            <div class="incident-input-formInput">
+                                <input class="incident-input_input">
                             </div>
+                            <div class="incident-input-formInput">
+                                <input class="incident-input_input">
+                            </div>
+                        </div>
 
-                            <div class="incident-input_formColumn">
-                                <div class="incident-input-formInput">
-                                    <input class="incident-input_input">
-                                </div>
+                        <div class="incident-input_formColumn">
+                            <div class="incident-input-formInput">
+                                <label>Tipo Incidencia:</label>
                             </div>
 
                         </div>
-                    </div>
-                </div>
-            </div>
 
-
-
-
-            <div class="cards">
-                <app-card [style]="'height: 10vw; min-width: 15vw;'" [title]="'Cart Extra'" [value]="'X'"></app-card>
-                <app-card [style]="'height: 10vw; min-width: 15vw;'" [title]="'Devoluciones Pendientes'"
-                    [value]="'156'"></app-card>
-                <app-card [style]="'height: 10vw; min-width: 15vw;'" [title]="'Devoluciones Seleccionadas'"
-                    [value]="'156'"></app-card>
-            </div>
-            <app-button [style]="'font-size:2rem; min-width: 30vw'" [value]="value"></app-button>
-
-            <div class="accordion accordion-flush desplegable" id="accordionTable">
-                <div class="accordion-item desplegable-item">
-                    <h2 class="accordion-header acordion-main " id="flush-headingTwo">
-                        <button class="accordion-button collapsed acordion-title" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                            aria-controls="flush-collapseTwo">
-                            Visualizar Expediciones
-                        </button>
-                    </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                        data-bs-parent="#accordionTable">
-                        <div class="accordion-body body-acordion">
-                            <app-table class="table" [rows]="rows" [cols]="cols"
-                                [style]="'font-size:1.5rem; '"></app-table>
+                        <div class="incident-input_formColumn">
+                            <div class="incident-input-formInput">
+                                <input class="incident-input_input">
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-
         </div>
 
-    
+
+
+
+        <div class="cards">
+            <app-card [style]="'height: 10vw; width: 15vw;'" [title]="'Cart Extra'" [value]="'X'"></app-card>
+            <app-card [style]="'height: 10vw; width: 15vw;'" [title]="'Devoluciones Pendientes'"
+                [value]="'156'"></app-card>
+            <app-card [style]="'height: 10vw; width: 15vw;'" [title]="'Devoluciones Seleccionadas'"
+                [value]="'156'"></app-card>
+        </div>
+        <app-button [style]="'font-size:2rem; width: 30vw'" [value]="value"></app-button>
+
+        <div class="accordion accordion-flush desplegable" id="accordionTable">
+            <div class="accordion-item desplegable-item">
+                <h2 class="accordion-header acordion-main " id="flush-headingTwo">
+                    <button class="accordion-button collapsed acordion-title" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        Visualizar Expediciones
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#accordionTable">
+                    <div class="accordion-body body-acordion">
+                        <app-table class="table" [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; '"></app-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </div>

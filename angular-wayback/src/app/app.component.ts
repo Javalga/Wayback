@@ -10,11 +10,10 @@ export class AppComponent implements OnInit {
   title = 'angular-wayback';
   public isLogged: boolean
   public appState: string
-  constructor(private loginService: LoginService) {
-    this.isLogged = loginService.isLogged
+  constructor(public loginService: LoginService) {
   }
 
   ngOnInit(): void {
-    console.log(this.isLogged)
+    console.log(this.loginService.isLogged)
   }
 }

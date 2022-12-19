@@ -5,7 +5,7 @@
   <div class="nav-profile__container">
     <nav class="nav_container">
       <app-aside-li [value]="'Dashboard'" tab="0" #dashboard tabindex="0" role="tab" (click)="tab = 0"
-        [ngClass]="{ active: !tab || tab === 0, inactive: tab != 0 }" class="active"></app-aside-li>
+        [ngClass]="{ active: !tab || tab === 0, inactive: tab != 0 }"></app-aside-li>
       <app-aside-li [value]="'Acciones de Incidencias'" (click)="extend()" tabindex="1" role="tab" (click)="tab = 1"
         [ngClass]="{ active: tab === 1, inactive: tab != 1 }"></app-aside-li>
       <app-aside-li [value]="'Registro de incidencias'" class="extended" *ngIf="isExtended" #incidentInput tabindex="2"
