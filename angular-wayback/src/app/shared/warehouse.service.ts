@@ -8,14 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class WarehouseService {
   public warehouses: Warehouse[];
   private url: string;
-  constructor(private http: HttpClient) {
-    // this.warehouses = [
-    //   new Warehouse('Carabanchel', 'Madrid'),
-    //   new Warehouse('Macarena', 'Sevilla'),
-    //   new Warehouse('Toledana', 'Avila'),
-    //   new Warehouse('Zona Franca', 'Barcelona'),
-    // ];
-  }
+  constructor(private http: HttpClient) {}
 
   public getWarehouses() {
     this.url = 'http://localhost:3000/warehouses';

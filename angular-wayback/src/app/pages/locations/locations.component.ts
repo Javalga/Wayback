@@ -20,16 +20,9 @@ export class LocationsComponent {
 
       this.cols = ['Indice', 'Nombre', 'Eliminar'];
       this.rows = [];
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < this.locations.length; i++) {
         this.rows.push([this.locations[i].name, 'icono']);
       }
     });
-
-    // console.log(this.locations);                        // hay que meterlo dentro porque sino se carga uno antes que el otro y da error
-    // this.cols = ['Indice', 'Nombre', 'Eliminar'];
-    // this.rows = [];
-    // for (let i = 0; i < 4; i++) {
-    //   this.rows.push([this.locations[i].name, 'icono']);
-    // }
   }
 }

@@ -7,7 +7,7 @@
                     <p>Entrada en:</p>
                     <select name="filter_type" class="general-input" #filter_type>
                         <option disabled selected>Selecciona una opción</option>
-                        <option *ngFor="let warehouse of WarehouseService.warehouses">
+                        <option *ngFor="let warehouse of this.warehouses">
                             {{warehouse.name}}
                         </option>  
                     </select>
@@ -39,7 +39,7 @@
                         <!-- <input value={{incidence.incidence_type}} class="incident-input_input"> -->
                         <select class="incident-input_input">
                             <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let type of IncidenceTypeService.incidence_type">
+                            <option *ngFor="let type of this.incidence_type">
                                 {{type.name}}
                             </option> 
                         </select>

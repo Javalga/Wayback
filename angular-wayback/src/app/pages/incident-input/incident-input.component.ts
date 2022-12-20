@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { Incidence } from 'src/app/models/incidence';
 import { IncidenceService } from 'src/app/shared/incidence.service';
 import { IncidenceTypeService } from 'src/app/shared/incidence-type.service';
+import { IncidenceType } from 'src/app/models/incidence-type';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
+import { Warehouse } from 'src/app/models/warehouse';
 
 @Component({
   selector: 'app-incident-input',
@@ -24,11 +26,24 @@ export class IncidentInputComponent {
     ''
   );
 
+  public warehouses: Warehouse[];
+  public incidence_type: IncidenceType[];
+
   constructor(
     public incidenceService: IncidenceService,
     public IncidenceTypeService: IncidenceTypeService,
     public WarehouseService: WarehouseService
-  ) {}
+  ) {
+    this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
+      this.warehouses = data;
+    });
+
+    this.IncidenceTypeService.getIncidence_type().subscribe(
+      (data: IncidenceType[]) => {
+        this.incidence_type = data;
+      }
+    );
+  }
 
   registrarIncidencia(number_expedient) {
     this.incidenceService.getIncidence(number_expedient);

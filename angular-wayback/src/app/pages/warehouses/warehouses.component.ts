@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {WarehouseService} from 'src/app/shared/warehouse.service'
+import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
-import {Warehouse} from 'src/app/models/warehouse';
+import { Warehouse } from 'src/app/models/warehouse';
 
 @Component({
   selector: 'app-warehouses',
@@ -14,38 +14,27 @@ export class WarehousesComponent {
   public cols: string[];
   public rows: any;
   public locations: Location[];
-  public warehouses: Warehouse[]
+  public warehouses: Warehouse[];
 
   constructor(
     public WarehouseService: WarehouseService,
     public LocationService: LocationService
   ) {
-
     this.LocationService.getLocations().subscribe((data: Location[]) => {
       this.locations = data;
     });
 
-    this.WarehouseService.getWarehouses().subscribe((data: Warehouse[])=>{
+    this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
       this.warehouses = data;
       this.cols = ['Indice', 'Nombre', 'Localidad', 'Eliminar'];
       this.rows = [];
       for (let i = 0; i < this.warehouses.length; i++) {
         this.rows.push([
           this.warehouses[i].name,
-          this.warehouses[i].location, //falta arreglar
+          this.warehouses[i].location,
           'icono',
         ]);
       }
-    })
-    // this.cols = ['Indice', 'Nombre', 'Localidad', 'Eliminar'];
-    // this.rows = [];
-    // for (let i = 0; i < WarehouseService.warehouses.length; i++) {
-    //   this.rows.push([
-    //     WarehouseService.warehouses[i].name,
-    //     WarehouseService.warehouses[i].location,
-    //     'icono',
-    //   ]);
-    // }
+    });
   }
 }
- 

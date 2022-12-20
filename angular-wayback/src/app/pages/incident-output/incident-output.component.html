@@ -9,7 +9,7 @@
             <p>Salida de:</p>
             <select name="filter_type" class="general-input" #filter_type>
               <option disabled selected>Selecciona una opción</option>
-              <option *ngFor="let warehouse of WarehouseService.warehouses">
+              <option *ngFor="let warehouse of this.warehouses">
                   {{warehouse.name}}
               </option>  
             </select>

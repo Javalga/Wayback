@@ -60,12 +60,18 @@
                         <!-- <input class="user-admin_input"> -->
                         <select class="user-admin_input">
                             <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let role of this.RolesService.roles">
+                            <option *ngFor="let role of this.roles">
                                 {{role.name}}
                             </option>
                         </select>
                         <label>Almacén</label>
-                        <input class="user-admin_input">
+                        <!-- <input class="user-admin_input"> -->
+                        <select class="user-admin_input">
+                            <option disabled selected>Selecciona una opción</option>
+                            <option *ngFor="let warehouse of this.warehouses">
+                                {{warehouse.name}}
+                            </option>
+                        </select>
                     </div>
                 </div>
 
@@ -77,7 +83,7 @@
                             <!-- <input class="user-admin_input"> -->
                             <select class="user-admin_input">
                             <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let location of this.LocationService.locations">
+                            <option *ngFor="let location of this.locations">
                                 {{location.name}}
                             </option>
                         </select>
