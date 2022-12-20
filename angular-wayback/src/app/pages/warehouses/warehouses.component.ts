@@ -3,6 +3,7 @@ import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
 import { Warehouse } from 'src/app/models/warehouse';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-warehouses',
@@ -15,11 +16,14 @@ export class WarehousesComponent {
   public rows: any;
   public locations: Location[];
   public warehouses: Warehouse[];
+  public warehouse: Warehouse;
 
   constructor(
     public WarehouseService: WarehouseService,
     public LocationService: LocationService
   ) {
+    this.warehouse = new Warehouse('', '');
+
     this.LocationService.getLocations().subscribe((data: Location[]) => {
       this.locations = data;
     });
@@ -36,5 +40,10 @@ export class WarehousesComponent {
         ]);
       }
     });
+  }
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+    console.log(this.warehouse);
   }
 }
