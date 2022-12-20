@@ -23,6 +23,7 @@ import { AsideLiComponent } from './components/aside-li/aside-li.component';
 import { UserComponent } from './pages/user/user.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component'
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { WarehousesComponent } from './pages/warehouses/warehouses.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

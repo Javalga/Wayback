@@ -1,21 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Location } from 'src/app/models/location';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocationService {
-
   public locations: Location[];
-  constructor() {
+  private url: string;
 
-    this.locations = [
-      new Location('Madrid'),
-      new Location('Sevilla'),
-      new Location('Avila'),
-      new Location('Barcelona'),
-    ];
+  constructor(
+    private http: HttpClient
+    ) {
+    // this.locations = [
+    //   new Location('Madrid'),
+    //   new Location('Sevilla'),
+    //   new Location('Avila'),
+    //   new Location('Barcelona'),
+    // ];
   }
 
-  
+  public getLocations() {
+    this.url = 'http://wayback-api-production.up.railway.app/locations';
+    return this.http.get(this.url);
+  }
 }

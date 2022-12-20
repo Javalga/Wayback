@@ -35,7 +35,7 @@
                         <!-- <input class="user-admin_input"> -->
                         <select class="user-admin_input">
                             <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let location of this.LocationService.locations">
+                            <option *ngFor="let location of this.locations">
                                 {{location.name}}
                             </option>
                         </select>
