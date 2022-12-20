@@ -21,7 +21,7 @@ export class LocationService {
   }
 
   public getLocations() {
-    this.url = 'http://wayback-api-production.up.railway.app/locations';
+    this.url = 'http://localhost:7455/locations';
     return this.http.get(this.url);
   }
 }
