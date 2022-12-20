@@ -23,11 +23,14 @@ table {
 }
 
 .active {
-  background-color: var(--primary-color2-dark);
-  color: var(--secondary-color3-dark);
+  color: var(--secondary-color1-dark);
+  font-weight: 700;
 }
-
 
 .inactive {
   background-color: var(--primary-color1-dark);
+}
+
+tr {
+  cursor: pointer;
 }
