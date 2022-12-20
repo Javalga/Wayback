@@ -21,7 +21,7 @@ export class LocationService {
   }
 
   public getLocations() {
-    this.url = 'http://localhost:7455/locations';
+    this.url = 'http://localhost:3000/locations';
     return this.http.get(this.url);
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {LocationService} from "src/app/shared/location.service"
 import { LoginService } from 'src/app/shared/login.service';
+import { Location } from 'src/app/models/location';
 
 @Component({
   selector: 'app-locations',
@@ -11,12 +12,24 @@ export class LocationsComponent {
   public value: string = 'Filtrar';
   public cols: string[];
   public rows: any;
+  public locations: Location[];
 
   constructor(public LocationService: LocationService) {
-    this.cols = ['Indice', 'Nombre', 'Eliminar'];
-    this.rows = [];
-    for(let i = 0; i < LocationService.locations.length; i++){
-      this.rows.push([LocationService.locations[i].name, "icono"])
-    }
+    this.LocationService.getLocations().subscribe((data: Location[]) => {
+      this.locations = data;
+
+      this.cols = ['Indice', 'Nombre', 'Eliminar'];
+      this.rows = [];
+      for (let i = 0; i < 4; i++) {
+        this.rows.push([this.locations[i].name, 'icono']);
+      }
+    });
+
+    // console.log(this.locations);                        // hay que meterlo dentro porque sino se carga uno antes que el otro y da error
+    // this.cols = ['Indice', 'Nombre', 'Eliminar'];
+    // this.rows = [];
+    // for (let i = 0; i < 4; i++) {
+    //   this.rows.push([this.locations[i].name, 'icono']);
+    // }
   }
 }
