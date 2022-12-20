@@ -33,7 +33,7 @@
   filter: drop-shadow(4px 15px 38px #000);
 }
 
-.login_container>h2 {
+.login_container > h2 {
   color: white;
   text-align: center;
   font-size: 4rem;
@@ -53,9 +53,9 @@
   font-size: 2rem;
   color: white;
   margin-bottom: 2em;
-  -webkit-box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.43);
-  -moz-box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.43);
-  box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.43);
+  -webkit-box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 10px 10px 27px -4px rgba(0, 0, 0, 0.25);
   cursor: text;
 }
 
@@ -67,7 +67,7 @@
   margin-bottom: 1em !important;
 }
 
-.login_container>span {
+.login_container > span {
   color: #808080;
   align-self: flex-end;
   text-align: end;
@@ -77,9 +77,21 @@
   margin-bottom: 2em;
 }
 
-.login_container>span:hover {
+.login_container > span:hover {
   transition: 100ms ease-in-out all;
   color: #fff;
   text-decoration: underline;
   cursor: pointer;
+}
+.customModal {
+  position: absolute;
+  z-index: 99000099;
+  top: 10%;
+  left: 50%;
+  width: 33%;
+  transform: translate(-50%, -50%);
+}
+
+.disabled {
+  opacity: 0.4;
 }

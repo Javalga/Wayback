@@ -58,7 +58,7 @@ app-aside-li:focus:before {
 
 .active {
   transition: 50ms ease-in-out all;
-  color: var(--secondary-color3-dark) !important;
+  color: var(--secondary-color1-dark) !important;
 }
 
 .active:before {
