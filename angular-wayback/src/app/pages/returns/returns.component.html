@@ -62,7 +62,7 @@
             <app-card [style]="'height: 10vw; width: 15vw;'" [title]="'Devoluciones Seleccionadas'"
                 [value]="'156'"></app-card>
         </div>
-        <app-button [style]="'font-size:2rem; width: 30vw'" [value]="value"></app-button>
+        <app-button [style]="'font-size:2rem; width: 30vw'" [value]="value" (click)="printSelected()"></app-button>
 
         <div class="accordion accordion-flush desplegable" id="accordionTable">
             <div class="accordion-item desplegable-item">
@@ -75,7 +75,8 @@
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                     data-bs-parent="#accordionTable">
                     <div class="accordion-body body-acordion">
-                        <app-table class="table" [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; '"></app-table>
+                        <app-table #table class="table" [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; '"
+                            (sendSelected)="sendSelected($event)"></app-table>
                     </div>
                 </div>
             </div>

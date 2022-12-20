@@ -6,10 +6,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of rows; index as index">
-        <th scope="row" style="background-color: var(--primary-color1-dark)">{{index}}</th>
-        <td *ngFor=" let data of row" style="background-color: var(--primary-color1-dark);">{{data}}</td>
+      <tr *ngFor="let row of rows; index as index" (click)="selected(index)">
+        <th scope="row" [ngClass]="{ active: index === selectedOne(index), inactive: index != selectedOne(index) }">
+          {{index}}</th>
+        <td *ngFor=" let data of row"
+          [ngClass]="{ active: index === selectedOne(index), inactive: index != selectedOne(index) }">{{data}}</td>
       </tr>
     </tbody>
   </table>
-</div> 
+</div>

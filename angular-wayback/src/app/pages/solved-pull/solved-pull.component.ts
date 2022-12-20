@@ -10,6 +10,7 @@ export class SolvedPullComponent {
   public cols: string[];
   public rows: any
   public show = true;
+  public selected;
 
   constructor() {
     this.cols = ["Índice", "Seleccionar", "N* Expedición", "F.Entrada", "F.Salida", "X", "X", "Etiqueta", "Formulario"];
@@ -22,8 +23,12 @@ export class SolvedPullComponent {
     ]
   }
 
-  swap() {
-    this.show = this.show ? false : true
+  sendSelected(selected) {
+    this.selected = selected;
+  }
+
+  printSelected() {
+    console.log(this.selected)
   }
 
 

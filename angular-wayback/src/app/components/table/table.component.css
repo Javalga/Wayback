@@ -21,3 +21,13 @@ table {
 .table_container::-webkit-scrollbar-thumb {
   background-color: var(--secondary-color1-dark);
 }
+
+.active {
+  background-color: var(--primary-color2-dark);
+  color: var(--secondary-color3-dark);
+}
+
+
+.inactive {
+  background-color: var(--primary-color1-dark);
+}
