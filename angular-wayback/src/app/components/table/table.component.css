@@ -24,7 +24,6 @@ table {
 
 .active {
   color: var(--secondary-color1-dark);
-  font-weight: 700;
 }
 
 .inactive {
