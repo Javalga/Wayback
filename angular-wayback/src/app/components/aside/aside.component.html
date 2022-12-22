@@ -20,7 +20,8 @@
         [ngClass]="{ active: tab === 6, inactive: tab != 6 }"></app-aside-li>
       <app-aside-li [value]="'Administrar Usuarios'" (click)="extend_admin()" #userAdmin tabindex="7" role="tab"
         (click)="tab = 7" [ngClass]="{ active: tab === 7, inactive: tab != 7 }"
-        *ngIf="loginService.role === 'SUPER' || loginService.role === 'ADMIN'"></app-aside-li>
+        *ngIf="loginService.user.role === 1 || loginService.user.role === 2"
+        ></app-aside-li>
 
 
       <app-aside-li [value]="'Localidades'" class="extended" *ngIf="isExtended_admin" #locations tabindex="8" role="tab"
@@ -32,8 +33,8 @@
 
     </nav>
     <div class="profile__container">
-      <p>Usuario: <strong>{{loginService.username}}</strong></p>
-      <p>Almacen: <strong>{{loginService.warehouse_name}}</strong></p>
+      <p>Usuario: <strong>{{loginService.user.username}}</strong></p>
+      <p *ngIf="loginService.user.warehouse">Almacen: <strong>{{loginService.user.warehouse}}</strong></p>
       <app-button [value]="'Cerrar Sesión'" [style]="
             'background-color: var(--secondary-color1-dark); color: var(--primary-color1-dark); padding: 0.2em 1em; font-size: 1.5rem; font-weight: 700; box-shadow: none;margin-top:.5em; '
           " (click)="closeSession()"></app-button>

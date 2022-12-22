@@ -10,6 +10,9 @@ export class User {
   public warehouse: string;
   public location: string;
   public active: boolean;
+  public role_id: number;
+  public warehouse_id: number;
+  public location_id: number; 
 
   constructor(
     username?: string,
@@ -19,7 +22,10 @@ export class User {
     mail?: string,
     warehouse?: string,
     location?: string,
-    active?: boolean
+    active?: boolean,
+    role_id?: number,
+    warehouse_id?: number,
+    location_id?: number, 
   ) {
     this.username = username;
     this.password = password;
@@ -29,6 +35,9 @@ export class User {
     this.warehouse = warehouse;
     this.location = location;
     this.active = active
+    this.role_id = role_id;
+    this.warehouse_id = warehouse_id;
+    this.location_id = location_id; 
 
   }
 }

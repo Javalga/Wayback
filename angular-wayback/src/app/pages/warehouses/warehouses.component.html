@@ -32,9 +32,9 @@
                     <div class="user-admin_formColumn">
                         <div class="user-admin_formInput">
                             <label>Localidad</label>                          
-                            <select class="user-admin_input" name="location" [(ngModel)]="warehouse.location" >
+                            <select class="user-admin_input" name="location" [(ngModel)]="warehouse.location_id" >
                                 <option disabled selected>Selecciona una opción</option>
-                                <option *ngFor="let location of this.locations" [value]="location.name">
+                                <option *ngFor="let location of this.locations" [value]="location.location_id">
                                     {{location.name}}
                                 </option>
                             </select>

@@ -31,7 +31,7 @@ export class LoginComponent {
           data[0].role_id,
           data[0].mail,
           data[0].warehouse_id,
-          data[0].locatiom_id,
+          data[0].location_id,
           data[0].active)
         console.log(this.loginService.user);
         this.router.navigateByUrl('/dashboard');

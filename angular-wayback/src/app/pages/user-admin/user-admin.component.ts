@@ -7,6 +7,7 @@ import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { Warehouse } from 'src/app/models/warehouse';
+import { NgForm } from '@angular/forms';
 
 // hay que hacer que las opcions de almacén se filtren cuando se indica la localidad
 
@@ -17,7 +18,6 @@ import { Warehouse } from 'src/app/models/warehouse';
   styleUrls: ['./user-admin.component.css'],
 })
 export class UserAdminComponent {
-
   @ViewChild('username') username;
   @ViewChild('pass') pass;
   @ViewChild('name') name;
@@ -35,6 +35,7 @@ export class UserAdminComponent {
   public users: User[];
   public warehouses: Warehouse[];
   public selected;
+  public user: User;
 
   constructor(
     public UserService: UserService,
@@ -91,7 +92,7 @@ export class UserAdminComponent {
 
   sendSelected(selected) {
     this.selected = selected;
-    console.log(this.selected)
+    console.log(this.selected);
     this.username.nativeElement.value = this.users[this.selected].username;
     this.pass.nativeElement.value = this.hidePass();
     this.name.nativeElement.value = this.users[this.selected].name;
@@ -99,13 +100,12 @@ export class UserAdminComponent {
     this.role.nativeElement.value = this.users[this.selected].role;
     this.warehouse.nativeElement.value = this.users[this.selected].warehouse;
     this.location.nativeElement.value = this.users[this.selected].location;
-
   }
 
   hidePass() {
-    let passHide = "";
+    let passHide = '';
     for (let i = 0; i < this.users[this.selected].password.length; i++) {
-      passHide += "*"
+      passHide += '*';
     }
     return passHide;
   }
@@ -117,8 +117,10 @@ export class UserAdminComponent {
   }
 
   printSelected() {
-    console.log(this.selected)
+    console.log(this.selected);
   }
 
+  onSubmit(form:NgForm){
 
+  }
 }

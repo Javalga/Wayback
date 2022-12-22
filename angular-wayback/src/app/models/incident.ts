@@ -15,16 +15,16 @@ export class Incidence {
   public delivery_time: string;
 
   constructor(
-    number_expedient: number,
-    status: string,
-    incidence_type: string,
-    customer_name: string,
-    customer_phone: string,
-    customer_mail: string,
-    customer_direction: string,
-    customer_cp: string,
-    customer_poblation: string,
-    warehouse_ubication: string
+    number_expedient?: number,
+    status?: string,
+    incidence_type?: string,
+    customer_name?: string,
+    customer_phone?: string,
+    customer_mail?: string,
+    customer_direction?: string,
+    customer_cp?: string,
+    customer_poblation?: string,
+    warehouse_ubication?: string
   ) {
     this.number_expedient = number_expedient;
     this.status = status;
