@@ -1,4 +1,5 @@
-import { Component, } from '@angular/core';
+import { Component } from '@angular/core';
+
 import { LoginService } from 'src/app/shared/login.service';
 import { Router } from '@angular/router';
 import { ToastService } from 'src/app/shared/toast.service';
@@ -17,13 +18,13 @@ export class LoginComponent {
   logIn(username: HTMLInputElement) {
 
     if (username.value != "") {
-      this.loginService.username = username.value;
+      'this.loginService.username = username.value;'
     }
 
     this.loginService.isLogged = true;
     console.log(this.loginService.isLogged);
     this.router.navigate(['/dashboard']);
-
+    this.loginService.fetchLogin().subscribe((data) => { console.log(data) })
   }
   recover(username) {
     if (username == '') {
