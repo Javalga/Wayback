@@ -22,7 +22,7 @@
       <app-table (sendIndex)="sendSelected($event)" (sendButtonValue)="sendButtonValue($event)" [rows]="rows"
         [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
 
-      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)"> 
+      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
         <div class="user-admin_form">
 
           <div class="user-admin_formColumn">
@@ -35,14 +35,14 @@
                 </div>
                 <div class="user-admin_formColumnShort">
                   <label>Clave</label>
-                  <input class="user-admin_inputShort" #pass>
+                  <input class="user-admin_inputShort" #pass name="password" [(ngModel)]="user.password">
 
                 </div>
               </div>
               <label>Nombre</label>
-              <input class="user-admin_input" #name>
+              <input class="user-admin_input" #name name="name" [(ngModel)]="user.name">
               <label>Email</label>
-              <input class="user-admin_input" #email>
+              <input class="user-admin_input" #email name="mail" [(ngModel)]="user.mail">
             </div>
           </div>
 
@@ -60,39 +60,56 @@
               </div>
               <label>Tipo de Usuario</label>
               <!-- <input class="user-admin_input"> -->
-              <select class="user-admin_input" #role>
+              <select class="user-admin_input" #role name="role_id" [(ngModel)]="user.role_id">
                 <option disabled selected>Selecciona una opción</option>
-                <option *ngFor="let role of this.roles;">
+                <option *ngFor="let role of this.roles;" [value]="role.role_id">
                   {{role.name}}
                 </option>
               </select>
               <label>Almacén</label>
               <!-- <input class="user-admin_input"> -->
-              <select class="user-admin_input" #warehouse>
+              <select class="user-admin_input" #warehouse name="warehouse_id" [(ngModel)]="user.warehouse_id">
                 <option disabled selected>Selecciona una opción</option>
-                <option *ngFor="let warehouse of this.warehouses">
+                <option *ngFor="let warehouse of this.warehouses" [value]="warehouse.warehouse_id">
                   {{warehouse.name}}
                 </option>
               </select>
             </div>
-            <div class="user-admin_formGroupActivo">
-              <div class="user-admin_formGroup">
-                <label>Activo:</label>
-                <div class="user-admin_btnContainerX">
-                  <input type="checkbox" #active>
-                  <!-- <label class="checkbox-container">
-                    <input type="checkbox" checked>
-                     <span class="checkmark"></span>
-                  </label> -->
-                </div>
+          </div>
+
+          <div class="user-admin_formColumn3">
+            <div class="user-admin_formInput3">
+
+              <div class="user-admin_location">
+                <label>Localidad</label>
+                <!-- <input class="user-admin_input"> -->
+                <select class="user-admin_input" #location name="location_id" [(ngModel)]="user.location_id">
+                  <option *ngFor="let location of this.locations" [value]="location.location_id">
+                    {{location.name}}
+                  </option>
+                </select>
               </div>
-              <div class="user-admin_btnContainerRight">
-                <app-button [style]="'font-size:1.3rem;'" [value]="value"></app-button>
+              <div class="user-admin_formGroupActivo">
+                <div class="user-admin_formGroup">
+                  <label>Activo:</label>
+                  <div class="user-admin_btnContainerX">
+                    <input type="checkbox" #active name="active" [(ngModel)]="user.active">
+                    <!-- <label class="checkbox-container">
+                      <input type="checkbox" checked>
+                      <span class="checkmark"></span>
+                    </label> -->
+                  </div>
+                </div>
+                <div class="user-admin_btnContainerRight">
+                  <button>
+                    <app-button [style]="'font-size:1.3rem;'" [value]="value"></app-button>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </form>  
+      </form>
     </div>
   </div>
 </main>
