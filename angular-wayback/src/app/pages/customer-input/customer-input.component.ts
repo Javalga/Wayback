@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {Incidence} from 'src/app/models/incidence'
+import { Incidence } from 'src/app/models/incident'
 import { IncidenceService } from 'src/app/shared/incidence.service'
 
 @Component({
@@ -13,6 +13,6 @@ export class CustomerInputComponent {
 
   }
 
-  onSubmit(ngForm: NgForm){}
+  onSubmit(ngForm: NgForm) { }
 
 }

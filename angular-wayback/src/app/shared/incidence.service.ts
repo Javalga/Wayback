@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Incidence } from 'src/app/models/incidence';
+import { Incidence } from 'src/app/models/incident';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +12,17 @@ export class IncidenceService {
   constructor() {
 
     this.incidence = new Incidence(
-        2686854765919091,
-        'En Almacén',
-        'DIC INCORECTO',
-        'ASOCIACIÓN BASIDA',
-        '918923537',
-        'ASOCIACIÓN_BASIDA@gmail.com',
-        'CTRA ANTIGUA DE TOLEDO KM9',
-        '28300',
-        'ARANJUEZ',
-        'Almacen Fuenlabrada'
-      );
+      2686854765919091,
+      'En Almacén',
+      'DIC INCORECTO',
+      'ASOCIACIÓN BASIDA',
+      '918923537',
+      'ASOCIACIÓN_BASIDA@gmail.com',
+      'CTRA ANTIGUA DE TOLEDO KM9',
+      '28300',
+      'ARANJUEZ',
+      'Almacen Fuenlabrada'
+    );
     this.incidences = [
       new Incidence(              //instanciamos la clase para hacer un ejemplo de vista del form
         2686854765919091,
