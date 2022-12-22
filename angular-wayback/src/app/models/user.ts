@@ -12,14 +12,14 @@ export class User {
   public active: boolean;
 
   constructor(
-    username: string,
-    password: string,
-    name: string,
-    role: string,
-    mail: string,
-    warehouse: string,
-    location: string,
-    active: boolean
+    username?: string,
+    password?: string,
+    name?: string,
+    role?: string,
+    mail?: string,
+    warehouse?: string,
+    location?: string,
+    active?: boolean
   ) {
     this.username = username;
     this.password = password;
