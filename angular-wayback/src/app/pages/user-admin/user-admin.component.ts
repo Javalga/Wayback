@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/shared/user.service';
 import { User } from 'src/app/models/user';
 import { RolesService } from 'src/app/shared/roles.service';
-import {Roles} from 'src/app/models/roles'
+import { Roles } from 'src/app/models/roles'
 import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
@@ -17,6 +17,16 @@ import { Warehouse } from 'src/app/models/warehouse';
   styleUrls: ['./user-admin.component.css'],
 })
 export class UserAdminComponent {
+
+  @ViewChild('username') username;
+  @ViewChild('pass') pass;
+  @ViewChild('name') name;
+  @ViewChild('email') email;
+  @ViewChild('role') role;
+  @ViewChild('warehouse') warehouse;
+  @ViewChild('location') location;
+  @ViewChild('active') active;
+
   public value: string = 'Filtrar';
   public cols: string[];
   public rows: any;
@@ -24,6 +34,7 @@ export class UserAdminComponent {
   public roles: Roles[];
   public users: User[];
   public warehouses: Warehouse[];
+  public selected;
 
   constructor(
     public UserService: UserService,
@@ -77,4 +88,37 @@ export class UserAdminComponent {
       }
     });
   }
+
+  sendSelected(selected) {
+    this.selected = selected;
+    console.log(this.selected)
+    this.username.nativeElement.value = this.users[this.selected].username;
+    this.pass.nativeElement.value = this.hidePass();
+    this.name.nativeElement.value = this.users[this.selected].name;
+    this.email.nativeElement.value = this.users[this.selected].mail;
+    this.role.nativeElement.value = this.users[this.selected].role;
+    this.warehouse.nativeElement.value = this.users[this.selected].warehouse;
+    this.location.nativeElement.value = this.users[this.selected].location;
+
+  }
+
+  hidePass() {
+    let passHide = "";
+    for (let i = 0; i < this.users[this.selected].password.length; i++) {
+      passHide += "*"
+    }
+    return passHide;
+  }
+
+  showPass() {
+    if (this.pass.nativeElement.value === this.hidePass())
+      this.pass.nativeElement.value = this.users[this.selected].password;
+    else this.pass.nativeElement.value = this.hidePass();
+  }
+
+  printSelected() {
+    console.log(this.selected)
+  }
+
+
 }

@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  width: 100%;
   padding: 2em;
   gap: 1em;
 }
@@ -64,7 +64,7 @@
 }
 
 .user-admin_input {
-  width: 15vw;
+  width: 20vw;
   background-color: var(--primary-color2-dark);
   padding: 10px;
   color: white
@@ -72,7 +72,7 @@
 
 .user-admin_form {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   align-items: flex-end;
   background-color: var(--primary-color1-dark);
@@ -121,8 +121,9 @@
 }
 
 .user-admin_inputShort {
-  width: 7vw;
+  width: 9vw;
   background-color: var(--primary-color2-dark);
+  padding: 10px;
 }
 
 .user-admin_formGroup {
@@ -178,13 +179,13 @@
 /*Checkbox*/
 
 .checkbox-container {
-  display: flex;  
+  display: flex;
   cursor: pointer;
   font-size: 22px;
 }
 
-.checkbox-container input:checked ~ .checkmark {
-background-color: var(--secondary-color3-dark);
+.checkbox-container input:checked~.checkmark {
+  background-color: var(--secondary-color3-dark);
 }
 
 .checkbox-container input {
@@ -209,11 +210,12 @@ background-color: var(--secondary-color3-dark);
   display: none
 }
 
-.checkbox-container input:checked ~ .checkmark:after {
+.checkbox-container input:checked~.checkmark:after {
   display: block;
 }
+
 .checkbox-container .checkmark:after {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -2px;

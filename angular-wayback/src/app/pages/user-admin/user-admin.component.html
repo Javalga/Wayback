@@ -1,110 +1,112 @@
 <main class="user-admin_main">
 
-    <div class="user-admin_container">
-        <div class="user-admin_containerFlex">
-            <div class="user-admin_filter">
-                <p>Filtrar por</p>
-                <select name="filter_type" class="general-input" #filter_type>
-                    <option value="" class="general-input">Nombre</option>
-                    <option value="" class="general-input">Email</option>
-                    <option value="" class="general-input">Tipo</option>
-                    <option value="" class="general-input">Activo</option>
-                    <option value="" class="general-input">Ubicación</option>
-                    <option value="" class="general-input">Cliente</option>
+  <div class="user-admin_container">
+    <div class="user-admin_containerFlex">
+      <div class="user-admin_filter">
+        <p>Filtrar por</p>
+        <select name="filter_type" class="general-input" #filter_type>
+          <option value="" class="general-input">Nombre</option>
+          <option value="" class="general-input">Email</option>
+          <option value="" class="general-input">Tipo</option>
+          <option value="" class="general-input">Activo</option>
+          <option value="" class="general-input">Ubicación</option>
+          <option value="" class="general-input">Cliente</option>
 
-                </select>
-                <input class="user-admin_input" placeholder="Alberto">
-                <div class="user-admin_btnContainer">
-                    <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
-                </div>
-            </div>
-
-            <app-table [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
-
-            <div class="user-admin_form">
-
-                <div class="user-admin_formColumn">
-                    <div class="user-admin_formInput">
-                        <div class="user-admin_formGroup">
-                            <div class="user-admin_formColumnShort">
-                                <label>Username</label>
-                                <input class="user-admin_inputShort">
-
-                            </div>
-                            <div class="user-admin_formColumnShort">
-                                <label>Clave</label>
-                                <input class="user-admin_inputShort">
-
-                            </div>
-                        </div>
-                        <label>Nombre</label>
-                        <input class="user-admin_input">
-                        <label>Email</label>
-                        <input class="user-admin_input">
-                    </div>
-                </div>
-
-                <div class="user-admin_formColumn">
-                    <div class="user-admin_formInput">
-                        <div class="user-admin_formGroup">
-                            <div class="user-admin_btnContainer">
-                                <app-button [style]="'font-size:1.2rem;padding:0.3em 1em 0.5em 1em;'"
-                                    [value]="'Cambiar clave'"></app-button>
-                            </div>
-                            <div class="user-admin_btnContainerRight">
-                                <app-button [style]="'font-size:1.2rem;padding:0.3em 1em 0.5em 1em;'"
-                                    [value]="'Mostrar clave'"></app-button>
-                            </div>
-                        </div>
-                        <label>Tipo de Usuario</label>
-                        <!-- <input class="user-admin_input"> -->
-                        <select class="user-admin_input">
-                            <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let role of this.roles">
-                                {{role.name}}
-                            </option>
-                        </select>
-                        <label>Almacén</label>
-                        <!-- <input class="user-admin_input"> -->
-                        <select class="user-admin_input">
-                            <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let warehouse of this.warehouses">
-                                {{warehouse.name}}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="user-admin_formColumn3">
-                    <div class="user-admin_formInput3">
-
-                        <div class="user-admin_location">
-                            <label>Localidad</label>
-                            <!-- <input class="user-admin_input"> -->
-                            <select class="user-admin_input">
-                            <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let location of this.locations">
-                                {{location.name}}
-                            </option>
-                        </select>
-                        </div>
-                        <div class="user-admin_formGroupActivo">
-                            <div class="user-admin_formGroup">
-                                <label>Activo:</label>
-                                <div class="user-admin_btnContainerX">
-                                    <label class="checkbox-container">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="user-admin_btnContainerRight">
-                                <app-button [style]="'font-size:1.3rem;'" [value]="'Crear'"></app-button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </select>
+        <input class="user-admin_input" placeholder="Alberto">
+        <div class="user-admin_btnContainer">
+          <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
         </div>
+      </div>
+
+      <app-table (sendIndex)="sendSelected($event)" [rows]="rows" [cols]="cols"
+        [style]="'font-size:1.5rem; height:30vh;'"></app-table>
+
+      <div class="user-admin_form">
+
+        <div class="user-admin_formColumn">
+          <div class="user-admin_formInput">
+            <div class="user-admin_formGroup">
+              <div class="user-admin_formColumnShort">
+                <label>Username</label>
+                <input class="user-admin_inputShort" #username>
+
+              </div>
+              <div class="user-admin_formColumnShort">
+                <label>Clave</label>
+                <input class="user-admin_inputShort" #pass>
+
+              </div>
+            </div>
+            <label>Nombre</label>
+            <input class="user-admin_input" #name>
+            <label>Email</label>
+            <input class="user-admin_input" #email>
+          </div>
+        </div>
+
+        <div class="user-admin_formColumn">
+          <div class="user-admin_formInput">
+            <div class="user-admin_formGroup">
+              <div class="user-admin_btnContainer">
+                <app-button [style]="'font-size:1.2rem;padding:0.3em 1em 0.5em 1em;'"
+                  [value]="'Cambiar clave'"></app-button>
+              </div>
+              <div class="user-admin_btnContainerRight">
+                <app-button [style]="'font-size:1.2rem;padding:0.3em 1em 0.5em 1em;'" [value]="'Mostrar clave'"
+                  (click)="showPass()"></app-button>
+              </div>
+            </div>
+            <label>Tipo de Usuario</label>
+            <!-- <input class="user-admin_input"> -->
+            <select class="user-admin_input" #role>
+              <option disabled selected>Selecciona una opción</option>
+              <option *ngFor="let role of this.roles;">
+                {{role.name}}
+              </option>
+            </select>
+            <label>Almacén</label>
+            <!-- <input class="user-admin_input"> -->
+            <select class="user-admin_input" #warehouse>
+              <option disabled selected>Selecciona una opción</option>
+              <option *ngFor="let warehouse of this.warehouses">
+                {{warehouse.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="user-admin_formColumn3">
+          <div class="user-admin_formInput3">
+
+            <div class="user-admin_location">
+              <label>Localidad</label>
+              <!-- <input class="user-admin_input"> -->
+              <select class="user-admin_input" #location>
+                <option disabled selected>Selecciona una opción</option>
+                <option *ngFor="let location of this.locations">
+                  {{location.name}}
+                </option>
+              </select>
+            </div>
+            <div class="user-admin_formGroupActivo">
+              <div class="user-admin_formGroup">
+                <label>Activo:</label>
+                <div class="user-admin_btnContainerX">
+                  <input type="checkbox" checked #active>
+                  <!-- <label class="checkbox-container">
+                    <input type="checkbox" checked>
+                     <span class="checkmark"></span>
+                  </label> -->
+                </div>
+              </div>
+              <div class="user-admin_btnContainerRight">
+                <app-button [style]="'font-size:1.3rem;'" [value]="'Crear'"></app-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </main>
