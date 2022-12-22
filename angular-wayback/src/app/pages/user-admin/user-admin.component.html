@@ -15,12 +15,12 @@
         </select>
         <input class="user-admin_input" placeholder="Alberto">
         <div class="user-admin_btnContainer">
-          <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
+          <app-button [style]="'font-size:1.5rem;'" [value]="'Filtrar'"></app-button>
         </div>
       </div>
 
-      <app-table (sendIndex)="sendSelected($event)" [rows]="rows" [cols]="cols"
-        [style]="'font-size:1.5rem; height:30vh;'"></app-table>
+      <app-table (sendIndex)="sendSelected($event)" (sendButtonValue)="sendButtonValue($event)" [rows]="rows"
+        [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
 
       <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)"> 
         <div class="user-admin_form">
@@ -75,35 +75,19 @@
                 </option>
               </select>
             </div>
-          </div>
-
-          <div class="user-admin_formColumn3">
-            <div class="user-admin_formInput3">
-
-              <div class="user-admin_location">
-                <label>Localidad</label>
-                <!-- <input class="user-admin_input"> -->
-                <select class="user-admin_input" #location>
-                  <option disabled selected>Selecciona una opción</option>
-                  <option *ngFor="let location of this.locations">
-                    {{location.name}}
-                  </option>
-                </select>
+            <div class="user-admin_formGroupActivo">
+              <div class="user-admin_formGroup">
+                <label>Activo:</label>
+                <div class="user-admin_btnContainerX">
+                  <input type="checkbox" #active>
+                  <!-- <label class="checkbox-container">
+                    <input type="checkbox" checked>
+                     <span class="checkmark"></span>
+                  </label> -->
+                </div>
               </div>
-              <div class="user-admin_formGroupActivo">
-                <div class="user-admin_formGroup">
-                  <label>Activo:</label>
-                  <div class="user-admin_btnContainerX">
-                    <input type="checkbox" checked #active>
-                    <!-- <label class="checkbox-container">
-                      <input type="checkbox" checked>
-                      <span class="checkmark"></span>
-                    </label> -->
-                  </div>
-                </div>
-                <div class="user-admin_btnContainerRight">
-                  <app-button [style]="'font-size:1.3rem;'" [value]="'Crear'"></app-button>
-                </div>
+              <div class="user-admin_btnContainerRight">
+                <app-button [style]="'font-size:1.3rem;'" [value]="value"></app-button>
               </div>
             </div>
           </div>

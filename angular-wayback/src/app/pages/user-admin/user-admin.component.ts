@@ -27,7 +27,7 @@ export class UserAdminComponent {
   @ViewChild('location') location;
   @ViewChild('active') active;
 
-  public value: string = 'Filtrar';
+  public value: string = 'Crear';
   public cols: string[];
   public rows: any;
   public locations: Location[];
@@ -91,15 +91,27 @@ export class UserAdminComponent {
   }
 
   sendSelected(selected) {
-    this.selected = selected;
-    console.log(this.selected);
-    this.username.nativeElement.value = this.users[this.selected].username;
-    this.pass.nativeElement.value = this.hidePass();
-    this.name.nativeElement.value = this.users[this.selected].name;
-    this.email.nativeElement.value = this.users[this.selected].mail;
-    this.role.nativeElement.value = this.users[this.selected].role;
-    this.warehouse.nativeElement.value = this.users[this.selected].warehouse;
-    this.location.nativeElement.value = this.users[this.selected].location;
+    if (selected != undefined) {
+      this.selected = selected;
+      console.log(this.selected);
+      this.username.nativeElement.value = this.users[this.selected].username;
+      this.pass.nativeElement.value = this.hidePass();
+      this.name.nativeElement.value = this.users[this.selected].name;
+      this.email.nativeElement.value = this.users[this.selected].mail;
+      this.role.nativeElement.value = this.users[this.selected].role;
+      this.warehouse.nativeElement.value = this.users[this.selected].warehouse;
+      this.location.nativeElement.value = this.users[this.selected].location;
+      this.active.nativeElement.checked = this.users[this.selected].active;
+    } else {
+      this.username.nativeElement.value = "";
+      this.pass.nativeElement.value = "";
+      this.name.nativeElement.value = "";
+      this.email.nativeElement.value = "";
+      this.role.nativeElement.value = "Selecciona una opción";
+      this.warehouse.nativeElement.value = "Selecciona una opción";
+      this.location.nativeElement.value = "Selecciona una opción";
+      this.active.nativeElement.checked = false;
+    }
   }
 
   hidePass() {
@@ -114,6 +126,10 @@ export class UserAdminComponent {
     if (this.pass.nativeElement.value === this.hidePass())
       this.pass.nativeElement.value = this.users[this.selected].password;
     else this.pass.nativeElement.value = this.hidePass();
+  }
+
+  sendButtonValue(buttonValue) {
+    this.value = buttonValue;
   }
 
   printSelected() {
