@@ -5,10 +5,9 @@ export class Incidence {
   public customer_name: string;
   public customer_phone: string;
   public customer_mail: string;
-  public customer_direction: string;
+  public customer_address: string;
   public customer_cp: string;
-  public customer_poblation: string;
-  public warehouse_ubication: string;
+  public customer_city: string;
   public input_date: Date;
   public output_date: Date;
   public next_delivey: Date;
@@ -21,10 +20,9 @@ export class Incidence {
     customer_name?: string,
     customer_phone?: string,
     customer_mail?: string,
-    customer_direction?: string,
+    customer_address?: string,
     customer_cp?: string,
-    customer_poblation?: string,
-    warehouse_ubication?: string
+    customer_city?: string,
   ) {
     this.incidence_ref = incidence_ref;
     this.status = status;
@@ -32,9 +30,8 @@ export class Incidence {
     this.customer_name = customer_name;
     this.customer_phone = customer_phone;
     this.customer_mail = customer_mail;
-    this.customer_direction = customer_direction;
+    this.customer_address = customer_address;
     this.customer_cp = customer_cp;
-    this.customer_poblation = customer_poblation;
-    this.warehouse_ubication = warehouse_ubication;
+    this.customer_city = customer_city;
   }
 }
