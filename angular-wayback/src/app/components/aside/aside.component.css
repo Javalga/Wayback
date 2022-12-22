@@ -58,7 +58,7 @@ app-aside-li:focus:before {
 
 .active {
   transition: 50ms ease-in-out all;
-  color: var(--secondary-color3-dark) !important;
+  color: var(--secondary-color1-dark) !important;
 }
 
 .active:before {
@@ -84,51 +84,6 @@ app-aside-li:focus:before {
 .profile__container {
   color: var(--secondary-color2-dark);
   border-top: 2px solid var(--secondary-color3-dark);
-  padding: 2em 0;
-}
-
-.profile__container--title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-.profile__container--user {
+  padding: 2em;
   font-size: 1.5rem;
-  display: flex;
-  width: 90%;
-  margin: auto;
-  justify-content: center;
-  gap: 0.5em;
-}
-
-.profile__container--user--title {
-  text-align: end;
-}
-
-.profile__container--user--title {
-  text-align: start;
-}
-
-.profile__container--warehouse {
-  font-size: 1.5rem;
-  display: flex;
-  width: 90%;
-  margin: auto;
-  justify-content: center;
-  gap: 0.5em;
-}
-
-.profile__container--warehouse--title {
-  text-align: end;
-}
-
-.profile__container--warehouse--data {
-  text-align: start;
-}
-
-.profile__container--button--container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
 }

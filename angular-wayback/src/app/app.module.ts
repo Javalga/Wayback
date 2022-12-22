@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { IncidentInputComponent } from './pages/incident-input/incident-input.component';
@@ -20,7 +21,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { DatesRangeComponent } from './components/dates-range/dates-range.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AsideLiComponent } from './components/aside-li/aside-li.component';
-import { UserComponent } from './pages/user/user.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component'
 import { HttpClientModule } from '@angular/common/http';
@@ -45,7 +45,6 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     DatesRangeComponent,
     AsideLiComponent,
-    UserComponent,
     LocationsComponent,
     WarehousesComponent
   ],
