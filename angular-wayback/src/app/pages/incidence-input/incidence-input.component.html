@@ -1,0 +1,109 @@
+<main class="incidence-input_main">
+
+    <div class="incidence-input_container">
+        <div class="incidence-input_containerFlex">
+            <div class="incidence-input_moveRight">
+                <div class="incidence-input_city">
+                    <p>Entrada en:</p>
+                    <select name="filter_type" class="general-input" #filter_type>
+                        <option disabled selected>Selecciona una opción</option>
+                        <option *ngFor="let warehouse of this.warehouses">
+                            {{warehouse.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="incidence-input_form1">
+
+                <div class="incidence-input_formColumn">
+                    <div class="incidence-input-formInput">
+                        <label>Nº Expedición</label>
+                    </div>
+                </div>
+
+                <div class="incidence-input_formColumn">
+                    <div class="incidence-input-formInput">
+                        <input #incidence_ref class="incidence-input_input">
+                    </div>
+                </div>
+
+                <div class="incidence-input_formColumn">
+                    <div class="incidence-input-formInput">
+                        <label>Tipo de incidencia</label>
+
+                    </div>
+                </div>
+
+                <div class="incidence-input_formColumn">
+                    <div class="incidence-input-formInput">
+                        <!-- <input value={{incidence.incidence_type}} class="incidence-input_input"> -->
+                        <select class="incidence-input_input">
+                            <option disabled selected>Selecciona una opción</option>
+                            <option *ngFor="let type of this.incidence_type">
+                                {{type.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="incidence-input_form2">
+                <div class="incidence-input_formColumn">
+                    <div class="incidence-input-formInput">
+                        <label>Nombre</label>
+                    </div>
+                    <div class="incidence-input-formInput">
+                        <label>Teléfono</label>
+                    </div>
+                    <div class="incidence-input-formInput">
+                        <label>Dirección</label>
+                    </div>
+                </div>
+                <div class="incidence-input_formColumn">
+                    <div class="incidence-input-formInput">
+                        <input value={{incidence.customer_name}} class="incidence-input_input">
+                    </div>
+                    <div class="incidence-input-formInput">
+                        <input value={{incidence.customer_phone}} class="incidence-input_input">
+                    </div>
+                    <div class="incidence-input-formInput">
+                        <input value={{incidence.customer_direction}} class="incidence-input_input">
+                    </div>
+                </div>
+                <div class="incidence-input_formColumn">
+                    <div class="incidence-input-formInput">
+                        <label>Población</label>
+                    </div>
+                    <div class="incidence-input-formInput">
+                        <label>Zona</label>
+                    </div>
+                    <div class="incidence-input-formInput">
+                        <label>CP</label>
+                    </div>
+                </div>
+                <div class="incidence-input_formColumn">
+                    <div class="incidence-input-formInput">
+                        <input value={{incidence.customer_poblation}} class="incidence-input_input">
+                    </div>
+                    <div class="incidence-input-formInput">
+                        <input value={{incidence.warehouse_ubication}} class="incidence-input_inputShort">
+                    </div>
+                    <div class="incidence-input-formInput">
+                        <input value={{incidence.customer_cp}} class="incidence-input_inputShort">
+                    </div>
+                </div>
+
+            </div>
+            <div class="incidence-input_moveRight">
+                <div class="incidence-input_btnContainer">
+                    <app-button [value]="value" (click)="registerIncidence(incidence_ref.value)"
+                        [style]="'font-size:2rem;'"></app-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

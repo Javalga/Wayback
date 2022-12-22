@@ -1,4 +1,4 @@
-.incident-input_main {
+.incidence-output_main {
   height: 90vh;
   width: 86vw;
   background-color: var(--primary-color1-dark);
@@ -8,11 +8,11 @@
   color: var(--secondary-color2-dark);
 }
 
-.incident-input_title {
+.incidence-output_title {
   font-size: 6rem;
 }
 
-.incident-input_container {
+.incidence-output_container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,25 +23,35 @@
   font-size: 2rem;
 }
 
-.incident-input_containerFlex {
+.incidence-output_containerFlex {
+  height: 70vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 2em;
   gap: 1em;
 }
 
-.incident-input_moveRight {
+.incidence-output_formContainer {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 2em;
+}
+
+.incidence-output_moveRight {
   display: flex;
   justify-content: flex-end;
 }
 
-.incident-input_moveCenter {
+.incidence-output_moveCenter {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.incident-input_city {
+.incidence-output_city {
   width: 65%;
   display: flex;
   justify-content: center;
@@ -52,17 +62,17 @@
   border: 2px solid var(--secondary-color3-dark);
 }
 
-.incident-input_city>p {
+.incidence-output_city > p {
   padding: 0.4em 0.8em;
   margin: 0px;
 }
 
-.incident-input_dropdown {
+.incidence-output_dropdown {
   background-color: var(--primary-color2-dark);
   color: var(--secondary-color2-dark);
 }
 
-.incident-input_form1 {
+.incidence-output_form {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -71,39 +81,30 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.incident-input_form2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--primary-color1-dark);
-  border: 2px solid var(--primary-color2-dark);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.incident-input_formColumn {
+.incidence-output_formColumn {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.incident-input-formInput {
+.incidence-output-formInput {
   display: flex;
+  align-items: center;
   padding: 1em;
   gap: 1em;
 }
 
-.incident-input_input {
+.incidence-output_input {
   width: 15vw;
   background-color: var(--primary-color2-dark);
-  color: white
 }
 
-.incident-input_inputShort {
+.incidence-output_inputShort {
   width: 5vw;
   background-color: var(--primary-color2-dark);
 }
 
-.incident-input_btnContainer {
+.incidence-output_btnContainer {
   display: flex;
   justify-content: flex-end;
   width: 15vw;

@@ -4,14 +4,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component'
 import { CustomerInputComponent } from './pages/customer-input/customer-input.component'
 import { HistoricalComponent } from './pages/historical/historical.component';
-import { IncidentInputComponent } from './pages/incident-input/incident-input.component';
-import { IncidentOutputComponent } from './pages/incident-output/incident-output.component';
+import { IncidenceInputComponent } from './pages/incidence-input/incidence-input.component';
+import { IncidenceOutputComponent } from './pages/incidence-output/incidence-output.component';
 import { ReturnsComponent } from './pages/returns/returns.component';
 import { SolvedPullComponent } from './pages/solved-pull/solved-pull.component';
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component';
-
 
 
 
@@ -21,8 +20,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'customer-input', component: CustomerInputComponent },
   { path: 'historical', component: HistoricalComponent },
-  { path: 'incident-input', component: IncidentInputComponent },
-  { path: 'incident-output', component: IncidentOutputComponent },
+  { path: 'incidence-input', component: IncidenceInputComponent },
+  { path: 'incidence-output', component: IncidenceOutputComponent },
   { path: 'returns', component: ReturnsComponent },
   { path: 'solved-pull', component: SolvedPullComponent },
   { path: 'user-admin', component: UserAdminComponent },

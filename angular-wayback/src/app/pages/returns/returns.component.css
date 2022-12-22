@@ -1,79 +1,75 @@
 .returns-main {
-    width: 86vw;
-    height: 90vh;
-    background-color: var(--primary-color1-dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 86vw;
+  height: 90vh;
+  background-color: var(--primary-color1-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
 
 .central-page {
-    background-color: var(--primary-color2-dark);
-    width: 90%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  background-color: var(--primary-color2-dark);
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-
 .desplegable {
-    width: 80%;
+  width: 80%;
 }
 
 .cards {
-width: 100%;
+  width: 100%;
   height: fit-content;
   display: flex;
   justify-content: space-evenly;
   gap: 10px;
   margin-bottom: 0.2em;
-
 }
 
 .desplegable-item {
-    background-color: var(--primary-color1-dark);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-top: 1.5em;
+  background-color: var(--primary-color1-dark);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 1.5em;
 }
 
 .body-acordion {
-    display: flex;
-    gap: 1em;
-    color: var(--secondary-color2-dark);
-    justify-content: flex-start;
-    margin-bottom: 1.5em;
+  display: flex;
+  gap: 1em;
+  color: var(--secondary-color2-dark);
+  justify-content: flex-start;
+  margin-bottom: 1.5em;
 }
 
-.body-acordion>div {
-    width: 45%;
-    font-size: 2rem;
-    padding: 0.5em;
+.body-acordion > div {
+  width: 45%;
+  font-size: 2rem;
+  padding: 0.5em;
 }
 
 .body-acordion input {
-    background-color: var(--primary-color2-dark);
-    margin-left: 10px;
+  background-color: var(--primary-color2-dark);
+  margin-left: 10px;
 }
 
 .acordion-title {
-    font-size: 2rem;
-    color: var(--secondary-color2-dark);
-    background-color: var(--primary-color1-dark);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 2rem;
+  color: var(--secondary-color2-dark);
+  background-color: var(--primary-color1-dark);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.incident-input_formColumn {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.incidence-input_formColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.incident-input-formInput {
-    display: flex;
-    padding: 0.8em;
-    gap: 1em;
+.incidence-input-formInput {
+  display: flex;
+  padding: 0.8em;
+  gap: 1em;
 }

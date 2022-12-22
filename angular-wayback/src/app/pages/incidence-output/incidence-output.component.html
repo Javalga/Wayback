@@ -1,26 +1,26 @@
-<main class="incident-output_main">
+<main class="incidence-output_main">
 
-  <div class="incident-output_container">
-    <div class="incident-output_containerFlex">
+  <div class="incidence-output_container">
+    <div class="incidence-output_containerFlex">
 
-      <div class="incident-output_formContainer">
-        <div class="incident-output_moveRight">
-          <div class="incident-output_city">
+      <div class="incidence-output_formContainer">
+        <div class="incidence-output_moveRight">
+          <div class="incidence-output_city">
             <p>Salida de:</p>
             <select name="filter_type" class="general-input" #filter_type>
               <option disabled selected>Selecciona una opción</option>
               <option *ngFor="let warehouse of this.warehouses">
-                  {{warehouse.name}}
-              </option>  
+                {{warehouse.name}}
+              </option>
             </select>
           </div>
         </div>
-        <div class="incident-output_form">
-          <div class="incident-output-formInput">
+        <div class="incidence-output_form">
+          <div class="incidence-output-formInput">
             <label>Nº Expedición</label>
-            <input class="incident-output_input" input #myInput>
+            <input class="incidence-output_input" input #myInput>
           </div>
-          <div class="incident-output-formInput">
+          <div class="incidence-output-formInput">
             <label>Estado de gestión</label>
             <select name="status" class="general-input" #status>
               <option value="" class="general-input">Puesta en reparto</option>
@@ -28,8 +28,8 @@
             </select>
           </div>
         </div>
-        <div class="incident-output_moveRight">
-          <div class="incident-output_btnContainer">
+        <div class="incidence-output_moveRight">
+          <div class="incidence-output_btnContainer">
             <app-button [value]="value" (click)="registerStatus()" [style]="'font-size:2rem'">
               ></app-button>
           </div>

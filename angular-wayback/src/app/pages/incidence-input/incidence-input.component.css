@@ -1,0 +1,116 @@
+.incidence-input_main {
+  height: 90vh;
+  width: 86vw;
+  background-color: var(--primary-color1-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-color2-dark);
+}
+
+.incidence-input_title {
+  font-size: 6rem;
+}
+
+.incidence-input_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 90%;
+  background-color: var(--primary-color2-dark);
+  font-size: 2rem;
+}
+
+.incidence-input_containerFlex {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  gap: 1em;
+}
+
+.incidence-input_moveRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.incidence-input_moveCenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.incidence-input_city {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color1-dark);
+  padding: 1em;
+  gap: 1em;
+  border: 2px solid var(--secondary-color3-dark);
+}
+
+.incidence-input_city > p {
+  padding: 0.4em 0.8em;
+  margin: 0px;
+}
+
+.incidence-input_dropdown {
+  background-color: var(--primary-color2-dark);
+  color: var(--secondary-color2-dark);
+}
+
+.incidence-input_form1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--primary-color1-dark);
+  border: 2px solid var(--primary-color2-dark);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.incidence-input_form2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color1-dark);
+  border: 2px solid var(--primary-color2-dark);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.incidence-input_formColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.incidence-input-formInput {
+  display: flex;
+  padding: 1em;
+  gap: 1em;
+}
+
+.incidence-input_input {
+  width: 15vw;
+  background-color: var(--primary-color2-dark);
+  color: white;
+}
+
+.incidence-input_inputShort {
+  width: 5vw;
+  background-color: var(--primary-color2-dark);
+}
+
+.incidence-input_btnContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 15vw;
+}
+
+.general-input {
+  background-color: var(--primary-color1-dark);
+  color: var(--secondary-color2-dark);
+  padding: 0.4em;
+}

@@ -1,7 +1,7 @@
-export class Incident {
-  public number_expedient: number;
+export class Incidence {
+  public incidence_ref: number;
   public status: string;
-  public incident_type: string;
+  public incidence_type: string;
   public customer_name: string;
   public customer_phone: string;
   public customer_mail: string;
@@ -15,9 +15,9 @@ export class Incident {
   public delivery_time: string;
 
   constructor(
-    number_expedient?: number,
+    incidence_ref?: number,
     status?: string,
-    incident_type?: string,
+    incidence_type?: string,
     customer_name?: string,
     customer_phone?: string,
     customer_mail?: string,
@@ -26,9 +26,9 @@ export class Incident {
     customer_poblation?: string,
     warehouse_ubication?: string
   ) {
-    this.number_expedient = number_expedient;
+    this.incidence_ref = incidence_ref;
     this.status = status;
-    this.incident_type = incident_type;
+    this.incidence_type = incidence_type;
     this.customer_name = customer_name;
     this.customer_phone = customer_phone;
     this.customer_mail = customer_mail;

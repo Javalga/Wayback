@@ -20,7 +20,7 @@ export class AsideLiComponent {
         break;
       case 'Registro de incidencias':
         this.asideHeaderService.state = this.value;
-        this.router.navigateByUrl('/incident-input');
+        this.router.navigateByUrl('/incidence-input');
         break;
       case 'Pool de solucionadas':
         this.asideHeaderService.state = this.value;
@@ -28,7 +28,7 @@ export class AsideLiComponent {
         break;
       case 'Registro de incidencias':
         this.asideHeaderService.state = this.value;
-        this.router.navigateByUrl('/incident-input');
+        this.router.navigateByUrl('/incidence-input');
         break;
       case 'Devoluciones':
         this.asideHeaderService.state = this.value;
@@ -36,7 +36,7 @@ export class AsideLiComponent {
         break;
       case 'Salida de incidencias':
         this.asideHeaderService.state = this.value;
-        this.router.navigateByUrl('/incident-output');
+        this.router.navigateByUrl('/incidence-output');
         break;
       case 'Histórico':
         this.asideHeaderService.state = this.value;

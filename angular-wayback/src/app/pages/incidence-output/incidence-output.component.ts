@@ -3,19 +3,19 @@ import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { Warehouse } from 'src/app/models/warehouse';
 
 @Component({
-  selector: 'app-incident-output',
-  templateUrl: './incident-output.component.html',
-  styleUrls: ['./incident-output.component.css'],
+  selector: 'app-incidence-output',
+  templateUrl: './incidence-output.component.html',
+  styleUrls: ['./incidence-output.component.css'],
 })
-export class IncidentOutputComponent {
+export class IncidenceOutputComponent {
   @ViewChild('myInput') input;
 
   public value: string = 'Registro';
-    public warehouses: Warehouse[];
+  public warehouses: Warehouse[];
 
   constructor(public WarehouseService: WarehouseService) {
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
-    this.warehouses = data;
+      this.warehouses = data;
     });
   }
   registerStatus() {

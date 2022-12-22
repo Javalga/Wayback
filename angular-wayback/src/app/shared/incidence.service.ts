@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Incident } from 'src/app/models/incident';
+import { Incidence } from 'src/app/models/incidence';
 
 @Injectable({
   providedIn: 'root'
 })
-export class IncidentService {
-  public incidents: Incident[];
+export class IncidenceService {
+  public incidences: Incidence[];
   constructor() { }
   // get en la tabla csv y un insert en la tabla de incidents
   gatherAndPush() {

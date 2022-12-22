@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { IncidentInputComponent } from './pages/incident-input/incident-input.component';
-import { IncidentOutputComponent } from './pages/incident-output/incident-output.component';
+import { IncidenceInputComponent } from './pages/incidence-input/incidence-input.component';
+import { IncidenceOutputComponent } from './pages/incidence-output/incidence-output.component';
 import { SolvedPullComponent } from './pages/solved-pull/solved-pull.component';
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { HistoricalComponent } from './pages/historical/historical.component';
@@ -24,14 +23,13 @@ import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component'
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    IncidentInputComponent,
-    IncidentOutputComponent,
+    IncidenceInputComponent,
+    IncidenceOutputComponent,
     SolvedPullComponent,
     UserAdminComponent,
     HistoricalComponent,
