@@ -13,9 +13,11 @@ export class TableComponent implements OnInit {
   @Input() style: string
   @Output() sendSelected = new EventEmitter<Array<number>>();
   @Output() sendIndex = new EventEmitter<number>();
+  @Output() sendButtonValue = new EventEmitter<string>();
 
   public rowSelected = []
   public selectedRow;
+  public buttonValue;
 
   constructor(public asideHeader: AsideHeaderService) {
 
@@ -34,12 +36,28 @@ export class TableComponent implements OnInit {
         this.rowSelected = this.rowSelected.filter((item) => item !== index)
         this.sendSelected.emit(this.rowSelected)
       }
-    } else {
+    } else if (this.selectedRow === undefined) {
+      console.log("prueba")
       this.selectedRow = index;
       this.sendIndex.emit(this.selectedRow)
-
-
+      this.buttonValue = "Modificar";
+      this.sendButtonValue.emit(this.buttonValue);
+    } else if (this.selectedRow === index) {
+      console.log("prueba2")
+      this.selectedRow = undefined;
+      this.sendIndex.emit(this.selectedRow);
+      this.buttonValue = "Crear";
+      this.sendButtonValue.emit(this.buttonValue);
+    } else {
+      console.log("prueba3")
+      this.selectedRow = index;
+      this.sendIndex.emit(this.selectedRow);
+      this.buttonValue = "Modificar";
+      this.sendButtonValue.emit(this.buttonValue);
     }
+
+
+
   }
 
   selectedOne(index) {

@@ -15,12 +15,12 @@
         </select>
         <input class="user-admin_input" placeholder="Alberto">
         <div class="user-admin_btnContainer">
-          <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
+          <app-button [style]="'font-size:1.5rem;'" [value]="'Filtrar'"></app-button>
         </div>
       </div>
 
-      <app-table (sendIndex)="sendSelected($event)" [rows]="rows" [cols]="cols"
-        [style]="'font-size:1.5rem; height:30vh;'"></app-table>
+      <app-table (sendIndex)="sendSelected($event)" (sendButtonValue)="sendButtonValue($event)" [rows]="rows"
+        [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
 
       <div class="user-admin_form">
 
@@ -93,7 +93,7 @@
               <div class="user-admin_formGroup">
                 <label>Activo:</label>
                 <div class="user-admin_btnContainerX">
-                  <input type="checkbox" checked #active>
+                  <input type="checkbox" #active>
                   <!-- <label class="checkbox-container">
                     <input type="checkbox" checked>
                      <span class="checkmark"></span>
@@ -101,7 +101,7 @@
                 </div>
               </div>
               <div class="user-admin_btnContainerRight">
-                <app-button [style]="'font-size:1.3rem;'" [value]="'Crear'"></app-button>
+                <app-button [style]="'font-size:1.3rem;'" [value]="value"></app-button>
               </div>
             </div>
           </div>
