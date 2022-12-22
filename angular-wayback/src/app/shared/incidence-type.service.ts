@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {IncidenceType} from 'src/app/models/incidence-type'
+import { IncidenceType } from 'src/app/models/incident-type'
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -8,12 +8,12 @@ import { HttpClient } from '@angular/common/http';
 export class IncidenceTypeService {
   public incidence_type: IncidenceType[];
   public url: string;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-    public getIncidence_type() {
+  public getIncidence_type() {
     this.url = 'http://localhost:3000/incidence_type';
     return this.http.get(this.url);
-  
+
   }
-  
+
 }

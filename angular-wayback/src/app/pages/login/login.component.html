@@ -1,13 +1,17 @@
 <main class="login_main">
-  <form class="login_container">
+  <form class="login_container" #loginForm="ngForm" (ngSubmit)="recovery ? recover(loginForm) : login(loginForm)">
     <img src="../../../assets/logo.png" alt="" class="logo">
     <h2>{{recovery ? 'Recuperar contraseña' : 'Iniciar Sesion'}}</h2>
-    <input type="text" class="login_input user form-control" placeholder="Usuario" #username>
-    <input type="text" class="login_input password form-control" placeholder="Contraseña"
-      [ngClass]="recovery ? 'disabled' : ''" [disabled]="recovery" [required]="!recovery">
-    <button type="button" class="text-muted bg-transparent border-0 fs-3 mb-5" (click)="toggleModal()">¿Has olvidado
-      tu contraseña?</button>
-    <app-button (click)="recovery ? recover(username.value) : logIn(username) " style=" font-size: 2rem;;"
-      [value]="recovery ? 'Recuperar contraseña' : 'Iniciar Sesion' "></app-button>
+    <input type="text" class="login_input user form-control" placeholder="Usuario" name="username"
+      [(ngModel)]="loginService.user.username" #username required>
+    <input type="text" class="login_input password form-control" name="password" placeholder="Contraseña"
+      [ngClass]="recovery ? 'disabled' : ''" [disabled]="recovery" [required]="!recovery" #password
+      [(ngModel)]="loginService.user.password">
+    <span type="button" class="text-muted bg-transparent border-0 fs-3 mb-5" (click)="toggleModal()">¿Has olvidado
+      tu contraseña?</span>
+    <button style="border: 0;   border-radius: 10px;">
+      <app-button style=" font-size: 2rem;"
+        [value]="recovery ? 'Recuperar contraseña' : 'Iniciar Sesion' "></app-button>
+    </button>
   </form>
 </main>
