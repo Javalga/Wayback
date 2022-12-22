@@ -84,6 +84,7 @@
                 <label>Localidad</label>
                 <!-- <input class="user-admin_input"> -->
                 <select class="user-admin_input" #location name="location_id" [(ngModel)]="user.location_id">
+                  <option disabled selected>Selecciona una opción</option>
                   <option *ngFor="let location of this.locations" [value]="location.location_id">
                     {{location.name}}
                   </option>

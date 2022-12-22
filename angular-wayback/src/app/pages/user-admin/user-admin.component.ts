@@ -40,7 +40,7 @@ export class UserAdminComponent {
     public UserService: UserService,
     public RolesService: RolesService,
     public LocationService: LocationService,
-    public WarehouseService: WarehouseService
+    public WarehouseService: WarehouseService,
   ) {
     this.user = new User()
 
@@ -96,12 +96,13 @@ export class UserAdminComponent {
       this.selected = selected;
       console.log(this.selected);
       this.username.nativeElement.value = this.users[this.selected].username;
+
       this.pass.nativeElement.value = this.hidePass();
       this.name.nativeElement.value = this.users[this.selected].name;
       this.email.nativeElement.value = this.users[this.selected].mail;
-      this.role.nativeElement.value = this.users[this.selected].role;
-      this.warehouse.nativeElement.value = this.users[this.selected].warehouse;
-      this.location.nativeElement.value = this.users[this.selected].location;
+      this.role.nativeElement.value = this.users[this.selected].role_id;
+      this.warehouse.nativeElement.value = this.users[this.selected].warehouse_id;
+      this.location.nativeElement.value = this.users[this.selected].location_id;
       this.active.nativeElement.checked = this.users[this.selected].active;
     } else {
       this.username.nativeElement.value = '';
@@ -138,7 +139,11 @@ export class UserAdminComponent {
   }
 
   onSubmit(form: NgForm) {
-    console.log(this.user);
-    
+    console.log(form.value)
+    if (this.value === 'Crear') {
+      this.UserService.postUser(form.value);
+    } else;
+
+
   }
 }
