@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Incidence } from 'src/app/models/incident';
-import { IncidenceService } from 'src/app/shared/incidence.service';
-import { IncidenceTypeService } from 'src/app/shared/incidence-type.service';
-import { IncidenceType } from 'src/app/models/incident-type';
+import { Incident } from 'src/app/models/incident';
+import { IncidentService } from 'src/app/shared/incident.service';
+import { IncidentTypeService } from 'src/app/shared/incident-type.service';
+import { IncidentType } from 'src/app/models/incident-type';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { Warehouse } from 'src/app/models/warehouse';
 
@@ -13,58 +13,45 @@ import { Warehouse } from 'src/app/models/warehouse';
 })
 export class IncidentInputComponent {
   public value: string = 'Registro';
-  public incidence: Incidence = new Incidence(
-    0,
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    ''
-  );
-
+  public incident: Incident = new Incident();
   public warehouses: Warehouse[];
-  public incidence_type: IncidenceType[];
+  public incident_type: IncidentType[];
 
   constructor(
-    public incidenceService: IncidenceService,
-    public IncidenceTypeService: IncidenceTypeService,
+    public incidentService: IncidentService,
+    public IncidentTypeService: IncidentTypeService,
     public WarehouseService: WarehouseService
   ) {
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
       this.warehouses = data;
     });
 
-    this.IncidenceTypeService.getIncidence_type().subscribe(
-      (data: IncidenceType[]) => {
-        this.incidence_type = data;
+    this.IncidentTypeService.getIncident_type().subscribe(
+      (data: IncidentType[]) => {
+        this.incident_type = data;
       }
     );
   }
 
-  registrarIncidencia(number_expedient) {
-    this.incidenceService.getIncidence(number_expedient);
-
-    this.incidence.number_expedient =
-      this.incidenceService.incidence.number_expedient;
-    this.incidence.status = this.incidenceService.incidence.status;
-    this.incidence.incidence_type =
-      this.incidenceService.incidence.incidence_type;
-    this.incidence.customer_name =
-      this.incidenceService.incidence.customer_name;
-    this.incidence.customer_phone =
-      this.incidenceService.incidence.customer_phone;
-    this.incidence.customer_mail =
-      this.incidenceService.incidence.customer_mail;
-    this.incidence.customer_direction =
-      this.incidenceService.incidence.customer_direction;
-    this.incidence.customer_cp = this.incidenceService.incidence.customer_cp;
-    this.incidence.customer_poblation =
-      this.incidenceService.incidence.customer_poblation;
-    this.incidence.warehouse_ubication =
-      this.incidenceService.incidence.warehouse_ubication;
+  registerIncident(number_expedient) {
+    this.incidentService.getIncident(number_expedient);
+    this.incident.number_expedient =
+      this.incidentService.incident.number_expedient;
+    this.incident.status = this.incidentService.incident.status;
+    this.incident.incident_type =
+      this.incidentService.incident.incident_type;
+    this.incident.customer_name =
+      this.incidentService.incident.customer_name;
+    this.incident.customer_phone =
+      this.incidentService.incident.customer_phone;
+    this.incident.customer_mail =
+      this.incidentService.incident.customer_mail;
+    this.incident.customer_direction =
+      this.incidentService.incident.customer_direction;
+    this.incident.customer_cp = this.incidentService.incident.customer_cp;
+    this.incident.customer_poblation =
+      this.incidentService.incident.customer_poblation;
+    this.incident.warehouse_ubication =
+      this.incidentService.incident.warehouse_ubication;
   }
 }

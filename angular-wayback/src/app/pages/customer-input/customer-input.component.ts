@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Incidence } from 'src/app/models/incident'
-import { IncidenceService } from 'src/app/shared/incidence.service'
+import { IncidenceService } from 'src/app/shared/incident.service'
 
 @Component({
   selector: 'app-customer-input',

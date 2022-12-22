@@ -1,7 +1,7 @@
-export class Incidence {
+export class Incident {
   public number_expedient: number;
   public status: string;
-  public incidence_type: string;
+  public incident_type: string;
   public customer_name: string;
   public customer_phone: string;
   public customer_mail: string;
@@ -17,7 +17,7 @@ export class Incidence {
   constructor(
     number_expedient?: number,
     status?: string,
-    incidence_type?: string,
+    incident_type?: string,
     customer_name?: string,
     customer_phone?: string,
     customer_mail?: string,
@@ -28,7 +28,7 @@ export class Incidence {
   ) {
     this.number_expedient = number_expedient;
     this.status = status;
-    this.incidence_type = incidence_type;
+    this.incident_type = incident_type;
     this.customer_name = customer_name;
     this.customer_phone = customer_phone;
     this.customer_mail = customer_mail;
