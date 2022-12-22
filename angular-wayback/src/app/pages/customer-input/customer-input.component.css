@@ -53,18 +53,18 @@
 
 /* Formulario datos entrega */
 
-.custumer_data {
+.customer_data {
   width: 50%;
   display: flex;
   flex-direction: column;
   gap: 2em;
 }
 
-.custumer_data-tittle {
+.customer_data-tittle {
   font-size: 2rem;
 }
 
-.custumer_data-inputs {
+.customer_data-inputs {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -254,7 +254,7 @@
     gap: 3em;
   }
 
-  .custumer_data {
+  .customer_data {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -262,7 +262,7 @@
     gap: 3em;
   }
 
-  .custumer_data-tittle {
+  .customer_data-tittle {
     padding: 0px;
   }
 
