@@ -13,7 +13,5 @@ export class CustomerInputComponent {
   constructor(public incidenceService: IncidenceService) {
     this.incidence = new Incidence()
   }
-
   onSubmit(ngForm: NgForm) { }
-
 }

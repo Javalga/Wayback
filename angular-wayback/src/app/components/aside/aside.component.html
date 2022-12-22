@@ -35,7 +35,7 @@
       <p>Usuario: <strong>{{loginService.user.username}}</strong></p>
       <p *ngIf="loginService.user.warehouse">Almacen: <strong>{{loginService.user.warehouse}}</strong></p>
       <app-button [value]="'Cerrar Sesión'" [style]="
-            'background-color: var(--secondary-color3-dark); color: var(--primary-color3-dark); padding: 0.1em .5em; font-size: 1.5rem; font-weight: 700; box-shadow: none;margin-top:.5em; '
+            'background-color: var(--secondary-color3-dark); color: var(--primary-color-dark); padding: 0.1em .5em; font-size: 1.5rem; font-weight: 700; box-shadow: none;margin-top:.5em; '
           " (click)="closeSession()"></app-button>
     </div>
   </div>
