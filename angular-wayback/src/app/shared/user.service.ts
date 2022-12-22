@@ -8,10 +8,21 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
   public users: User[];
   public url: string;
-  constructor(private http: HttpClient) {}
+  public user: User;
+  constructor(private http: HttpClient) {
+    this.user = new User();
+  }
+
+  
+
 
   public getUsers() {
     this.url = 'http://localhost:3000/users';
     return this.http.get(this.url);
+  }
+
+  public postUsers(){
+    this.url = 'http://localhost:3000/users';
+    return this.http.post(this.url, this.user);
   }
 }

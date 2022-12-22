@@ -138,7 +138,8 @@ export class UserAdminComponent {
   }
 
   onSubmit(form: NgForm) {
-    console.log(this.user);
+    console.log(this.user)
+    this.UserService.user = this.user;
     
   }
 }
