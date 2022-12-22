@@ -7,12 +7,12 @@
                     Nº Expedición
                 </div>
                 <div class="expedient_number-number">
-                    {{incidenceService.incidence.number_expedient}} 
+                    {{incidentService.incidents[0].number_expedient}} 
                 </div>
             </div>
         </div>
         <div class="title-costumer-input">
-            {{incidenceService.incidence.incidence_type}}
+            {{incidentService.incidents[0].incident_type}}
         </div>
         <div class="description-costumer-input">
             Bacon ipsum dolor amet short ribs tri-tip porchetta, alcatra kevin brisket t-bone doner pork chop biltong filet mignon bresaola capicola boudin pork belly. Tongue ribeye swine bacon short loin turducken. Flank jowl shoulder boudin. Boudin corned beef pork chop frankfurter. Ground round pork belly beef, tri-tip pork strip steak ham hock ham. 
@@ -29,41 +29,41 @@
                                 <label for="costumer_name">
                                     Nombre :
                                 </label>
-                                <input class="general-input" type="text" name="costumer_name" #costumer_name value="{{incidenceService.incidence.customer_name}}">
+                                <input class="general-input" type="text" name="costumer_name" #costumer_name value="{{incidentService.incidents[0].customer_name}}">
                             </div>
                             <div class="label-input_combo">
                             <label for="costumer_phone">
                                 Teléfono :
                             </label>
-                            <input class="general-input" type="text" name="costumer_phone" #costumer_phone value="{{incidenceService.incidence.customer_phone}}">
+                            <input class="general-input" type="text" name="costumer_phone" #costumer_phone value="{{incidentService.incidents[0].customer_phone}}">
                             </div>
 
                             <div class="label-input_combo">
                             <label for="costumer_mail">
                                 Correo :
                             </label>
-                            <input class="general-input" type="text" name="costumer_mail" #costumer_mail value="{{incidenceService.incidence.customer_mail}}">
+                            <input class="general-input" type="text" name="costumer_mail" #costumer_mail value="{{incidentService.incidents[0].customer_mail}}">
                             </div>
 
                             <div class="label-input_combo">
                             <label for="costumer_direction">
                                 Dirección :
                             </label>
-                            <input  class="general-input" type="text" name="costumer_direction" #costumer_direction value="{{incidenceService.incidence.customer_direction}}">
+                            <input  class="general-input" type="text" name="costumer_direction" #costumer_direction value="{{incidentService.incidents[0].customer_direction}}">
                             </div>
 
                             <div class="label-input_combo">
                             <label for="costumer_cp">
                                 CP :
                             </label>
-                            <input class="general-input" type="text" name="costumer_cp" #costumer_cp value="{{incidenceService.incidence.customer_cp}}">
+                            <input class="general-input" type="text" name="costumer_cp" #costumer_cp value="{{incidentService.incidents[0].customer_cp}}">
                             </div>
 
                             <div class="label-input_combo">
                             <label for="costumer_poblation">
                                 Población :
                             </label>
-                            <input class="general-input" type="text" name="costumer_poblation" #costumer_poblation value="{{incidenceService.incidence.customer_poblation}}">
+                            <input class="general-input" type="text" name="costumer_poblation" #costumer_poblation value="{{incidentService.incidents[0].customer_poblation}}">
                             </div>
                         </div>
                     </div>

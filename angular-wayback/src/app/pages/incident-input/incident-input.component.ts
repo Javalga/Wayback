@@ -33,25 +33,5 @@ export class IncidentInputComponent {
     );
   }
 
-  registerIncident(number_expedient) {
-    this.incidentService.getIncident(number_expedient);
-    this.incident.number_expedient =
-      this.incidentService.incident.number_expedient;
-    this.incident.status = this.incidentService.incident.status;
-    this.incident.incident_type =
-      this.incidentService.incident.incident_type;
-    this.incident.customer_name =
-      this.incidentService.incident.customer_name;
-    this.incident.customer_phone =
-      this.incidentService.incident.customer_phone;
-    this.incident.customer_mail =
-      this.incidentService.incident.customer_mail;
-    this.incident.customer_direction =
-      this.incidentService.incident.customer_direction;
-    this.incident.customer_cp = this.incidentService.incident.customer_cp;
-    this.incident.customer_poblation =
-      this.incidentService.incident.customer_poblation;
-    this.incident.warehouse_ubication =
-      this.incidentService.incident.warehouse_ubication;
-  }
+  
 }

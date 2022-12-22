@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Incidence } from 'src/app/models/incident'
-import { IncidenceService } from 'src/app/shared/incident.service'
+import { Incident } from 'src/app/models/incident'
+import { IncidentService } from 'src/app/shared/incident.service'
 
 @Component({
   selector: 'app-customer-input',
@@ -9,10 +9,7 @@ import { IncidenceService } from 'src/app/shared/incident.service'
   styleUrls: ['./customer-input.component.css'],
 })
 export class CustomerInputComponent {
-  constructor(public incidenceService: IncidenceService) {
+  constructor(public incidentService: IncidentService) {}
 
-  }
-
-  onSubmit(ngForm: NgForm) { }
-
+  onSubmit(ngForm: NgForm) {}
 }

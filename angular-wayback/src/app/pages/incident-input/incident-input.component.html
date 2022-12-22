@@ -39,7 +39,7 @@
                         <!-- <input value={{incidence.incidence_type}} class="incident-input_input"> -->
                         <select class="incident-input_input">
                             <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let type of this.incidence_type">
+                            <option *ngFor="let type of this.incident_type">
                                 {{type.name}}
                             </option> 
                         </select>
@@ -65,13 +65,13 @@
                 </div>
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
-                        <input value={{incidence.customer_name}} class="incident-input_input">
+                        <input value={{incident.customer_name}} class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
-                        <input value={{incidence.customer_phone}} class="incident-input_input">
+                        <input value={{incident.customer_phone}} class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
-                        <input value={{incidence.customer_direction}} class="incident-input_input">
+                        <input value={{incident.customer_direction}} class="incident-input_input">
                     </div>
                 </div>
                 <div class="incident-input_formColumn">
@@ -87,20 +87,20 @@
                 </div>
                 <div class="incident-input_formColumn">
                     <div class="incident-input-formInput">
-                        <input value={{incidence.customer_poblation}} class="incident-input_input">
+                        <input value={{incident.customer_poblation}} class="incident-input_input">
                     </div>
                     <div class="incident-input-formInput">
-                        <input value={{incidence.warehouse_ubication}} class="incident-input_inputShort">
+                        <input value={{incident.warehouse_ubication}} class="incident-input_inputShort">
                     </div>
                     <div class="incident-input-formInput">
-                        <input value={{incidence.customer_cp}} class="incident-input_inputShort">
+                        <input value={{incident.customer_cp}} class="incident-input_inputShort">
                     </div>
                 </div>
 
             </div>
             <div class="incident-input_moveRight">
                 <div class="incident-input_btnContainer">
-                    <app-button [value]="value" (click)="registrarIncidencia(number_expedient.value)"
+                    <app-button [value]="value" 
                         [style]="'font-size:2rem;'"></app-button>
                 </div>
             </div>
