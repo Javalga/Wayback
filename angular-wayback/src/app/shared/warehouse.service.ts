@@ -14,4 +14,14 @@ export class WarehouseService {
     this.url = 'http://localhost:3000/warehouses';
     return this.http.get(this.url);
   }
+
+  public postWarehouse(warehouse: Warehouse) {
+    this.url = 'http://localhost:3000/warehouses';
+    return this.http.post(this.url, warehouse);
+  }
+
+  // public putWarehouse(warehouse: Warehouse) {
+  //   this.url = 'http://localhost:3000/warehouses';
+  //   return this.http.put(this.url, warehouse);
+  // }
 }
