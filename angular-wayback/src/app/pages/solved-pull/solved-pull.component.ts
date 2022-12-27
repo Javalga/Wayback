@@ -53,7 +53,7 @@ export class SolvedPullComponent {
           this.incidences[i].customer_city,
           this.incidences[i].input_date,
           this.incidences[i].output_date,
-          this.incidences[i].next_delivey,
+          this.incidences[i].next_delivery,
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
