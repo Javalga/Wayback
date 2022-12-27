@@ -18,12 +18,17 @@ export class IncidenceService {
     return this.http.get(this.url);
   }
 
-  postIncidence(incidence){
+  postIncidence(incidence) {
     this.url = `http://localhost:3000/incidence`;
     console.log(incidence);
-    
+
     return this.http.post(this.url, incidence);
-  };
+  }
+
+  getAllIncidence() {
+    this.url = 'http://localhost:3000/incidence_processed';
+    return this.http.get(this.url);
+  }
 }
 
  
