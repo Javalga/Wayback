@@ -13,17 +13,14 @@ export class UserService {
     this.user = new User();
   }
 
-
-
-
   public getUsers() {
     this.url = 'http://localhost:3000/users';
     return this.http.get(this.url);
   }
 
-  public putUser(user, user_id) {
+  public putUser(user, username) {
     this.url = 'http://localhost:3000/users';
-    return this.http.put(this.url, user, user_id);
+    return this.http.put(this.url, user, username);
   }
 
   public postUser(user) {

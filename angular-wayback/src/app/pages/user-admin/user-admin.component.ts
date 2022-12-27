@@ -142,7 +142,9 @@ export class UserAdminComponent {
     console.log(form.value)
     if (this.value === 'Crear') {
       this.UserService.postUser(form.value);
-    } else;
+    } else
+
+      ;
 
 
   }
