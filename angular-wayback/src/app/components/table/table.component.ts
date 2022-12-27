@@ -37,19 +37,17 @@ export class TableComponent implements OnInit {
         this.sendSelected.emit(this.rowSelected)
       }
     } else if (this.selectedRow === undefined) {
-      console.log("prueba")
+      
       this.selectedRow = index;
       this.sendIndex.emit(this.selectedRow)
       this.buttonValue = "Modificar";
       this.sendButtonValue.emit(this.buttonValue);
     } else if (this.selectedRow === index) {
-      console.log("prueba2")
       this.selectedRow = undefined;
       this.sendIndex.emit(this.selectedRow);
       this.buttonValue = "Crear";
       this.sendButtonValue.emit(this.buttonValue);
     } else {
-      console.log("prueba3")
       this.selectedRow = index;
       this.sendIndex.emit(this.selectedRow);
       this.buttonValue = "Modificar";
