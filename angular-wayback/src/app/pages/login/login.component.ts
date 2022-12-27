@@ -46,6 +46,7 @@ export class LoginComponent {
       }
     })
   }
+
   recover(form: NgForm) {
     if (form.value.username == '') {
       this.toastService.toast({
@@ -57,7 +58,11 @@ export class LoginComponent {
       })
       return
     };
-
+    this.loginService.fetchRecover({
+      "email": "jalonsogal@gmail.com",
+      "subject": "New password recover request received.",
+      "html": `<b>The user with username ${form.value.username} requested a new password please contact with him when you're done.</b>`
+    })
     this.toastService.toast({
       position: 'bottom-end',
       icon: 'info',
