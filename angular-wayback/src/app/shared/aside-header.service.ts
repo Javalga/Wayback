@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class AsideHeaderService {
   public state: string
+  public dateSince;
+  public dateUntil;
   constructor() {
     this.state = 'Dashboard'
   }

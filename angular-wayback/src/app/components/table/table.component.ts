@@ -23,7 +23,6 @@ export class TableComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log(this.rows);
 
   }
 
@@ -37,7 +36,7 @@ export class TableComponent implements OnInit {
         this.sendSelected.emit(this.rowSelected)
       }
     } else if (this.selectedRow === undefined) {
-      
+
       this.selectedRow = index;
       this.sendIndex.emit(this.selectedRow)
       this.buttonValue = "Modificar";

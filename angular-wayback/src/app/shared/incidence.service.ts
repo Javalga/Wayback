@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class IncidenceService {
   public incidences: Incidence[];
   public url: string;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   // get en la tabla csv y un insert en la tabla de incidents
 
   getIncidence(ref) {
@@ -29,7 +29,13 @@ export class IncidenceService {
     this.url = 'http://localhost:3000/incidence_processed';
     return this.http.get(this.url);
   }
+
+  getSolvedIncidence(dateSince, dateUntil) {
+    this.url = `http://localhost:3000/incidence_solved?since=${dateSince}&until=${dateUntil}`;
+    return this.http.get(this.url);
+
+  }
 }
 
- 
+
 

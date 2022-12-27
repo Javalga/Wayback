@@ -6,11 +6,11 @@
     <select name="filter_type" class="general-input" #filter_type *ngIf="asideHeaderService.state === 'Histórico' ">
         <option value="" class="general-input">Fecha Entrada:</option>
         <option value="" class="general-input">Fecha Salida:</option>
-        <option value="" class="general-input">Fecha Proxima Entrega:</option> 
+        <option value="" class="general-input">Fecha Proxima Entrega:</option>
     </select>
 
-    <div class="date"><input type="date"></div>
-    <div class="date"><input type="date"></div>
+    <div class="date"><input type="date" #dateSince (change)="sendDates()"></div>
+    <div class="date"><input type="date" #dateUntil (change)="sendDates()"></div>
 
 
 </div>
