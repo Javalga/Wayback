@@ -9,8 +9,8 @@
         <option value="" class="general-input">Fecha Proxima Entrega:</option>
     </select>
 
-    <div class="date"><input type="date" #dateSince (change)="sendDates()"></div>
-    <div class="date"><input type="date" #dateUntil (change)="sendDates()"></div>
+    <div class="date"><input type="date" #dateSince (change)="sendDates()" [value]="defaultDateSince()"></div>
+    <div class="date"><input type="date" #dateUntil (change)="sendDates()" [value]="defaultDateUntil()"></div>
 
 
 </div>
