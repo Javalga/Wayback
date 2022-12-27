@@ -6,6 +6,8 @@ import { IncidenceType } from 'src/app/models/incidence-type';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { Warehouse } from 'src/app/models/warehouse';
 import { ToastService } from 'src/app/shared/toast.service';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-incidence-input',
@@ -54,8 +56,8 @@ export class IncidenceInputComponent {
       this.incidence.customer_address = this.csv_response[0].Direccion;
       this.incidence.customer_cp = this.csv_response[0].CP;
       this.incidence.customer_city = this.csv_response[0].Poblacion;
-      // incidence.input_date = new Date();
-
+      this.incidence.input_date = moment().format('YYYY-MM-DD');
+      
       console.log(this.incidence);
       this.incidenceService.postIncidence(this.incidence).subscribe((data) => {
         this.inputResponse = data;

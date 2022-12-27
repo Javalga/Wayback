@@ -17,6 +17,10 @@ export class LoginService {
     this.url = "http://localhost:3000/login"
     return this.http.post(this.url, this.user)
   }
+  fetchRecover(body) {
+    this.url "http://localhost:3000/mailer"
+    return this.http.post(this.url, body)
+  }
 }
 
 // roles = SUPER || ADMIN || USER

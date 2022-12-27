@@ -12,9 +12,9 @@ export class Incidence {
   public customer_address: string;
   public customer_cp: string;
   public customer_city: string;
-  public input_date: Date;
-  public output_date: Date;
-  public next_delivey: Date;
+  public input_date: string;
+  public output_date: string;
+  public next_delivery: string;
   public delivery_time: string;
   public warehouse: string;
 
