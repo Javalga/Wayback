@@ -22,6 +22,7 @@ import { AsideLiComponent } from './components/aside-li/aside-li.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component'
 import { HttpClientModule } from '@angular/common/http';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     DatesRangeComponent,
     AsideLiComponent,
     LocationsComponent,
-    WarehousesComponent
+    WarehousesComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

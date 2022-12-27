@@ -1,0 +1,47 @@
+.filter {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  align-items: center;
+}
+
+.filter > p {
+  padding: 0.4em;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.filter > button {
+  padding: 0.4em;
+  margin: 0px;
+  padding-left: 0;
+}
+
+.filter > input {
+  background-color: var(--primary-color1-dark);
+}
+
+.filter_btnContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 10px;
+}
+
+.filter_dropdown {
+  background-color: var(--primary-color1-dark);
+  color: var(--secondary-color2-dark);
+}
+
+.filter_input {
+  width: 20vw;
+  background-color: var(--primary-color2-dark);
+  padding: 10px;
+  color: white;
+}
+
+.general-input {
+  background-color: var(--primary-color1-dark);
+  color: var(--secondary-color2-dark);
+  padding: 0.4em;
+}
