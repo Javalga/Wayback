@@ -18,12 +18,16 @@ export class UserService {
     return this.http.get(this.url);
   }
 
-  public putUser(user, username) {
+  public putUser(user: User) {
     this.url = 'http://localhost:3000/users';
-    return this.http.put(this.url, user, username);
+    console.log(user);
+    return this.http.put(this.url, user);
   }
 
-  public postUser(user) {
+  public postUser(user: User) {
+    console.log('hola funciono');
+
+    console.log(user); console.log(user)
     this.url = 'http://localhost:3000/users';
     return this.http.post(this.url, user);
   }

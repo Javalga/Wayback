@@ -1,42 +1,65 @@
 import { Component } from '@angular/core';
-
+import { IncidenceService } from 'src/app/shared/incidence.service';
+import { Incidence } from 'src/app/models/incidence';
 @Component({
   selector: 'app-historical',
   templateUrl: './historical.component.html',
-  styleUrls: ['./historical.component.css']
+  styleUrls: ['./historical.component.css'],
 })
 export class HistoricalComponent {
   public cols: string[];
-  public rows: any
-  public style: string = "height:40vh;";
+  public rows: any;
+  public style: string = 'height:40vh;';
+  public incidences: Incidence[];
 
-  constructor() {
-    this.cols = ["Índice", "Seleccionar", "N* Expedición", "F.Entrada", "F.Salida", "X", "X", "Etiqueta", "Formulario"];
-    this.rows = [
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-      ["v", "123456789", "12/12/1212", "15/15/1515", "X", "X", "Etiqeuta", "formulario"],
-    ]
-  }
+  constructor(private IncidenceService: IncidenceService) {
+    this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
+      this.incidences = data
+
+      this.cols = [
+        'Índice',
+        'N* Expedición',
+        'Estado',
+        'Tipo de Incidencia',
+        'Nombre',
+        'Teléfono',
+        'Email',
+        'Dirección',
+        'CP',
+        'Población',
+        'F. Entrada',
+        'F. Salida',
+        'Próx. Entrega',
+        'Horario de Entrega',
+        'Almacén'
+      ];
+    
+    this.rows = [];
+    for (let i = 0; i < this.incidences.length; i++) {
+    
+      this.rows.push([
+        this.incidences[i].incidence_ref,
+        this.incidences[i].status,
+        this.incidences[i].incidence_type,
+        this.incidences[i].customer_name,
+        this.incidences[i].customer_phone,
+        this.incidences[i].customer_mail,
+        this.incidences[i].customer_address,
+        this.incidences[i].customer_cp,
+        this.incidences[i].customer_city,
+        this.incidences[i].input_date,
+        this.incidences[i].output_date,
+        this.incidences[i].next_delivey,
+        this.incidences[i].delivery_time,
+        this.incidences[i].warehouse,
+      ]);
+    }
+  });
+}
 
   bigTable() {
-    if (this.style === "height:40vh;") {
-      this.style = "height:50vh;";
-    } else this.style = "height:40vh;";
+    if (this.style === 'height:40vh;') {
+      this.style = 'height:50vh;';
+    } else this.style = 'height:40vh;';
   }
 }

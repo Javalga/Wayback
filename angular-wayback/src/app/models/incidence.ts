@@ -1,6 +1,9 @@
 export class Incidence {
-  public incidence_ref: number;
+  public incidence_id: number;
+  public incidence_ref: string;
   public warehouse_id: number;
+  public incidence_type_id: number;
+  public status_id: number;
   public status: string;
   public incidence_type: string;
   public customer_name: string;
@@ -13,10 +16,10 @@ export class Incidence {
   public output_date: Date;
   public next_delivey: Date;
   public delivery_time: string;
-  public warehouse_location: string
+  public warehouse: string;
 
   constructor(
-    incidence_ref?: number,
+    incidence_ref?: string,
     warehouse_id?: number,
     status?: string,
     incidence_type?: string,
@@ -25,7 +28,7 @@ export class Incidence {
     customer_mail?: string,
     customer_address?: string,
     customer_cp?: string,
-    customer_city?: string,
+    customer_city?: string
   ) {
     this.incidence_ref = incidence_ref;
     this.warehouse_id = warehouse_id;

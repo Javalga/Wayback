@@ -5,9 +5,9 @@
             <div class="incidence-input_moveRight">
                 <div class="incidence-input_city">
                     <p>Entrada en:</p>
-                    <select name="filter_type" class="general-input" #filter_type>
+                    <select name="filter_type" class="general-input" #warehouse_id >
                         <option disabled selected>Selecciona una opción</option>
-                        <option *ngFor="let warehouse of this.warehouses">
+                        <option *ngFor="let warehouse of this.warehouses" [value]="warehouse.warehouse_id">
                             {{warehouse.name}}
                         </option>
                     </select>
@@ -37,9 +37,9 @@
                 <div class="incidence-input_formColumn">
                     <div class="incidence-input-formInput">
                         <!-- <input value={{incidence.incidence_type}} class="incidence-input_input"> -->
-                        <select class="incidence-input_input">
+                        <select class="incidence-input_input" #incidence_type_id >
                             <option disabled selected>Selecciona una opción</option>
-                            <option *ngFor="let type of this.incidence_type">
+                            <option *ngFor="let type of this.incidence_type" [value]="type.incidence_type_id">
                                 {{type.name}}
                             </option>
                         </select>
@@ -79,7 +79,7 @@
                         <label>Población</label>
                     </div>
                     <div class="incidence-input-formInput">
-                        <label>Zona</label>
+                        <label>Mail</label>
                     </div>
                     <div class="incidence-input-formInput">
                         <label>CP</label>
@@ -90,7 +90,7 @@
                         <input value={{incidence.customer_city}} class="incidence-input_input">
                     </div>
                     <div class="incidence-input-formInput">
-                        <input value={{incidence.warehouse_location}} class="incidence-input_inputShort">
+                        <input value={{incidence.customer_mail}} class="incidence-input_input">
                     </div>
                     <div class="incidence-input-formInput">
                         <input value={{incidence.customer_cp}} class="incidence-input_inputShort">
@@ -100,10 +100,10 @@
             </div>
             <div class="incidence-input_moveRight">
                 <div class="incidence-input_btnContainer">
-                    <app-button [value]="value" (click)="registerIncidence(incidence_ref.value)"
+                    <app-button [value]="value" (click)="registerIncidence(incidence_ref.value, warehouse_id.value, incidence_type_id.value)"
                         [style]="'font-size:2rem;'"></app-button>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</main> 
