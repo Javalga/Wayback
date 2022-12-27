@@ -18,7 +18,7 @@ export class LoginService {
     return this.http.post(this.url, this.user)
   }
   fetchRecover(body) {
-    this.url "http://localhost:3000/mailer"
+    this.url = "http://localhost:3000/mailer"
     return this.http.post(this.url, body)
   }
 }
