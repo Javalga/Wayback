@@ -14,7 +14,7 @@ export class SolvedPullComponent {
   public cols: string[];
   public rows: any;
   public show = true;
-  public selected;
+  public selected:number[] = [];
   public incidences: Incidence[];
 
   constructor(
@@ -83,6 +83,8 @@ export class SolvedPullComponent {
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
+        this.selected.push(i);
+        console.log(this.selected);
       }
     });
 

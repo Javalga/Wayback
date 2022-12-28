@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, OnInit } from '@angular/core';
 import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
@@ -6,18 +6,20 @@ import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 @Component({
   selector: 'app-returns',
   templateUrl: './returns.component.html',
-  styleUrls: ['./returns.component.css']
+  styleUrls: ['./returns.component.css'],
 })
 export class ReturnsComponent {
-
-  public value: string = "Imprimir Listado de Devoluciones";
+  public value: string = 'Imprimir Listado de Devoluciones';
   public cols: string[];
-  public rows: any
+  public rows: any;
   public show = true;
   public selected: number[] = [];
   public incidences: Incidence[];
 
-  constructor(private IncidenceService: IncidenceService, public asideHeaderService: AsideHeaderService) {
+  constructor(
+    private IncidenceService: IncidenceService,
+    public asideHeaderService: AsideHeaderService
+  ) {
     let since = this.asideHeaderService.startOfTime();
     this.asideHeaderService.dateSince = since;
 
@@ -61,26 +63,29 @@ export class ReturnsComponent {
           this.incidences[i].customer_city,
           this.incidences[i].input_date === null
             ? null
-            : `${new Date(this.incidences[i].input_date).getDate()}-${new Date(this.incidences[i].input_date).getMonth() + 1
-            }-${new Date(this.incidences[i].input_date).getFullYear()}`,
+            : `${new Date(this.incidences[i].input_date).getDate()}-${
+                new Date(this.incidences[i].input_date).getMonth() + 1
+              }-${new Date(this.incidences[i].input_date).getFullYear()}`,
 
           this.incidences[i].output_date === null
             ? null
-            : `${new Date(this.incidences[i].output_date).getDate()}-${new Date(this.incidences[i].output_date).getMonth() + 1
-            }-${new Date(this.incidences[i].output_date).getFullYear()}`,
+            : `${new Date(this.incidences[i].output_date).getDate()}-${
+                new Date(this.incidences[i].output_date).getMonth() + 1
+              }-${new Date(this.incidences[i].output_date).getFullYear()}`,
 
           this.incidences[i].next_delivery === null
             ? null
-            : `${new Date(this.incidences[i].next_delivery).getDate()}-${new Date(this.incidences[i].next_delivery).getMonth() + 1
-            }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
+            : `${new Date(this.incidences[i].next_delivery).getDate()}-${
+                new Date(this.incidences[i].next_delivery).getMonth() + 1
+              }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
 
         this.selected.push(i);
-        console.log(this.selected)
+        console.log(this.selected);
       }
-    })
+    });
     console.log(this.asideHeaderService.dateSince);
     console.log(this.asideHeaderService.dateUntil);
   }
@@ -90,7 +95,7 @@ export class ReturnsComponent {
   }
 
   printSelected() {
-    console.log(this.selected)
+    console.log(this.selected);
   }
 
 
