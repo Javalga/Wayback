@@ -2,23 +2,36 @@ import { Component } from '@angular/core';
 import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-solved-pull',
   templateUrl: './solved-pull.component.html',
-  styleUrls: ['./solved-pull.component.css']
+  styleUrls: ['./solved-pull.component.css'],
 })
 export class SolvedPullComponent {
-  public value: string = "Imprimir Etiquetas de Incidencias Solucionadas";
+  public value: string = 'Imprimir Etiquetas de Incidencias Solucionadas';
   public cols: string[];
-  public rows: any
+  public rows: any;
   public show = true;
   public selected;
   public incidences: Incidence[];
 
-  constructor(private IncidenceService: IncidenceService, public asideHeaderService: AsideHeaderService) {
-    this.IncidenceService.getSolvedIncidence(this.asideHeaderService.dateSince, this.asideHeaderService.dateUntil).subscribe((data: Incidence[]) => {
-      this.incidences = data
+  constructor(
+    private IncidenceService: IncidenceService,
+    public asideHeaderService: AsideHeaderService
+  ) {
+    let since = this.asideHeaderService.today();
+    this.asideHeaderService.dateSince = since;
+
+    let until = this.asideHeaderService.tomorrow();
+    this.asideHeaderService.dateUntil = until;
+
+    this.IncidenceService.getSolvedIncidence(
+      this.asideHeaderService.dateSince,
+      this.asideHeaderService.dateUntil
+    ).subscribe((data: Incidence[]) => {
+      this.incidences = data;
 
       this.cols = [
         'Índice',
@@ -35,12 +48,11 @@ export class SolvedPullComponent {
         'F. Salida',
         'Próx. Entrega',
         'Horario de Entrega',
-        'Almacén'
+        'Almacén',
       ];
 
       this.rows = [];
       for (let i = 0; i < this.incidences.length; i++) {
-
         this.rows.push([
           this.incidences[i].incidence_ref,
           this.incidences[i].status,
@@ -51,26 +63,40 @@ export class SolvedPullComponent {
           this.incidences[i].customer_address,
           this.incidences[i].customer_cp,
           this.incidences[i].customer_city,
-          this.incidences[i].input_date,
-          this.incidences[i].output_date,
-          this.incidences[i].next_delivery,
+          this.incidences[i].input_date === null
+            ? null
+            : `${new Date(this.incidences[i].input_date).getDate()}-${
+                new Date(this.incidences[i].input_date).getMonth() + 1
+              }-${new Date(this.incidences[i].input_date).getFullYear()}`,
+
+          this.incidences[i].output_date === null
+            ? null
+            : `${new Date(this.incidences[i].output_date).getDate()}-${
+                new Date(this.incidences[i].output_date).getMonth() + 1
+              }-${new Date(this.incidences[i].output_date).getFullYear()}`,
+
+          this.incidences[i].next_delivery === null
+            ? null
+            : `${new Date(this.incidences[i].next_delivery).getDate()}-${
+                new Date(this.incidences[i].next_delivery).getMonth() + 1
+              }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
       }
     });
 
-    // console.log(asideHeaderService.dateSince)
-    // console.log(asideHeaderService.dateUntil)
+    console.log(this.asideHeaderService.dateSince);
+    console.log(this.asideHeaderService.dateUntil);
   }
+
+ 
 
   sendSelected(selected) {
     this.selected = selected;
   }
 
   printSelected() {
-    console.log(this.selected)
+    console.log(this.selected);
   }
-
-
 }

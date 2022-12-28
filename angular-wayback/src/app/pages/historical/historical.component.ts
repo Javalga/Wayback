@@ -48,39 +48,28 @@ export class HistoricalComponent {
             this.incidences[i].customer_city,
             this.incidences[i].input_date === null
               ? null
-              : `${new Date(
-                  this.incidences[i].input_date
-                ).getDate()}-${new Date(
-                  this.incidences[i].input_date
-                ).getMonth()}-${new Date(
-                  this.incidences[i].input_date
-                ).getFullYear()}`,
+              : `${new Date(this.incidences[i].input_date).getDate()}-${
+                  new Date(this.incidences[i].input_date).getMonth() + 1
+                }-${new Date(this.incidences[i].input_date).getFullYear()}`,
 
             this.incidences[i].output_date === null
               ? null
-              : `${new Date(
-                  this.incidences[i].output_date
-                ).getDate()}-${new Date(
-                  this.incidences[i].output_date
-                ).getMonth()}-${new Date(
-                  this.incidences[i].output_date
-                ).getFullYear()}`,
+              : `${new Date(this.incidences[i].output_date).getDate()}-${
+                  new Date(this.incidences[i].output_date).getMonth() + 1
+                }-${new Date(this.incidences[i].output_date).getFullYear()}`,
 
             this.incidences[i].next_delivery === null
               ? null
-              : `${new Date(
-                  this.incidences[i].next_delivery
-                ).getDate()}-${new Date(
-                  this.incidences[i].delivery_time
-                ).getMonth()}-${new Date(
-                  this.incidences[i].next_delivery
-                ).getFullYear()}`,
+              : `${new Date(this.incidences[i].next_delivery).getDate()}-${
+                  new Date(this.incidences[i].next_delivery).getMonth() + 1
+                }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
             this.incidences[i].delivery_time,
             this.incidences[i].warehouse,
           ]);
 
       }
     });
+   
   }
 
   bigTable() {

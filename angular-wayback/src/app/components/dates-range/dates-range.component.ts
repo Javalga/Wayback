@@ -24,9 +24,13 @@ export class DatesRangeComponent implements OnInit {
   public defaultDateSince() {
 
     if (this.asideHeaderService.state === 'Dashboard' || this.asideHeaderService.state === 'Pool de solucionadas') {
-      return this.twoWeeksAgo();
+      let value = this.twoWeeksAgo();
+      this.asideHeaderService.dateSince = value
+      return value;
     } else if (this.asideHeaderService.state === 'Devoluciones' || this.asideHeaderService.state === 'Histórico') {
-      return "1970-01-01"
+      let value = '1970-01-01';
+      this.asideHeaderService.dateSince = value;
+      return value
     }
 
   }
@@ -35,16 +39,24 @@ export class DatesRangeComponent implements OnInit {
   public defaultDateUntil() {
 
     if (this.asideHeaderService.state === 'Dashboard' || this.asideHeaderService.state === 'Histórico') {
-      return this.today();
+      let value = this.today();
+      this.asideHeaderService.dateUntil = value
+      return value;
     } else if (this.asideHeaderService.state === 'Devoluciones') {
-      return this.twoWeeksAgo();
-    } else return this.tomorrow();
+      let value = this.twoWeeksAgo();
+      this.asideHeaderService.dateUntil = value;
+      return value;
+    } else {
+      let value = this.tomorrow();
+      this.asideHeaderService.dateUntil = value;
+      return value;
+    }
 
   }
 
 
   public twoWeeksAgo() {
-
+    
     return moment().subtract(15, "days").format("YYYY-MM-DD");
   }
 
