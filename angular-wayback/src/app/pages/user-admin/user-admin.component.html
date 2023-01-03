@@ -18,7 +18,7 @@
           <app-button [style]="'font-size:1.5rem;'" [value]="'Filtrar'"></app-button>
         </div>
       </div> -->
-      <app-filter></app-filter>
+      <app-filter [cols]="cols"></app-filter>
       <app-table (sendIndex)="sendSelected($event)" (sendButtonValue)="sendButtonValue($event)" [rows]="rows"
         [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
 

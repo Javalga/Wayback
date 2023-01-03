@@ -44,6 +44,8 @@ export class IncidenceService {
     this.url = `http://localhost:3000/incidence_to_return?since=${dateSince}&until=${dateUntil}`;
     return this.http.get(this.url);
   }
+
+  
 }
 
 
