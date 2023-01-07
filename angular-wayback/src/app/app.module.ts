@@ -23,6 +23,7 @@ import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component'
 import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './components/filter/filter.component';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FilterComponent } from './components/filter/filter.component';
     AsideLiComponent,
     LocationsComponent,
     WarehousesComponent,
-    FilterComponent
+    FilterComponent,
+    PdfComponent
   ],
   imports: [
     BrowserModule,
