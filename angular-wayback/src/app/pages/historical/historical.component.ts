@@ -8,7 +8,7 @@ import { Incidence } from 'src/app/models/incidence';
 })
 export class HistoricalComponent {
   public cols: string[];
-  public rows: any;
+  public rows = [];
   public style: string = 'height:40vh;';
   public incidences: Incidence[];
   public filteredIncidences: Incidence[]
@@ -33,7 +33,6 @@ export class HistoricalComponent {
         'Almacén',
       ];
       // this.incidences.forEach((elem) => { console.log(Object.keys(elem)) })
-      this.rows = [];
       for (let i = 0; i < this.incidences.length; i++) {
         this.rows.push([
           this.incidences[i].incidence_ref,
@@ -74,15 +73,18 @@ export class HistoricalComponent {
     } else this.style = 'height:40vh;';
   }
   useFilter(params: string[]) {
-    console.log(params);
+    // console.log(params);
 
     let auxIncidences = this.incidences
-    let key = params[0]
-    console.log(key);
 
-    if (params[1] !== null || undefined) {
-      this.filteredIncidences = this.incidences.filter((elem) => {
-        console.log(elem[key]);
+    // console.log(auxIncidences)
+
+    let key = params[0]
+    console.log(key)
+    // console.log(key);
+
+    if (params[1] !== "") {
+      this.filteredIncidences = this.incidences.filter(function (elem) {
         elem[key] === params[1]
       })
 
@@ -90,9 +92,11 @@ export class HistoricalComponent {
       this.incidences = this.filteredIncidences
       this.rows = this.filteredIncidences
     } else {
+      console.log(params[1])
       console.log(auxIncidences);
       this.incidences = auxIncidences
       this.rows = this.incidences
+      console.log(this.rows)
     }
 
   }

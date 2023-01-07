@@ -12,7 +12,7 @@ export class FilterComponent {
   constructor(public asideHeaderService: AsideHeaderService) { }
   catchParams(col, value) {
     let converted;
-    console.log(this.asideHeaderService.state);
+    // console.log(this.asideHeaderService.state);
 
     if (this.asideHeaderService.state === 'Localidades') {
       converted = 'name'
@@ -60,6 +60,9 @@ export class FilterComponent {
         case 'Tipo de incidencia':
           converted = 'incidence_type'
           break;
+        case 'Nombre':
+          converted = 'customer_name'
+          break;
         case 'Teléfono':
           converted = 'customer_phone'
           break;
@@ -92,6 +95,7 @@ export class FilterComponent {
           break;
       }
     }
+    console.log(converted)
     this.filterParams.emit([converted, value])
   }
 }
