@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
+import { PdfComponent } from 'src/app/components/pdf/pdf.component';
 
 @Component({
   selector: 'app-returns',
@@ -16,8 +17,11 @@ export class ReturnsComponent {
   public show = true;
   public selected: number[] = [];
   public incidences: Incidence[];
+  public returns_pdf: PdfComponent;
 
   constructor(private IncidenceService: IncidenceService, public asideHeaderService: AsideHeaderService) {
+    this.returns_pdf = new PdfComponent();
+
     let since = this.asideHeaderService.startOfTime();
     this.asideHeaderService.dateSince = since;
 
@@ -90,7 +94,13 @@ export class ReturnsComponent {
   }
 
   printSelected() {
-    console.log(this.selected)
+    let selectedRows = [];
+    this.selected.forEach((elem) => {
+      selectedRows.push(this.rows[elem]);
+      console.log(this.rows[elem])
+    })
+    console.log(selectedRows)
+    this.returns_pdf.returnsPagePdf(selectedRows)
   }
 
 

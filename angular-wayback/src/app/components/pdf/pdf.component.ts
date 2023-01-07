@@ -9,10 +9,10 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./pdf.component.css'],
 })
 export class PdfComponent implements OnInit {
-  
-  constructor() {}
 
-  ngOnInit() {}
+  constructor() { }
+
+  ngOnInit() { }
 
   createPDF() {
     const pdfDefinition: any = {
@@ -27,6 +27,34 @@ export class PdfComponent implements OnInit {
     pdf.open();
   }
 
-  generateLabel() {}
+  generateLabel() { }
+
+  returnsPagePdf(selected) {
+
+    var docDefinition = {
+      content: [
+        {
+          layout: 'lightHorizontalLines', // optional
+          table: {
+            // headers are automatically repeated if the table spans over multiple pages
+            // you can declare how many rows should be treated as headers
+            headerRows: 1,
+            widths: ['*', 'auto', 100, '*'],
+
+            body: [
+              ['First', 'Second', 'Third', 'The last one'],
+              ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+              [{ text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4']
+            ]
+          }
+        }
+      ]
+    };
+
+    const pdf = pdfMake.createPdf(docDefinition);
+    pdf.open();
+  }
 
 }
+
+
