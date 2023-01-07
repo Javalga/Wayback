@@ -4,7 +4,7 @@ import { IncidenceService } from 'src/app/shared/incidence.service';
 import { IncidenceTypeService } from 'src/app/shared/incidence-type.service';
 import { IncidenceType } from 'src/app/models/incidence-type';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
-import { Warehouse } from 'src/app/models/warehouse';
+import { Warehouse } from 'warehouse';
 import { ToastService } from 'src/app/shared/toast.service';
 import * as moment from 'moment';
 
@@ -57,7 +57,7 @@ export class IncidenceInputComponent {
       this.incidence.customer_cp = this.csv_response[0].CP;
       this.incidence.customer_city = this.csv_response[0].Poblacion;
       this.incidence.input_date = moment().format('YYYY-MM-DD');
-      
+
       console.log(this.incidence);
       this.incidenceService.postIncidence(this.incidence).subscribe((data) => {
         this.inputResponse = data;

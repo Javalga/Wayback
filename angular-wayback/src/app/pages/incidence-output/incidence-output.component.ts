@@ -1,6 +1,6 @@
 import { Component, Directive, Input, ViewChild } from '@angular/core';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
-import { Warehouse } from 'src/app/models/warehouse';
+import { Warehouse } from 'warehouse';
 import { StatusService } from 'src/app/shared/status.service';
 import { Status } from 'src/app/models/status';
 import { IncidenceService } from 'src/app/shared/incidence.service';
@@ -59,7 +59,7 @@ export class IncidenceOutputComponent {
       (data: Incidence[]) => {
         this.getOneIncidenceResponse = data;
         console.log(this.getOneIncidenceResponse)
-        
+
         if (this.getOneIncidenceResponse[0] == null) {
           this.toastService.toast({
             position: 'bottom-end',
@@ -101,6 +101,6 @@ export class IncidenceOutputComponent {
           });
         }
       }
-    );    
+    );
   }
 }

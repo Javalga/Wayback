@@ -11,11 +11,10 @@ export class HistoricalComponent {
   public rows: any;
   public style: string = 'height:40vh;';
   public incidences: Incidence[];
-
+  public filteredIncidences: Incidence[]
   constructor(private IncidenceService: IncidenceService) {
     this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
       this.incidences = data;
-
       this.cols = [
         'Índice',
         'N* Expedición',
@@ -33,43 +32,40 @@ export class HistoricalComponent {
         'Horario de Entrega',
         'Almacén',
       ];
-
+      // this.incidences.forEach((elem) => { console.log(Object.keys(elem)) })
       this.rows = [];
       for (let i = 0; i < this.incidences.length; i++) {
-          this.rows.push([
-            this.incidences[i].incidence_ref,
-            this.incidences[i].status,
-            this.incidences[i].incidence_type,
-            this.incidences[i].customer_name,
-            this.incidences[i].customer_phone,
-            this.incidences[i].customer_mail,
-            this.incidences[i].customer_address,
-            this.incidences[i].customer_cp,
-            this.incidences[i].customer_city,
-            this.incidences[i].input_date === null
-              ? null
-              : `${new Date(this.incidences[i].input_date).getDate()}-${
-                  new Date(this.incidences[i].input_date).getMonth() + 1
-                }-${new Date(this.incidences[i].input_date).getFullYear()}`,
+        this.rows.push([
+          this.incidences[i].incidence_ref,
+          this.incidences[i].status,
+          this.incidences[i].incidence_type,
+          this.incidences[i].customer_name,
+          this.incidences[i].customer_phone,
+          this.incidences[i].customer_mail,
+          this.incidences[i].customer_address,
+          this.incidences[i].customer_cp,
+          this.incidences[i].customer_city,
+          this.incidences[i].input_date === null
+            ? null
+            : `${new Date(this.incidences[i].input_date).getDate()}-${new Date(this.incidences[i].input_date).getMonth() + 1
+            }-${new Date(this.incidences[i].input_date).getFullYear()}`,
 
-            this.incidences[i].output_date === null
-              ? null
-              : `${new Date(this.incidences[i].output_date).getDate()}-${
-                  new Date(this.incidences[i].output_date).getMonth() + 1
-                }-${new Date(this.incidences[i].output_date).getFullYear()}`,
+          this.incidences[i].output_date === null
+            ? null
+            : `${new Date(this.incidences[i].output_date).getDate()}-${new Date(this.incidences[i].output_date).getMonth() + 1
+            }-${new Date(this.incidences[i].output_date).getFullYear()}`,
 
-            this.incidences[i].next_delivery === null
-              ? null
-              : `${new Date(this.incidences[i].next_delivery).getDate()}-${
-                  new Date(this.incidences[i].next_delivery).getMonth() + 1
-                }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
-            this.incidences[i].delivery_time,
-            this.incidences[i].warehouse,
-          ]);
+          this.incidences[i].next_delivery === null
+            ? null
+            : `${new Date(this.incidences[i].next_delivery).getDate()}-${new Date(this.incidences[i].next_delivery).getMonth() + 1
+            }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
+          this.incidences[i].delivery_time,
+          this.incidences[i].warehouse,
+        ]);
 
       }
     });
-   
+
   }
 
   bigTable() {
@@ -77,4 +73,28 @@ export class HistoricalComponent {
       this.style = 'height:50vh;';
     } else this.style = 'height:40vh;';
   }
+  useFilter(params: string[]) {
+    console.log(params);
+
+    let auxIncidences = this.incidences
+    let key = params[0]
+    console.log(key);
+
+    if (params[1] !== null || undefined) {
+      this.filteredIncidences = this.incidences.filter((elem) => {
+        console.log(elem[key]);
+        elem[key] === params[1]
+      })
+
+      console.log(this.filteredIncidences);
+      this.incidences = this.filteredIncidences
+      this.rows = this.filteredIncidences
+    } else {
+      console.log(auxIncidences);
+      this.incidences = auxIncidences
+      this.rows = this.incidences
+    }
+
+  }
+
 }

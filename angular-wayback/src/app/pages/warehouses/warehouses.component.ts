@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
-import { Warehouse } from 'src/app/models/warehouse';
+import { Warehouse } from 'warehouse';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -83,4 +83,3 @@ export class WarehousesComponent {
     }
   }
 }
- 
