@@ -67,8 +67,7 @@ export class UserAdminComponent {
         'Mail',
         'Almacén',
         'Localidad',
-        'Activo',
-        'Elminiar',
+        'Activo'
       ];
       this.rows = [];
       for (let i = 0; i < this.users.length; i++) {
@@ -85,8 +84,7 @@ export class UserAdminComponent {
           this.users[i].mail,
           this.users[i].warehouse,
           this.users[i].location,
-          this.users[i].active,
-          'icono',
+          this.users[i].active
         ]);
       }
     });

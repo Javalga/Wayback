@@ -21,7 +21,7 @@ export class SolvedPullComponent {
     private IncidenceService: IncidenceService,
     public asideHeaderService: AsideHeaderService
   ) {
-    let since = this.asideHeaderService.today();
+    let since = this.asideHeaderService.twoWeeksAgo();
     this.asideHeaderService.dateSince = since;
 
     let until = this.asideHeaderService.tomorrow();
