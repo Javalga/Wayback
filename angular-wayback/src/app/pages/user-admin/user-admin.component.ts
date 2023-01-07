@@ -6,7 +6,7 @@ import { Roles } from 'src/app/models/roles';
 import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
-import { Warehouse } from 'src/app/models/warehouse';
+import { Warehouse } from 'warehouse';
 import { NgForm } from '@angular/forms';
 
 // hay que hacer que las opcions de almacén se filtren cuando se indica la localidad
@@ -43,7 +43,7 @@ export class UserAdminComponent {
     public LocationService: LocationService,
     public WarehouseService: WarehouseService
   ) {
-    this.user = new User("","","","","","","",false,0,0,0);
+    this.user = new User("", "", "", "", "", "", "", false, 0, 0, 0);
 
     this.LocationService.getLocations().subscribe((data: Location[]) => {
       this.locations = data;
@@ -97,7 +97,7 @@ export class UserAdminComponent {
       this.selected = selected;
       console.log(this.selected);
 
-      
+
       this.user.username = this.users[this.selected].username;
       this.user.password = this.users[this.selected].password;
       this.user.name = this.users[this.selected].name;
@@ -107,7 +107,7 @@ export class UserAdminComponent {
       this.user.location_id = this.users[this.selected].location_id;
       this.user.active = this.users[this.selected].active;
 
-      
+
       this.username.nativeElement.value = this.user.username;
       this.pass.nativeElement.value = this.user.password;
       this.name.nativeElement.value = this.user.name;
@@ -117,7 +117,7 @@ export class UserAdminComponent {
       this.location.nativeElement.value = this.user.location_id;
       this.active.nativeElement.checked = this.user.active;
     } else {
-      
+
       this.user.username = '';
       this.user.password = '';
       this.user.name = '';
@@ -127,7 +127,7 @@ export class UserAdminComponent {
       this.user.location_id = 0;
       this.user.active = false;
 
-      
+
       this.username.nativeElement.value = '';
       this.pass.nativeElement.value = '';
       this.name.nativeElement.value = '';
@@ -239,8 +239,8 @@ export class UserAdminComponent {
           }
         });
       });
-      
-  
+
+
     }
   }
 }

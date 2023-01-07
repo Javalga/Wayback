@@ -67,7 +67,7 @@
             </div>
         </div> -->
 
-        <app-filter [cols]="cols"></app-filter>
+        <app-filter [cols]="cols" (filterParams)="useFilter($event)"></app-filter>
 
         <div class="table">
             <app-table [style]="style" [rows]="rows" [cols]="cols"></app-table>
