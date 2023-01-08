@@ -7,9 +7,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of rows; index as index" (click)="selected(index)">
-        <th scope="row"
-          [ngClass]="{  stripped, active: index === selectedOne(index), inactive: index != selectedOne(index) }">
-          {{index}}</th>
         <td *ngFor=" let data of row"
           [ngClass]="{ stripped, active: index === selectedOne(index), inactive: index != selectedOne(index) }">{{data}}
         </td>
