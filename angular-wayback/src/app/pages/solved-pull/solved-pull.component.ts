@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
+import { PdfComponent } from 'src/app/components/pdf/pdf.component';
 import * as moment from 'moment';
 
 @Component({
@@ -16,11 +17,15 @@ export class SolvedPullComponent {
   public show = true;
   public selected;
   public incidences: Incidence[];
+  public solved_pdf: PdfComponent;
 
   constructor(
     private IncidenceService: IncidenceService,
     public asideHeaderService: AsideHeaderService
   ) {
+
+    this.solved_pdf = new PdfComponent(); 
+    
     let since = this.asideHeaderService.twoWeeksAgo();
     this.asideHeaderService.dateSince = since;
 
@@ -90,7 +95,9 @@ export class SolvedPullComponent {
     console.log(this.asideHeaderService.dateUntil);
   }
 
- 
+  generateLabels() {
+      this.solved_pdf.generateLabel(this.incidences);
+  }
 
   sendSelected(selected) {
     this.selected = selected;
