@@ -13,6 +13,8 @@ export class HistoricalComponent {
   public style: string = 'height:40vh;';
   public incidences: Incidence[];
   public filteredIncidences: Incidence[]
+  public auxRows;
+
   constructor(private IncidenceService: IncidenceService) {
     this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
       this.incidences = data;
@@ -32,7 +34,6 @@ export class HistoricalComponent {
         'Horario de Entrega',
         'Almacén',
       ];
-      // this.incidences.forEach((elem) => { console.log(Object.keys(elem)) })
       for (let i = 0; i < this.incidences.length; i++) {
         this.rows.push([
           this.incidences[i].incidence_ref,
@@ -61,10 +62,9 @@ export class HistoricalComponent {
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
-
       }
     });
-
+    this.auxRows = this.rows;
   }
 
   bigTable() {
@@ -72,17 +72,24 @@ export class HistoricalComponent {
       this.style = 'height:50vh;';
     } else this.style = 'height:40vh;';
   }
-  useFilter(params: string[]) {
-    let key = params[0]
-    console.log(key)
-    if (params[1] !== "") {
-      console.log(params[1]);
 
+  useFilter(params: string[]) {
+    function normalizeString(text: string) {
+      text = text.toLowerCase();
+      text = text.replace(/á/gi, "a");
+      text = text.replace(/é/gi, "e");
+      text = text.replace(/í/gi, "i");
+      text = text.replace(/ó/gi, "o");
+      text = text.replace(/ú/gi, "u");
+      text = text.replace(/ñ/gi, "n");
+      return text;
+    }
+    let key = params[0]
+    if (params[1] !== "") {
       this.filteredIncidences = this.incidences.filter(function (elem) {
-        return elem[key].toLowerCase() === params[1].toLowerCase()
+        return normalizeString(elem[key]) === normalizeString(params[1])
       })
       this.incidences = this.filteredIncidences
-      console.log(this.filteredIncidences);
       this.rows = []
       this.filteredIncidences.forEach((incidence, index, arr) => {
         this.rows.push([])
@@ -114,60 +121,8 @@ export class HistoricalComponent {
           incidence.warehouse,
         )
       })
-
-      console.log(this.rows);
-
     } else {
-      this.rows = []
-      this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
-        this.incidences = data;
-        this.cols = [
-          'N* Expedición',
-          'Estado',
-          'Tipo de Incidencia',
-          'Nombre',
-          'Teléfono',
-          'Email',
-          'Dirección',
-          'CP',
-          'Población',
-          'F. Entrada',
-          'F. Salida',
-          'Próx. Entrega',
-          'Horario de Entrega',
-          'Almacén',
-        ];
-        // this.incidences.forEach((elem) => { console.log(Object.keys(elem)) })
-        for (let i = 0; i < this.incidences.length; i++) {
-          this.rows.push([
-            this.incidences[i].incidence_ref,
-            this.incidences[i].status,
-            this.incidences[i].incidence_type,
-            this.incidences[i].customer_name,
-            this.incidences[i].customer_phone,
-            this.incidences[i].customer_mail,
-            this.incidences[i].customer_address,
-            this.incidences[i].customer_cp,
-            this.incidences[i].customer_city,
-            this.incidences[i].input_date === null
-              ? null
-              : `${new Date(this.incidences[i].input_date).getDate()}-${new Date(this.incidences[i].input_date).getMonth() + 1
-              }-${new Date(this.incidences[i].input_date).getFullYear()}`,
-
-            this.incidences[i].output_date === null
-              ? null
-              : `${new Date(this.incidences[i].output_date).getDate()}-${new Date(this.incidences[i].output_date).getMonth() + 1
-              }-${new Date(this.incidences[i].output_date).getFullYear()}`,
-
-            this.incidences[i].next_delivery === null
-              ? null
-              : `${new Date(this.incidences[i].next_delivery).getDate()}-${new Date(this.incidences[i].next_delivery).getMonth() + 1
-              }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
-            this.incidences[i].delivery_time,
-            this.incidences[i].warehouse,
-          ]);
-        }
-      });
+      this.rows = this.auxRows;
     }
   }
 }
