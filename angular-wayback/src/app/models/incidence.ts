@@ -3,6 +3,7 @@ export class Incidence {
   public incidence_ref: string;
   public warehouse_id: number;
   public incidence_type_id: number;
+  public delivery_time_id: number;
   public status_id: number;
   public status: string;
   public incidence_type: string;
