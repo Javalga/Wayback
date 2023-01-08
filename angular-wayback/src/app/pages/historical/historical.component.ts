@@ -118,43 +118,7 @@ export class HistoricalComponent {
       console.log(this.rows);
 
     } else {
-      // console.log(params[1])
-      // console.log(auxIncidences);
-
-
-      // this.incidences = auxIncidences
-      // this.rows = []
-      // this.incidences.forEach((incidence, index, arr) => {
-      //   this.rows.push([])
-      //   this.rows[index].push(
-      //     incidence.incidence_ref,
-      //     incidence.status,
-      //     incidence.incidence_type,
-      //     incidence.customer_name,
-      //     incidence.customer_phone,
-      //     incidence.customer_mail,
-      //     incidence.customer_address,
-      //     incidence.customer_cp,
-      //     incidence.customer_city,
-      //     incidence.input_date === null
-      //       ? null
-      //       : `${new Date(incidence.input_date).getDate()}-${new Date(incidence.input_date).getMonth() + 1
-      //       }-${new Date(incidence.input_date).getFullYear()}`,
-
-      //     incidence.output_date === null
-      //       ? null
-      //       : `${new Date(incidence.output_date).getDate()}-${new Date(incidence.output_date).getMonth() + 1
-      //       }-${new Date(incidence.output_date).getFullYear()}`,
-
-      //     incidence.next_delivery === null
-      //       ? null
-      //       : `${new Date(incidence.next_delivery).getDate()}-${new Date(incidence.next_delivery).getMonth() + 1
-      //       }-${new Date(incidence.next_delivery).getFullYear()}`,
-      //     incidence.delivery_time,
-      //     incidence.warehouse,
-      //   )
-      // })
-      // console.log(this.rows)
+      this.rows = []
       this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
         this.incidences = data;
         this.cols = [
