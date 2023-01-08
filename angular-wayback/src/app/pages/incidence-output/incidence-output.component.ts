@@ -1,6 +1,6 @@
 import { Component, Directive, Input, ViewChild } from '@angular/core';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
-import { Warehouse } from 'warehouse';
+import { Warehouse } from 'src/app/models/warehouse';
 import { StatusService } from 'src/app/shared/status.service';
 import { Status } from 'src/app/models/status';
 import { IncidenceService } from 'src/app/shared/incidence.service';

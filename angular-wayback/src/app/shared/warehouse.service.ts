@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Warehouse } from 'warehouse';
+import { Warehouse } from 'src/app/models/warehouse';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

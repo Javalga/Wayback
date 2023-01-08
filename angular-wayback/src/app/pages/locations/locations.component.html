@@ -2,22 +2,7 @@
 
     <div class="user-admin_container">
         <div class="user-admin_containerFlex">
-            <div class="user-admin_filter">
-                <p>Filtrar por</p>
-                <select name="filter_type" class="general-input" #filter_type>
-                    <option value="" class="general-input">Nombre</option>
-                    <option value="" class="general-input">Email</option>
-                    <option value="" class="general-input">Tipo</option>
-                    <option value="" class="general-input">Activo</option>
-                    <option value="" class="general-input">Ubicación</option>
-                    <option value="" class="general-input">Cliente</option>
-
-                </select>
-                <input class="user-admin_input" placeholder="Alberto">
-                <div class="user-admin_btnContainer">
-                    <app-button [style]="'font-size:2rem;'" [value]="value"></app-button>
-                </div>
-            </div>
+            <app-filter [cols]="cols" (filterParams)="useFilter($event)"></app-filter>
 
             <app-table [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
 
@@ -29,7 +14,7 @@
                         <input class="user-admin_input">
                     </div>
                 </div>
-                
+
 
                 <div class="user-admin_formColumn3">
                     <div class="user-admin_formInput3">

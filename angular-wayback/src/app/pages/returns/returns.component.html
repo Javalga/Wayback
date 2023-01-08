@@ -52,7 +52,7 @@
             </div>
         </div> -->
 
-        <app-filter [cols]="cols"></app-filter>
+        <app-filter [cols]="cols" (filterParams)="useFilter($event)"></app-filter>
 
 
 

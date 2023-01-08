@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
-import { Warehouse } from 'warehouse';
+import { Warehouse } from 'src/app/models/warehouse';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -15,13 +15,15 @@ export class WarehousesComponent {
   @ViewChild('location_id') location_id;
 
   public value: string = 'Crear';
-  // public value: string = 'Filtrar';
   public cols: string[];
-  public rows: any;
+  public rows = [];
   public locations: Location[];
   public warehouses: Warehouse[];
   public warehouse: Warehouse;
   public selected;
+  public filteredWarehouses: Warehouse[]
+  public auxRows;
+
 
   constructor(
     public WarehouseService: WarehouseService,
@@ -35,16 +37,15 @@ export class WarehousesComponent {
 
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
       this.warehouses = data;
-      this.cols = ['Indice', 'Nombre', 'Localidad', 'Eliminar'];
-      this.rows = [];
+      this.cols = ['Nombre', 'Localidad'];
       for (let i = 0; i < this.warehouses.length; i++) {
         this.rows.push([
           this.warehouses[i].name,
           this.warehouses[i].location,
-          'icono',
         ]);
       }
     });
+    this.auxRows = this.rows;
   }
 
   sendSelected(selected) {
@@ -82,4 +83,34 @@ export class WarehousesComponent {
       // });
     }
   }
+  useFilter(params: string[]) {
+    function normalizeString(text: string) {
+      text = text.toLowerCase();
+      text = text.replace(/á/gi, "a");
+      text = text.replace(/é/gi, "e");
+      text = text.replace(/í/gi, "i");
+      text = text.replace(/ó/gi, "o");
+      text = text.replace(/ú/gi, "u");
+      text = text.replace(/ñ/gi, "n");
+      return text;
+    }
+    let key = params[0]
+    if (params[1] !== "") {
+      this.filteredWarehouses = this.warehouses.filter(function (elem) {
+        return normalizeString(elem[key]) === normalizeString(params[1])
+      })
+      this.warehouses = this.filteredWarehouses
+      this.rows = []
+      this.filteredWarehouses.forEach((warehouse, index, arr) => {
+        this.rows.push([])
+        this.rows[index].push(
+          warehouse.name,
+          warehouse.location
+        )
+      })
+    } else {
+      this.rows = this.auxRows;
+    }
+  }
 }
+

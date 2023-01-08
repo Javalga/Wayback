@@ -6,7 +6,7 @@ import { Roles } from 'src/app/models/roles';
 import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
-import { Warehouse } from 'warehouse';
+import { Warehouse } from 'src/app/models/warehouse';
 import { NgForm } from '@angular/forms';
 
 // hay que hacer que las opcions de almacén se filtren cuando se indica la localidad
@@ -29,13 +29,15 @@ export class UserAdminComponent {
 
   public value: string = 'Crear';
   public cols: string[];
-  public rows: any;
+  public rows = [];
   public locations: Location[];
   public roles: Roles[];
   public users: User[];
   public warehouses: Warehouse[];
   public user: User;
   public selected;
+  public filteredUsers: User[]
+  public auxRows;
 
   constructor(
     public UserService: UserService,
@@ -60,7 +62,6 @@ export class UserAdminComponent {
     this.UserService.getUsers().subscribe((data: User[]) => {
       this.users = data;
       this.cols = [
-        'Indice',
         'Username',
         'Nombre',
         'Rol',
@@ -69,7 +70,6 @@ export class UserAdminComponent {
         'Localidad',
         'Activo'
       ];
-      this.rows = [];
       for (let i = 0; i < this.users.length; i++) {
         if (this.users[i].active == true) {
           this.users[i].active = true;
@@ -88,6 +88,7 @@ export class UserAdminComponent {
         ]);
       }
     });
+    this.auxRows = this.rows;
   }
 
   sendSelected(selected) {
@@ -241,4 +242,40 @@ export class UserAdminComponent {
 
     }
   }
+  useFilter(params: string[]) {
+    function normalizeString(text: string) {
+      text = text.toLowerCase();
+      text = text.replace(/á/gi, "a");
+      text = text.replace(/é/gi, "e");
+      text = text.replace(/í/gi, "i");
+      text = text.replace(/ó/gi, "o");
+      text = text.replace(/ú/gi, "u");
+      text = text.replace(/ñ/gi, "n");
+      return text;
+    }
+    let key = params[0]
+    if (params[1] !== "") {
+      this.filteredUsers = this.users.filter(function (elem) {
+        return normalizeString(elem[key]) === normalizeString(params[1])
+      })
+      this.users = this.filteredUsers
+      this.rows = []
+      this.filteredUsers.forEach((user, index, arr) => {
+        this.rows.push([])
+        this.rows[index].push(
+          user.username,
+          user.name,
+          user.role,
+          user.mail,
+          user.warehouse,
+          user.location,
+          user.active
+        )
+      })
+    } else {
+      this.rows = this.auxRows;
+    }
+  }
 }
+
+

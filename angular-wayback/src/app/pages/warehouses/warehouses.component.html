@@ -2,24 +2,10 @@
 
     <div class="user-admin_container">
         <div class="user-admin_containerFlex">
-            <div class="user-admin_filter">
-                <p>Filtrar por</p>
-                <select name="filter_type" class="general-input" #filter_type> 
-                    <option value="" class="general-input">Nombre</option>
-                    <option value="" class="general-input">Email</option>
-                    <option value="" class="general-input">Tipo</option>
-                    <option value="" class="general-input">Activo</option>
-                    <option value="" class="general-input">Ubicación</option>
-                    <option value="" class="general-input">Cliente</option>
+            <app-filter [cols]="cols" (filterParams)="useFilter($event)"></app-filter>
 
-                </select>
-                <input class="user-admin_input" placeholder="Alberto">
-                <div class="user-admin_btnContainer">
-                    <app-button [style]="'font-size:2rem;'" [value]="'Filtrar'"></app-button>
-                </div>
-            </div>
-
-            <app-table (sendIndex)="sendSelected($event)" (sendButtonValue)="sendButtonValue($event)"  [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
+            <app-table (sendIndex)="sendSelected($event)" (sendButtonValue)="sendButtonValue($event)" [rows]="rows"
+                [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
 
             <div class="user-admin_form">
                 <form #warehouseForm="ngForm" (ngSubmit)="onSubmit(warehouseForm)">
@@ -31,14 +17,15 @@
                     </div>
                     <div class="user-admin_formColumn">
                         <div class="user-admin_formInput">
-                            <label>Localidad</label>                          
-                            <select class="user-admin_input" #location_id name="location" [(ngModel)]="warehouse.location_id" >
+                            <label>Localidad</label>
+                            <select class="user-admin_input" #location_id name="location"
+                                [(ngModel)]="warehouse.location_id">
                                 <option disabled selected>Selecciona una opción</option>
                                 <option *ngFor="let location of this.locations" [value]="location.location_id">
                                     {{location.name}}
                                 </option>
                             </select>
-                        </div>                    
+                        </div>
                     </div>
                     <div class="user-admin_formColumn3">
                         <div class="user-admin_formInput3">

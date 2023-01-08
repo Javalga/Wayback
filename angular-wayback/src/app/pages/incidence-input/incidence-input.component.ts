@@ -4,7 +4,7 @@ import { IncidenceService } from 'src/app/shared/incidence.service';
 import { IncidenceTypeService } from 'src/app/shared/incidence-type.service';
 import { IncidenceType } from 'src/app/models/incidence-type';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
-import { Warehouse } from 'warehouse';
+import { Warehouse } from 'src/app/models/warehouse';
 import { ToastService } from 'src/app/shared/toast.service';
 import * as moment from 'moment';
 

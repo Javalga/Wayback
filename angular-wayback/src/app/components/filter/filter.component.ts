@@ -95,7 +95,6 @@ export class FilterComponent {
           break;
       }
     }
-    console.log(converted)
     this.filterParams.emit([converted, value])
   }
 }
