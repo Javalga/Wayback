@@ -51,13 +51,13 @@ export class FilterComponent {
       }
     } else {
       switch (col) {
-        case 'Nº Expedición':
+        case 'N* Expedición':
           converted = 'incidence_ref'
           break;
         case 'Estado':
           converted = 'status'
           break;
-        case 'Tipo de incidencia':
+        case 'Tipo de Incidencia':
           converted = 'incidence_type'
           break;
         case 'Nombre':
@@ -78,13 +78,13 @@ export class FilterComponent {
         case 'Población':
           converted = 'customer_city'
           break;
-        case 'F.Entrada':
+        case 'F. Entrada':
           converted = 'input_date'
           break;
-        case 'F.Salida':
+        case 'F. Salida':
           converted = 'output_date'
           break;
-        case 'Próx.Entrega':
+        case 'Próx. Entrega':
           converted = 'next_delivery'
           break;
         case 'Horario de Entrega':
