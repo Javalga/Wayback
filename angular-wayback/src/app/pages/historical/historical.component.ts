@@ -79,7 +79,7 @@ export class HistoricalComponent {
       console.log(params[1]);
 
       this.filteredIncidences = this.incidences.filter(function (elem) {
-        return elem[key] === params[1]
+        return elem[key].toLowerCase() === params[1].toLowerCase()
       })
       this.incidences = this.filteredIncidences
       console.log(this.filteredIncidences);
