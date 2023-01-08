@@ -118,6 +118,7 @@ export class HistoricalComponent {
       console.log(this.rows);
 
     } else {
+      this.rows = []
       this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
         this.incidences = data;
         this.cols = [
