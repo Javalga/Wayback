@@ -12,13 +12,11 @@ import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component';
 
-
-
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'customer-input', component: CustomerInputComponent },
+  { path: 'customer-input/:ref', component: CustomerInputComponent },
   { path: 'historical', component: HistoricalComponent },
   { path: 'incidence-input', component: IncidenceInputComponent },
   { path: 'incidence-output', component: IncidenceOutputComponent },
