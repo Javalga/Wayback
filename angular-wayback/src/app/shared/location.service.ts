@@ -11,7 +11,7 @@ export class LocationService {
 
   constructor(
     private http: HttpClient
-    ) {
+  ) {
     // this.locations = [
     //   new Location('Madrid'),
     //   new Location('Sevilla'),
@@ -23,5 +23,12 @@ export class LocationService {
   public getLocations() {
     this.url = 'http://localhost:3000/locations';
     return this.http.get(this.url);
+  }
+
+  public postLocation(location: Location) {
+    console.log('hola funciono');
+    console.log(location)
+    this.url = 'http://localhost:3000/locations';
+    return this.http.post(this.url, location);
   }
 }

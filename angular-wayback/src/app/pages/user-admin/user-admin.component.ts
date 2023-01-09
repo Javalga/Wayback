@@ -98,7 +98,7 @@ export class UserAdminComponent {
 
 
       this.user.username = this.users[this.selected].username;
-      this.user.password = this.users[this.selected].password;
+      this.user.password = this.hidePass();
       this.user.name = this.users[this.selected].name;
       this.user.mail = this.users[this.selected].mail;
       this.user.role_id = this.users[this.selected].role_id;
@@ -108,7 +108,7 @@ export class UserAdminComponent {
 
 
       this.username.nativeElement.value = this.user.username;
-      this.pass.nativeElement.value = this.user.password;
+      this.pass.nativeElement.value = this.hidePass();
       this.name.nativeElement.value = this.user.name;
       this.email.nativeElement.value = this.user.mail;
       this.role.nativeElement.value = this.user.role_id;
@@ -177,7 +177,6 @@ export class UserAdminComponent {
             'Almacén',
             'Localidad',
             'Activo',
-            'Elminiar',
           ];
           this.rows = [];
           for (let i = 0; i < this.users.length; i++) {
@@ -194,8 +193,7 @@ export class UserAdminComponent {
               this.users[i].mail,
               this.users[i].warehouse,
               this.users[i].location,
-              this.users[i].active,
-              'icono',
+              this.users[i].active
             ]);
           }
         });
@@ -214,8 +212,7 @@ export class UserAdminComponent {
             'Mail',
             'Almacén',
             'Localidad',
-            'Activo',
-            'Elminiar',
+            'Activo'
           ];
           this.rows = [];
           for (let i = 0; i < this.users.length; i++) {
@@ -232,8 +229,7 @@ export class UserAdminComponent {
               this.users[i].mail,
               this.users[i].warehouse,
               this.users[i].location,
-              this.users[i].active,
-              'icono',
+              this.users[i].active
             ]);
           }
         });

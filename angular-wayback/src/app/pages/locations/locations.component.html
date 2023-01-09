@@ -11,7 +11,7 @@
                 <div class="user-admin_formColumn">
                     <div class="user-admin_formInput">
                         <label>Nombre</label>
-                        <input class="user-admin_input">
+                        <input class="user-admin_input" #location>
                     </div>
                 </div>
 
@@ -20,7 +20,8 @@
                     <div class="user-admin_formInput3">
                         <div class="user-admin_formGroupActivo">
                             <div class="user-admin_btnContainerRight">
-                                <app-button [style]="'font-size:1.3rem;'" [value]="'Crear'"></app-button>
+                                <app-button [style]="'font-size:1.3rem;'" [value]="'Crear'"
+                                    (click)="createLocation(location.value)"></app-button>
                             </div>
                         </div>
                     </div>

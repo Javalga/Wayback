@@ -76,11 +76,22 @@ export class WarehousesComponent {
     if (this.value === 'Crear') {
       this.WarehouseService.postWarehouse(this.warehouse).subscribe((data) => {
         console.log(data);
+
+        this.LocationService.getLocations().subscribe((data: Location[]) => {
+          this.locations = data;
+        });
+
+        this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
+          this.warehouses = data;
+          this.cols = ['Nombre', 'Localidad'];
+          for (let i = 0; i < this.warehouses.length; i++) {
+            this.rows.push([
+              this.warehouses[i].name,
+              this.warehouses[i].location,
+            ]);
+          }
+        });
       });
-    } else {
-      // this.WarehouseService.putWarehouse(this.warehouse).subscribe((data) => {
-      //   console.log(data);
-      // });
     }
   }
   useFilter(params: string[]) {
