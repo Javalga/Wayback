@@ -21,13 +21,15 @@ export class SolvedPullComponent {
   public solved_pdf: PdfComponent;
   public filteredIncidences: Incidence[]
   public auxRows;
+  public card1Title = "Pendientes de Salida";
+  public card1Value;
+  public card2Title = "Seleccionadas para impresión";
+  public card2Value;
 
   constructor(
     private IncidenceService: IncidenceService,
     public asideHeaderService: AsideHeaderService
   ) {
-
-
     this.solved_pdf = new PdfComponent();
 
     let since = this.asideHeaderService.twoWeeksAgo();
@@ -89,13 +91,17 @@ export class SolvedPullComponent {
           this.incidences[i].warehouse,
         ]);
       }
+      this.card1Value = this.incidences.length
+      this.card2Value = this.selected.length
     });
+
 
     this.auxRows = this.rows;
   }
 
   sendSelected(selected) {
     this.selected = selected;
+    this.card2Value = this.selected.length
   }
 
   printSelected() {

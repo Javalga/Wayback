@@ -20,6 +20,10 @@ export class ReturnsComponent {
   public returns_pdf: PdfComponent;
   public filteredIncidences: Incidence[]
   public auxRows;
+  public card1Title = "Pendientes de Devolución";
+  public card1Value;
+  public card2Title = "Devoluciones seleccionadas";
+  public card2Value;
 
   constructor(private IncidenceService: IncidenceService, public asideHeaderService: AsideHeaderService) {
     this.returns_pdf = new PdfComponent();
@@ -81,16 +85,18 @@ export class ReturnsComponent {
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
-
-
-
       }
+      console.log(this.incidences)
+      console.log(this.selected)
+      this.card1Value = this.incidences.length
+      this.card2Value = this.selected.length
     })
     this.auxRows = this.rows;
   }
 
   sendSelected(selected) {
     this.selected = selected;
+    this.card2Value = this.selected.length
   }
 
   printSelected() {
