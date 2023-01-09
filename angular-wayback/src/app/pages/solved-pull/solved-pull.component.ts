@@ -52,7 +52,7 @@ export class SolvedPullComponent {
         'Población',
         'F. Entrada',
         'F. Salida',
-        'Próx. Entrega',
+        'Próx. Entrega', 
         'Horario de Entrega',
         'Almacén',
       ];

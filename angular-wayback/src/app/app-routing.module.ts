@@ -11,6 +11,7 @@ import { SolvedPullComponent } from './pages/solved-pull/solved-pull.component';
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component';
+import { FormConfirmationComponent } from './pages/form-confirmation/form-confirmation.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'user-admin', component: UserAdminComponent },
   { path: 'locations', component: LocationsComponent },
   { path: 'warehouses', component: WarehousesComponent },
+  { path: 'form-confirmation', component: FormConfirmationComponent },
 ];
 
 @NgModule({
