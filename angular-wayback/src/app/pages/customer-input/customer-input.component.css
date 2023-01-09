@@ -11,7 +11,7 @@
   padding: 2em 10em 2em;
 }
 
-.header-costumer-input {
+.header-customer-input {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,13 +31,13 @@
 
 /* Titulo y descripcion */
 
-.title-costumer-input {
+.title-customer-input {
   font-size: 4rem;
   text-align: center;
   margin: 0.2em 0em;
 }
 
-.description-costumer-input {
+.description-customer-input {
   font-size: 1.5rem;
   text-align: justify;
 }
@@ -208,7 +208,7 @@
     padding: 0em 0em 2em;
   }
 
-  .header-costumer-input {
+  .header-customer-input {
     background-color: var(--primary-color1-dark);
     display: flex;
     flex-direction: column;
@@ -233,7 +233,7 @@
     color: var(--secondary-color3-dark);
   }
 
-  .title-costumer-input {
+  .title-customer-input {
     width: 80%;
     margin: 1em auto;
     padding: 0px;
@@ -241,7 +241,7 @@
     color: var(--secondary-color3-dark);
   }
 
-  .description-costumer-input {
+  .description-customer-input {
     width: 80%;
     margin: auto;
   }
