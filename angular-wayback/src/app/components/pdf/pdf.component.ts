@@ -42,11 +42,15 @@ export class PdfComponent implements OnInit {
         text: 'INCIDENCIA SOLUCIONADA',
         style: 'incidence_text',});
 
+      // arrayContent.push({
+        
+      //   // height: 100
+      // });
 
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -60,7 +64,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -73,7 +77,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -86,7 +90,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -100,7 +104,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -113,7 +117,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -128,7 +132,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -150,7 +154,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -164,7 +168,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -182,7 +186,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -200,7 +204,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -218,7 +222,7 @@ export class PdfComponent implements OnInit {
       arrayContent.push({
         columns: [
         {
-          width: '30%',
+          width: '10%',
           text: ''
         },
         {          
@@ -342,6 +346,8 @@ export class PdfComponent implements OnInit {
     const pdf = pdfMake.createPdf(docDefinition);
     pdf.open();
   }
+  
+  
 
 }
 
