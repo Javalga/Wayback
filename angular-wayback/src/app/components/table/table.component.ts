@@ -11,6 +11,7 @@ export class TableComponent implements OnInit {
   @Input() cols: []
   @Input() rows: []
   @Input() style: string
+  @Input() allSelected: [];
   @Output() sendSelected = new EventEmitter<Array<number>>();
   @Output() sendIndex = new EventEmitter<number>();
   @Output() sendButtonValue = new EventEmitter<string>();
@@ -36,7 +37,6 @@ export class TableComponent implements OnInit {
         this.sendSelected.emit(this.rowSelected)
       }
     } else if (this.selectedRow === undefined) {
-
       this.selectedRow = index;
       this.sendIndex.emit(this.selectedRow)
       this.buttonValue = "Modificar";
@@ -58,9 +58,14 @@ export class TableComponent implements OnInit {
   }
 
   selectedOne(index) {
-    if (this.asideHeader.state != 'Usuarios') {
+    if (this.asideHeader.state != 'Usuarios' && this.asideHeader.state != 'Pool de solucionadas' && this.asideHeader.state != 'Devoluciones') {
       return this.rowSelected.find(element => element === index)
-    } else return this.selectedRow;
+    } else if (this.asideHeader.state === 'Pool de solucionadas' || this.asideHeader.state === 'Devoluciones') {
+      this.rowSelected = this.allSelected
+      this.sendSelected.emit(this.rowSelected)
+      return this.rowSelected.find(element => element === index)
+    } else
+      return this.selectedRow;
 
   }
 }
