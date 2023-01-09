@@ -24,6 +24,7 @@ import { WarehousesComponent } from './pages/warehouses/warehouses.component'
 import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './components/filter/filter.component';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { FormConfirmationComponent } from './pages/form-confirmation/form-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PdfComponent } from './components/pdf/pdf.component';
     LocationsComponent,
     WarehousesComponent,
     FilterComponent,
-    PdfComponent
+    PdfComponent,
+    FormConfirmationComponent
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,7 @@ export class Incidence {
   public next_delivery: string;
   public delivery_time: string;
   public warehouse: string;
+  public checkbox_form: boolean;
 
   constructor(
     incidence_ref?: string,

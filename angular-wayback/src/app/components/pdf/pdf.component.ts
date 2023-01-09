@@ -331,27 +331,31 @@ export class PdfComponent implements OnInit {
     pdf.open();
   }
 
-  returnsPagePdf(selected) {
+  returnsPagePdf(incidences: Incidence[]) {
+
+    let arrayContent = [];
+
+      for(let i = 0; i < incidences.length; i++){
+      
+      
+      arrayContent.push(
+        [incidences[i].customer_name, incidences[i].incidence_ref]
+      );
+
+      }
 
     var docDefinition = {
-      content: [
-        {
-          layout: 'lightHorizontalLines', // optional
-          table: {
-            // headers are automatically repeated if the table spans over multiple pages
-            // you can declare how many rows should be treated as headers
-            headerRows: 1,
-            widths: ['*', 'auto', 100, '*'],
-
-            body: [
-              ['First', 'Second', 'Third', 'The last one'],
-              ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
-              [{ text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4']
-            ]
-          }
-        }
-      ]
-    };
+      content: {
+      layout: 'lightHorizontalLines', 
+      table: {
+        // headers are automatically repeated if the table spans over multiple pages
+        // you can declare how many rows should be treated as headers
+        headerRows: 1,
+        widths: [ 80, 20 ],
+      },
+      body: arrayContent,
+    }
+  }
 
     const pdf = pdfMake.createPdf(docDefinition);
     pdf.open();

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class IncidenceService {
   public incidences: Incidence[];
   public url: string;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   // get en la tabla csv y un insert en la tabla de incidents
 
   getIncidence(ref) {
@@ -46,8 +46,14 @@ export class IncidenceService {
   }
 
   gettFilteredIncidences(col, value) {
-    this.url = `http://localhost:3000/filter?col=${col}&value=${value}`
+    this.url = `http://localhost:3000/filter?col=${col}&value=${value}`;
     return this.http.get(this.url);
+  }
+
+  putIncidence(incidence) {
+    this.url = `http://localhost:3000/incidence_form`;
+    console.log(incidence);
+    return this.http.put(this.url, incidence);
   }
 }
 
