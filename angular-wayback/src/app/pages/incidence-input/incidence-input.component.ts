@@ -6,6 +6,7 @@ import { IncidenceType } from 'src/app/models/incidence-type';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { Warehouse } from 'src/app/models/warehouse';
 import { ToastService } from 'src/app/shared/toast.service';
+import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
 
 
@@ -21,12 +22,12 @@ export class IncidenceInputComponent {
   public incidence_type: IncidenceType[];
   public csv_response;
   public inputResponse;
-
   constructor(
     public incidenceService: IncidenceService,
     public IncidenceTypeService: IncidenceTypeService,
     public WarehouseService: WarehouseService,
-    public toastService: ToastService
+    public toastService: ToastService,
+    private http: HttpClient
   ) {
     this.incidence = new Incidence();
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
@@ -39,7 +40,10 @@ export class IncidenceInputComponent {
       }
     );
   }
-
+  sendEmail(body) {
+    let url = "http://localhost:3000/mailer"
+    return this.http.post(url, body)
+  }
   registerIncidence(ref, warehouse_id, incidence_type_id) {
     this.incidenceService.getIncidence(ref).subscribe((data) => {
       this.csv_response = data;
@@ -73,6 +77,15 @@ export class IncidenceInputComponent {
             timer: 4000,
           });
         } else {
+          this.sendEmail({
+            "email": `${this.incidence.customer_mail}`,
+            "subject": "Su pedido no ha podido ser entregado",
+            "html": `<b>Hola, <strong>${this.incidence.customer_name}</strong>,\nEl paquete con numero de referencia ${this.incidence.incidence_ref} no ha podido ser entregado,
+            por favor entra en este enlace para completar la gestion de la incidencia.</p>
+            <a href='http://localhost:4200/customer-input/${this.incidence.incidence_ref}'>Click aqui</a>`
+          }).subscribe((data) => {
+            console.log(data);
+          })
           const audio = new Audio('assets/pitido.mp3');
           audio.play();
         }

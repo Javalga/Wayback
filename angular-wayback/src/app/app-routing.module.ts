@@ -12,8 +12,6 @@ import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component';
 
-
-
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
