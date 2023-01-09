@@ -77,8 +77,8 @@
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                     data-bs-parent="#accordionTable">
                     <div class="accordion-body body-acordion">
-                        <app-table #table class="table" [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; '"
-                            (sendSelected)="sendSelected($event)"></app-table>
+                        <app-table #table class="table" [allSelected]="selected" [rows]="rows" [cols]="cols"
+                            [style]="'font-size:1.5rem; '" (sendSelected)="sendSelected($event)"></app-table>
                     </div>
                 </div>
             </div>
