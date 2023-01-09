@@ -3,6 +3,7 @@ import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 import { PdfComponent } from 'src/app/components/pdf/pdf.component';
+import { TableComponent } from 'src/app/components/table/table.component';
 import * as moment from 'moment';
 
 @Component({
@@ -15,17 +16,20 @@ export class SolvedPullComponent {
   public cols: string[];
   public rows = [];
   public show = true;
-  public selected;
+  public selected: number[] = [];
   public incidences: Incidence[];
   public solved_pdf: PdfComponent;
   public filteredIncidences: Incidence[]
   public auxRows;
+  public card1Title = "Pendientes de Salida";
+  public card1Value;
+  public card2Title = "Seleccionadas para impresión";
+  public card2Value;
 
   constructor(
     private IncidenceService: IncidenceService,
     public asideHeaderService: AsideHeaderService
   ) {
-
     this.solved_pdf = new PdfComponent();
 
     let since = this.asideHeaderService.twoWeeksAgo();
@@ -58,6 +62,7 @@ export class SolvedPullComponent {
       ];
 
       for (let i = 0; i < this.incidences.length; i++) {
+        this.selected.push(i);
         this.rows.push([
           this.incidences[i].incidence_ref,
           this.incidences[i].status,
@@ -86,21 +91,25 @@ export class SolvedPullComponent {
           this.incidences[i].warehouse,
         ]);
       }
+      this.card1Value = this.incidences.length
+      this.card2Value = this.selected.length
     });
+
 
     this.auxRows = this.rows;
   }
 
-  generateLabels() {
-    this.solved_pdf.generateLabel(this.incidences);
-  }
-
   sendSelected(selected) {
     this.selected = selected;
+    this.card2Value = this.selected.length
   }
 
   printSelected() {
-    console.log(this.selected);
+    let incidencesForPrint = []
+    for (let i = 0; i < this.selected.length; i++) {
+      incidencesForPrint.push(this.incidences[this.selected[i]])
+    }
+    this.solved_pdf.generateLabel(incidencesForPrint)
   }
   useFilter(params: string[]) {
     function normalizeString(text: string) {

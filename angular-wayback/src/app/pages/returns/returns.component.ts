@@ -19,6 +19,10 @@ export class ReturnsComponent {
   public returns_pdf: PdfComponent;
   public filteredIncidences: Incidence[];
   public auxRows;
+  public card1Title = "Pendientes de Devolución";
+  public card1Value;
+  public card2Title = "Devoluciones seleccionadas";
+  public card2Value;
 
   constructor(
     private IncidenceService: IncidenceService,
@@ -55,6 +59,7 @@ export class ReturnsComponent {
         'Almacén',
       ];
       for (let i = 0; i < this.incidences.length; i++) {
+        this.selected.push(i);
         this.rows.push([
           this.incidences[i].incidence_ref,
           this.incidences[i].status,
@@ -85,26 +90,27 @@ export class ReturnsComponent {
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
-
-        this.selected.push(i);
       }
-    });
+      console.log(this.incidences)
+      console.log(this.selected)
+      this.card1Value = this.incidences.length
+      this.card2Value = this.selected.length
+    })
     this.auxRows = this.rows;
   }
 
   sendSelected(selected) {
     this.selected = selected;
+    this.card2Value = this.selected.length
   }
 
-  // printSelected() {
-  //   let selectedRows = [];
-  //   this.selected.forEach((elem) => {
-  //     selectedRows.push(this.rows[elem]);
-  //     console.log(this.rows[elem])
-  //   })
-  //   console.log(selectedRows)
-  //   this.returns_pdf.returnsPagePdf(selectedRows)
-  // }
+  printSelected() {
+    let incidencesForPrint = []
+    for (let i = 0; i < this.selected.length; i++) {
+      incidencesForPrint.push(this.incidences[this.selected[i]])
+    }
+    this.returns_pdf.generateLabel(incidencesForPrint)
+  }
 
   returnsPagePdf() {
     this.returns_pdf.returnsPagePdf(this.incidences);

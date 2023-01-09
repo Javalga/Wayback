@@ -58,11 +58,8 @@
 
 
         <div class="cards">
-            <app-card [style]="'height: 10vw; width: 15vw;'" [title]="'Cart Extra'" [value]="'X'"></app-card>
-            <app-card [style]="'height: 10vw; width: 15vw;'" [title]="'Devoluciones Pendientes'"
-                [value]="'156'"></app-card>
-            <app-card [style]="'height: 10vw; width: 15vw;'" [title]="'Devoluciones Seleccionadas'"
-                [value]="'156'"></app-card>
+            <app-card [style]="'height: 10vw; width: 15vw;'" [title]="card1Title" [value]="card1Value"></app-card>
+            <app-card [style]="'height: 10vw; width: 15vw;'" [title]="card2Title" [value]="card2Value"></app-card>
         </div>
         <app-button [style]="'font-size:2rem; width: 30vw'" [value]="value" (click)="returnsPagePdf()"></app-button>
 
@@ -77,8 +74,8 @@
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                     data-bs-parent="#accordionTable">
                     <div class="accordion-body body-acordion">
-                        <app-table #table class="table" [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; '"
-                            (sendSelected)="sendSelected($event)"></app-table>
+                        <app-table #table class="table" [allSelected]="selected" [rows]="rows" [cols]="cols"
+                            [style]="'font-size:1.5rem; '" (sendSelected)="sendSelected($event)"></app-table>
                     </div>
                 </div>
             </div>
