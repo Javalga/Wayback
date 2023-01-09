@@ -55,7 +55,6 @@ export class SolvedPullComponent {
         'CP',
         'Población',
         'F. Entrada',
-        'F. Salida',
         'Próx. Entrega', 
         'Horario de Entrega',
         'Almacén',
@@ -77,12 +76,6 @@ export class SolvedPullComponent {
             ? null
             : `${new Date(this.incidences[i].input_date).getDate()}-${new Date(this.incidences[i].input_date).getMonth() + 1
             }-${new Date(this.incidences[i].input_date).getFullYear()}`,
-
-          this.incidences[i].output_date === null
-            ? null
-            : `${new Date(this.incidences[i].output_date).getDate()}-${new Date(this.incidences[i].output_date).getMonth() + 1
-            }-${new Date(this.incidences[i].output_date).getFullYear()}`,
-
           this.incidences[i].next_delivery === null
             ? null
             : `${new Date(this.incidences[i].next_delivery).getDate()}-${new Date(this.incidences[i].next_delivery).getMonth() + 1
