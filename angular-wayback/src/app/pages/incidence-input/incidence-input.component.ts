@@ -78,7 +78,7 @@ export class IncidenceInputComponent {
           });
         } else {
           this.sendEmail({
-            "email": `jalonsogal@gmail.com`,
+            "email": `${this.incidence.customer_mail}`,
             "subject": "Su pedido no ha podido ser entregado",
             "html": `<b>Hola, <strong>${this.incidence.customer_name}</strong>,\nEl paquete con numero de referencia ${this.incidence.incidence_ref} no ha podido ser entregado,
             por favor entra en este enlace para completar la gestion de la incidencia.</p>
