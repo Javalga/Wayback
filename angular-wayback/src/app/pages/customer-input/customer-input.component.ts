@@ -16,5 +16,7 @@ export class CustomerInputComponent {
     this.ref = this.activatedRoute.snapshot.params.ref
     this.incidenceService.getOneIncidence(this.ref).subscribe((data) => { this.incidence = data[0] });
   }
-  onSubmit(ngForm: NgForm) { }
+  onSubmit(ngForm: NgForm) { 
+    
+  }
 }
