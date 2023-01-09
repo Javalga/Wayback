@@ -7,12 +7,12 @@
           Nº Expedición
         </div>
         <div class="expedient_number-number">
-          {{incidenceService.incidences[0].incidence_ref}}
+          {{incidence.incidence_ref}}
         </div>
       </div>
     </div>
     <div class="title-costumer-input">
-      {{incidenceService.incidences[0].incidence_type}}
+      {{incidence.incidence_type}}
     </div>
     <div class="description-costumer-input">
       Bacon ipsum dolor amet short ribs tri-tip porchetta, alcatra kevin brisket t-bone doner pork chop biltong
@@ -33,14 +33,14 @@
                   Nombre :
                 </label>
                 <input class="general-input" type="text" name="costumer_name" #costumer_name
-                  value="{{incidenceService.incidences[0].customer_name}}">
+                  value="{{incidence.customer_name}}">
               </div>
               <div class="label-input_combo">
                 <label for="costumer_phone">
                   Teléfono :
                 </label>
                 <input class="general-input" type="text" name="costumer_phone" #costumer_phone
-                  value="{{incidenceService.incidences[0].customer_phone}}">
+                  value="{{incidence.customer_phone}}">
               </div>
               <div class="custumer_data-inputs">
                 <div class="label-input_combo">
@@ -63,7 +63,7 @@
                     Correo :
                   </label>
                   <input class="general-input" type="text" name="costumer_mail" #costumer_mail
-                    value="{{incidenceService.incidences[0].customer_mail}}">
+                    value="{{incidence.customer_mail}}">
                 </div>
 
                 <div class="label-input_combo">
@@ -71,7 +71,7 @@
                     Dirección :
                   </label>
                   <input class="general-input" type="text" name="costumer_direction" #costumer_direction
-                    value="{{incidenceService.incidences[0].customer_address}}">
+                    value="{{incidence.customer_address}}">
                 </div>
 
                 <div class="label-input_combo">
@@ -79,7 +79,7 @@
                     CP :
                   </label>
                   <input class="general-input" type="text" name="costumer_cp" #costumer_cp
-                    value="{{incidenceService.incidences[0].customer_cp}}">
+                    value="{{incidence.customer_cp}}">
                 </div>
 
                 <div class="label-input_combo">
@@ -87,7 +87,7 @@
                     Población :
                   </label>
                   <input class="general-input" type="text" name="costumer_poblation" #costumer_poblation
-                    value="{{incidenceService.incidences[0].customer_city}}">
+                    value="{{incidence.customer_city}}">
                 </div>
               </div>
               <div class="delivery_time_data">
