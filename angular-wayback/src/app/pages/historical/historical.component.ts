@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
+import { LoginService } from 'src/app/shared/login.service';
 
 @Component({
   selector: 'app-historical',
@@ -12,10 +13,13 @@ export class HistoricalComponent {
   public rows = [];
   public style: string = 'height:40vh;';
   public incidences: Incidence[];
-  public filteredIncidences: Incidence[]
+  public filteredIncidences: Incidence[];
   public auxRows;
 
-  constructor(private IncidenceService: IncidenceService) {
+  constructor(
+    private IncidenceService: IncidenceService,
+    public loginService: LoginService
+  ) {
     this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
       this.incidences = data;
       this.cols = [
@@ -34,6 +38,18 @@ export class HistoricalComponent {
         'Horario de Entrega',
         'Almacén',
       ];
+
+      if (this.loginService.user.role_id == 3) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      }
+      // else if (this.loginService.user.role_id == 2) {
+      //   this.incidences = this.incidences.filter(
+      //     (elem) => elem.location_id == this.loginService.user.location_id
+      //   );
+      // }
+
       for (let i = 0; i < this.incidences.length; i++) {
         this.rows.push([
           this.incidences[i].incidence_ref,
@@ -47,18 +63,21 @@ export class HistoricalComponent {
           this.incidences[i].customer_city,
           this.incidences[i].input_date === null
             ? null
-            : `${new Date(this.incidences[i].input_date).getDate()}-${new Date(this.incidences[i].input_date).getMonth() + 1
-            }-${new Date(this.incidences[i].input_date).getFullYear()}`,
+            : `${new Date(this.incidences[i].input_date).getDate()}-${
+                new Date(this.incidences[i].input_date).getMonth() + 1
+              }-${new Date(this.incidences[i].input_date).getFullYear()}`,
 
           this.incidences[i].output_date === null
             ? null
-            : `${new Date(this.incidences[i].output_date).getDate()}-${new Date(this.incidences[i].output_date).getMonth() + 1
-            }-${new Date(this.incidences[i].output_date).getFullYear()}`,
+            : `${new Date(this.incidences[i].output_date).getDate()}-${
+                new Date(this.incidences[i].output_date).getMonth() + 1
+              }-${new Date(this.incidences[i].output_date).getFullYear()}`,
 
           this.incidences[i].next_delivery === null
             ? null
-            : `${new Date(this.incidences[i].next_delivery).getDate()}-${new Date(this.incidences[i].next_delivery).getMonth() + 1
-            }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
+            : `${new Date(this.incidences[i].next_delivery).getDate()}-${
+                new Date(this.incidences[i].next_delivery).getMonth() + 1
+              }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
@@ -76,23 +95,23 @@ export class HistoricalComponent {
   useFilter(params: string[]) {
     function normalizeString(text: string) {
       text = text.toLowerCase();
-      text = text.replace(/á/gi, "a");
-      text = text.replace(/é/gi, "e");
-      text = text.replace(/í/gi, "i");
-      text = text.replace(/ó/gi, "o");
-      text = text.replace(/ú/gi, "u");
-      text = text.replace(/ñ/gi, "n");
+      text = text.replace(/á/gi, 'a');
+      text = text.replace(/é/gi, 'e');
+      text = text.replace(/í/gi, 'i');
+      text = text.replace(/ó/gi, 'o');
+      text = text.replace(/ú/gi, 'u');
+      text = text.replace(/ñ/gi, 'n');
       return text;
     }
-    let key = params[0]
-    if (params[1] !== "") {
+    let key = params[0];
+    if (params[1] !== '') {
       this.filteredIncidences = this.incidences.filter(function (elem) {
-        return normalizeString(elem[key]) === normalizeString(params[1])
-      })
-      this.incidences = this.filteredIncidences
-      this.rows = []
+        return normalizeString(elem[key]) === normalizeString(params[1]);
+      });
+      this.incidences = this.filteredIncidences;
+      this.rows = [];
       this.filteredIncidences.forEach((incidence, index, arr) => {
-        this.rows.push([])
+        this.rows.push([]);
         this.rows[index].push(
           incidence.incidence_ref,
           incidence.status,
@@ -105,22 +124,25 @@ export class HistoricalComponent {
           incidence.customer_city,
           incidence.input_date === null
             ? null
-            : `${new Date(incidence.input_date).getDate()}-${new Date(incidence.input_date).getMonth() + 1
-            }-${new Date(incidence.input_date).getFullYear()}`,
+            : `${new Date(incidence.input_date).getDate()}-${
+                new Date(incidence.input_date).getMonth() + 1
+              }-${new Date(incidence.input_date).getFullYear()}`,
 
           incidence.output_date === null
             ? null
-            : `${new Date(incidence.output_date).getDate()}-${new Date(incidence.output_date).getMonth() + 1
-            }-${new Date(incidence.output_date).getFullYear()}`,
+            : `${new Date(incidence.output_date).getDate()}-${
+                new Date(incidence.output_date).getMonth() + 1
+              }-${new Date(incidence.output_date).getFullYear()}`,
 
           incidence.next_delivery === null
             ? null
-            : `${new Date(incidence.next_delivery).getDate()}-${new Date(incidence.next_delivery).getMonth() + 1
-            }-${new Date(incidence.next_delivery).getFullYear()}`,
+            : `${new Date(incidence.next_delivery).getDate()}-${
+                new Date(incidence.next_delivery).getMonth() + 1
+              }-${new Date(incidence.next_delivery).getFullYear()}`,
           incidence.delivery_time,
-          incidence.warehouse,
-        )
-      })
+          incidence.warehouse
+        );
+      });
     } else {
       this.rows = this.auxRows;
     }

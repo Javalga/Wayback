@@ -7,6 +7,7 @@ import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { Warehouse } from 'src/app/models/warehouse';
 import { ToastService } from 'src/app/shared/toast.service';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from 'src/app/shared/login.service';
 import * as moment from 'moment';
 
 
@@ -27,11 +28,23 @@ export class IncidenceInputComponent {
     public IncidenceTypeService: IncidenceTypeService,
     public WarehouseService: WarehouseService,
     public toastService: ToastService,
+    public loginService: LoginService,
     private http: HttpClient
   ) {
     this.incidence = new Incidence();
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
       this.warehouses = data;
+      if (this.loginService.user.role_id == 3){
+        this.warehouses = this.warehouses.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      }else if(this.loginService.user.role_id == 2){
+        this.warehouses = this.warehouses.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
+        
+      
     });
 
     this.IncidenceTypeService.getIncidence_type().subscribe(

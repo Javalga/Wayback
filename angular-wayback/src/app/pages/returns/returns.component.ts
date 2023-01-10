@@ -3,6 +3,7 @@ import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 import { PdfComponent } from 'src/app/components/pdf/pdf.component';
+import { LoginService } from 'src/app/shared/login.service';
 
 @Component({
   selector: 'app-returns',
@@ -19,14 +20,15 @@ export class ReturnsComponent {
   public returns_pdf: PdfComponent;
   public filteredIncidences: Incidence[];
   public auxRows;
-  public card1Title = "Pendientes de Devolución";
+  public card1Title = 'Pendientes de Devolución';
   public card1Value;
-  public card2Title = "Devoluciones seleccionadas";
+  public card2Title = 'Devoluciones seleccionadas';
   public card2Value;
 
   constructor(
     private IncidenceService: IncidenceService,
-    public asideHeaderService: AsideHeaderService
+    public asideHeaderService: AsideHeaderService,
+    public loginService: LoginService
   ) {
     this.returns_pdf = new PdfComponent();
 
@@ -55,6 +57,18 @@ export class ReturnsComponent {
         'F. Entrada',
         'Almacén',
       ];
+
+      if (this.loginService.user.role_id == 3) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      }
+      // else if (this.loginService.user.role_id == 2) {
+      //   this.incidences = this.incidences.filter(
+      //     (elem) => elem.location_id == this.loginService.user.location_id
+      //   );
+      // }
+
       for (let i = 0; i < this.incidences.length; i++) {
         this.selected.push(i);
         this.rows.push([
@@ -75,28 +89,26 @@ export class ReturnsComponent {
           this.incidences[i].warehouse,
         ]);
       }
-      console.log(this.incidences)
-      console.log(this.selected)
-      this.card1Value = this.incidences.length
-      this.card2Value = this.selected.length
-    })
+      console.log(this.incidences);
+      console.log(this.selected);
+      this.card1Value = this.incidences.length;
+      this.card2Value = this.selected.length;
+    });
     this.auxRows = this.rows;
   }
 
   sendSelected(selected) {
     this.selected = selected;
-    this.card2Value = this.selected.length
+    this.card2Value = this.selected.length;
   }
 
   printSelected() {
-    let incidencesForPrint = []
+    let incidencesForPrint = [];
     for (let i = 0; i < this.selected.length; i++) {
-      incidencesForPrint.push(this.incidences[this.selected[i]])
+      incidencesForPrint.push(this.incidences[this.selected[i]]);
     }
     this.returns_pdf.returnsPagePdf(incidencesForPrint);
   }
-
- 
 
   useFilter(params: string[]) {
     function normalizeString(text: string) {

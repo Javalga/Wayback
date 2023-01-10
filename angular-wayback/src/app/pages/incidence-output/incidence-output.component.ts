@@ -7,6 +7,7 @@ import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
 import * as moment from 'moment';
 import { ToastService } from 'src/app/shared/toast.service';
+import { LoginService } from 'src/app/shared/login.service';
 
 
 @Component({
@@ -27,12 +28,22 @@ export class IncidenceOutputComponent {
     public WarehouseService: WarehouseService,
     public StatusService: StatusService,
     public IncidenceService: IncidenceService,
+    public loginService: LoginService,
     public toastService: ToastService
   ) {
     this.status = [];
     this.status_query_response = [];
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
       this.warehouses = data;
+       if (this.loginService.user.role_id == 3) {
+         this.warehouses = this.warehouses.filter(
+           (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+         );
+       } else if (this.loginService.user.role_id == 2) {
+         this.warehouses = this.warehouses.filter(
+           (elem) => elem.location_id == this.loginService.user.location_id
+         );
+       }
     });
 
     this.StatusService.getStatus().subscribe((data: Status[]) => {
@@ -58,7 +69,7 @@ export class IncidenceOutputComponent {
     this.IncidenceService.getOneIncidence(incidence_ref).subscribe(
       (data: Incidence[]) => {
         this.getOneIncidenceResponse = data;
-        console.log(this.getOneIncidenceResponse)
+        console.log(this.getOneIncidenceResponse);
 
         if (this.getOneIncidenceResponse[0] == null) {
           this.toastService.toast({

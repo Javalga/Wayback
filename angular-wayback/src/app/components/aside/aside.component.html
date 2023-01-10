@@ -20,7 +20,7 @@
         [ngClass]="{ active: tab === 6, inactive: tab != 6 }"></app-aside-li>
       <app-aside-li [value]="'Administrar Usuarios'" (click)="extend_admin()" #userAdmin tabindex="7" role="tab"
         (click)="tab = 7" [ngClass]="{ active: tab === 7, inactive: tab != 7 }"
-        *ngIf="loginService.user.role === 1 || loginService.user.role === 2"></app-aside-li>
+        *ngIf="loginService.user.role_id === 1 || loginService.user.role_id === 2"></app-aside-li>
 
 
       <app-aside-li [value]="'Localidades'" class="extended" *ngIf="isExtended_admin" #locations tabindex="8" role="tab"

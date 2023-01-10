@@ -4,6 +4,7 @@ import { Incidence } from 'src/app/models/incidence';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 import { PdfComponent } from 'src/app/components/pdf/pdf.component';
 import { TableComponent } from 'src/app/components/table/table.component';
+import { LoginService } from 'src/app/shared/login.service';
 import * as moment from 'moment';
 
 @Component({
@@ -19,16 +20,17 @@ export class SolvedPullComponent {
   public selected: number[] = [];
   public incidences: Incidence[];
   public solved_pdf: PdfComponent;
-  public filteredIncidences: Incidence[]
+  public filteredIncidences: Incidence[];
   public auxRows;
-  public card1Title = "Pendientes de Salida";
+  public card1Title = 'Pendientes de Salida';
   public card1Value;
-  public card2Title = "Seleccionadas para impresión";
+  public card2Title = 'Seleccionadas para impresión';
   public card2Value;
 
   constructor(
     private IncidenceService: IncidenceService,
-    public asideHeaderService: AsideHeaderService
+    public asideHeaderService: AsideHeaderService,
+    public loginService: LoginService
   ) {
     this.solved_pdf = new PdfComponent();
 
@@ -55,10 +57,21 @@ export class SolvedPullComponent {
         'CP',
         'Población',
         'F. Entrada',
-        'Próx. Entrega', 
+        'Próx. Entrega',
         'Horario de Entrega',
         'Almacén',
       ];
+
+      if (this.loginService.user.role_id == 3) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      } 
+      // else if (this.loginService.user.role_id == 2) {
+      //   this.incidences = this.incidences.filter(
+      //     (elem) => elem.location_id == this.loginService.user.location_id
+      //   );
+      // }
 
       for (let i = 0; i < this.incidences.length; i++) {
         this.selected.push(i);
@@ -74,56 +87,57 @@ export class SolvedPullComponent {
           this.incidences[i].customer_city,
           this.incidences[i].input_date === null
             ? null
-            : `${new Date(this.incidences[i].input_date).getDate()}-${new Date(this.incidences[i].input_date).getMonth() + 1
-            }-${new Date(this.incidences[i].input_date).getFullYear()}`,
+            : `${new Date(this.incidences[i].input_date).getDate()}-${
+                new Date(this.incidences[i].input_date).getMonth() + 1
+              }-${new Date(this.incidences[i].input_date).getFullYear()}`,
           this.incidences[i].next_delivery === null
             ? null
-            : `${new Date(this.incidences[i].next_delivery).getDate()}-${new Date(this.incidences[i].next_delivery).getMonth() + 1
-            }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
+            : `${new Date(this.incidences[i].next_delivery).getDate()}-${
+                new Date(this.incidences[i].next_delivery).getMonth() + 1
+              }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
           this.incidences[i].delivery_time,
           this.incidences[i].warehouse,
         ]);
       }
-      this.card1Value = this.incidences.length
-      this.card2Value = this.selected.length
+      this.card1Value = this.incidences.length;
+      this.card2Value = this.selected.length;
     });
-
 
     this.auxRows = this.rows;
   }
 
   sendSelected(selected) {
     this.selected = selected;
-    this.card2Value = this.selected.length
+    this.card2Value = this.selected.length;
   }
 
   printSelected() {
-    let incidencesForPrint = []
+    let incidencesForPrint = [];
     for (let i = 0; i < this.selected.length; i++) {
-      incidencesForPrint.push(this.incidences[this.selected[i]])
+      incidencesForPrint.push(this.incidences[this.selected[i]]);
     }
-    this.solved_pdf.generateLabel(incidencesForPrint)
+    this.solved_pdf.generateLabel(incidencesForPrint);
   }
   useFilter(params: string[]) {
     function normalizeString(text: string) {
       text = text.toLowerCase();
-      text = text.replace(/á/gi, "a");
-      text = text.replace(/é/gi, "e");
-      text = text.replace(/í/gi, "i");
-      text = text.replace(/ó/gi, "o");
-      text = text.replace(/ú/gi, "u");
-      text = text.replace(/ñ/gi, "n");
+      text = text.replace(/á/gi, 'a');
+      text = text.replace(/é/gi, 'e');
+      text = text.replace(/í/gi, 'i');
+      text = text.replace(/ó/gi, 'o');
+      text = text.replace(/ú/gi, 'u');
+      text = text.replace(/ñ/gi, 'n');
       return text;
     }
-    let key = params[0]
-    if (params[1] !== "") {
+    let key = params[0];
+    if (params[1] !== '') {
       this.filteredIncidences = this.incidences.filter(function (elem) {
-        return normalizeString(elem[key]) === normalizeString(params[1])
-      })
-      this.incidences = this.filteredIncidences
-      this.rows = []
+        return normalizeString(elem[key]) === normalizeString(params[1]);
+      });
+      this.incidences = this.filteredIncidences;
+      this.rows = [];
       this.filteredIncidences.forEach((incidence, index, arr) => {
-        this.rows.push([])
+        this.rows.push([]);
         this.rows[index].push(
           incidence.incidence_ref,
           incidence.status,
@@ -136,22 +150,25 @@ export class SolvedPullComponent {
           incidence.customer_city,
           incidence.input_date === null
             ? null
-            : `${new Date(incidence.input_date).getDate()}-${new Date(incidence.input_date).getMonth() + 1
-            }-${new Date(incidence.input_date).getFullYear()}`,
+            : `${new Date(incidence.input_date).getDate()}-${
+                new Date(incidence.input_date).getMonth() + 1
+              }-${new Date(incidence.input_date).getFullYear()}`,
 
           incidence.output_date === null
             ? null
-            : `${new Date(incidence.output_date).getDate()}-${new Date(incidence.output_date).getMonth() + 1
-            }-${new Date(incidence.output_date).getFullYear()}`,
+            : `${new Date(incidence.output_date).getDate()}-${
+                new Date(incidence.output_date).getMonth() + 1
+              }-${new Date(incidence.output_date).getFullYear()}`,
 
           incidence.next_delivery === null
             ? null
-            : `${new Date(incidence.next_delivery).getDate()}-${new Date(incidence.next_delivery).getMonth() + 1
-            }-${new Date(incidence.next_delivery).getFullYear()}`,
+            : `${new Date(incidence.next_delivery).getDate()}-${
+                new Date(incidence.next_delivery).getMonth() + 1
+              }-${new Date(incidence.next_delivery).getFullYear()}`,
           incidence.delivery_time,
-          incidence.warehouse,
-        )
-      })
+          incidence.warehouse
+        );
+      });
     } else {
       this.rows = this.auxRows;
     }

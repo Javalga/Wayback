@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { User } from '../models/user';
 
 @Injectable({
@@ -12,6 +13,7 @@ export class LoginService {
   public url: string
   constructor(private http: HttpClient) {
     this.user = new User()
+    
   }
   fetchLogin() {
     this.url = "http://localhost:3000/login"
@@ -21,6 +23,7 @@ export class LoginService {
     this.url = "http://localhost:3000/mailer"
     return this.http.post(this.url, body)
   }
+  
 }
 
 // roles = SUPER || ADMIN || USER

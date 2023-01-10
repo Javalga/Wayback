@@ -92,7 +92,7 @@ export class CustomerInputComponent {
         this.resultado_put = data;
         
         if(this.resultado_put.message == "Incidence updated"){
-          this.router.navigateByUrl('form-confirmation');
+          // this.router.navigateByUrl('form-confirmation');
         }
       }
       )};

@@ -169,7 +169,6 @@ export class UserAdminComponent {
         this.UserService.getUsers().subscribe((data: User[]) => {
           this.users = data;
           this.cols = [
-            'Indice',
             'Username',
             'Nombre',
             'Rol',
@@ -205,14 +204,13 @@ export class UserAdminComponent {
         this.UserService.getUsers().subscribe((data: User[]) => {
           this.users = data;
           this.cols = [
-            'Indice',
             'Username',
             'Nombre',
             'Rol',
             'Mail',
             'Almacén',
             'Localidad',
-            'Activo'
+            'Activo',
           ];
           this.rows = [];
           for (let i = 0; i < this.users.length; i++) {

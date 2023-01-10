@@ -25,14 +25,19 @@ export class LoginComponent {
         this.loginService.isLogged = true;
         console.log(data);
 
-        this.loginService.user = new User(data[0].username,
+        this.loginService.user = new User(
+          data[0].username,
           data[0].password,
           data[0].name,
-          data[0].role_id,
+          data[0].role,
           data[0].mail,
+          data[0].warehouse,
+          data[0].location,
+          data[0].active,
+          data[0].role_id,
           data[0].warehouse_id,
-          data[0].location_id,
-          data[0].active)
+          data[0].location_id
+        );
         console.log(this.loginService.user);
         this.router.navigateByUrl('/dashboard');
       } else {
