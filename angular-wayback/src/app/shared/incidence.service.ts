@@ -55,6 +55,12 @@ export class IncidenceService {
     console.log(incidence);
     return this.http.put(this.url, incidence);
   }
+
+  getIncidenceDashboard(dateSince, dateUntil) {
+    console.log(dateSince);
+    this.url = `http://localhost:3000/incidence_dashboard?since=${dateSince}&until=${dateUntil}`;    
+    return this.http.get(this.url);
+  }
 }
 
 
