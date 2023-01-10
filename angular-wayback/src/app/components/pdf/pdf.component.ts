@@ -333,7 +333,17 @@ export class PdfComponent implements OnInit {
 
   returnsPagePdf(incidences: Incidence[]) {
 
-    let arrayContent = [];
+    //Ordenar el lista alfabeticamente
+    // console.log(incidences)
+    // function ordenarAsc(p_array_json, p_key) {
+    //   let solucion = p_array_json.sort(function (a, b) {
+    //   a[p_key] > b[p_key];
+    //   })
+    //   return solucion;
+    // }   
+    // console.log(ordenarAsc(incidences, 'customer_name'));
+    
+    let arrayContent = [['Nombre', 'Nº Expedición']];
 
       for(let i = 0; i < incidences.length; i++){
       
@@ -345,17 +355,34 @@ export class PdfComponent implements OnInit {
       }
 
     var docDefinition = {
-      content: {
-      layout: 'lightHorizontalLines', 
-      table: {
-        // headers are automatically repeated if the table spans over multiple pages
-        // you can declare how many rows should be treated as headers
-        headerRows: 1,
-        widths: [ 80, 20 ],
+      
+      content: [
+        { text: 'Listado de Devoluciones', style: 'header' },
+        { text: ' ', style: 'header_space' },
+        {
+          layout: 'lightHorizontalLines',
+          table: {
+            // headers are automatically repeated if the table spans over multiple pages
+            // you can declare how many rows should be treated as headers
+            headerRows: 1,
+            widths: ['70%', '30%'],
+
+            body: arrayContent,
+          },
+        },
+      ],
+      styles: {
+        header: {
+          fontSize: 22,
+          bold: true,
+          alignment: 'center',
+          decoration: 'underline',
+        },
+        header_space: {
+          lineHeight: 1.5,
+        },
       },
-      body: arrayContent,
-    }
-  }
+    };
 
     const pdf = pdfMake.createPdf(docDefinition);
     pdf.open();

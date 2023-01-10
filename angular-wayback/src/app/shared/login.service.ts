@@ -6,7 +6,7 @@ import { User } from '../models/user';
   providedIn: 'root',
 })
 export class LoginService {
-  public isLogged: boolean = false;
+  public isLogged: boolean = true;
   public user: User
   public warehouse_name: string;
   public url: string

@@ -93,12 +93,10 @@ export class ReturnsComponent {
     for (let i = 0; i < this.selected.length; i++) {
       incidencesForPrint.push(this.incidences[this.selected[i]])
     }
-    this.returns_pdf.generateLabel(incidencesForPrint)
+    this.returns_pdf.returnsPagePdf(incidencesForPrint);
   }
 
-  returnsPagePdf() {
-    this.returns_pdf.returnsPagePdf(this.incidences);
-  }
+ 
 
   useFilter(params: string[]) {
     function normalizeString(text: string) {

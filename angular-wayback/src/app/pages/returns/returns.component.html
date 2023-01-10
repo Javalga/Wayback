@@ -61,7 +61,7 @@
             <app-card [style]="'height: 10vw; width: 15vw;'" [title]="card1Title" [value]="card1Value"></app-card>
             <app-card [style]="'height: 10vw; width: 15vw;'" [title]="card2Title" [value]="card2Value"></app-card>
         </div>
-        <app-button [style]="'font-size:2rem; width: 30vw'" [value]="value" (click)="returnsPagePdf()"></app-button>
+        <app-button [style]="'font-size:2rem; width: 30vw'" [value]="value" (click)="printSelected()"></app-button>
 
         <div class="accordion accordion-flush desplegable" id="accordionTable">
             <div class="accordion-item desplegable-item">
