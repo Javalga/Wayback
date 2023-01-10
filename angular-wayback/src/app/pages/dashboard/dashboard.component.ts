@@ -3,7 +3,7 @@ import { IncidenceService } from 'src/app/shared/incidence.service';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 import { Incidence } from 'src/app/models/incidence';
 import { LoginService } from 'src/app/shared/login.service';
-import { DashboardService } from 'src/app/shared/dashboard.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -76,13 +76,6 @@ export class DashboardComponent {
     public loginService: LoginService
   ) {
 
-
-
-    let since = this.asideHeaderService.twoWeeksAgo();
-    this.asideHeaderService.dateSince = since;
-
-    let until = this.asideHeaderService.today();
-    this.asideHeaderService.dateUntil = until;
 
     this.IncidenceService.getIncidenceDashboard(
       this.asideHeaderService.dateSince,
