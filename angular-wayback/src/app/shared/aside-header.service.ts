@@ -24,5 +24,5 @@ export class AsideHeaderService {
   public startOfTime() {
     return '1970-01-01';
   }
-  
+
 }

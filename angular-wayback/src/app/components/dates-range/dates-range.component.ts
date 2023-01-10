@@ -12,6 +12,9 @@ export class DatesRangeComponent implements OnInit {
   @ViewChild('dateSince') dateSince;
   @ViewChild('dateUntil') dateUntil;
 
+  public changeSince = false;
+  public changeUntil = false;
+
   constructor(public asideHeaderService: AsideHeaderService) {
 
 
@@ -19,6 +22,21 @@ export class DatesRangeComponent implements OnInit {
   }
   ngOnInit(): void {
 
+  }
+
+  public isDefaultSince() {
+
+    if (!this.changeSince) {
+      console.log(this.dateSince.nativeElement.value)
+      return this.defaultDateSince;
+    } else return this.dateSince.nativeElement.value;
+  }
+
+  public isDefaultUntil() {
+
+    if (!this.changeUntil) {
+      return this.defaultDateUntil;
+    } else return this.dateUntil.nativeElement.value;
   }
 
   public defaultDateSince() {
@@ -56,7 +74,7 @@ export class DatesRangeComponent implements OnInit {
 
 
   public twoWeeksAgo() {
-    
+
     return moment().subtract(15, "days").format("YYYY-MM-DD");
   }
 
@@ -71,6 +89,9 @@ export class DatesRangeComponent implements OnInit {
   }
 
   public sendDates() {
+
+    this.changeSince = true;
+    this.changeUntil = true;
 
     this.asideHeaderService.dateSince = this.dateSince.nativeElement.value;
     this.asideHeaderService.dateUntil = this.dateUntil.nativeElement.value;

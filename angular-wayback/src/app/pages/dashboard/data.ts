@@ -1,7 +1,10 @@
+import { DashboardComponent } from "./dashboard.component";
+
+
 export var single = [
     {
         "name": "Solucionadas",
-        "value": 8940000
+        "value": 60000
     },
     {
         "name": "Pendientes",
