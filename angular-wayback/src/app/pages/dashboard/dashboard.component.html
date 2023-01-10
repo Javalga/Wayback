@@ -1,13 +1,16 @@
 <main class="main-dashboard">
 
   <div class="dashboard_container">
-    <div class="grid_container_cards">
-      <app-card [title]="'Éxito de Solución'" [value]="'98%'"></app-card>
-      <app-card [title]="'Incidencias Tratadas'" [value]="'256'"></app-card>
-      <app-card [title]="'Devoluciones'" [value]="'0.07%'"></app-card>
+    <div class="card_container">
+      <app-card [title]="'Éxito de Solución'" [value]="'98%'" [style]="'height: 30vh;'"
+        [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="'Incidencias Tratadas'" [value]="'256'" [style]="'height: 30vh;'"
+        [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="'Devoluciones'" [value]="'0.07%'" [style]="'height: 30vh;'"
+        [styleTitle]="'font-size: 3.5rem'"></app-card>
     </div>
     <div class="graphic_container">
-      <div class="graphic_info">
+      <!-- <div class="graphic_info">
         <p class="graphic_info--title">Vista General</p>
         <div class="graphic_info--parameter">
           <div [style]="'color: #4472C4; background-color: #4472C4;'" class="graphic_info--parameter--circle">
@@ -27,8 +30,11 @@
           </div>
           <p class="graphic_info--parameter--text">Devoluciones</p>
         </div>
-      </div>
-      <img src="../../../assets/grafico_muestra.png" class="graphic_show">
+      </div> -->
+      <!-- <img src="../../../assets/grafico_muestra.png" class="graphic_show"> -->
+      <ngx-charts-advanced-pie-chart [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+        (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+      </ngx-charts-advanced-pie-chart>
     </div>
   </div>
 </main>
