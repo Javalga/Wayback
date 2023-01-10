@@ -61,10 +61,12 @@ export class IncidenceInputComponent {
     this.incidenceService.getIncidence(ref).subscribe((data) => {
       this.csv_response = data;
 
-      console.log(this.csv_response[0]);
-
+      let warehouse = this.warehouses.filter((elem) => elem.warehouse_id == warehouse_id);
+      let location_id = warehouse[0].location_id
+           
       this.incidence.incidence_ref = ref;
       this.incidence.warehouse_id = Number(warehouse_id);
+      this.incidence.location_id = location_id;
       this.incidence.status_id = 1;
       this.incidence.incidence_type_id = Number(incidence_type_id);
       this.incidence.customer_name = this.csv_response[0].Nombre;

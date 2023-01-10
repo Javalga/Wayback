@@ -67,11 +67,11 @@ export class SolvedPullComponent {
           (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
         );
       } 
-      // else if (this.loginService.user.role_id == 2) {
-      //   this.incidences = this.incidences.filter(
-      //     (elem) => elem.location_id == this.loginService.user.location_id
-      //   );
-      // }
+      else if (this.loginService.user.role_id == 2) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
 
       for (let i = 0; i < this.incidences.length; i++) {
         this.selected.push(i);

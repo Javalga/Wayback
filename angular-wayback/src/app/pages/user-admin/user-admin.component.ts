@@ -8,6 +8,7 @@ import { Location } from 'src/app/models/location';
 import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { Warehouse } from 'src/app/models/warehouse';
 import { NgForm } from '@angular/forms';
+import { LoginService } from 'src/app/shared/login.service';
 
 // hay que hacer que las opcions de almacén se filtren cuando se indica la localidad
 
@@ -36,16 +37,17 @@ export class UserAdminComponent {
   public warehouses: Warehouse[];
   public user: User;
   public selected;
-  public filteredUsers: User[]
+  public filteredUsers: User[];
   public auxRows;
 
   constructor(
     public UserService: UserService,
     public RolesService: RolesService,
     public LocationService: LocationService,
-    public WarehouseService: WarehouseService
+    public WarehouseService: WarehouseService,
+    public loginService: LoginService
   ) {
-    this.user = new User("", "", "", "", "", "", "", false, 0, 0, 0);
+    this.user = new User('', '', '', '', '', '', '', false, 0, 0, 0);
 
     this.LocationService.getLocations().subscribe((data: Location[]) => {
       this.locations = data;
@@ -68,8 +70,15 @@ export class UserAdminComponent {
         'Mail',
         'Almacén',
         'Localidad',
-        'Activo'
+        'Activo',
       ];
+
+      if (this.loginService.user.role_id == 2) {
+        this.users = this.users.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
+
       for (let i = 0; i < this.users.length; i++) {
         if (this.users[i].active == true) {
           this.users[i].active = true;
@@ -84,7 +93,7 @@ export class UserAdminComponent {
           this.users[i].mail,
           this.users[i].warehouse,
           this.users[i].location,
-          this.users[i].active
+          this.users[i].active,
         ]);
       }
     });
@@ -96,7 +105,6 @@ export class UserAdminComponent {
       this.selected = selected;
       console.log(this.selected);
 
-
       this.user.username = this.users[this.selected].username;
       this.user.password = this.hidePass();
       this.user.name = this.users[this.selected].name;
@@ -105,7 +113,6 @@ export class UserAdminComponent {
       this.user.warehouse_id = this.users[this.selected].warehouse_id;
       this.user.location_id = this.users[this.selected].location_id;
       this.user.active = this.users[this.selected].active;
-
 
       this.username.nativeElement.value = this.user.username;
       this.pass.nativeElement.value = this.hidePass();
@@ -116,7 +123,6 @@ export class UserAdminComponent {
       this.location.nativeElement.value = this.user.location_id;
       this.active.nativeElement.checked = this.user.active;
     } else {
-
       this.user.username = '';
       this.user.password = '';
       this.user.name = '';
@@ -125,7 +131,6 @@ export class UserAdminComponent {
       this.user.warehouse_id = 0;
       this.user.location_id = 0;
       this.user.active = false;
-
 
       this.username.nativeElement.value = '';
       this.pass.nativeElement.value = '';
@@ -192,7 +197,7 @@ export class UserAdminComponent {
               this.users[i].mail,
               this.users[i].warehouse,
               this.users[i].location,
-              this.users[i].active
+              this.users[i].active,
             ]);
           }
         });
@@ -227,35 +232,33 @@ export class UserAdminComponent {
               this.users[i].mail,
               this.users[i].warehouse,
               this.users[i].location,
-              this.users[i].active
+              this.users[i].active,
             ]);
           }
         });
       });
-
-
     }
   }
   useFilter(params: string[]) {
     function normalizeString(text: string) {
       text = text.toLowerCase();
-      text = text.replace(/á/gi, "a");
-      text = text.replace(/é/gi, "e");
-      text = text.replace(/í/gi, "i");
-      text = text.replace(/ó/gi, "o");
-      text = text.replace(/ú/gi, "u");
-      text = text.replace(/ñ/gi, "n");
+      text = text.replace(/á/gi, 'a');
+      text = text.replace(/é/gi, 'e');
+      text = text.replace(/í/gi, 'i');
+      text = text.replace(/ó/gi, 'o');
+      text = text.replace(/ú/gi, 'u');
+      text = text.replace(/ñ/gi, 'n');
       return text;
     }
-    let key = params[0]
-    if (params[1] !== "") {
+    let key = params[0];
+    if (params[1] !== '') {
       this.filteredUsers = this.users.filter(function (elem) {
-        return normalizeString(elem[key]) === normalizeString(params[1])
-      })
-      this.users = this.filteredUsers
-      this.rows = []
+        return normalizeString(elem[key]) === normalizeString(params[1]);
+      });
+      this.users = this.filteredUsers;
+      this.rows = [];
       this.filteredUsers.forEach((user, index, arr) => {
-        this.rows.push([])
+        this.rows.push([]);
         this.rows[index].push(
           user.username,
           user.name,
@@ -264,8 +267,8 @@ export class UserAdminComponent {
           user.warehouse,
           user.location,
           user.active
-        )
-      })
+        );
+      });
     } else {
       this.rows = this.auxRows;
     }

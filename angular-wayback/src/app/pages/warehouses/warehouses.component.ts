@@ -4,6 +4,7 @@ import { LocationService } from 'src/app/shared/location.service';
 import { Location } from 'src/app/models/location';
 import { Warehouse } from 'src/app/models/warehouse';
 import { NgForm } from '@angular/forms';
+import { LoginService } from 'src/app/shared/login.service';
 
 @Component({
   selector: 'app-warehouses',
@@ -21,13 +22,13 @@ export class WarehousesComponent {
   public warehouses: Warehouse[];
   public warehouse: Warehouse;
   public selected;
-  public filteredWarehouses: Warehouse[]
+  public filteredWarehouses: Warehouse[];
   public auxRows;
-
 
   constructor(
     public WarehouseService: WarehouseService,
-    public LocationService: LocationService
+    public LocationService: LocationService,
+    public loginService: LoginService
   ) {
     this.warehouse = new Warehouse();
 
@@ -38,11 +39,18 @@ export class WarehousesComponent {
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
       this.warehouses = data;
       this.cols = ['Nombre', 'Localidad'];
+      if (this.loginService.user.role_id == 3) {
+        this.warehouses = this.warehouses.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      } else if (this.loginService.user.role_id == 2) {
+        this.warehouses = this.warehouses.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
+
       for (let i = 0; i < this.warehouses.length; i++) {
-        this.rows.push([
-          this.warehouses[i].name,
-          this.warehouses[i].location,
-        ]);
+        this.rows.push([this.warehouses[i].name, this.warehouses[i].location]);
       }
     });
     this.auxRows = this.rows;
@@ -84,7 +92,7 @@ export class WarehousesComponent {
         this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
           this.warehouses = data;
           this.cols = ['Nombre', 'Localidad'];
-          this.rows = []
+          this.rows = [];
           for (let i = 0; i < this.warehouses.length; i++) {
             this.rows.push([
               this.warehouses[i].name,
@@ -98,28 +106,25 @@ export class WarehousesComponent {
   useFilter(params: string[]) {
     function normalizeString(text: string) {
       text = text.toLowerCase();
-      text = text.replace(/á/gi, "a");
-      text = text.replace(/é/gi, "e");
-      text = text.replace(/í/gi, "i");
-      text = text.replace(/ó/gi, "o");
-      text = text.replace(/ú/gi, "u");
-      text = text.replace(/ñ/gi, "n");
+      text = text.replace(/á/gi, 'a');
+      text = text.replace(/é/gi, 'e');
+      text = text.replace(/í/gi, 'i');
+      text = text.replace(/ó/gi, 'o');
+      text = text.replace(/ú/gi, 'u');
+      text = text.replace(/ñ/gi, 'n');
       return text;
     }
-    let key = params[0]
-    if (params[1] !== "") {
+    let key = params[0];
+    if (params[1] !== '') {
       this.filteredWarehouses = this.warehouses.filter(function (elem) {
-        return normalizeString(elem[key]) === normalizeString(params[1])
-      })
-      this.warehouses = this.filteredWarehouses
-      this.rows = []
+        return normalizeString(elem[key]) === normalizeString(params[1]);
+      });
+      this.warehouses = this.filteredWarehouses;
+      this.rows = [];
       this.filteredWarehouses.forEach((warehouse, index, arr) => {
-        this.rows.push([])
-        this.rows[index].push(
-          warehouse.name,
-          warehouse.location
-        )
-      })
+        this.rows.push([]);
+        this.rows[index].push(warehouse.name, warehouse.location);
+      });
     } else {
       this.rows = this.auxRows;
     }
