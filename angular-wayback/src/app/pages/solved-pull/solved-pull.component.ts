@@ -32,6 +32,11 @@ export class SolvedPullComponent {
     public asideHeaderService: AsideHeaderService,
     public loginService: LoginService
   ) {
+    let since = this.asideHeaderService.twoWeeksAgo();
+    this.asideHeaderService.dateSince = since;
+
+    let until = this.asideHeaderService.tomorrow();
+    this.asideHeaderService.dateUntil = until;
     this.createTable();
   }
 
@@ -108,12 +113,7 @@ export class SolvedPullComponent {
 
   createTable() {
     this.solved_pdf = new PdfComponent();
-
-    let since = this.asideHeaderService.twoWeeksAgo();
-    this.asideHeaderService.dateSince = since;
-
-    let until = this.asideHeaderService.tomorrow();
-    this.asideHeaderService.dateUntil = until;
+  
 
     this.IncidenceService.getSolvedIncidence(
       this.asideHeaderService.dateSince,
