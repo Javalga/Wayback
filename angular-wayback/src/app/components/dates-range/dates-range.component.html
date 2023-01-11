@@ -1,18 +1,11 @@
 <div class="timer"
     *ngIf="asideHeaderService.state === 'Dashboard' || asideHeaderService.state === 'Pool de solucionadas' || asideHeaderService.state === 'Devoluciones' || asideHeaderService.state === 'Histórico' ">
     <h2 *ngIf="asideHeaderService.state === 'Pool de solucionadas' ">Fecha Proxima <br> Entrega:</h2>
-    <h2 *ngIf="asideHeaderService.state === 'Devoluciones'">Fecha Entrada:</h2>
+    <h2 *ngIf="asideHeaderService.state === 'Devoluciones' || asideHeaderService.state === 'Histórico'">Fecha Entrada:</h2>
 
-    <select name="filter_type" class="general-input" #filter_type *ngIf="asideHeaderService.state === 'Histórico' ">
-        <option value="" class="general-input">Fecha Entrada:</option>
-        <option value="" class="general-input">Fecha Salida:</option>
-        <option value="" class="general-input">Fecha Proxima Entrega:</option>
-    </select>
+ 
 
     <div class="date"><input type="date" #dateSince (change)="sendDates()" [value]="defaultDateSince()"></div>
     <div class="date"><input type="date" #dateUntil (change)="sendDates()" [value]="defaultDateUntil()"></div>
 
 </div>
-<!-- 
-[value]="defaultDateSince()"
-[value]="defaultDateUntil()" -->

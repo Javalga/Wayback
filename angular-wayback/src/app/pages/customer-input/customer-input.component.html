@@ -13,149 +13,146 @@
       {{ incidence.incidence_type }}
     </div>
     <div class="description-customer-input">
-      Bacon ipsum dolor amet short ribs tri-tip porchetta, alcatra kevin brisket
-      t-bone doner pork chop biltong filet mignon bresaola capicola boudin pork
-      belly. Tongue ribeye swine bacon short loin turducken. Flank jowl shoulder
-      boudin. Boudin corned beef pork chop frankfurter. Ground round pork belly
-      beef, tri-tip pork strip steak ham hock ham.
+      {{incidence_text}}
     </div>
     <div class="form-cointainer">
       <form
         action=""
         #customer_input="ngForm"
         (ngSubmit)="onSubmit(customer_input)"
+        class="form-cointainer"
       >
-        <div class="both_form-container">
-          <div class="custumer_data">
-            <div class="custumer_data-tittle">
-              Estos son sus Datos de Entrega:
-            </div>
-            <div class="custumer_data-inputs">
-              <div class="custumer_data-inputs">
-                <div class="label-input_combo">
-                  <label for="customer_name"> Nombre : </label>
-                  <input
-                    class="general-input"
-                    type="text"
-                    name="customer_name"
-                    [(ngModel)]="incidence.customer_name"
-                    #customer_name                    
-                    
-                    
-                  />
-                </div>
-                <div class="label-input_combo">
-                  <label for="customer_phone"> Teléfono : </label>
-                  <input
-                    class="general-input"
-                    type="text"
-                    name="customer_phone"
-                    [(ngModel)]="incidence.customer_phone"
-                    #customer_phone
-                    
-                  />
-                </div>
-                <div class="label-input_combo">
-                  <label for="customer_mail"> Correo : </label>
-                  <input
-                    class="general-input"
-                    type="text"
-                    name="customer_mail"
-                    [(ngModel)]="incidence.customer_mail"
-                    #customer_mail
-                    
-                  />
-                </div>
-                <div class="label-input_combo">
-                  <label for="customer_direction"> Dirección : </label>
-                  <input
-                    class="general-input"
-                    type="text"
-                    name="customer_direction"
-                    [(ngModel)]="incidence.customer_address"
-                    #customer_direction
-                   
-                  />
-                </div>
-                <div class="label-input_combo">
-                  <label for="customer_cp"> CP : </label>
-                  <input
-                    class="general-input"
-                    type="text"
-                    name="customer_cp"
-                    [(ngModel)]="incidence.customer_cp"
-                    #customer_cp
-                   
-                  />
-                </div>
-                <div class="label-input_combo">
-                  <label for="customer_poblation"> Población : </label>
-                  <input
-                    class="general-input"
-                    type="text"
-                    name="customer_poblation"
-                    [(ngModel)]="incidence.customer_city"
-                    #customer_poblation
-                  />
-                </div>
+          <div class="both_form-container">
+                                  
+            <div class="customer_data-inputs">
+              <div class="customer_data-tittle">
+                Estos son sus Datos de Entrega:
               </div>
+              <div class="label-input_combo">
+                <label for="customer_name"> Nombre : </label>
+                <input
+                  class="general-input"
+                  type="text"
+                  name="customer_name"
+                  [(ngModel)]="incidence.customer_name"
+                  #customer_name                                        
+                />
+              </div>
+              <div class="label-input_combo">
+                <label for="customer_phone"> Teléfono : </label>
+                <input
+                  class="general-input"
+                  type="text"
+                  name="customer_phone"
+                  [(ngModel)]="incidence.customer_phone"
+                  #customer_phone
+                  
+                />
+              </div>
+              <div class="label-input_combo">
+                <label for="customer_mail"> Correo : </label>
+                <input
+                  class="general-input"
+                  type="text"
+                  name="customer_mail"
+                  [(ngModel)]="incidence.customer_mail"
+                  #customer_mail
+                  
+                />
+              </div>
+              <div class="label-input_combo">
+                <label for="customer_direction"> Dirección : </label>
+                <input
+                  class="general-input"
+                  type="text"
+                  name="customer_direction"
+                  [(ngModel)]="incidence.customer_address"
+                  #customer_direction
+                  
+                />
+              </div>
+              <div class="label-input_combo">
+                <label for="customer_cp"> CP : </label>
+                <input
+                  class="general-input"
+                  type="text"
+                  name="customer_cp"
+                  [(ngModel)]="incidence.customer_cp"
+                  #customer_cp
+                  
+                />
+              </div>
+              <div class="label-input_combo">
+                <label for="customer_poblation"> Población : </label>
+                <input
+                  class="general-input"
+                  type="text"
+                  name="customer_poblation"
+                  [(ngModel)]="incidence.customer_city"
+                  #customer_poblation
+                />
+              </div>
+            </div>
 
-              <div class="delivery_time_data">
-                <div class="delivery_time_data-title">
-                  Por favor indique una fecha de entrega:
+            <div class="delivery_time_data">
+              <div class="delivery_time_data-title">
+                Por favor indique una fecha de entrega:
+              </div>
+              <div class="delivery_time_data-inputs">
+                <div class="label-input_combo">
+                  <label for="next_delivey"> Día: </label>
+                  <select
+                    name="next_delivey"
+                    class="general-input"
+                    [(ngModel)]="incidence.next_delivery"
+                    #next_delivey
+                  >
+                    <option  class="general-input" *ngFor="let date of next_delivery_array">{{date}}</option>
+                    
+                  </select>
                 </div>
-                <div class="delivery_time_data-inputs">
-                  <div class="label-input_combo">
-                    <label for="next_delivey"> Día: </label>
-                    <select
-                      name="next_delivey"
+                <div class="label-input_combo">
+                  <label for="delivery_time"> Horario: </label>
+                  <select
+                    name="delivery_time"
+                    class="general-input"
+                    [(ngModel)]="incidence.delivery_time_id"
+                    #next_delivey
+                  >
+                    <option
                       class="general-input"
-                      [(ngModel)]="incidence.next_delivery"
-                      #next_delivey
+                      *ngFor="let delivery_time_name of this.delivery_time"
+                      [value]="delivery_time_name.delivery_time_id"
                     >
-                      <option  class="general-input" *ngFor="let date of next_delivery_array">{{date}}</option>
-                      
-                    </select>
-                  </div>
-                  <div class="label-input_combo">
-                    <label for="delivery_time"> Horario: </label>
-                    <select
-                      name="delivery_time"
-                      class="general-input"
-                      [(ngModel)]="incidence.delivery_time_id"
-                      #next_delivey
-                    >
-                      <option
-                        class="general-input"
-                        *ngFor="let delivery_time_name of this.delivery_time"
-                        [value]="delivery_time_name.delivery_time_id"
-                      >
-                        {{ delivery_time_name.name }}
-                      </option>
-                    </select>
-                  </div>
+                      {{ delivery_time_name.name }}
+                    </option>
+                  </select>
                 </div>
               </div>
-            </div>
-            <div class="button_position">
-              <button>
-              <app-button
-                [value]="'Confirmo los datos de Entrega - Enviar'"
-              ></app-button>
-              </button>
             </div>
           </div>
-        </div>
+
+          <div class="button_position">
+            <button class="false-button">
+            <app-button 
+              [value]="'Confirmo los datos de Entrega - Enviar'"
+            ></app-button>
+            </button>
+          </div>
+
+          
+        
         <div class="refused_container">
-      <p class="refused_description">
-        Si desea rechazar su pedido, marque la casilla para confirmar que no
-        quiere recibir su envío:
-      </p>
-      <div class="refused_confirmation">
-        <input type="checkbox" name="checkbox_form" [(ngModel)]="incidence.checkbox_form" #checkbox_form/>  
-        <div class="refused_confirmation-text">Si, rechazo el pedido</div>
-      </div>
-    </div>
+          <p class="refused_description">
+            Si desea rechazar su pedido, marque la casilla para confirmar que no
+            quiere recibir su envío:
+          </p>
+          <div class="refused_confirmation">
+            <input type="checkbox" name="checkbox_form" [(ngModel)]="incidence.checkbox_form" #checkbox_form/>  
+            <div class="refused_confirmation-text">Si, rechazo el pedido</div>
+          </div>
+        </div>
+
       </form>
     </div>
     

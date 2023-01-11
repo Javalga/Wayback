@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './components/filter/filter.component';
 import { PdfComponent } from './components/pdf/pdf.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FormConfirmationComponent } from './pages/form-confirmation/form-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     LocationsComponent,
     WarehousesComponent,
     FilterComponent,
-    PdfComponent
+    PdfComponent,
+    FormConfirmationComponent
 
   ],
   imports: [
