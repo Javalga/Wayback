@@ -46,12 +46,12 @@ export class DatesRangeComponent implements OnInit {
   public defaultDateSince() {
 
     if (this.asideHeaderService.state === 'Dashboard' || this.asideHeaderService.state === 'Pool de solucionadas') {
-      let value = this.twoWeeksAgo();
-      this.asideHeaderService.dateSince = value
+      let value = this.asideHeaderService.twoWeeksAgo();
+      // this.asideHeaderService.dateSince = value
       return value;
     } else if (this.asideHeaderService.state === 'Devoluciones' || this.asideHeaderService.state === 'Histórico') {
       let value = '1970-01-01';
-      this.asideHeaderService.dateSince = value;
+      // this.asideHeaderService.dateSince = value;
       return value
     }
 
@@ -61,36 +61,22 @@ export class DatesRangeComponent implements OnInit {
   public defaultDateUntil() {
 
     if (this.asideHeaderService.state === 'Dashboard' || this.asideHeaderService.state === 'Histórico') {
-      let value = this.today();
-      this.asideHeaderService.dateUntil = value
+      let value = this.asideHeaderService.today();
+      // this.asideHeaderService.dateUntil = value
       return value;
     } else if (this.asideHeaderService.state === 'Devoluciones') {
-      let value = this.twoWeeksAgo();
-      this.asideHeaderService.dateUntil = value;
+      let value = this.asideHeaderService.twoWeeksAgo();
+      // this.asideHeaderService.dateUntil = value;
       return value;
     } else {
-      let value = this.tomorrow();
-      this.asideHeaderService.dateUntil = value;
+      let value = this.asideHeaderService.tomorrow();
+      // this.asideHeaderService.dateUntil = value;
       return value;
     }
 
   }
 
 
-  public twoWeeksAgo() {
-
-    return moment().subtract(15, "days").format("YYYY-MM-DD");
-  }
-
-  public tomorrow() {
-
-    return moment().add(1, "days").format("YYYY-MM-DD");
-  }
-
-  public today() {
-
-    return moment().format("YYYY-MM-DD")
-  }
 
   public sendDates() {
 
