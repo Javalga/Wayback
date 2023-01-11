@@ -24,6 +24,7 @@ export class CustomerInputComponent {
   public form_awnser: FormAnswer;
   public resultado_put;
   public incidence_text: string;
+  public error;
   constructor(
     public incidenceService: IncidenceService,
     public deliveryTimeService: DeliveryTimeService,
@@ -32,25 +33,41 @@ export class CustomerInputComponent {
     public loginService: LoginService,
     public activatedRoute: ActivatedRoute
   ) {
+    
     this.incidence = new Incidence()
     this.loginService.isLogged = false
     this.ref = this.activatedRoute.snapshot.params.ref;
-    this.incidenceService.getOneIncidence(this.ref).subscribe((data) => {
-      this.incidence = data[0];
+    this.incidenceService.getOneIncidence(this.ref).subscribe((data: Incidence[]) => {
+      this.error = data
+      console.log(this.error);
+      
+      if (this.error.code == 'ER_BAD_FIELD_ERROR' || this.error[0] == null) {
+        this.router.navigateByUrl('form-incidence-not-found');
+        this.incidence = new Incidence();
+      } else {
+        this.incidence = data[0];
 
-      switch (this.incidence.incidence_type_id){
-        case 1:
-          this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido por una AUSENCIA. Por favor indíquenos un horario de entrega favorable para usted en el siguiente formulario. Compruebe que todos los datos de su pedido son correctos para asegurar el éxito de la entrega, muchas gracias.`;
-          break;
-        case 2: 
-          this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido debido a DIRECCIÓN INCORRECTA o falta de datos. Por favor indíquenos la dirección completa de entrega y no olvide indicar el número de la calle, del piso (si reside en un piso) y del código postal. Indique el horario de entrega que le sea favorable para recibir su pedido, muchas gracias.`;
-          break;
-        case 3:
-          this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido porque se nos ha notificado que lo ha rechazado. Por favor confirme que ha rechazado su pedido. De lo contrario compruebe los datos de entrega e indíquenos un horario favorable para realizar la entrega de su pedido, muchas gracias.`;
-          break;
+        if (this.incidence.status_id != 1) {
+          this.router.navigateByUrl('form-not-avaible');
+          this.incidence = new Incidence();
+        }
+
+        switch (this.incidence.incidence_type_id) {
+          case 1:
+            this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido por una AUSENCIA. Por favor indíquenos un horario de entrega favorable para usted en el siguiente formulario. Compruebe que todos los datos de su pedido son correctos para asegurar el éxito de la entrega, muchas gracias.`;
+            break;
+          case 2:
+            this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido debido a DIRECCIÓN INCORRECTA o falta de datos. Por favor indíquenos la dirección completa de entrega y no olvide indicar el número de la calle, del piso (si reside en un piso) y del código postal. Indique el horario de entrega que le sea favorable para recibir su pedido, muchas gracias.`;
+            break;
+          case 3:
+            this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido porque se nos ha notificado que lo ha rechazado. Por favor confirme que ha rechazado su pedido. De lo contrario compruebe los datos de entrega e indíquenos un horario favorable para realizar la entrega de su pedido, muchas gracias.`;
+            break;
+        }
       }
       
     });
+
+    
 
     this.deliveryTimeService
       .getDelivery_time()
@@ -74,7 +91,8 @@ export class CustomerInputComponent {
     console.log(this.incidence);
 
     let answer = ngForm.value;
-    console.log(answer.customer_cp);
+    console.log();
+    
     console.log(answer);
     if (
       answer.customer_cp == undefined ||
@@ -84,7 +102,16 @@ export class CustomerInputComponent {
       answer.customer_name == undefined ||
       answer.customer_phone == undefined ||
       answer.delivery_time == undefined ||
-      answer.next_delivey == undefined
+      answer.next_delivey == undefined ||
+      answer.customer_cp == '' ||
+      answer.customer_direction == '' ||
+      answer.customer_poblation == '' ||
+      answer.customer_mail == '' ||
+      answer.customer_name == '' ||
+      answer.customer_phone == '' ||
+      answer.delivery_time == '' ||
+      answer.next_delivey == '000Z/3-/20' ||
+      answer.next_delivey == '2023-01-13T23:00:00.000Z'       // este requisito no funciona
     ) {
       this.toastService.toast({
         position: 'bottom-end',
@@ -111,12 +138,12 @@ export class CustomerInputComponent {
 
       this.incidenceService.putIncidence(this.incidence).subscribe((data) => {
         this.resultado_put = data;
-        
-        if(this.resultado_put.message == "Incidence updated"){
+
+        if (this.resultado_put.message == 'Incidence updated') {
           this.router.navigateByUrl('form-confirmation');
         }
-      }
-      )};
+      });
+    };
 }
 }
   

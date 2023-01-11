@@ -12,6 +12,8 @@ import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component';
 import { FormConfirmationComponent } from './pages/form-confirmation/form-confirmation.component';
+import { FormNotAvailableComponent } from './pages/form-not-available/form-not-available.component';
+import { FormIncidenceNotFoundComponent } from './pages/form-incidence-not-found/form-incidence-not-found.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'locations', component: LocationsComponent },
   { path: 'warehouses', component: WarehousesComponent },
   { path: 'form-confirmation', component: FormConfirmationComponent },
+  { path: 'form-not-avaible', component: FormNotAvailableComponent },
+  { path: 'form-incidence-not-found', component: FormIncidenceNotFoundComponent},
 ];
 
 @NgModule({

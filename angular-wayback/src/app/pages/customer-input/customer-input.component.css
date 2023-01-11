@@ -3,6 +3,7 @@
   color: var(--secondary-color2-dark);
   min-height: 100vh;
   padding: 0 20em;
+  width: 100vw;
 }
 
 .content-container {
@@ -163,7 +164,7 @@
 
 /*---------------------------------------------------------------------*/
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1220px) {
   .body-container {
     padding: 0px;
   }

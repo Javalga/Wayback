@@ -26,6 +26,8 @@ import { FilterComponent } from './components/filter/filter.component';
 import { PdfComponent } from './components/pdf/pdf.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormConfirmationComponent } from './pages/form-confirmation/form-confirmation.component';
+import { FormNotAvailableComponent } from './pages/form-not-available/form-not-available.component';
+import { FormIncidenceNotFoundComponent } from './pages/form-incidence-not-found/form-incidence-not-found.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { FormConfirmationComponent } from './pages/form-confirmation/form-confir
     WarehousesComponent,
     FilterComponent,
     PdfComponent,
-    FormConfirmationComponent
+    FormConfirmationComponent,
+    FormNotAvailableComponent,
+    FormIncidenceNotFoundComponent
 
   ],
   imports: [
