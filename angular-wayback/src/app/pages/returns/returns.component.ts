@@ -41,6 +41,11 @@ export class ReturnsComponent {
     this.createTable();
   }
 
+
+  sendDate(date) {
+    this.changeDate()
+  }
+
   sendSelected(selected) {
     this.selected = selected;
     this.card2Value = this.selected.length;
@@ -86,21 +91,18 @@ export class ReturnsComponent {
           incidence.customer_city,
           incidence.input_date === null
             ? null
-            : `${new Date(incidence.input_date).getDate()}-${
-                new Date(incidence.input_date).getMonth() + 1
-              }-${new Date(incidence.input_date).getFullYear()}`,
+            : `${new Date(incidence.input_date).getDate()}-${new Date(incidence.input_date).getMonth() + 1
+            }-${new Date(incidence.input_date).getFullYear()}`,
 
           incidence.output_date === null
             ? null
-            : `${new Date(incidence.output_date).getDate()}-${
-                new Date(incidence.output_date).getMonth() + 1
-              }-${new Date(incidence.output_date).getFullYear()}`,
+            : `${new Date(incidence.output_date).getDate()}-${new Date(incidence.output_date).getMonth() + 1
+            }-${new Date(incidence.output_date).getFullYear()}`,
 
           incidence.next_delivery === null
             ? null
-            : `${new Date(incidence.next_delivery).getDate()}-${
-                new Date(incidence.next_delivery).getMonth() + 1
-              }-${new Date(incidence.next_delivery).getFullYear()}`,
+            : `${new Date(incidence.next_delivery).getDate()}-${new Date(incidence.next_delivery).getMonth() + 1
+            }-${new Date(incidence.next_delivery).getFullYear()}`,
           incidence.delivery_time,
           incidence.warehouse
         );
@@ -109,15 +111,15 @@ export class ReturnsComponent {
       this.rows = this.auxRows;
     }
   }
-  changeDate(){
+  changeDate() {
     this.rows = [];
     this.selected = [];
     this.createTable()
   }
- 
+
 
   createTable() {
-       this.returns_pdf = new PdfComponent();
+    this.returns_pdf = new PdfComponent();
 
     this.IncidenceService.getIncidenceToReturn(
       this.asideHeaderService.dateSince,
@@ -148,7 +150,7 @@ export class ReturnsComponent {
           (elem) => elem.location_id == this.loginService.user.location_id
         );
       }
-      
+
       for (let i = 0; i < this.incidences.length; i++) {
         this.selected.push(i);
         this.rows.push([
@@ -163,9 +165,8 @@ export class ReturnsComponent {
           this.incidences[i].customer_city,
           this.incidences[i].input_date === null
             ? null
-            : `${new Date(this.incidences[i].input_date).getDate()}-${
-                new Date(this.incidences[i].input_date).getMonth() + 1
-              }-${new Date(this.incidences[i].input_date).getFullYear()}`,
+            : `${new Date(this.incidences[i].input_date).getDate()}-${new Date(this.incidences[i].input_date).getMonth() + 1
+            }-${new Date(this.incidences[i].input_date).getFullYear()}`,
           this.incidences[i].warehouse,
         ]);
       }
@@ -176,5 +177,5 @@ export class ReturnsComponent {
     });
     this.auxRows = this.rows;
   };
-  }
+}
 

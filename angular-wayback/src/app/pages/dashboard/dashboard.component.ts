@@ -158,8 +158,12 @@ export class DashboardComponent {
       // })
     });
 
-    console.log(this.asideHeaderService.dateSince);
-    console.log(this.asideHeaderService.dateUntil);
+    // console.log(this.asideHeaderService.dateSince);
+    // console.log(this.asideHeaderService.dateUntil);
+  }
+
+  sendDate(date) {
+    this.changeDate()
   }
 
 
@@ -185,9 +189,9 @@ export class DashboardComponent {
     ).subscribe((data: Incidence[]) => {
       this.incidences = data;
 
-      console.log("estoy funcionando")
-      console.log(this.asideHeaderService.dateSince);
-      console.log(this.asideHeaderService.dateUntil);
+      // console.log("estoy funcionando")
+      // console.log(this.asideHeaderService.dateSince);
+      // console.log(this.asideHeaderService.dateUntil);
       if (this.loginService.user.role_id == 3) {
         this.incidences = this.incidences.filter(
           (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
@@ -200,7 +204,7 @@ export class DashboardComponent {
 
       // total de incidencias
       this.calcTotal = this.incidences.length;
-      console.log(this.calcTotal);
+      // console.log(this.calcTotal);
 
       // incidencias solucionadas
       this.calcSolved = this.incidences.filter(

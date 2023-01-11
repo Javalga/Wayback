@@ -105,6 +105,11 @@ export class SolvedPullComponent {
     }
   }
 
+  sendDate(date) {
+    this.changeDate()
+  }
+
+
   changeDate() {
     this.rows = []
     this.selected = []
@@ -113,7 +118,7 @@ export class SolvedPullComponent {
 
   createTable() {
     this.solved_pdf = new PdfComponent();
-  
+
 
     this.IncidenceService.getSolvedIncidence(
       this.asideHeaderService.dateSince,
@@ -146,7 +151,7 @@ export class SolvedPullComponent {
           (elem) => elem.location_id == this.loginService.user.location_id
         );
       }
-      
+
       for (let i = 0; i < this.incidences.length; i++) {
         this.selected.push(i);
         this.rows.push([

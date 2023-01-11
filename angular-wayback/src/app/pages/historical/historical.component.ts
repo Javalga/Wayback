@@ -28,8 +28,13 @@ export class HistoricalComponent {
     this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
       this.incidences = data;
       this.createTable()
-      
+
     })
+  }
+
+  sendDate(date) {
+    this.changeDate()
+    console.log(date)
   }
 
   bigTable() {
@@ -70,21 +75,18 @@ export class HistoricalComponent {
           incidence.customer_city,
           incidence.input_date === null
             ? null
-            : `${new Date(incidence.input_date).getDate()}-${
-                new Date(incidence.input_date).getMonth() + 1
-              }-${new Date(incidence.input_date).getFullYear()}`,
+            : `${new Date(incidence.input_date).getDate()}-${new Date(incidence.input_date).getMonth() + 1
+            }-${new Date(incidence.input_date).getFullYear()}`,
 
           incidence.output_date === null
             ? null
-            : `${new Date(incidence.output_date).getDate()}-${
-                new Date(incidence.output_date).getMonth() + 1
-              }-${new Date(incidence.output_date).getFullYear()}`,
+            : `${new Date(incidence.output_date).getDate()}-${new Date(incidence.output_date).getMonth() + 1
+            }-${new Date(incidence.output_date).getFullYear()}`,
 
           incidence.next_delivery === null
             ? null
-            : `${new Date(incidence.next_delivery).getDate()}-${
-                new Date(incidence.next_delivery).getMonth() + 1
-              }-${new Date(incidence.next_delivery).getFullYear()}`,
+            : `${new Date(incidence.next_delivery).getDate()}-${new Date(incidence.next_delivery).getMonth() + 1
+            }-${new Date(incidence.next_delivery).getFullYear()}`,
           incidence.delivery_time,
           incidence.warehouse
         );
@@ -94,19 +96,20 @@ export class HistoricalComponent {
     }
   }
 
-  changeDate(){    
-  this.IncidenceService.getAllIncidenceDateRange(
-    this.asideHeaderService.dateSince,
-    this.asideHeaderService.dateUntil
-  ).subscribe((data: Incidence[]) => {
-    this.incidences = data;
-    console.log(this.asideHeaderService.dateSince);
-    console.log(this.asideHeaderService.dateUntil);
-    this.createTable()
-  })
-}
+  changeDate() {
+    this.IncidenceService.getAllIncidenceDateRange(
+      this.asideHeaderService.dateSince,
+      this.asideHeaderService.dateUntil
+    ).subscribe((data: Incidence[]) => {
+      this.incidences = data;
+      console.log(data)
+      // console.log(this.asideHeaderService.dateSince);
+      // console.log(this.asideHeaderService.dateUntil);
+      this.createTable()
+    })
+  }
 
-  createTable(){
+  createTable() {
     this.cols = [
       'N* Expedición',
       'Estado',
@@ -147,28 +150,25 @@ export class HistoricalComponent {
         this.incidences[i].customer_city,
         this.incidences[i].input_date === null
           ? null
-          : `${new Date(this.incidences[i].input_date).getDate()}-${
-              new Date(this.incidences[i].input_date).getMonth() + 1
-            }-${new Date(this.incidences[i].input_date).getFullYear()}`,
+          : `${new Date(this.incidences[i].input_date).getDate()}-${new Date(this.incidences[i].input_date).getMonth() + 1
+          }-${new Date(this.incidences[i].input_date).getFullYear()}`,
 
         this.incidences[i].output_date === null
           ? null
-          : `${new Date(this.incidences[i].output_date).getDate()}-${
-              new Date(this.incidences[i].output_date).getMonth() + 1
-            }-${new Date(this.incidences[i].output_date).getFullYear()}`,
+          : `${new Date(this.incidences[i].output_date).getDate()}-${new Date(this.incidences[i].output_date).getMonth() + 1
+          }-${new Date(this.incidences[i].output_date).getFullYear()}`,
 
         this.incidences[i].next_delivery === null
           ? null
-          : `${new Date(this.incidences[i].next_delivery).getDate()}-${
-              new Date(this.incidences[i].next_delivery).getMonth() + 1
-            }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
+          : `${new Date(this.incidences[i].next_delivery).getDate()}-${new Date(this.incidences[i].next_delivery).getMonth() + 1
+          }-${new Date(this.incidences[i].next_delivery).getFullYear()}`,
         this.incidences[i].delivery_time,
         this.incidences[i].warehouse,
       ]);
     }
-  
-  this.auxRows = this.rows;
-  this.calcTotal = this.incidences.length;
+
+    this.auxRows = this.rows;
+    this.calcTotal = this.incidences.length;
   };
 }
 
