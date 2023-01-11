@@ -9,7 +9,7 @@
 //   @Input() appState: undefined
 // }
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 import { LoginService } from 'src/app/shared/login.service';
 @Component({
@@ -19,7 +19,15 @@ import { LoginService } from 'src/app/shared/login.service';
 })
 export class HeaderComponent {
   @Input() appState: undefined
+  @Output() sendDate = new EventEmitter<Array<string>>();
+
 
   constructor(public asideHeaderService: AsideHeaderService, public loginService: LoginService) { }
+
+  sendDateHead(date) {
+    this.sendDate.emit(date)
+    console.log(date)
+  }
+
 }
 

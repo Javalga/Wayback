@@ -14,7 +14,10 @@ export class AsideHeaderService {
     this.dateUntil = 'YYYY-MM-DD';
 
   }
-  
+
+  public aYearAgo() {
+    return moment().subtract(365, 'days').format('YYYY-MM-DD');
+  }
 
   public twoWeeksAgo() {
     return moment().subtract(15, 'days').format('YYYY-MM-DD');
