@@ -165,7 +165,8 @@ export class ReturnsComponent {
     }
   }
   changeDate(){
-    
+    this.rows = [];
+    this.selected = [];
     this.returns_pdf = new PdfComponent();
 
     this.IncidenceService.getIncidenceToReturn(
@@ -197,7 +198,7 @@ export class ReturnsComponent {
           (elem) => elem.location_id == this.loginService.user.location_id
         );
       }
-      this.rows = [];
+      
       for (let i = 0; i < this.incidences.length; i++) {
         this.selected.push(i);
         this.rows.push([
