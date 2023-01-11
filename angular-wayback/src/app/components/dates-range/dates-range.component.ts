@@ -25,23 +25,20 @@ export class DatesRangeComponent implements OnInit {
 
   }
 
-  public isDefaultSince() {
+  // public isDefaultSince() {
 
-    if (!this.changeSince) {
-      console.log(this.dateSince.nativeElement.value)
-      return this.defaultDateSince;
-    } else {
-      console.log(this.dateSince.nativeElement.value)
-      return this.dateSince.nativeElement.value;
-    }
-  }
+  //   if (!this.changeSince) {
+  //     console.log(this.dateSince.nativeElement.value)
+  //     return this.defaultDateSince;
+  //   } else return this.dateSince.nativeElement.value;
+  // }
 
-  public isDefaultUntil() {
+  // public isDefaultUntil() {
 
-    if (!this.changeUntil) {
-      return this.defaultDateUntil;
-    } else return this.dateUntil.nativeElement.value;
-  }
+  //   if (!this.changeUntil) {
+  //     return this.defaultDateUntil;
+  //   } else return this.dateUntil.nativeElement.value;
+  // }
 
   public defaultDateSince() {
 
@@ -87,6 +84,7 @@ export class DatesRangeComponent implements OnInit {
 
     this.asideHeaderService.dateSince = this.dateSince.nativeElement.value;
     this.asideHeaderService.dateUntil = this.dateUntil.nativeElement.value;
+
     console.log(this.asideHeaderService.dateSince)
     console.log(this.asideHeaderService.dateUntil)
   }
