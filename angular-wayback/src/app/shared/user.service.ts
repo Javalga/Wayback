@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { HttpClient } from '@angular/common/http';
+import { ApiPathService } from './api-path.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,29 +10,29 @@ export class UserService {
   public users: User[];
   public url: string;
   public user: User;
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private apiPathService: ApiPathService
+  ) {
     this.user = new User();
   }
-
-
-
-
   public getUsers() {
-    this.url = 'http://localhost:3000/users';
+    this.url = `${this.apiPathService.apiPath}/users`;
     return this.http.get(this.url);
   }
 
   public putUser(user: User) {
-    this.url = 'http://localhost:3000/users';
+    this.url = `${this.apiPathService.apiPath}/users`;
     console.log(user);
     return this.http.put(this.url, user);
   }
 
   public postUser(user: User) {
     console.log('hola funciono');
-    
-    console.log(user);console.log(user)
-    this.url = 'http://localhost:3000/users';
+
+    console.log(user);
+    console.log(user);
+    this.url = `${this.apiPathService.apiPath}/users`;
     return this.http.post(this.url, user);
   }
 }

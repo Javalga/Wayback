@@ -16,6 +16,7 @@ export class HistoricalComponent {
   public style: string = 'height:40vh;';
   public incidences: Incidence[];
   public filteredIncidences: Incidence[];
+  public calcTotal: number;
   public auxRows;
 
   constructor(
@@ -23,9 +24,11 @@ export class HistoricalComponent {
     public asideHeaderService: AsideHeaderService,
     public loginService: LoginService
   ) {
+    this.incidences = []
     this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
       this.incidences = data;
       this.createTable()
+      
     })
   }
 
@@ -165,6 +168,7 @@ export class HistoricalComponent {
     }
   
   this.auxRows = this.rows;
+  this.calcTotal = this.incidences.length;
   };
 }
 
