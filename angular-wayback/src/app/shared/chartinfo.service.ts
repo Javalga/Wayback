@@ -4,6 +4,7 @@ import { ApiPathService } from './api-path.service';
 import { Incidence } from '../models/incidence';
 import { AsideHeaderService } from './aside-header.service';
 import { LoginService } from './login.service';
+import { Chart } from 'chart.js';
 @Injectable({
   providedIn: 'root',
 })
@@ -21,6 +22,7 @@ export class ChartinfoService {
   public intoWarehousePercentResult: string;
   public dateSince: string;
   public untilDate: string
+  public chart: Chart;
   constructor(public apiPathService: ApiPathService, private http: HttpClient, public asideHeaderService: AsideHeaderService, public loginService: LoginService) {
     let since = this.asideHeaderService.twoWeeksAgo();
     this.asideHeaderService.dateSince = since;

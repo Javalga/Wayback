@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, destroyPlatform, OnDestroy, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js'
 import { OnInit } from '@angular/core';
 import { ChartinfoService } from 'src/app/shared/chartinfo.service';
@@ -10,19 +10,30 @@ Chart.register(...registerables)
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.css']
 })
-export class PieChartComponent implements OnInit {
+
+export class PieChartComponent implements OnInit, OnDestroy {
+
   constructor(public chartInfoService: ChartinfoService) {
 
+  }
+
+  updateChart() {
+    this.chartInfoService.chart.update()
   }
   ngOnInit(): void {
     this.RenderChart();
   }
+  ngOnDestroy() {
+    console.log("destruido")
+  }
+
   RenderChart() {
     console.log(this.chartInfoService.solvedAmount);
     console.log(this.chartInfoService.intoWarehouseAmount);
     console.log(this.chartInfoService.returnsAmount);
     console.log(this.chartInfoService.returnsAmount);
-    new Chart('piechart', {
+
+    this.chartInfoService.chart = new Chart('piechart', {
       type: 'doughnut',
       data: {
         labels: ['Solucionadas', 'Pendientes de solución', 'Devoluciones', 'Rechazadas'],
@@ -43,5 +54,6 @@ export class PieChartComponent implements OnInit {
         },
       }
     });
+    console.log(this.chartInfoService.chart)
   }
 }

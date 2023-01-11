@@ -98,12 +98,16 @@ export class DashboardComponent {
     //   "name": "Solucionadas",
     //   "value": this.calcSolved
     // })
+    this.pieComp = new PieChartComponent(this.chartinfoService);
   }
   sendDate(date) {
+
     this.chartinfoService.updateChart()
+    this.chartinfoService.chart.destroy()
+    this.pieComp.ngOnInit()
+    console.log(this.chartinfoService.chart)
 
     console.log(this.chartinfoService.solvedAmount)
-
     console.log(date)
   }
 }
