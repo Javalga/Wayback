@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './components/filter/filter.component';
 import { PdfComponent } from './components/pdf/pdf.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     LocationsComponent,
     WarehousesComponent,
     FilterComponent,
-    PdfComponent
+    PdfComponent,
+    PieChartComponent
 
   ],
   imports: [
@@ -57,7 +59,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
