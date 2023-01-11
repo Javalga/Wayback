@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import { FormAnswer } from 'src/app/models/form-answer';
 import { ToastService } from 'src/app/shared/toast.service';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/shared/login.service';
 
 @Component({
   selector: 'app-customer-input',
@@ -27,8 +28,10 @@ export class CustomerInputComponent {
     public deliveryTimeService: DeliveryTimeService,
     public toastService: ToastService,
     private router: Router,
+    public loginService: LoginService,
     public activatedRoute: ActivatedRoute
   ) {
+    this.loginService.isLogged = false
     this.ref = this.activatedRoute.snapshot.params.ref;
     this.incidenceService.getOneIncidence(this.ref).subscribe((data) => {
       this.incidence = data[0];

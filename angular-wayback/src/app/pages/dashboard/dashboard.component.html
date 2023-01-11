@@ -1,17 +1,20 @@
+<app-header (sendDate)="sendDate($event)"></app-header>
 <main class="main-dashboard">
 
   <div class="dashboard_container">
-    <div class="card_container">
-      <app-card [title]="'Éxito de Solución'" [value]="'98%'" [style]="'height: 30vh;'"
-        [styleTitle]="'font-size: 3.5rem'"></app-card>
-      <app-card [title]="'Incidencias Tratadas'" [value]="'256'" [style]="'height: 30vh;'"
-        [styleTitle]="'font-size: 3.5rem'"></app-card>
-      <app-card [title]="'Devoluciones'" [value]="'0.07%'" [style]="'height: 30vh;'"
-        [styleTitle]="'font-size: 3.5rem'"></app-card>
-    </div>
+    <!-- <app-button [style]="'font-size:1.2rem;'" [value]="'Aplicar fecha'" (click)="changeDate()"></app-button> -->
     <div class="graphic_container">
+      <!-- <app-card [title]="card1Title" [value]="card1Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="card2Title" [value]="card2Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="card3Title" [value]="card3Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="card4Title" [value]="card4Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="card5Title" [value]="card5Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card> -->
+    </div>
+    <div class="chart-container">
       <app-pie-chart></app-pie-chart>
-      <!-- <div class="graphic_info">
+    </div>
+
+    <!-- <div class="graphic_info">
         <p class="graphic_info--title">Vista General</p>
         <div class="graphic_info--parameter">
           <div [style]="'color: #4472C4; background-color: #4472C4;'" class="graphic_info--parameter--circle">
@@ -32,7 +35,14 @@
           <p class="graphic_info--parameter--text">Devoluciones</p>
         </div>
       </div> -->
-      <!-- <img src="../../../assets/grafico_muestra.png" class="graphic_show"> -->
-    </div>
+    <!-- <img src="../../../assets/grafico_muestra.png" class="graphic_show"> -->
+    <!-- <ngx-charts-advanced-pie-chart [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+        (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+      </ngx-charts-advanced-pie-chart> -->
+    <!-- <app-card [title]="card6Title" [value]="card6Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="card7Title" [value]="card7Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="card8Title" [value]="card8Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card>
+      <app-card [title]="card9Title" [value]="card9Value" [style]="" [styleTitle]="'font-size: 3.5rem'"></app-card> -->
+
   </div>
 </main>

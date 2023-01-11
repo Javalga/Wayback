@@ -10,7 +10,11 @@ export class AsideHeaderService {
   public dateUntil;
   constructor() {
     this.state = 'Dashboard';
+    this.dateSince = 'YYYY-MM-DD';
+    this.dateUntil = 'YYYY-MM-DD';
+
   }
+  
 
   public twoWeeksAgo() {
     return moment().subtract(15, 'days').format('YYYY-MM-DD');
@@ -24,5 +28,5 @@ export class AsideHeaderService {
   public startOfTime() {
     return '1970-01-01';
   }
-  
+
 }

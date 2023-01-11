@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApiPathService } from './api-path.service';
 
 import { User } from '../models/user';
 
@@ -8,22 +9,23 @@ import { User } from '../models/user';
 })
 export class LoginService {
   public isLogged: boolean = true;
-  public user: User
+  public user: User;
   public warehouse_name: string;
-  public url: string
-  constructor(private http: HttpClient) {
-    this.user = new User()
-    
+  public url: string;
+  constructor(
+    private http: HttpClient,
+    private apiPathService: ApiPathService
+  ) {
+    this.user = new User();
   }
   fetchLogin() {
-    this.url = "http://localhost:3000/login"
-    return this.http.post(this.url, this.user)
+    this.url = `${this.apiPathService.apiPath}/login`;
+    return this.http.post(this.url, this.user);
   }
   fetchRecover(body) {
-    this.url = "http://localhost:3000/mailer"
-    return this.http.post(this.url, body)
+    this.url = `${this.apiPathService.apiPath}/mailer`;
+    return this.http.post(this.url, body);
   }
-  
 }
 
 // roles = SUPER || ADMIN || USER

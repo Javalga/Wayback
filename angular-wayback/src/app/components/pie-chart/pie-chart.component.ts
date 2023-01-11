@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js'
 import { OnInit } from '@angular/core';
+import { ChartinfoService } from 'src/app/shared/chartinfo.service';
 
 Chart.register(...registerables)
 
@@ -10,30 +11,36 @@ Chart.register(...registerables)
   styleUrls: ['./pie-chart.component.css']
 })
 export class PieChartComponent implements OnInit {
-  constructor() {
+  constructor(public chartInfoService: ChartinfoService) {
 
   }
   ngOnInit(): void {
     this.RenderChart();
-
   }
   RenderChart() {
+    console.log(this.chartInfoService.solvedAmount);
+    console.log(this.chartInfoService.intoWarehouseAmount);
+    console.log(this.chartInfoService.returnsAmount);
+    console.log(this.chartInfoService.returnsAmount);
     new Chart('piechart', {
-      type: 'bar',
+      type: 'doughnut',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Solucionadas', 'Pendientes de solución', 'Devoluciones', 'Rechazadas'],
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          label: 'Estadísticas',
+          data: [this.chartInfoService.solvedAmount, this.chartInfoService.intoWarehouseAmount, this.chartInfoService.returnsAmount, this.chartInfoService.rejectedAmount],
           borderWidth: 1
         }]
       },
       options: {
         scales: {
           y: {
-            beginAtZero: true
+            display: false
+          },
+          x: {
+            display: false
           }
-        }
+        },
       }
     });
   }

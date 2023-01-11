@@ -1,3 +1,4 @@
+<app-header></app-header>
 <main class="incidence-output_main">
 
   <div class="incidence-output_container">
@@ -26,13 +27,15 @@
               <option disabled selected>Selecciona una opción</option>
               <option *ngFor="let state of this.status" [value]="state.status_id">
                 {{state.name}}
-              </option>  
+              </option>
             </select>
           </div>
         </div>
         <div class="incidence-output_moveRight">
           <div class="incidence-output_btnContainer">
-            <app-button [value]="value" (click)="registerStatus(incidence_ref.value, warehouse_id.value, status_id.value)" [style]="'font-size:2rem'">
+            <app-button [value]="value"
+              (click)="registerStatus(incidence_ref.value, warehouse_id.value, status_id.value)"
+              [style]="'font-size:2rem'">
               ></app-button>
           </div>
         </div>
