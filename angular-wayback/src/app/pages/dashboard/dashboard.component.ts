@@ -99,7 +99,6 @@ export class DashboardComponent {
 
       // total de incidencias
       this.calcTotal = this.incidences.length;
-      console.log(this.calcTotal);
 
       // incidencias solucionadas
       this.calcSolved = this.incidences.filter(
@@ -182,10 +181,10 @@ export class DashboardComponent {
     this.IncidenceService.getIncidenceDashboard(
       this.asideHeaderService.dateSince,
       this.asideHeaderService.dateUntil
-      
+
     ).subscribe((data: Incidence[]) => {
       this.incidences = data;
-      
+
       console.log("estoy funcionando")
       console.log(this.asideHeaderService.dateSince);
       console.log(this.asideHeaderService.dateUntil);
