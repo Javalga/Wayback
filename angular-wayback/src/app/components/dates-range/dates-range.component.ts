@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, EventEmitter, Output } from '@angular/core';
 import * as moment from 'moment';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 
@@ -11,6 +11,8 @@ export class DatesRangeComponent implements OnInit {
 
   @ViewChild('dateSince') dateSince;
   @ViewChild('dateUntil') dateUntil;
+  @Output() sendDate = new EventEmitter<Array<string>>();
+
 
 
   constructor(public asideHeaderService: AsideHeaderService) {
@@ -44,7 +46,7 @@ export class DatesRangeComponent implements OnInit {
       // this.asideHeaderService.dateSince = value
       return value;
     } else if (this.asideHeaderService.state === 'Devoluciones' || this.asideHeaderService.state === 'Histórico') {
-      let value = '1970-01-01';
+      let value = this.asideHeaderService.aYearAgo();
       // this.asideHeaderService.dateSince = value;
       return value
     }
@@ -73,12 +75,15 @@ export class DatesRangeComponent implements OnInit {
 
 
   public sendDates() {
-    console.log(this.dateSince.nativeElement.value)
+    // console.log(this.dateSince.nativeElement.value)
 
     this.asideHeaderService.dateSince = this.dateSince.nativeElement.value;
     this.asideHeaderService.dateUntil = this.dateUntil.nativeElement.value;
+    this.sendDate.emit([this.asideHeaderService.dateSince, this.asideHeaderService.dateUntil])
 
-    console.log(this.asideHeaderService.dateSince)
-    console.log(this.asideHeaderService.dateUntil)
+
+
+    // console.log(this.asideHeaderService.dateSince)
+    // console.log(this.asideHeaderService.dateUntil)
   }
 }

@@ -9,7 +9,7 @@ import { ApiPathService } from './api-path.service';
 export class IncidenceService {
   public incidences: Incidence[];
   public url: string;
-  constructor(private http: HttpClient, private apiPathService: ApiPathService) {}
+  constructor(private http: HttpClient, private apiPathService: ApiPathService) { }
   // get en la tabla csv y un insert en la tabla de incidents
 
   getIncidence(ref) {
@@ -63,7 +63,7 @@ export class IncidenceService {
   }
 
   getIncidenceDashboard(dateSince, dateUntil) {
-    console.log(dateSince);
+    // console.log(dateSince);
     this.url = `${this.apiPathService.apiPath}/incidence_dashboard?since=${dateSince}&until=${dateUntil}`;
     return this.http.get(this.url);
   }

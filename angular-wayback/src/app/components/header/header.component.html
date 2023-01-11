@@ -1,6 +1,7 @@
 <div *ngIf="loginService.isLogged" class="main">
 
     <div class="title">{{asideHeaderService.state}}
-        <app-dates-range style="display:flex;justify-content:flex-end;"></app-dates-range>
+        <app-dates-range style="display:flex;justify-content:flex-end;"
+            (sendDate)="sendDateHead($event)"></app-dates-range>
     </div>
 </div>
