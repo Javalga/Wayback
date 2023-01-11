@@ -30,6 +30,12 @@ export class IncidenceService {
     return this.http.get(this.url);
   }
 
+  getAllIncidenceDateRange(dateSince, dateUntil) {
+    this.url =
+      `http://localhost:3000/incidence_processed?since=${dateSince}&until=${dateUntil}`;
+    return this.http.get(this.url);
+  }
+
   getOneIncidence(incidence_ref: Number) {
     this.url = `http://localhost:3000/incidence_processed?incidence_ref=${incidence_ref}`;
     return this.http.get(this.url);
@@ -58,7 +64,7 @@ export class IncidenceService {
 
   getIncidenceDashboard(dateSince, dateUntil) {
     console.log(dateSince);
-    this.url = `http://localhost:3000/incidence_dashboard?since=${dateSince}&until=${dateUntil}`;    
+    this.url = `http://localhost:3000/incidence_dashboard?since=${dateSince}&until=${dateUntil}`;
     return this.http.get(this.url);
   }
 }

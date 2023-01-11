@@ -62,8 +62,7 @@ export class ReturnsComponent {
         this.incidences = this.incidences.filter(
           (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
         );
-      }
-      else if (this.loginService.user.role_id == 2) {
+      } else if (this.loginService.user.role_id == 2) {
         this.incidences = this.incidences.filter(
           (elem) => elem.location_id == this.loginService.user.location_id
         );
@@ -165,4 +164,64 @@ export class ReturnsComponent {
       this.rows = this.auxRows;
     }
   }
+  changeDate(){
+    this.returns_pdf = new PdfComponent();
+
+    this.IncidenceService.getIncidenceToReturn(
+      this.asideHeaderService.dateSince,
+      this.asideHeaderService.dateUntil
+    ).subscribe((data: Incidence[]) => {
+      this.incidences = data;
+
+      this.cols = [
+        'N* Expedición',
+        'Estado',
+        'Tipo de Incidencia',
+        'Nombre',
+        'Teléfono',
+        'Email',
+        'Dirección',
+        'CP',
+        'Población',
+        'F. Entrada',
+        'Almacén',
+      ];
+
+      if (this.loginService.user.role_id == 3) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      } else if (this.loginService.user.role_id == 2) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
+
+      for (let i = 0; i < this.incidences.length; i++) {
+        this.selected.push(i);
+        this.rows.push([
+          this.incidences[i].incidence_ref,
+          this.incidences[i].status,
+          this.incidences[i].incidence_type,
+          this.incidences[i].customer_name,
+          this.incidences[i].customer_phone,
+          this.incidences[i].customer_mail,
+          this.incidences[i].customer_address,
+          this.incidences[i].customer_cp,
+          this.incidences[i].customer_city,
+          this.incidences[i].input_date === null
+            ? null
+            : `${new Date(this.incidences[i].input_date).getDate()}-${
+                new Date(this.incidences[i].input_date).getMonth() + 1
+              }-${new Date(this.incidences[i].input_date).getFullYear()}`,
+          this.incidences[i].warehouse,
+        ]);
+      }
+      console.log(this.incidences);
+      console.log(this.selected);
+      this.card1Value = this.incidences.length;
+      this.card2Value = this.selected.length;
+    });
+    this.auxRows = this.rows;
+  };
 }
