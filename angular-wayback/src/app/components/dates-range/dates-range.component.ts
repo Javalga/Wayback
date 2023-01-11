@@ -12,6 +12,7 @@ export class DatesRangeComponent implements OnInit {
   @ViewChild('dateSince') dateSince;
   @ViewChild('dateUntil') dateUntil;
 
+
   public changeSince = false;
   public changeUntil = false;
 
@@ -92,6 +93,8 @@ export class DatesRangeComponent implements OnInit {
 
     this.changeSince = true;
     this.changeUntil = true;
+
+    console.log(this.dateSince.nativeElement.value)
 
     this.asideHeaderService.dateSince = this.dateSince.nativeElement.value;
     this.asideHeaderService.dateUntil = this.dateUntil.nativeElement.value;
