@@ -94,25 +94,77 @@ export class CustomerInputComponent {
     console.log();
     
     console.log(answer);
+    
     if (
-      answer.customer_cp == undefined ||
-      answer.customer_direction == undefined ||
-      answer.customer_poblation == undefined ||
-      answer.customer_mail == undefined ||
-      answer.customer_name == undefined ||
-      answer.customer_phone == undefined ||
-      answer.delivery_time == undefined ||
-      answer.next_delivey == undefined ||
-      answer.customer_cp == '' ||
-      answer.customer_direction == '' ||
-      answer.customer_poblation == '' ||
-      answer.customer_mail == '' ||
-      answer.customer_name == '' ||
-      answer.customer_phone == '' ||
-      answer.delivery_time == '' ||
-      answer.next_delivey == '000Z/3-/20' ||
-      answer.next_delivey == '2023-01-13T23:00:00.000Z'       // este requisito no funciona
+      answer.checkbox_form == true &&
+      ((answer.customer_cp != undefined &&
+        answer.customer_direction != undefined &&
+        answer.customer_poblation != undefined) &&
+        answer.customer_mail != undefined &&
+        answer.customer_name != undefined &&
+        answer.customer_phone != undefined &&
+        answer.customer_cp != '' &&
+        answer.customer_direction != '' &&
+        answer.customer_poblation != '' &&
+        answer.customer_mail != '' &&
+        answer.customer_name != '' &&
+        answer.customer_phone != '')
     ) {
+      console.log('caso1');
+      this.incidence.status_id = 4;
+      this.incidence.next_delivery = undefined;
+      this.incidence.delivery_time = undefined;
+      this.incidenceService.putIncidence(this.incidence).subscribe((data) => {
+        this.resultado_put = data;
+
+        if (this.resultado_put.message == 'Incidence updated') {
+          this.router.navigateByUrl('form-confirmation');
+        }
+      });
+    } else if (
+      answer.checkbox_form == true &&
+      (answer.customer_cp == undefined ||
+        answer.customer_direction == undefined ||
+        answer.customer_poblation == undefined ||
+        answer.customer_mail == undefined ||
+        answer.customer_name == undefined ||
+        answer.customer_phone == undefined ||
+        answer.customer_cp == '' ||
+        answer.customer_direction == '' ||
+        answer.customer_poblation == '' ||
+        answer.customer_mail == '' ||
+        answer.customer_name == '' ||
+        answer.customer_phone == '')
+    ) {
+      console.log('caso2');
+      this.toastService.toast({
+        position: 'bottom-end',
+        icon: 'error',
+        title: `Asegurese de rellenar todos los datos de entrega`,
+        showConfirmButton: false,
+        timer: 4000,
+      });
+    } else if (
+      (answer.checkbox_form == false || answer.checkbox_form == undefined) &&
+      (answer.customer_cp == undefined ||
+        answer.customer_direction == undefined ||
+        answer.customer_poblation == undefined ||
+        answer.customer_mail == undefined ||
+        answer.customer_name == undefined ||
+        answer.customer_phone == undefined ||
+        answer.delivery_time == undefined ||
+        answer.next_delivey == undefined ||
+        answer.customer_cp == '' ||
+        answer.customer_direction == '' ||
+        answer.customer_poblation == '' ||
+        answer.customer_mail == '' ||
+        answer.customer_name == '' ||
+        answer.customer_phone == '' ||
+        answer.delivery_time == '' ||
+        answer.next_delivey == '000Z/3-/20' ||
+        answer.next_delivey == '2023-01-13T23:00:00.000Z') // este requisito no funciona
+    ) {
+      console.log('caso3');
       this.toastService.toast({
         position: 'bottom-end',
         icon: 'error',
@@ -120,16 +172,28 @@ export class CustomerInputComponent {
         showConfirmButton: false,
         timer: 4000,
       });
-    } else {
-      if (
-        ngForm.value.checkbox_form == undefined ||
-        ngForm.value.checkbox_form == false
-      ) {
-        this.incidence.status_id = 2;
-      } else if (ngForm.value.checkbox_form == true) {
-        this.incidence.status_id = 4;
-      }
-
+    } else if (
+      (answer.checkbox_form == false || answer.checkbox_form == undefined) &&
+      (answer.customer_cp != undefined &&
+        answer.customer_direction != undefined &&
+        answer.customer_poblation != undefined &&
+        answer.customer_mail != undefined &&
+        answer.customer_name != undefined &&
+        answer.customer_phone != undefined &&
+        answer.delivery_time != undefined &&
+        answer.next_delivey != undefined &&
+        answer.customer_cp != '' &&
+        answer.customer_direction != '' &&
+        answer.customer_poblation != '' &&
+        answer.customer_mail != '' &&
+        answer.customer_name != '' &&
+        answer.customer_phone != '' &&
+        answer.delivery_time != '' &&
+        answer.next_delivey != '000Z/3-/20' &&
+        answer.next_delivey != '2023-01-13T23:00:00.000Z') // este requisito no funciona
+    ) {
+      console.log('caso4');
+      console.log(this.incidence.next_delivery);
       let day = this.incidence.next_delivery.slice(0, 2);
       let month = this.incidence.next_delivery.slice(3, 5);
       let year = this.incidence.next_delivery.slice(-4);
