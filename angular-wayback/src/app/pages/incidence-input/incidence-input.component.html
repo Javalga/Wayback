@@ -1,3 +1,4 @@
+<app-header></app-header>
 <main class="incidence-input_main">
 
     <div class="incidence-input_container">
@@ -5,7 +6,7 @@
             <div class="incidence-input_moveRight">
                 <div class="incidence-input_city">
                     <p>Entrada en:</p>
-                    <select name="filter_type" class="general-input" #warehouse_id >
+                    <select name="filter_type" class="general-input" #warehouse_id>
                         <option disabled selected>Selecciona una opción</option>
                         <option *ngFor="let warehouse of this.warehouses" [value]="warehouse.warehouse_id">
                             {{warehouse.name}}
@@ -37,7 +38,7 @@
                 <div class="incidence-input_formColumn">
                     <div class="incidence-input-formInput">
                         <!-- <input value={{incidence.incidence_type}} class="incidence-input_input"> -->
-                        <select class="incidence-input_input" #incidence_type_id >
+                        <select class="incidence-input_input" #incidence_type_id>
                             <option disabled selected>Selecciona una opción</option>
                             <option *ngFor="let type of this.incidence_type" [value]="type.incidence_type_id">
                                 {{type.name}}
@@ -100,10 +101,11 @@
             </div>
             <div class="incidence-input_moveRight">
                 <div class="incidence-input_btnContainer">
-                    <app-button [value]="value" (click)="registerIncidence(incidence_ref.value, warehouse_id.value, incidence_type_id.value)"
+                    <app-button [value]="value"
+                        (click)="registerIncidence(incidence_ref.value, warehouse_id.value, incidence_type_id.value)"
                         [style]="'font-size:2rem;'"></app-button>
                 </div>
             </div>
         </div>
-    </div> 
-</main> 
+    </div>
+</main>

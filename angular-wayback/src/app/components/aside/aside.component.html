@@ -3,33 +3,41 @@
     <img src="../../../assets/logoNormal 1.png" />
   </div>
   <div class="nav-profile__container">
-    <nav class="nav_container">
-      <app-aside-li [value]="'Dashboard'" tab="0" #dashboard tabindex="0" role="tab" (click)="tab = 0"
-        [ngClass]="{ active: !tab || tab === 0, inactive: tab != 0 }"></app-aside-li>
+    <nav class="nav_container" #dashboard>
+      <app-aside-li [value]="'Dashboard'" tab="0" tabindex="0" role="tab" (click)="this.tab = 0"
+        [ngClass]="{ active: !this.tab || this.tab === 0, inactive: this.tab != 0 }"></app-aside-li>
       <app-aside-li [value]="'Acciones de Incidencias'" (click)="extend_incidences()" tabindex="1" role="tab"
-        (click)="tab = 1" [ngClass]="{ active: tab === 1, inactive: tab != 1 }"></app-aside-li>
+        (click)="this.tab = 1" [ngClass]="{ active: this.tab === 1, inactive: this.tab != 1 }"></app-aside-li>
       <app-aside-li [value]="'Registro de incidencias'" class="extended" *ngIf="isExtended_incidences" #incidentInput
-        tabindex="2" role="tab" (click)="tab = 2" [ngClass]="{ active: tab === 2, inactive: tab != 2 }"></app-aside-li>
+        tabindex="2" role="tab" (click)="this.tab = 2"
+        [ngClass]="{ active: this.tab === 2, inactive: this.tab != 2 }"></app-aside-li>
       <app-aside-li [value]="'Pool de solucionadas'" class="extended" *ngIf="isExtended_incidences" #solvedPull
-        tabindex="3" role="tab" (click)="tab = 3" [ngClass]="{ active: tab === 3, inactive: tab != 3 }"></app-aside-li>
+        tabindex="3" role="tab" (click)="this.tab = 3"
+        [ngClass]="{ active: this.tab === 3, inactive: this.tab != 3 }"></app-aside-li>
       <app-aside-li [value]="'Devoluciones'" #returns class="extended" *ngIf="isExtended_incidences" tabindex="4"
-        role="tab" (click)="tab = 4" [ngClass]="{ active: tab === 4, inactive: tab != 4 }"></app-aside-li>
+        role="tab" (click)="this.tab = 4"
+        [ngClass]="{ active: this.tab === 4, inactive: this.tab != 4 }"></app-aside-li>
       <app-aside-li [value]="'Salida de incidencias'" class="extended" #incidentOutput *ngIf="isExtended_incidences"
-        tabindex="5" role="tab" (click)="tab = 5" [ngClass]="{ active: tab === 5, inactive: tab != 5 }"></app-aside-li>
-      <app-aside-li [value]="'Histórico'" #historical tabindex="6" role="tab" (click)="tab = 6"
-        [ngClass]="{ active: tab === 6, inactive: tab != 6 }"></app-aside-li>
+        tabindex="5" role="tab" (click)="this.tab = 5"
+        [ngClass]="{ active: this.tab === 5, inactive: this.tab != 5 }"></app-aside-li>
+      <app-aside-li [value]="'Histórico'" #historical tabindex="6" role="tab" (click)="this.tab = 6"
+        [ngClass]="{ active: this.tab === 6, inactive: this.tab != 6 }"></app-aside-li>
       <app-aside-li [value]="'Administrar Usuarios'" (click)="extend_admin()" #userAdmin tabindex="7" role="tab"
-        (click)="tab = 7" [ngClass]="{ active: tab === 7, inactive: tab != 7 }"
+        (click)="this.tab = 7" [ngClass]="{ active: this.tab === 7, inactive: this.tab != 7 }"
         *ngIf="loginService.user.role_id === 1 || loginService.user.role_id === 2"></app-aside-li>
 
 
-      <app-aside-li [value]="'Localidades'" class="extended" *ngIf="isExtended_admin && (loginService.user.role_id === 1 )" #locations tabindex="8" role="tab"
-        (click)="tab = 8" [ngClass]="{ active: tab === 8, inactive: tab != 8 }"
-      ></app-aside-li>
-      <app-aside-li [value]="'Almacenes'" #returns class="extended" *ngIf="isExtended_admin && (loginService.user.role_id === 1 || loginService.user.role_id === 2)" #locations tabindex="9"
-        role="tab" (click)="tab = 9" [ngClass]="{ active: tab === 9, inactive: tab != 9 }"></app-aside-li>
-      <app-aside-li [value]="'Usuarios'" class="extended" *ngIf="isExtended_admin && (loginService.user.role_id === 1 || loginService.user.role_id === 2)" #incidentInput tabindex="10"
-        role="tab" (click)="tab = 10" [ngClass]="{ active: tab === 10, inactive: tab != 10 }"></app-aside-li>
+      <app-aside-li [value]="'Localidades'" class="extended"
+        *ngIf="isExtended_admin && (loginService.user.role_id === 1 )" #locations tabindex="8" role="tab"
+        (click)="this.tab = 8" [ngClass]="{ active: this.tab === 8, inactive: this.tab != 8 }"></app-aside-li>
+      <app-aside-li [value]="'Almacenes'" #returns class="extended"
+        *ngIf="isExtended_admin && (loginService.user.role_id === 1 || loginService.user.role_id === 2)" #locations
+        tabindex="9" role="tab" (click)="this.tab = 9"
+        [ngClass]="{ active: this.tab === 9, inactive: this.tab != 9 }"></app-aside-li>
+      <app-aside-li [value]="'Usuarios'" class="extended"
+        *ngIf="isExtended_admin && (loginService.user.role_id === 1 || loginService.user.role_id === 2)" #incidentInput
+        tabindex="10" role="tab" (click)="this.tab = 10"
+        [ngClass]="{ active: this.tab === 10, inactive: this.tab != 10 }"></app-aside-li>
 
     </nav>
     <div class="profile__container">
