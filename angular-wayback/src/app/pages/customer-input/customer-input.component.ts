@@ -23,6 +23,7 @@ export class CustomerInputComponent {
   public next_delivery_array: string[];
   public form_awnser: FormAnswer;
   public resultado_put;
+  public incidence_text: string;
   constructor(
     public incidenceService: IncidenceService,
     public deliveryTimeService: DeliveryTimeService,
@@ -31,10 +32,24 @@ export class CustomerInputComponent {
     public loginService: LoginService,
     public activatedRoute: ActivatedRoute
   ) {
+    this.incidence = new Incidence()
     this.loginService.isLogged = false
     this.ref = this.activatedRoute.snapshot.params.ref;
     this.incidenceService.getOneIncidence(this.ref).subscribe((data) => {
       this.incidence = data[0];
+
+      switch (this.incidence.incidence_type_id){
+        case 1:
+          this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido por una AUSENCIA. Por favor indíquenos un horario de entrega favorable para usted en el siguiente formulario. Compruebe que todos los datos de su pedido son correctos para asegurar el éxito de la entrega, muchas gracias.`;
+          break;
+        case 2: 
+          this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido debido a DIRECCIÓN INCORRECTA o falta de datos. Por favor indíquenos la dirección completa de entrega y no olvide indicar el número de la calle, del piso (si reside en un piso) y del código postal. Indique el horario de entrega que le sea favorable para recibir su pedido, muchas gracias.`;
+          break;
+        case 3:
+          this.incidence_text = `Hola, buenos días, no hemos podido entregar su pedido porque se nos ha notificado que lo ha rechazado. Por favor confirme que ha rechazado su pedido. De lo contrario compruebe los datos de entrega e indíquenos un horario favorable para realizar la entrega de su pedido, muchas gracias.`;
+          break;
+      }
+      
     });
 
     this.deliveryTimeService
@@ -51,6 +66,9 @@ export class CustomerInputComponent {
     }
 
     this.form_awnser = new FormAnswer();
+
+    
+    
   }
   onSubmit(ngForm: NgForm) {
     console.log(this.incidence);
@@ -95,7 +113,7 @@ export class CustomerInputComponent {
         this.resultado_put = data;
         
         if(this.resultado_put.message == "Incidence updated"){
-          // this.router.navigateByUrl('form-confirmation');
+          this.router.navigateByUrl('form-confirmation');
         }
       }
       )};

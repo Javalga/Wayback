@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './components/filter/filter.component';
 import { PdfComponent } from './components/pdf/pdf.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FormConfirmationComponent } from './pages/form-confirmation/form-confirmation.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
@@ -50,7 +51,8 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
     WarehousesComponent,
     FilterComponent,
     PdfComponent,
-    PieChartComponent
+    PieChartComponent,
+    FormConfirmationComponent
 
   ],
   imports: [
