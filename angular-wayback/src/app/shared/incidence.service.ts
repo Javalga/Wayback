@@ -10,7 +10,6 @@ export class IncidenceService {
   public incidences: Incidence[];
   public url: string;
   constructor(private http: HttpClient, private apiPathService: ApiPathService) { }
-  constructor(private http: HttpClient, private apiPathService: ApiPathService) { }
   // get en la tabla csv y un insert en la tabla de incidents
 
   getIncidence(ref) {

@@ -4,6 +4,7 @@ import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 import { Incidence } from 'src/app/models/incidence';
 import { LoginService } from 'src/app/shared/login.service';
 import { ChartinfoService } from 'src/app/shared/chartinfo.service';
+import { PieChartComponent } from 'src/app/components/pie-chart/pie-chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -39,6 +40,7 @@ export class DashboardComponent {
   public card8Value;
   public card9Title = 'Porcentaje En Almacén';
   public card9Value;
+  public pieComp: PieChartComponent;
 
   constructor(
     private IncidenceService: IncidenceService,
@@ -98,10 +100,11 @@ export class DashboardComponent {
     // })
   }
   sendDate(date) {
-    this.chartinfoService.sinceDate = date[0]
-    this.chartinfoService.untilDate = date[1]
-    console.log(this.chartinfoService.sinceDate);
-    console.log(this.chartinfoService.untilDate);
+    this.chartinfoService.updateChart()
+
+    console.log(this.chartinfoService.solvedAmount)
+
+    console.log(date)
   }
 }
 

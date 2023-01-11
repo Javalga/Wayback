@@ -26,6 +26,17 @@ export class ChartinfoService {
     this.asideHeaderService.dateSince = since;
     let until = this.asideHeaderService.today();
     this.asideHeaderService.dateUntil = until;
+    this.updateChart()
+
+  }
+  getIncidenceByDate(dateSince, dateUntil) {
+    let url = `${this.apiPathService.apiPath}/incidence_dashboard?since=${dateSince}&until=${dateUntil}`;
+    return this.http.get(url);
+  }
+
+
+
+  updateChart() {
     this.getIncidenceByDate(
       this.asideHeaderService.dateSince,
       this.asideHeaderService.dateUntil
@@ -59,11 +70,6 @@ export class ChartinfoService {
       }
 
     })
-
-  }
-  getIncidenceByDate(dateSince, dateUntil) {
-    let url = `${this.apiPathService.apiPath}/incidence_dashboard?since=${dateSince}&until=${dateUntil}`;
-    return this.http.get(url);
   }
 
 }
