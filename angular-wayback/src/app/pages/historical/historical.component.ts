@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IncidenceService } from 'src/app/shared/incidence.service';
 import { Incidence } from 'src/app/models/incidence';
 import { LoginService } from 'src/app/shared/login.service';
+import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 
 @Component({
   selector: 'app-historical',
@@ -18,6 +19,7 @@ export class HistoricalComponent {
 
   constructor(
     private IncidenceService: IncidenceService,
+    public asideHeaderService: AsideHeaderService,
     public loginService: LoginService
   ) {
     this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
@@ -148,8 +150,14 @@ export class HistoricalComponent {
   }
 
   changeDate(){    
-  this.IncidenceService.getAllIncidence().subscribe((data: Incidence[]) => {
+  this.IncidenceService.getAllIncidenceDateRange(
+    this.asideHeaderService.dateSince,
+    this.asideHeaderService.dateUntil
+  ).subscribe((data: Incidence[]) => {
     this.incidences = data;
+    console.log(this.asideHeaderService.dateSince);
+    console.log(this.asideHeaderService.dateUntil);
+    
     this.cols = [
       'N* Expedición',
       'Estado',
