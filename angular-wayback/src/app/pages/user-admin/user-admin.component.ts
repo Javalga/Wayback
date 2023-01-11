@@ -51,14 +51,28 @@ export class UserAdminComponent {
 
     this.LocationService.getLocations().subscribe((data: Location[]) => {
       this.locations = data;
+      if (this.loginService.user.role_id == 2) {
+        this.locations = this.locations.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+    )}
+          
     });
 
     this.RolesService.getRoles().subscribe((data: Roles[]) => {
       this.roles = data;
+      if (this.loginService.user.role_id == 2) {
+        this.roles = [this.roles[2]]
+      ;
+      }
     });
 
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
       this.warehouses = data;
+      if (this.loginService.user.role_id == 2) {
+        this.warehouses = this.warehouses.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
     });
 
     this.UserService.getUsers().subscribe((data: User[]) => {

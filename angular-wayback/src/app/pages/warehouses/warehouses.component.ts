@@ -34,6 +34,11 @@ export class WarehousesComponent {
 
     this.LocationService.getLocations().subscribe((data: Location[]) => {
       this.locations = data;
+      if (this.loginService.user.role_id == 2) {
+        this.locations = this.locations.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
     });
 
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
