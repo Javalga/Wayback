@@ -75,8 +75,6 @@ export class DashboardComponent {
     public loginService: LoginService
   ) {
 
-
-
     let since = this.asideHeaderService.twoWeeksAgo();
     this.asideHeaderService.dateSince = since;
 
@@ -88,8 +86,6 @@ export class DashboardComponent {
       this.asideHeaderService.dateUntil
     ).subscribe((data: Incidence[]) => {
       this.incidences = data;
-      console.log(this.incidences);
-
       if (this.loginService.user.role_id == 3) {
         this.incidences = this.incidences.filter(
           (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
@@ -164,9 +160,6 @@ export class DashboardComponent {
 
     console.log(this.asideHeaderService.dateSince);
     console.log(this.asideHeaderService.dateUntil);
-
-
-
   }
 
 
@@ -188,11 +181,13 @@ export class DashboardComponent {
     this.IncidenceService.getIncidenceDashboard(
       this.asideHeaderService.dateSince,
       this.asideHeaderService.dateUntil
+      
     ).subscribe((data: Incidence[]) => {
       this.incidences = data;
-      console.log(this.incidences);
+      
       console.log("estoy funcionando")
-
+      console.log(this.asideHeaderService.dateSince);
+      console.log(this.asideHeaderService.dateUntil);
       if (this.loginService.user.role_id == 3) {
         this.incidences = this.incidences.filter(
           (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
