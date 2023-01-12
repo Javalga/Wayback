@@ -4,7 +4,7 @@
   <div class="user-admin_container">
     <div class="user-admin_containerFlex">
 
-      <app-filter [cols]="cols" (filterParams)="useFilter($event)"></app-filter>
+      <app-filter [cols]="cols" (filterParams)="useFilter($event)" class="filter"></app-filter>
       <app-table (sendIndex)="sendSelected($event)" (sendButtonValue)="sendButtonValue($event)" [rows]="rows"
         [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
 

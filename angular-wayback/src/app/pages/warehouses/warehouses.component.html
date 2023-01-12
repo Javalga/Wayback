@@ -9,7 +9,7 @@
                 [cols]="cols" [style]="'font-size:1.5rem; height:30vh;'"></app-table>
 
             <div class="user-admin_form">
-                <form #warehouseForm="ngForm" (ngSubmit)="onSubmit(warehouseForm)">
+                <form #warehouseForm="ngForm" class="user-admin_form"(ngSubmit)="onSubmit(warehouseForm)">
                     <div class="user-admin_formColumn">
                         <div class="user-admin_formInput">
                             <label>Nombre</label>
