@@ -16,13 +16,14 @@ export class ChartinfoService {
   public returnsAmount: number;
   public rejectedAmount: number;
   public intoWarehouseAmount: number;
-  public solvedPercentResult: string;
-  public returnPercentResult: string;
-  public rejectedPercentResult: string;
-  public intoWarehousePercentResult: string;
+  public solvedPercentResult: number;
+  public returnPercentResult: number;
+  public rejectedPercentResult: number;
+  public intoWarehousePercentResult: number;
   public dateSince: string;
   public untilDate: string
   public chart: Chart;
+  public chart2: Chart;
   constructor(public apiPathService: ApiPathService, private http: HttpClient, public asideHeaderService: AsideHeaderService, public loginService: LoginService) {
 
 
@@ -53,10 +54,10 @@ export class ChartinfoService {
       this.intoWarehouseAmount = this.incidences.filter(
         (elem) => elem.status_id == 1
       ).length;
-      this.solvedPercentResult = `${((this.solvedAmount * 100) / this.incidences.length).toFixed(2)}%`
-      this.returnPercentResult = `${((this.returnsAmount * 100) / this.incidences.length).toFixed(2)}%`
-      this.rejectedPercentResult = `${((this.rejectedAmount * 100) / this.incidences.length).toFixed(2)}%`;
-      this.intoWarehousePercentResult = `${((this.intoWarehouseAmount * 100) / this.incidences.length).toFixed(2)}%`;
+      this.solvedPercentResult = parseFloat(((this.solvedAmount * 100) / this.incidences.length).toFixed(2))
+      this.returnPercentResult = parseFloat(((this.returnsAmount * 100) / this.incidences.length).toFixed(2))
+      this.rejectedPercentResult = parseFloat(((this.rejectedAmount * 100) / this.incidences.length).toFixed(2));
+      this.intoWarehousePercentResult = parseFloat(((this.intoWarehouseAmount * 100) / this.incidences.length).toFixed(2));
       if (this.loginService.user.role_id === 3) {
         this.incidences = this.incidences.filter(
           (elem) => elem.warehouse_id == this.loginService.user.warehouse_id

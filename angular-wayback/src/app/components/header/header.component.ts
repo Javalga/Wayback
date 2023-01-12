@@ -26,7 +26,7 @@ export class HeaderComponent {
 
   sendDateHead(date) {
     this.sendDate.emit(date)
-    console.log(date)
+    // console.log(date)
   }
 
 }

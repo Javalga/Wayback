@@ -5,6 +5,7 @@ import { Incidence } from 'src/app/models/incidence';
 import { LoginService } from 'src/app/shared/login.service';
 import { ChartinfoService } from 'src/app/shared/chartinfo.service';
 import { PieChartComponent } from 'src/app/components/pie-chart/pie-chart.component';
+import { BarChartComponent } from 'src/app/components/bar-chart/bar-chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -40,7 +41,10 @@ export class DashboardComponent {
   public card8Value;
   public card9Title = 'Porcentaje En Almacén';
   public card9Value;
+  public card3Percent: string;
+  public card6Percent: string;
   public pieComp: PieChartComponent;
+  public barComp: BarChartComponent;
 
   constructor(
     private IncidenceService: IncidenceService,
@@ -50,12 +54,18 @@ export class DashboardComponent {
   ) {
 
     this.pieComp = new PieChartComponent(this.chartinfoService);
+    this.barComp = new BarChartComponent(this.chartinfoService);
 
     let since = this.asideHeaderService.twoWeeksAgo();
     this.asideHeaderService.dateSince = since;
     let until = this.asideHeaderService.today();
     this.asideHeaderService.dateUntil = until;
     this.chartinfoService.updateChart()
+    this.card1Value = this.chartinfoService.totalAmount;
+    this.card3Value = this.chartinfoService.returnPercentResult;
+    this.card6Value = this.chartinfoService.solvedPercentResult;
+    this.card3Percent = this.card3Value + " %";
+    this.card6Percent = this.card6Value + " %";
 
     // total de incidencias
     // this.calcTotal = this.incidences.length;
@@ -112,11 +122,19 @@ export class DashboardComponent {
 
     this.chartinfoService.updateChart()
     this.chartinfoService.chart.destroy()
+    this.chartinfoService.chart2.destroy()
     this.pieComp.ngOnInit()
-    console.log(this.chartinfoService.chart)
+    this.barComp.ngOnInit()
+    this.card1Value = this.chartinfoService.totalAmount;
+    this.card3Value = this.chartinfoService.returnPercentResult;
+    this.card6Value = this.chartinfoService.solvedPercentResult;
+    this.card3Percent = this.card3Value + " %";
+    this.card6Percent = this.card6Value + " %";
 
-    console.log(this.chartinfoService.solvedAmount)
-    console.log(date)
+    // console.log(this.chartinfoService.chart)
+
+    // console.log(this.chartinfoService.solvedAmount)
+    // console.log(date)
   }
 }
 

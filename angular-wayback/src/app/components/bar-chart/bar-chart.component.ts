@@ -6,17 +6,15 @@ import { ChartinfoService } from 'src/app/shared/chartinfo.service';
 Chart.register(...registerables)
 
 @Component({
-  selector: 'app-pie-chart',
-  templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.css']
+  selector: 'app-bar-chart',
+  templateUrl: './bar-chart.component.html',
+  styleUrls: ['./bar-chart.component.css']
 })
-
-export class PieChartComponent implements OnInit {
+export class BarChartComponent implements OnInit {
 
   constructor(public chartInfoService: ChartinfoService) {
 
   }
-
 
   ngOnInit(): void {
     this.RenderChart();
@@ -28,34 +26,44 @@ export class PieChartComponent implements OnInit {
     // console.log(this.chartInfoService.returnsAmount);
     // console.log(this.chartInfoService.returnsAmount);
 
-    this.chartInfoService.chart = new Chart('piechart', {
-      type: 'doughnut',
+    this.chartInfoService.chart2 = new Chart('barchart', {
+      type: 'bar',
       data: {
-        labels: ['Solucionadas', 'Devoluciones', 'Pendientes de solución', 'Rechazadas'],
+        labels: ['Total', 'Solucionadas', 'Devoluciones', 'Pendientes de solución', 'Rechazadas'],
         datasets: [{
-          label: 'Estadísticas',
-          data: [this.chartInfoService.solvedPercentResult, this.chartInfoService.returnPercentResult, this.chartInfoService.intoWarehousePercentResult, this.chartInfoService.rejectedPercentResult],
-          borderWidth: 1
+          label: "Numero de Incidencias",
+          data: [this.chartInfoService.totalAmount, this.chartInfoService.solvedAmount, this.chartInfoService.intoWarehouseAmount, this.chartInfoService.returnsAmount, this.chartInfoService.rejectedAmount],
+          borderWidth: 1,
+          backgroundColor: ['#ffffff', '#36a2eb', '#ff6384', '#ff9f40', '#ffcd56'],
         }]
       },
       options: {
         plugins: {
           legend: {
-            labels: {
-              color: "#ffffff"
-            }
+            display: false
           }
         },
+
         scales: {
           y: {
-            display: false
+            ticks: {
+              color: '#ffffff'
+            },
+            beginAtZero: true
           },
           x: {
-            display: false
+            ticks: {
+              color: '#ffffff'
+            },
           }
+
         },
       }
     });
+
     // console.log(this.chartInfoService.chart)
   }
 }
+
+
+

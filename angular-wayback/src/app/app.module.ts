@@ -29,6 +29,7 @@ import { FormConfirmationComponent } from './pages/form-confirmation/form-confir
 import { FormNotAvailableComponent } from './pages/form-not-available/form-not-available.component';
 import { FormIncidenceNotFoundComponent } from './pages/form-incidence-not-found/form-incidence-not-found.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
     FormNotAvailableComponent,
     FormIncidenceNotFoundComponent,
     PieChartComponent,
-    FormConfirmationComponent
+    FormConfirmationComponent,
+    BarChartComponent
 
   ],
   imports: [
