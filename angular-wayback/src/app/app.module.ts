@@ -28,6 +28,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormConfirmationComponent } from './pages/form-confirmation/form-confirmation.component';
 import { FormNotAvailableComponent } from './pages/form-not-available/form-not-available.component';
 import { FormIncidenceNotFoundComponent } from './pages/form-incidence-not-found/form-incidence-not-found.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,9 @@ import { FormIncidenceNotFoundComponent } from './pages/form-incidence-not-found
     PdfComponent,
     FormConfirmationComponent,
     FormNotAvailableComponent,
-    FormIncidenceNotFoundComponent
+    FormIncidenceNotFoundComponent,
+    PieChartComponent,
+    FormConfirmationComponent
 
   ],
   imports: [
@@ -63,7 +66,6 @@ import { FormIncidenceNotFoundComponent } from './pages/form-incidence-not-found
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

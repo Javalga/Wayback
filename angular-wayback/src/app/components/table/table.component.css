@@ -33,3 +33,9 @@ table {
 tr {
   cursor: pointer;
 }
+
+thead > tr > th {
+  padding: 1em;
+  color: var(--secondary-color3-dark);
+  align-items: center;
+}

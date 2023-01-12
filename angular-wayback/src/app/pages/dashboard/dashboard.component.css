@@ -36,14 +36,13 @@ app-card {
 
 .graphic_container {
   background-color: var(--primary-color2-dark);
-  height: 30vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.5);
   border: 2px solid var(--secondary-color3-dark);
-  padding: 10em;
+  padding: 2em;
 }
 
 .card_container {
@@ -108,4 +107,9 @@ app-card {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+}
+
+.chart-container {
+  padding: 1em;
+  width: 30%;
 }

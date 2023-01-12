@@ -61,11 +61,6 @@ export class IncidenceService {
     return this.http.put(this.url, incidence);
   }
 
-  getIncidenceDashboard(dateSince, dateUntil) {
-    // console.log(dateSince);
-    this.url = `${this.apiPathService.apiPath}/incidence_dashboard?since=${dateSince}&until=${dateUntil}`;
-    return this.http.get(this.url);
-  }
 }
 
 

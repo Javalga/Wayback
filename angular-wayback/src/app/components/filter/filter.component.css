@@ -3,16 +3,18 @@
   justify-content: flex-start;
   gap: 1em;
   align-items: center;
+  color: var(--secondary-color2-dark);
 }
 
 .filter > p {
   padding: 0.4em;
   padding-left: 0;
   margin-bottom: 0;
+  font-size: 2rem;
 }
 
 .filter > button {
-  padding: 0.4em;
+  padding: 0.3em;
   margin: 0px;
   padding-left: 0;
 }
@@ -24,7 +26,6 @@
 .filter_btnContainer {
   display: flex;
   justify-content: flex-start;
-  width: 100%;
   gap: 10px;
 }
 

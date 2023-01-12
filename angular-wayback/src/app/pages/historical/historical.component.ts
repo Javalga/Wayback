@@ -13,7 +13,7 @@ import { createInjectableType } from '@angular/compiler';
 export class HistoricalComponent {
   public cols: string[];
   public rows = [];
-  public style: string = 'height:40vh;';
+  public style: string = 'height:60vh;font-size: 1.2rem;';
   public incidences: Incidence[];
   public filteredIncidences: Incidence[];
   public calcTotal: number;
@@ -37,11 +37,6 @@ export class HistoricalComponent {
     console.log(date)
   }
 
-  bigTable() {
-    if (this.style === 'height:40vh;') {
-      this.style = 'height:50vh;';
-    } else this.style = 'height:40vh;';
-  }
 
   useFilter(params: string[]) {
     function normalizeString(text: string) {
@@ -113,17 +108,17 @@ export class HistoricalComponent {
     this.cols = [
       'N* Expedición',
       'Estado',
-      'Tipo de Incidencia',
+      'Tipo',
       'Nombre',
       'Teléfono',
       'Email',
       'Dirección',
       'CP',
       'Población',
-      'F. Entrada',
-      'F. Salida',
-      'Próx. Entrega',
-      'Horario de Entrega',
+      'F.Entrada',
+      'F.Salida',
+      'Entrega',
+      'Horario',
       'Almacén',
     ];
 

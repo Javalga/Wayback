@@ -10,4 +10,5 @@ export class CardComponent {
   @Input() value: number
   @Input() style: string
   @Input() styleTitle: string
+  @Input() styleValue: string
 }
