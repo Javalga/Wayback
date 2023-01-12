@@ -13,7 +13,7 @@ import { createInjectableType } from '@angular/compiler';
 export class HistoricalComponent {
   public cols: string[];
   public rows = [];
-  public style: string = 'height:60vh;font-size: 1.2rem;';
+  public style: string = 'height:60vh;font-size: 1.1rem;';
   public incidences: Incidence[];
   public filteredIncidences: Incidence[];
   public calcTotal: number;

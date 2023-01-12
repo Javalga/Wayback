@@ -129,16 +129,16 @@ export class SolvedPullComponent {
       this.cols = [
         'N* Expedición',
         'Estado',
-        'Tipo de Incidencia',
+        'Tipo',
         'Nombre',
         'Teléfono',
         'Email',
         'Dirección',
         'CP',
         'Población',
-        'F. Entrada',
-        'Próx. Entrega',
-        'Horario de Entrega',
+        'Entrada',
+        'Entrega',
+        'Horario',
         'Almacén',
       ];
 

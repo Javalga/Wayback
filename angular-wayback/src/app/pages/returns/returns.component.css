@@ -9,7 +9,7 @@
 
 .central-page {
   background-color: var(--primary-color2-dark);
-  width: 90%;
+  width: 95%;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@
   margin-bottom: 1.5em;
 }
 
-.body-acordion > div {
+.body-acordion>div {
   width: 45%;
   font-size: 2rem;
   padding: 0.5em;

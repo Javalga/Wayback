@@ -50,10 +50,10 @@
         </div>
       </div>
     </div> -->
+    <div class="filter_table">
+      <app-filter [cols]="cols" (filterParams)="useFilter($event)"></app-filter>
 
-    <app-filter [cols]="cols" (filterParams)="useFilter($event)"></app-filter>
-
-    <div class="accordion accordion-flush desplegable" id="accordionTable">
+      <!-- <div class="accordion accordion-flush desplegable" id="accordionTable">
       <div class="accordion-item desplegable-item">
         <h2 class="accordion-header acordion-main " id="flush-headingTwo">
           <button class="accordion-button collapsed acordion-title" type="button" data-bs-toggle="collapse"
@@ -63,19 +63,26 @@
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
           data-bs-parent="#accordionTable">
-          <div class="accordion-body body-acordion">
-            <app-table class="table" [allSelected]="selected" [rows]="rows" [cols]="cols" [style]="'font-size:1.5rem; '"
-              (sendSelected)="sendSelected($event)"></app-table>
-          </div>
-        </div>
+          <div class="accordion-body body-acordion"> -->
+      <div class="table">
+        <app-table class="table" [allSelected]="selected" [rows]="rows" [cols]="cols"
+          [style]="'font-size:1.5rem; height:50vh;'" (sendSelected)="sendSelected($event)"></app-table>
       </div>
     </div>
+    <!-- </div>
+        </div>
+      </div>
+    </div> -->
+
     <div class="cards">
-      <app-card [style]="'height: 5vw; min-width: 15vw;font-size:0.5rem'" [title]="card1Title"
-        [value]="card1Value"></app-card>
-      <app-card [style]="'height: 5vw; min-width: 15vw;'" [title]="card2Title" [value]="card2Value"></app-card>
+      <app-card [style]="'height: 3vw; min-width: 15vw;'" [styleTitle]="'font-size:1.5rem;'"
+        [styleValue]="'font-size:3rem;'" [title]="card1Title" [value]="card1Value"></app-card>
+      <app-button [style]="'font-size:2rem; min-width: 30vw;margin-top:1.5em;'" [value]="value"
+        (click)="printSelected()"></app-button>
+      <app-card [style]="'height: 3vw; min-width: 15vw;'" [styleTitle]="'font-size:1.5rem;'"
+        [styleValue]="'font-size:3rem;'" [title]="card2Title" [value]="card2Value"></app-card>
     </div>
-    <app-button [style]="'font-size:2rem; min-width: 30vw'" [value]="value" (click)="printSelected()"></app-button>
+
 
 
 

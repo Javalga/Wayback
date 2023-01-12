@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   height: 90%;
-  width: 90%;
+  width: 95%;
   background-color: var(--primary-color2-dark);
   font-size: 2rem;
 }
@@ -34,19 +34,19 @@
   align-items: center;
 }
 
-.user-admin_filter>p {
+.user-admin_filter > p {
   padding: 0.4em;
   padding-left: 0;
   margin-bottom: 0;
 }
 
-.user-admin_filter>button {
+.user-admin_filter > button {
   padding: 0.4em;
   margin: 0px;
   padding-left: 0;
 }
 
-.user-admin_filter>input {
+.user-admin_filter > input {
   background-color: var(--primary-color1-dark);
 }
 
@@ -115,8 +115,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em;
-  
+  padding: 0.6em;
 }
 
 .user-admin_inputShort {
@@ -139,7 +138,7 @@
   justify-content: space-between;
 }
 
-.user-admin_formGroupActivo>* {
+.user-admin_formGroupActivo > * {
   width: 20%;
   display: flex;
 }
@@ -177,13 +176,13 @@
 /*Checkbox*/
 
 .checkbox-container {
-  display: flex;  
+  display: flex;
   cursor: pointer;
   font-size: 22px;
 }
 
 .checkbox-container input:checked ~ .checkmark {
-background-color: var(--secondary-color3-dark);
+  background-color: var(--secondary-color3-dark);
 }
 
 .checkbox-container input {
@@ -205,14 +204,15 @@ background-color: var(--secondary-color3-dark);
 
 .checkmark:after {
   content: "";
-  display: none
+  display: none;
 }
 
 .checkbox-container input:checked ~ .checkmark:after {
   display: block;
 }
+
 .checkbox-container .checkmark:after {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -2px;
@@ -224,7 +224,6 @@ background-color: var(--secondary-color3-dark);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
 
 @media screen and (max-width: 1400px) {
   .user-admin_formGroupTogether {
