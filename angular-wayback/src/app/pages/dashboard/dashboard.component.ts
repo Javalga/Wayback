@@ -49,6 +49,14 @@ export class DashboardComponent {
     public chartinfoService: ChartinfoService
   ) {
 
+    this.pieComp = new PieChartComponent(this.chartinfoService);
+
+    let since = this.asideHeaderService.twoWeeksAgo();
+    this.asideHeaderService.dateSince = since;
+    let until = this.asideHeaderService.today();
+    this.asideHeaderService.dateUntil = until;
+    this.chartinfoService.updateChart()
+
     // total de incidencias
     // this.calcTotal = this.incidences.length;
 
@@ -98,7 +106,7 @@ export class DashboardComponent {
     //   "name": "Solucionadas",
     //   "value": this.calcSolved
     // })
-    this.pieComp = new PieChartComponent(this.chartinfoService);
+
   }
   sendDate(date) {
 

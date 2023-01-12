@@ -34,8 +34,7 @@ tr {
   cursor: pointer;
 }
 
-thead > tr > th {
-  padding: 1em;
+thead>tr>th {
   color: var(--secondary-color3-dark);
   align-items: center;
 }

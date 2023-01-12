@@ -130,7 +130,7 @@ export class ReturnsComponent {
       this.cols = [
         'N* Expedición',
         'Estado',
-        'Tipo de Incidencia',
+        'Tipo',
         'Nombre',
         'Teléfono',
         'Email',
