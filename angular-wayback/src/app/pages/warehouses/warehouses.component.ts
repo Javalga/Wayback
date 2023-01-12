@@ -5,6 +5,7 @@ import { Location } from 'src/app/models/location';
 import { Warehouse } from 'src/app/models/warehouse';
 import { NgForm } from '@angular/forms';
 import { LoginService } from 'src/app/shared/login.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: 'app-warehouses',
@@ -28,7 +29,8 @@ export class WarehousesComponent {
   constructor(
     public WarehouseService: WarehouseService,
     public LocationService: LocationService,
-    public loginService: LoginService
+    public loginService: LoginService,
+    public toastService: ToastService
   ) {
     this.warehouse = new Warehouse();
 
@@ -106,6 +108,13 @@ export class WarehousesComponent {
           }
         });
       });
+      this.toastService.toast({
+        position: 'bottom-end',
+        icon: 'success',
+        title: `Almacén creado correctamente`,
+        showConfirmButton: false,
+        timer: 4000
+      })
     }
   }
   useFilter(params: string[]) {

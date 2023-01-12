@@ -170,8 +170,8 @@ export class ReturnsComponent {
           this.incidences[i].warehouse,
         ]);
       }
-      console.log(this.incidences);
-      console.log(this.selected);
+      // console.log(this.incidences);
+      // console.log(this.selected);
       this.card1Value = this.incidences.length;
       this.card2Value = this.selected.length;
     });

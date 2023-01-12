@@ -50,7 +50,7 @@ export class DashboardComponent {
     private IncidenceService: IncidenceService,
     public asideHeaderService: AsideHeaderService,
     public loginService: LoginService,
-    public chartinfoService: ChartinfoService
+    public chartinfoService: ChartinfoService,
   ) {
 
     this.pieComp = new PieChartComponent(this.chartinfoService);

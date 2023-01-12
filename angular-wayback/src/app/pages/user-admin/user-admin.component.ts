@@ -9,6 +9,7 @@ import { WarehouseService } from 'src/app/shared/warehouse.service';
 import { Warehouse } from 'src/app/models/warehouse';
 import { NgForm } from '@angular/forms';
 import { LoginService } from 'src/app/shared/login.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 // hay que hacer que las opcions de almacén se filtren cuando se indica la localidad
 
@@ -45,7 +46,8 @@ export class UserAdminComponent {
     public RolesService: RolesService,
     public LocationService: LocationService,
     public WarehouseService: WarehouseService,
-    public loginService: LoginService
+    public loginService: LoginService,
+    public toastService: ToastService
   ) {
     this.user = new User('', '', '', '', '', '', '', false, 0, 0, 0);
 
@@ -54,15 +56,16 @@ export class UserAdminComponent {
       if (this.loginService.user.role_id == 2) {
         this.locations = this.locations.filter(
           (elem) => elem.location_id == this.loginService.user.location_id
-    )}
-          
+        )
+      }
+
     });
 
     this.RolesService.getRoles().subscribe((data: Roles[]) => {
       this.roles = data;
       if (this.loginService.user.role_id == 2) {
         this.roles = [this.roles[2]]
-      ;
+          ;
       }
     });
 
@@ -216,6 +219,13 @@ export class UserAdminComponent {
           }
         });
       });
+      this.toastService.toast({
+        position: 'bottom-end',
+        icon: 'success',
+        title: `Usuario creado correctamente`,
+        showConfirmButton: false,
+        timer: 4000
+      })
     } else {
       this.UserService.putUser(this.user).subscribe((data) => {
         console.log(data);
@@ -251,6 +261,13 @@ export class UserAdminComponent {
           }
         });
       });
+      this.toastService.toast({
+        position: 'bottom-end',
+        icon: 'success',
+        title: `Usuario modificado correctamente`,
+        showConfirmButton: false,
+        timer: 4000
+      })
     }
   }
   useFilter(params: string[]) {

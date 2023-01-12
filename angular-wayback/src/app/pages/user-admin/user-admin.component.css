@@ -35,7 +35,7 @@
   align-items: center;
 }
 
-.filter{
+.filter {
   display: flex;
   justify-content: center;
 }
@@ -122,7 +122,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1em;
-  gap: 2.9em;
+  gap: 2.5em;
 }
 
 .user-admin_inputShort {
@@ -154,7 +154,7 @@
 .user-admin_btnContainer {
   display: flex;
   justify-content: flex-start;
-  width: 7vw;
+  width: 100%;
 }
 
 .user-admin_btnContainerRight {
@@ -167,6 +167,7 @@
   justify-content: flex-start;
   align-items: center;
   margin-left: 0.4em;
+  margin-bottom: 0.6em;
 }
 
 .user-admin_location {

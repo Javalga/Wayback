@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { LocationService } from "src/app/shared/location.service"
 import { LoginService } from 'src/app/shared/login.service';
 import { Location } from 'src/app/models/location';
+import { ToastService } from 'src/app/shared/toast.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class LocationsComponent {
 
   constructor(
     public LocationService: LocationService,
-    public loginService: LoginService
+    public loginService: LoginService,
+    public toastService: ToastService
   ) {
     this.LocationService.getLocations().subscribe((data: Location[]) => {
       this.locations = data;
@@ -77,5 +79,12 @@ export class LocationsComponent {
         }
       });
     });
+    this.toastService.toast({
+      position: 'bottom-end',
+      icon: 'success',
+      title: `Localidad creada correctamente`,
+      showConfirmButton: false,
+      timer: 4000
+    })
   }
 }
