@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .main_historical_container {
@@ -15,71 +16,13 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.desplegable {
-  width: 85%;
-  margin-top: 1em;
-}
-
-.desplegable-item {
-  background-color: var(--primary-color1-dark);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.body-acordion {
-  display: flex;
-  flex-direction: row;
-
-  gap: 1em;
-  color: var(--secondary-color2-dark);
-  justify-content: flex-start;
-}
-
-.body-acordion div {
-  width: 45%;
-  font-size: 2rem;
-  padding: 0.5em;
-}
-
-.body-acordion input {
-  background-color: var(--primary-color2-dark);
-}
-
-.acordion-title {
-  font-size: 2rem;
-  color: var(--secondary-color2-dark);
-  background-color: var(--primary-color1-dark);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.incidence-input_form2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--primary-color1-dark);
-  border: 2px solid var(--primary-color2-dark);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.incidence-input_formColumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  width: fit-content;
-}
-
-.incidence-input-formInput {
-  display: flex;
-  padding: 0.8em;
-  gap: 1em;
-  width: fit-content;
+  align-content: center;
 }
 
 .table {
   margin-top: 1.5em;
-  width: 85%;
+  width: 90%;
+  margin-bottom: 2em;
 }
 
 label {
@@ -87,11 +30,9 @@ label {
 }
 
 .result-space {
-  width: 85%;
-  height: 20%;
+  width: 90%;
   display: flex;
   justify-content: flex-end;
-  margin: 1.5em;
 }
 
 .result {
