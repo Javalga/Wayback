@@ -14,10 +14,9 @@
   justify-content: space-around;
   align-items: center;
   min-height: 90%;
-  width: 100%;
   font-size: 2rem;
   gap: 2em;
-  width: 90%;
+  width: 95%;
   background-color: var(--primary-color2-dark);
   padding: 2em;
 }

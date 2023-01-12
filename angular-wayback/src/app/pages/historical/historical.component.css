@@ -9,7 +9,7 @@
 
 .main_historical_container {
   min-height: 90%;
-  width: 90%;
+  width: 95%;
   background-color: var(--primary-color2-dark);
   display: flex;
   justify-content: center;
