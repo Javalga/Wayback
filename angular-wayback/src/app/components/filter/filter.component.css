@@ -3,28 +3,29 @@
   justify-content: flex-start;
   gap: 1em;
   align-items: center;
+  color: var(--secondary-color2-dark)
 }
 
-.filter > p {
+.filter>p {
   padding: 0.4em;
   padding-left: 0;
   margin-bottom: 0;
+  font-size: 2rem;
 }
 
-.filter > button {
+.filter>button {
   padding: 0.4em;
   margin: 0px;
   padding-left: 0;
 }
 
-.filter > input {
+.filter>input {
   background-color: var(--primary-color1-dark);
 }
 
 .filter_btnContainer {
   display: flex;
   justify-content: flex-start;
-  width: 100%;
   gap: 10px;
 }
 

@@ -11,20 +11,15 @@ Chart.register(...registerables)
   styleUrls: ['./pie-chart.component.css']
 })
 
-export class PieChartComponent implements OnInit, OnDestroy {
+export class PieChartComponent implements OnInit {
 
   constructor(public chartInfoService: ChartinfoService) {
 
   }
 
-  updateChart() {
-    this.chartInfoService.chart.update()
-  }
+
   ngOnInit(): void {
     this.RenderChart();
-  }
-  ngOnDestroy() {
-    console.log("destruido")
   }
 
   RenderChart() {
