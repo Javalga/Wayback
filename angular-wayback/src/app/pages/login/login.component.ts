@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ToastService } from 'src/app/shared/toast.service';
 import { User } from 'src/app/models/user';
 import { NgForm } from '@angular/forms';
+import { ChartinfoService } from 'src/app/shared/chartinfo.service';
+import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +15,18 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   public recovery: boolean
-  constructor(public loginService: LoginService, private router: Router, public toastService: ToastService) {
+  constructor(public loginService: LoginService,
+    private router: Router,
+    public toastService: ToastService,
+    public asideHeaderService: AsideHeaderService,
+    public chartinfoService: ChartinfoService) {
     this.loginService.isLogged = false
     this.recovery = false
+    let since = this.asideHeaderService.twoWeeksAgo();
+    this.asideHeaderService.dateSince = since;
+    let until = this.asideHeaderService.today();
+    this.asideHeaderService.dateUntil = until;
+    this.chartinfoService.updateChart()
   }
   login(form: NgForm) {
     console.log(form.value);

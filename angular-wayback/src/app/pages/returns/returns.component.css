@@ -13,8 +13,9 @@
   height: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .desplegable {
@@ -22,12 +23,12 @@
 }
 
 .cards {
-  width: 100%;
+  width: 95%;
   height: fit-content;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 10px;
-  margin-bottom: 0.2em;
+  margin-top: 2em;
 }
 
 .desplegable-item {
@@ -72,4 +73,18 @@
   display: flex;
   padding: 0.8em;
   gap: 1em;
+}
+
+.table {
+  width: 95%;
+}
+
+.filter_table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  margin-top: 2em;
 }

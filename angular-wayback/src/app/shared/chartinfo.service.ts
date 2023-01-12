@@ -24,11 +24,7 @@ export class ChartinfoService {
   public untilDate: string
   public chart: Chart;
   constructor(public apiPathService: ApiPathService, private http: HttpClient, public asideHeaderService: AsideHeaderService, public loginService: LoginService) {
-    let since = this.asideHeaderService.twoWeeksAgo();
-    this.asideHeaderService.dateSince = since;
-    let until = this.asideHeaderService.today();
-    this.asideHeaderService.dateUntil = until;
-    this.updateChart()
+
 
   }
   getIncidenceByDate(dateSince, dateUntil) {
