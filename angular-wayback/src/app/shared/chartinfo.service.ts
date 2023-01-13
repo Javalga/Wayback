@@ -35,12 +35,28 @@ export class ChartinfoService {
 
 
 
+
+
   updateChart() {
+    // console.log(this.asideHeaderService.dateSince)
+    // console.log(this.asideHeaderService.dateUntil)
+
+    console.log(this.incidences)
     this.getIncidenceByDate(
       this.asideHeaderService.dateSince,
       this.asideHeaderService.dateUntil
     ).subscribe((data: Incidence[]) => {
       this.incidences = data;
+      if (this.loginService.user.role_id === 3) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      } else if (this.loginService.user.role_id === 2) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
+      console.log(this.incidences)
       this.totalAmount = this.incidences.length;
       this.solvedAmount = this.incidences.filter(
         (elem) => elem.status_id == 2 || elem.status_id == 5
@@ -58,15 +74,7 @@ export class ChartinfoService {
       this.returnPercentResult = parseFloat(((this.returnsAmount * 100) / this.incidences.length).toFixed(2))
       this.rejectedPercentResult = parseFloat(((this.rejectedAmount * 100) / this.incidences.length).toFixed(2));
       this.intoWarehousePercentResult = parseFloat(((this.intoWarehouseAmount * 100) / this.incidences.length).toFixed(2));
-      if (this.loginService.user.role_id === 3) {
-        this.incidences = this.incidences.filter(
-          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
-        );
-      } else if (this.loginService.user.role_id === 2) {
-        this.incidences = this.incidences.filter(
-          (elem) => elem.location_id == this.loginService.user.location_id
-        );
-      }
+
 
     })
   }

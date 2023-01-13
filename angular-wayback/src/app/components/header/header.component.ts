@@ -25,8 +25,9 @@ export class HeaderComponent {
   constructor(public asideHeaderService: AsideHeaderService, public loginService: LoginService) { }
 
   sendDateHead(date) {
-    this.sendDate.emit(date)
     // console.log(date)
+    this.sendDate.emit(date)
+
   }
 
 }

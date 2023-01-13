@@ -14,15 +14,15 @@ import { BarChartComponent } from 'src/app/components/bar-chart/bar-chart.compon
 })
 export class DashboardComponent {
   public incidences: Incidence[];
-  // public calcTotal: number;
-  // public calcSolved: number;
-  // public calcReturn: number;
-  // public calcRejected: number;
-  // public calcInWarehouse: number;
-  // public calcSolvedPercent: string;
-  // public calcReturnPercent: string;
-  // public calcRejectedPercent: string;
-  // public calcInWarehousePercent: string;
+  public totalAmount: number;
+  public solvedAmount: number;
+  public returnsAmount: number;
+  public rejectedAmount: number;
+  public intoWarehouseAmount: number;
+  public solvedPercentResult: number;
+  public returnPercentResult: number;
+  public rejectedPercentResult: number;
+  public intoWarehousePercentResult: number;
   public card1Title = 'Total de Incidencias';
   public card1Value;
   public card2Title = 'Incidencias Solucionadas';
@@ -120,16 +120,53 @@ export class DashboardComponent {
   }
   sendDate(date) {
 
-    this.chartinfoService.updateChart()
-    this.chartinfoService.chart.destroy()
-    this.chartinfoService.chart2.destroy()
-    this.pieComp.ngOnInit()
-    this.barComp.ngOnInit()
-    this.card1Value = this.chartinfoService.totalAmount;
-    this.card3Value = this.chartinfoService.returnPercentResult;
-    this.card6Value = this.chartinfoService.solvedPercentResult;
-    this.card3Percent = this.card3Value + " %";
-    this.card6Percent = this.card6Value + " %";
+    // console.log(this.asideHeaderService.dateSince)
+    // console.log(this.asideHeaderService.dateUntil)
+    // this.chartinfoService.updateChart()
+    this.chartinfoService.getIncidenceByDate(
+      this.asideHeaderService.dateSince,
+      this.asideHeaderService.dateUntil
+    ).subscribe((data: Incidence[]) => {
+      this.incidences = data;
+      if (this.loginService.user.role_id === 3) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      } else if (this.loginService.user.role_id === 2) {
+        this.incidences = this.incidences.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
+      console.log(this.incidences)
+      this.totalAmount = this.incidences.length;
+      this.solvedAmount = this.incidences.filter(
+        (elem) => elem.status_id == 2 || elem.status_id == 5
+      ).length;
+      this.returnsAmount = this.incidences.filter(
+        (elem) => elem.status_id == 3
+      ).length;
+      this.rejectedAmount = this.incidences.filter(
+        (elem) => elem.status_id == 4
+      ).length;
+      this.intoWarehouseAmount = this.incidences.filter(
+        (elem) => elem.status_id == 1
+      ).length;
+      this.solvedPercentResult = parseFloat(((this.solvedAmount * 100) / this.incidences.length).toFixed(2))
+      this.returnPercentResult = parseFloat(((this.returnsAmount * 100) / this.incidences.length).toFixed(2))
+      this.rejectedPercentResult = parseFloat(((this.rejectedAmount * 100) / this.incidences.length).toFixed(2));
+      this.intoWarehousePercentResult = parseFloat(((this.intoWarehouseAmount * 100) / this.incidences.length).toFixed(2));
+
+      this.chartinfoService.chart.destroy()
+      this.chartinfoService.chart2.destroy()
+      this.pieComp.ngOnInit()
+      this.barComp.ngOnInit()
+
+      this.card1Value = this.totalAmount;
+      this.card3Value = this.returnPercentResult;
+      this.card6Value = this.solvedPercentResult;
+      this.card3Percent = this.card3Value + " %";
+      this.card6Percent = this.card6Value + " %";
+    })
 
     // console.log(this.chartinfoService.chart)
 
