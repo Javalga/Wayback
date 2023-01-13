@@ -57,7 +57,7 @@ export class FilterComponent {
         case 'Estado':
           converted = 'status'
           break;
-        case 'Tipo de Incidencia':
+        case 'Tipo':
           converted = 'incidence_type'
           break;
         case 'Nombre':
@@ -78,16 +78,16 @@ export class FilterComponent {
         case 'Población':
           converted = 'customer_city'
           break;
-        case 'F. Entrada':
+        case 'F.Entrada':
           converted = 'input_date'
           break;
-        case 'F. Salida':
+        case 'F.Salida':
           converted = 'output_date'
           break;
-        case 'Próx. Entrega':
+        case 'Próx.Entrega':
           converted = 'next_delivery'
           break;
-        case 'Horario de Entrega':
+        case 'Horario':
           converted = 'delivery_time'
           break;
         case 'Almacén':

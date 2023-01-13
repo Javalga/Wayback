@@ -40,6 +40,7 @@ export class HistoricalComponent {
 
   useFilter(params: string[]) {
     function normalizeString(text: string) {
+      console.log(text)
       text = text.toLowerCase();
       text = text.replace(/á/gi, 'a');
       text = text.replace(/é/gi, 'e');
