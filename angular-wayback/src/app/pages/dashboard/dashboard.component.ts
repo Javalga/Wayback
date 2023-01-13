@@ -156,6 +156,17 @@ export class DashboardComponent {
       this.rejectedPercentResult = parseFloat(((this.rejectedAmount * 100) / this.incidences.length).toFixed(2));
       this.intoWarehousePercentResult = parseFloat(((this.intoWarehouseAmount * 100) / this.incidences.length).toFixed(2));
 
+
+      this.chartinfoService.totalAmount = this.totalAmount;
+      this.chartinfoService.solvedAmount = this.solvedAmount;
+      this.chartinfoService.returnsAmount = this.returnsAmount;
+      this.chartinfoService.rejectedAmount = this.rejectedAmount;
+      this.chartinfoService.intoWarehouseAmount = this.intoWarehouseAmount;
+      this.chartinfoService.solvedPercentResult = this.solvedPercentResult;
+      this.chartinfoService.returnPercentResult = this.returnPercentResult;
+      this.chartinfoService.rejectedPercentResult = this.rejectedPercentResult;
+      this.chartinfoService.intoWarehousePercentResult = this.intoWarehousePercentResult;
+
       this.chartinfoService.chart.destroy()
       this.chartinfoService.chart2.destroy()
       this.pieComp.ngOnInit()
@@ -166,7 +177,11 @@ export class DashboardComponent {
       this.card6Value = this.solvedPercentResult;
       this.card3Percent = this.card3Value + " %";
       this.card6Percent = this.card6Value + " %";
+
+
+
     })
+
 
     // console.log(this.chartinfoService.chart)
 
