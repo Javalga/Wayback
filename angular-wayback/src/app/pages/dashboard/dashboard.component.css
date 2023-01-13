@@ -43,6 +43,7 @@ app-card {
   box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.5);
   border: 2px solid var(--secondary-color3-dark);
   padding: 1em;
+  gap: 3em;
 }
 
 .card_container {
