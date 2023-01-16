@@ -57,7 +57,7 @@ export class IncidenceService {
   }
 
   putIncidence(incidence) {
-    this.url = `${this.apiPathService.apiPath}/incidence_form`;
+    this.url = `${this.apiPathService.apiPath}/put_incidence`;
     return this.http.put(this.url, incidence);
   }
 
