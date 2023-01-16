@@ -8,6 +8,7 @@ export class ApiPathService {
 
   public apiPath: string;
   constructor() {
-    this.apiPath = `https://wayback-api.vercel.app`;
+    // this.apiPath = `http://localhost:3000`;
+    this.apiPath = `http://wayback-front-two.vercel.app`;
   }
 }

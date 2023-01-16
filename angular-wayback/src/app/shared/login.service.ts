@@ -23,6 +23,8 @@ export class LoginService {
     return this.http.post(this.url, this.user);
   }
   fetchRecover(body) {
+    console.log(body);
+    
     this.url = `${this.apiPathService.apiPath}/mailer`;
     return this.http.post(this.url, body);
   }

@@ -7,6 +7,7 @@ import { User } from 'src/app/models/user';
 import { NgForm } from '@angular/forms';
 import { ChartinfoService } from 'src/app/shared/chartinfo.service';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent {
     private router: Router,
     public toastService: ToastService,
     public asideHeaderService: AsideHeaderService,
+    public userService: UserService,
     public chartinfoService: ChartinfoService) {
     this.loginService.isLogged = false
     this.recovery = false
@@ -64,6 +66,9 @@ export class LoginComponent {
   }
 
   recover(form: NgForm) {
+    console.log(form.value.username);
+    
+    
     if (form.value.username == '') {
       this.toastService.toast({
         position: 'bottom-end',
@@ -74,11 +79,29 @@ export class LoginComponent {
       })
       return
     };
-    this.loginService.fetchRecover({
-      "email": "jalonsogal@gmail.com",
-      "subject": "New password recover request received.",
-      "html": `<b>The user with username ${form.value.username} requested a new password please contact with him when you're done.</b>`
+   
+    this.userService.getOneUser(form.value.username).subscribe((data: User[]) =>
+    {
+      let user = data[0];
+      console.log(user.location_id)
+      this.userService
+        .getUserByLocationID(user.location_id)
+        .subscribe((data: User[]) => {
+          let admin = data[0];
+          console.log(admin.mail)
+          this.loginService.fetchRecover({
+            "email": `${admin.mail}`,
+            "subject": 'New password recover request received.',
+            "html": `<b>The user with username ${form.value.username} requested a new password please contact with him when you're done.</b>`,    
+          }).subscribe((data)=>{
+            console.log(data);
+            
+          });
+        });       
     })
+    
+      
+  
     this.toastService.toast({
       position: 'bottom-end',
       icon: 'info',

@@ -21,6 +21,16 @@ export class UserService {
     return this.http.get(this.url);
   }
 
+  public getOneUser(user) {
+    this.url = `${this.apiPathService.apiPath}/users?username=${user}`;
+    return this.http.get(this.url);
+  }
+
+  public getUserByLocationID(userLocationID) {
+    this.url = `${this.apiPathService.apiPath}/admin-recover-password?location_id=${userLocationID}`;
+    return this.http.get(this.url);
+  }
+
   public putUser(user: User) {
     this.url = `${this.apiPathService.apiPath}/users`;
     console.log(user);
