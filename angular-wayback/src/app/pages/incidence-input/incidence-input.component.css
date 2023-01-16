@@ -102,6 +102,7 @@
 .incidence-input_inputShort {
   width: 5vw;
   background-color: var(--primary-color2-dark);
+  padding: 10px;
 }
 
 .incidence-input_btnContainer {
