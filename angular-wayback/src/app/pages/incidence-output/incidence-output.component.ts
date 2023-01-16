@@ -17,6 +17,9 @@ import { LoginService } from 'src/app/shared/login.service';
 })
 export class IncidenceOutputComponent {
   @ViewChild('myInput') input;
+  @ViewChild('incidence_ref') incidence_ref;
+  @ViewChild('warehouse_id') warehouse_id;
+  @ViewChild('status_id') status_id;
 
   public value: string = 'Registro';
   public warehouses: Warehouse[];
@@ -35,15 +38,15 @@ export class IncidenceOutputComponent {
     this.status_query_response = [];
     this.WarehouseService.getWarehouses().subscribe((data: Warehouse[]) => {
       this.warehouses = data;
-       if (this.loginService.user.role_id == 3) {
-         this.warehouses = this.warehouses.filter(
-           (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
-         );
-       } else if (this.loginService.user.role_id == 2) {
-         this.warehouses = this.warehouses.filter(
-           (elem) => elem.location_id == this.loginService.user.location_id
-         );
-       }
+      if (this.loginService.user.role_id == 3) {
+        this.warehouses = this.warehouses.filter(
+          (elem) => elem.warehouse_id == this.loginService.user.warehouse_id
+        );
+      } else if (this.loginService.user.role_id == 2) {
+        this.warehouses = this.warehouses.filter(
+          (elem) => elem.location_id == this.loginService.user.location_id
+        );
+      }
     });
 
     this.StatusService.getStatus().subscribe((data: Status[]) => {
@@ -113,5 +116,11 @@ export class IncidenceOutputComponent {
         }
       }
     );
+  }
+  press(e) {
+    if (e.keyCode === 13 && !e.shiftKey) {
+      e.preventDefault();
+      this.registerStatus(this.incidence_ref.nativeElement.value, this.warehouse_id.nativeElement.value, this.status_id.nativeElement.value)
+    }
   }
 }

@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { AsideHeaderService } from 'src/app/shared/aside-header.service';
+
 
 @Component({
   selector: 'app-filter',
@@ -9,6 +10,9 @@ import { AsideHeaderService } from 'src/app/shared/aside-header.service';
 export class FilterComponent {
   @Input() cols: []
   @Output() filterParams = new EventEmitter<Array<any>>();
+  @ViewChild('filter_type') filter_type;
+  @ViewChild('input_value') input_value;
+  @ViewChild('button') button;
   constructor(public asideHeaderService: AsideHeaderService) { }
   catchParams(col, value) {
     let converted;
@@ -96,5 +100,12 @@ export class FilterComponent {
       }
     }
     this.filterParams.emit([converted, value])
+  }
+
+  press(e) {
+    if (e.keyCode === 13 && !e.shiftKey) {
+      e.preventDefault();
+      this.catchParams(this.filter_type.nativeElement.value, this.input_value.nativeElement.value)
+    }
   }
 }

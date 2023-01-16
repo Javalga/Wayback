@@ -96,6 +96,7 @@
   width: 15vw;
   background-color: var(--primary-color2-dark);
   color: white;
+  padding: 10px;
 }
 
 .incidence-input_inputShort {
