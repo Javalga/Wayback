@@ -107,9 +107,9 @@ export class IncidenceInputComponent {
                     });
                 } else {
                     this.sendEmail({
-                        "email": `${this.incidence.customer_mail}`,
-                        "subject": "Su pedido no ha podido ser entregado",
-                        "html": `<!DOCTYPE html
+                      email: `${this.incidence.customer_mail}`,
+                      subject: 'Su pedido no ha podido ser entregado',
+                      html: `<!DOCTYPE html
             PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
         
@@ -143,7 +143,7 @@ export class IncidenceInputComponent {
                 <v:fill type="tile" color="#f6f6f6"></v:fill>
               </v:background>
             <![endif]-->
-                <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0" style="background-color: #1b2431">
+                <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0" style="background-color: #1b2431;">
                     <tbody>
                         <tr>
                             <td class="esd-email-paddings" valign="top">
@@ -152,7 +152,7 @@ export class IncidenceInputComponent {
                                         <tr>
                                             <td class="esd-stripe" align="center">
                                                 <table class="es-header-body" width="600" cellspacing="0" cellpadding="0"
-                                                    bgcolor="#ffffff" align="center" style="background-color:#222c3c">
+                                                    bgcolor="#ffffff" align="center" style="background-color:#222c3c; padding: 10px;">
                                                     <tbody>
                                                         <tr>
                                                             <td class="es-p20t es-p20r es-p20l esd-structure" align="left">
@@ -238,7 +238,7 @@ export class IncidenceInputComponent {
                                                                                         <tr>
                                                                                             <td align="left"
                                                                                                 class="esd-block-text">
-                                                                                                <p style="color: #ffffff;">Hola,
+                                                                                                <p style="color: #ffffff; padding: 10px;">Hola,
                                                                                                     <strong>${this.incidence.customer_name}</strong>.
                                                                                                     Su paquete no ha podido ser
                                                                                                     entregado, por favor rellene
@@ -285,11 +285,11 @@ export class IncidenceInputComponent {
                                                                                             <td align="center"
                                                                                                 class="esd-block-button"><span
                                                                                                     class="es-button-border"
-                                                                                                    style="border-color: #f06835; background: #f06835;"><a
-                                                                                                        href='http://localhost:4200/customer-input/${this.incidence.incidence_ref}'
+                                                                                                    style="background-color: #222c3c;  margin-bottom: 100px;"><a
+                                                                                                        href='https://wayback-front-two.vercel.app/customer-input/${this.incidence.incidence_ref}'
                                                                                                         class="es-button"
                                                                                                         target="_blank"
-                                                                                                        style="background: #f06835; border-color: #f06835;">
+                                                                                                        style="color: white; font-size: 22px; padding: 10px;">
                                                                                                         Formulario </a></span>
                                                                                             </td>
                                                                                         </tr>
@@ -314,10 +314,10 @@ export class IncidenceInputComponent {
             </div>
         </body>
         
-        </html>`
+        </html>`,
                     }).subscribe((data) => {
-                        console.log(data);
-                    })
+                      console.log(data);
+                    });
                     const audio = new Audio('assets/pitido.mp3');
                     audio.play();
                 }
