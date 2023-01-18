@@ -14,12 +14,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate([''])
-    window.addEventListener("keyup", disableF5);
-    window.addEventListener("keydown", disableF5);
+    // this.router.navigate([''])
+    // window.addEventListener("keyup", disableF5);
+    // window.addEventListener("keydown", disableF5);
 
-    function disableF5(e) {
-      if ((e.which || e.keyCode) == 116) e.preventDefault();
-    };
+    // function disableF5(e) {
+    //   if ((e.which || e.keyCode) == 116) e.preventDefault();
+    // };
   }
 }
+
